@@ -1,26 +1,31 @@
 class FoodItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
-
-        this.showSearch = this.showSearch.bind(this);
-
-        this.domElement.find('.btnSearch').click(this.showSearch);
+        this.handleSearch = this.handleSearch.bind(this);
+        $('.searchButton').click(this.handleSearch);
     }
 
     asyncSearch() {
         console.log('In FoodItems.asyncSearch');
         return new Promise((resolve, reject) => {
-            // Example:
-            // FB.api(`/${userId}/friends`, 'GET', {}, response => resolve(response.data));
 
-            let response = {
-                data: [
-                    {id: 1, name: 'Mini HotDogs', description: 'Mini HotDogs by Stella', imageURL: 'an image URL', linkURL: 'a link URL'}
-                ]
-            };
+            $.ajax({
+                method: 'get',
+                dataType: 'json',
+                headers: {[API_KEY_KEY]: API_KEY},
+                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
+                success: function(data){
+                    console.log(data);
+                    let items = data.recipes.map(item => new PartyItem(1, item.title, "", item.image, ""));
+                    resolve(items);
+                    
+                },
+                error: function(error){
+                    throw new Exception("You're data request failed")
+                    console.log('Your data request failed: ', error);
+                }
+            });
 
-            let items = response.data.map(item => new PartyItem(item.id, item.name, item.description, item.imageURL, item.linkURL));
-            resolve(items);
         });
     }
 

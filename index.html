@@ -3,6 +3,23 @@
 <head>
     <title>The Party Bus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script src="js/party-item.js"></script>
+    <script src="js/party-items.js"></script>
+    <script src="js/food-items.js"></script>
+    <script src="js/party.js"></script>
+
+    <script>
+        $(document).ready(initApp);
+
+        let party = null;
+        function initApp() {
+            party = new Party();
+            party.start();
+        }
+    </script>
 </head>
 <body>
 <div class="landing">
@@ -103,20 +120,22 @@
     <button class="closeButton">X</button>
     <div class="titleContainer">
         <input placeholder="search" class="search" type="text">
-        <button class="searchButton"></button>
+        <button class="searchButton">Search</button>
     </div>
-    <div class="listItemContainer">
-        <div class="listImageContainer">
-            <img>
-        </div>
-        <div class="listContentContainer">
-            <h3>Name</h3>
-            <p class="listItemDetails"></p>
-        </div>
-        <div class="addButtonContainer">
-            <button class="addButton">Add</button>
+    <div class="listItems">
+        <div class="listItemContainer">
+            <div class="listImageContainer">
+                <img>
+            </div>
+            <div class="listContentContainer">
+                <h3>Name</h3>
+                <p class="listItemDetails"></p>
+            </div>
+            <div class="addButtonContainer">
+                <button class="addButton">Add</button>
+            </div>
         </div>
     </div>
 </div>
 </body>
-</html>
+</html> 
