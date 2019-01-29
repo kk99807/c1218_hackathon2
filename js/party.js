@@ -1,10 +1,9 @@
 class Party {
     constructor() {
         this.partyOrganizer = {
-            foods: new FoodItems(
-                $('.searchModalExample'),
-                [new PartyItem(1, 'HotDogs', 'Mini HotDogs', 'ImageUrl', 'linkURL')]
-            )
+            foods: new FoodItems($('.food')),
+            cocktails: new CocktailItems($('.cocktail')),
+            music: new MusicItems($('.music'))
         }
     }
 

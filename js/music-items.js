@@ -1,4 +1,4 @@
-class FoodItems extends PartyItems {
+class MusicItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.handleSearch = this.handleSearch.bind(this);
@@ -6,31 +6,30 @@ class FoodItems extends PartyItems {
     }
 
     asyncSearch() {
-        console.log('In FoodItems.asyncSearch');
         return new Promise((resolve, reject) => {
 
+            console.log('In music Promise');
             $.ajax({
-                method: 'get',
+                method: 'post',
                 dataType: 'json',
-                headers: {[API_KEY_KEY]: API_KEY},
-                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
+                url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+                data: {q: 'techno', maxResults: 5},
                 success: function(data){
                     console.log(data);
-                    let items = data.recipes.map(item => new PartyItem(1, item.title, "", item.image, ""));
+                    // let items = data.drinks.map(item => new PartyItem(item.id, item.name, item.descriptionn, item.image, item.linkURL));
+                    let items = data.video.map(item => new PartyItem(item.id, item.title, "", `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`, ""));
                     resolve(items);
                     
                 },
                 error: function(error){
-                    throw new Exception("You're data request failed")
-                    console.log('Your data request failed: ', error);
+                    throw new Exception("You're data request failed");
                 }
             });
-
         });
     }
 
     asyncGetDetails( item ) {
-        console.log('In FoodItems.asyncGetDetails');
+        console.log('In CocktailItems.asyncGetDetails');
     }
 
     showDetails() {
