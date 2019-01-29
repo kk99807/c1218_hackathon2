@@ -1,9 +1,8 @@
 class Party {
     constructor() {
         this.partyOrganizer = {
-            foods: new FoodItems(
-                $('.food')
-            )
+            foods: new FoodItems($('.food')),
+            cocktails: new CocktailItems($('.cocktail'))
         }
     }
 
