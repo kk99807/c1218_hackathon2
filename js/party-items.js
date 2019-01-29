@@ -2,7 +2,7 @@ class PartyItems {
     constructor(domElement, items) {
         this.domElement = domElement;
         this.domSearch = this.domElement.find('.search');
-        this.domSearchResults = this.domElement.find('.searchResults');
+        this.domSearchResults = this.domElement.find('.listItems');
         this.domList = this.domElement.find('.list');
 
         this.items = items || [];
@@ -10,6 +10,9 @@ class PartyItems {
 
     handleSearch() {
         console.log('PartyItems.handleSearch');
+        this.asyncSearch()
+            .then(items => items.map(item => item.render()))
+            .then(items => this.domSearchResults.append(items));
     }
 
     handleGetDetails() {
@@ -32,10 +35,6 @@ class PartyItems {
 
     showSearch() {
         console.log('PartyItems.showSearch');
-        debugger;
-        this.asyncSearch()
-            .then(items => items.map(item => item.render()))
-            .then(items => this.domSearchResults.append(items));
     }
 
     showDetails() {
