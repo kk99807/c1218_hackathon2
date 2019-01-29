@@ -25,29 +25,50 @@ body {
     width: 100%;
 }
 .section{
-   
+    height:25%;
     flex: 1;
     padding: 0;
+    transition: flex 0.5s ease;
 }
 
 .section p {
     padding: 0;
 }
-.section:hover {
+/* .section:hover {
     flex: 7;
     transition: flex 0.8s ease;
+} */
+.section{
+    position:relative;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    border:1px solid purple;
+    box-sizing:border-box;
+
+}
+.sectionTitle{
+    font-size:1.5rem;
+    margin:0;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: white;
 }
 .details{
-    background-color: bisque;
+    background-image:url('images/details.png')
 }
 .cocktail {
     background-color: brown;
+    background-image:url('images/cocktails.png')
 }
 .food {
     background-color: royalblue;
+    background-image: url('images/food.jpeg')
 }
 .music {
     background-color: grey;
+    background-image:url('images/music.png')
 }
 
 .informationModalExample {
@@ -59,3 +80,7 @@ body {
 .contentContainer{
     display:none;
 }
+.clicked{
+
+}
+/* main background images */
