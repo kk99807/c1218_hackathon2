@@ -12,7 +12,7 @@ class PartyItems {
         console.log('PartyItems.handleSearch');
         this.asyncSearch()
             .then(items => items.map(item => item.render()))
-            .then(items => this.domSearchResults.append(items));
+            .then(items => this.domSearchResults.empty().append(items));
     }
 
     handleGetDetails() {
