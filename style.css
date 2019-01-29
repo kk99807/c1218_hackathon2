@@ -53,9 +53,9 @@ body {
 .informationModalExample {
     display: none;
 }
-.searchModalExample {
+/*.searchContainer {
     display: none;
-}
-.contentContainer{
+}*/
+.informationContainer {
     display:none;
 }
