@@ -3,6 +3,7 @@ h1{
 }
 body {
     height: 100vh;
+    margin:0;
 }
 .landing{
     background-image: url('images/landingBackground.png');
@@ -94,4 +95,35 @@ body {
 
 .card.selected {
     background-color: #fce4ec;
+}
+
+.contentContainerTitle h2 {
+    display: inline-block;
+    font-size: 2rem;
+    color: white;
+    margin: 1%;
+}
+
+.contentContainerTitle {
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.searchContainer,
+.informationContainer,
+.contentContainer {
+    display: none;
+    position: absolute;
+}
+
+.contentContainer {
+    height: 85%;
+    width: 100%;
+    background-color: lightpink;
+}
+
+.fas {
+    color: white;
 }
