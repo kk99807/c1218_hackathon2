@@ -29,8 +29,13 @@ class CocktailItems extends PartyItems {
                     let items = data.drinks.map(item => {
                         let ingredients = [];
                         for (let i = 1; i < 16; i++) {
-                            let ingredient = item['strIngredient'+i];
-                            if (ingredient) ingredients.push(ingredient);
+                            let ingredient = item['strMeasure' + i];
+                            let measurement = item['strIngredient'+i];
+                            let fullString = "";
+                            if (ingredient && measurement){
+                                fullString = ingredient + ' ' + measurement
+                                ingredients.push(fullString);
+                            } 
                         }
 
                         return new RecipeItem(
