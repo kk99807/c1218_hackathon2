@@ -6,12 +6,6 @@ class PartyItems {
         this.domList = this.domElement.find('.contentContainer');
 
         this.items = items || [];
-
-        // TODO: Used for testing - remove
-        this.items = [
-            new PartyItem(1, 'PartyItem1', '', '', ''),
-            new PartyItem(2, 'PartyItem2', '', '', '')
-        ];
     }
 
     handleSearch() {
@@ -34,22 +28,17 @@ class PartyItems {
     }
 
     showList() {
-        this.hideSearch();
-        this.hideDetails();
-        console.log('PartyItems.showList');
         let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
     }
 
     showSearch() {
-        this.hideList();
-        this.hideDetails();
+        setAccordion(false);
         this.domElement.find('.searchContainer').show();
     }
 
     showDetails() {
-        this.hideList();
-        this.hideSearch();
+        setAccordion(false);
         this.domElement.find('.informationContainer').show();
     }
 
@@ -58,10 +47,12 @@ class PartyItems {
     }
 
     hideSearch() {
+        setAccordion(true);
         this.domElement.find('.searchContainer').hide();
     }
 
     hideDetails() {
+        setAccordion(true);
         this.domElement.find('.informationContainer').hide();       
     }
 }
