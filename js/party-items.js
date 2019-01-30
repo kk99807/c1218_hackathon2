@@ -51,11 +51,14 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
+            M.toast({html:'Item has been added',displayLength:1000,classes:'removeToast'});  
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
+
         } else if (eventType === 'add') {
             this.items.push(item);   
-            this.domList.append(item.renderSearch(true));         
+            this.domList.append(item.renderSearch(true));
+            M.toast({html:'Item has been <span style="color:green">added</span>',displayLength:1000,classes:'addToast'});         
         }
     }
 

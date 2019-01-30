@@ -256,3 +256,10 @@ body {
 .fas {
     color: white;
 }
+/*----------------- TOAST -----------------*/
+.addToast{
+    background-color:'blue';
+}
+.removeToast{
+    background-color:'red';
+}
