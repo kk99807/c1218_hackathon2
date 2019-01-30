@@ -218,3 +218,18 @@ body {
     clear: left;
 
 }
+.inputContainer {
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.readyToPartyButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
