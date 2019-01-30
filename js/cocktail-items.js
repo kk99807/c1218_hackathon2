@@ -51,6 +51,9 @@ class CocktailItems extends PartyItems {
                 },
                 error: function(error){
                     throw new Exception("You're data request failed");
+
+                    console.log('Your data request failed: ', error);
+
                 }
             });
 

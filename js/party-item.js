@@ -129,12 +129,26 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer');
+            .addClass('displayContainer').css('height', '95%');
 
-        let title = $('<h3>')
-            .addClass('detailsTitle')
-            .text(this.name)
-            .appendTo(container);
+        //let title = $('<h3>')
+           // .addClass('detailsTitle')
+           // .text(this.name)
+           // .appendTo(container);
+
+        let video = $('<iframe>').attr({
+            type: 'text/html',
+            width: '80%',
+            height: '90%',
+            src: `https://www.youtube.com/embed/${this.id}`,
+            fs: '1'
+        }).css({
+            position: 'relative',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -55%)'
+        });
+        container.append(video);
 
         return container;
     }
