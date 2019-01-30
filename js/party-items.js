@@ -3,9 +3,15 @@ class PartyItems {
         this.domElement = domElement;
         this.domSearch = this.domElement.find('.search');
         this.domSearchResults = this.domElement.find('.listItems');
-        this.domList = this.domElement.find('.list');
+        this.domList = this.domElement.children('.contentContainer');
 
         this.items = items || [];
+
+        // TODO: Used for testing - remove
+        this.items = [
+            new PartyItem(1, 'PartyItem1', '', '', ''),
+            new PartyItem(2, 'PartyItem2', '', '', '')
+        ];
     }
 
     handleSearch() {
@@ -28,16 +34,28 @@ class PartyItems {
     }
 
     showList() {
+        this.hideSearch();
+        this.hideDetails();
         console.log('PartyItems.showList');
         let renderedItems = this.items.map(item => item.render());
         this.domList.append(renderedItems);
     }
 
     showSearch() {
-        console.log('PartyItems.showSearch');
+        this.hideDetails();
+        this.domElement.find('.searchContainer').show();
     }
 
     showDetails() {
-        console.log('PartyItems.showDetails');
+        this.hideSearch();
+        this.domElement.find('.informationContainer').show();
+    }
+
+    hideSearch() {
+        this.domElement.find('.searchContainer').hide();
+    }
+
+    hideDetails() {
+        this.domElement.find('.informationContainer').hide();       
     }
 }
