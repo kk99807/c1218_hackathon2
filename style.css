@@ -7,9 +7,12 @@ body {
 }
 .landing{
     background-image: url('images/landingBackground.png');
-    height:100vh;
+    height:100%;
+    width:100%;
     background-repeat:no-repeat;
     background-size: 100% 100%;
+    position:fixed;
+    z-index:1;
 }
 .startButton{
     position:absolute;
@@ -94,7 +97,7 @@ body {
 }
 
 .card {
-    background-color: #f3e5f5;
+    background-color: #a0274f;
 }
 
 .card.selected {
@@ -177,8 +180,14 @@ body {
     color: white;
 }
 
-.btn-floating {
-    float: right;
+.buttonStyle {
+    align-self:flex-end;
+}
+
+.titleLink{
+    height:100%;
+    font-size:20px;
+    color:white;
 }
 
 .ingredientList {
@@ -201,4 +210,7 @@ body {
 
 .recipe {
     clear: left;
+}
+.mainTitle{
+    text-align:center;
 }
