@@ -1,23 +1,31 @@
 class FoodItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.domElement.find('.questionIcon').click(this.handleSearch);
-        this.domElement.find('.addItems').click(this.showSearch);
+        this.bindEvents();
     }
 
     asyncSearch() {
-        console.log('In FoodItems.asyncSearch');
+        console.log(this)
+    
+        // chicken: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=chicken
+
+        // beef: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=beef
+
+        // vegetarian: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=vegetarian
+
         return new Promise((resolve, reject) => {
 
             $.ajax({
                 method: 'get',
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
-                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
+                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=5&tags=appetizer',
                 success: function(data){
                     console.log(data);
                     let items = data.recipes.map(item => new PartyItem(item.id, item.title, item.image, {ingredients: item.extendedIngredients, instructions: item.instructions}));
+
+                    // let items = data.results.map(item => new PartyItem(item.id, item.title, item.image, {ingredients: item.extendedIngredients, instructions: item.instructions}));
+
                     resolve(items);
                     
                 },

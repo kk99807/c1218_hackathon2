@@ -7,6 +7,7 @@ class PartyItem {
     }
 
     renderSearch(selected) {
+        // SEE: Horizontal Cards at https://materializecss.com/cards.html
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
@@ -45,41 +46,40 @@ class PartyItem {
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
             .appendTo(buttonContainer);
 
-
-        
-        // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-        // imageContainer.append(image);
-        // itemContainer.append(title);
-        // buttonContainer.append(button);
-        // container.append(imageContainer, itemContainer, buttonContainer);
-
-        // return container
         return card;
     }
 
-    //     <div class="card-action">
-    //       <a href="#">This is a link</a>
-    //     </div>
-    //   </div>
-    // </div>
-
     renderDetails(classes){
-        let container = $('<div>').addClass('displayContainer');
+        let container = $('<div>')
+            .addClass('displayContainer');
 
-        let title = $('<h3>').addClass('detailsTitle').text(this.name);
+        let title = $('<h3>')
+            .addClass('detailsTitle')
+            .text(this.name);
 
-        let imageContainer = $('<div>').addClass('listImageContainer');
-        let image = $('<img>').addClass('detailsImage').attr('src', this.imageURL);
+        let imageContainer = $('<div>')
+            .addClass('listImageContainer');
 
-        let infoContainer = $('<div>').addClass('listContentContainer');
-        let ingredientList = $('<ul>').addClass('ingredientList');
+        let image = $('<img>')
+            .addClass('detailsImage')
+                .attr('src', this.imageURL);
+
+        let infoContainer = $('<div>')
+            .addClass('listContentContainer');
+
+        let ingredientList = $('<ul>')
+            .addClass('ingredientList');
 
         for(let i = 0; i < this.props.ingredients.length; i++){
-            let ingredients = $('<li>').addClass('ingredients').text(this.props.ingredients[i]);
+            let ingredients = $('<li>')
+                .addClass('ingredients')
+                .text(this.props.ingredients[i]);
             ingredientList.append(ingredients);
         }
 
-        let instructions = $('<p>').addClass('recipe').text(this.props.instructions);
+        let instructions = $('<p>')
+            .addClass('recipe')
+            .text(this.props.instructions);
 
         imageContainer.append(image);
         infoContainer.append(ingredientList, instructions)

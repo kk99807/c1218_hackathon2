@@ -19,33 +19,7 @@
     <script src="js/detail-items.js"></script>
     <script src="js/music-items.js"></script>
     <script src="js/party.js"></script>
-    <script src="clickHandle.js"></script>
-
-    <script>
-        $(document).ready(initApp);
-
-        let party = null;
-        function initApp() {
-            party = new Party();
-            party.start();
-            $('.main').on('click','.section', showAccordion);
-            $('.startButton').on('click', hideLanding)
-        }
-        function showAccordion(){
-            $('.sectionTitle').show();
-            $('.contentContainer, .contentContainerTitle, .wholeContainer').hide();
-            $('.section').css('flex','1');
-            $(this).find('.sectionTitle').hide();
-            $(this).css('flex','7 30%');
-            $(this).find('.wholeContainer').show();
-            $(this).find('.contentContainerTitle').show();
-            $(this).find('.contentContainer').show();
-            
-        }
-        function hideLanding(){
-            $('.landing').hide();
-        }
-    </script>
+    <script src='main.js'></script>
 
     <title>Let's Party!</title>
 </head>
@@ -59,8 +33,15 @@
             <p class='sectionTitle'>Details</p>
             <div class="wholeContainer">
                 <div class='contentContainerTitle'>
-                    <h2>Details</h2>
-                    <i class="fas fa-user-plus userAdd"></i>
+                    <div>
+                        <h2>Details</h2>
+                    </div>
+                    
+                    <div class="addItems">
+                        <i class="fas fas fa-user"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
+
                 </div>
                 <div class="contentContainer"></div>
                 <div class="searchContainer">
@@ -89,8 +70,8 @@
                         <i class="fas fa-glass-martini-alt"></i>
                         <i class="fas fa-plus"></i>
                     </div>
-                    
                 </div>
+
                 <div class="contentContainer"></div>
                 <div class="searchContainer">
                     <i class="material-icons closeButton">close</i>
@@ -129,8 +110,8 @@
                         <i class="fas fa-utensils"></i>
                         <i class="fas fa-plus"></i>
                     </div>
-                    
                 </div>
+      
                 <div class="contentContainer"></div>
                 <div class="searchContainer">
                     <i class="material-icons closeButton">close</i>
@@ -139,7 +120,6 @@
                         <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
                         <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
                         <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
-                       <!--  <button class="searchButton">Search</button> -->
                     </div>
                     <div class="listItems"></div>
                 </div>
@@ -162,6 +142,7 @@
                         <i class="fas fa-plus"></i> 
                     </div>
                 </div>
+
                 <div class="contentContainer"></div>
                 <div class="searchContainer">
                     <i class="material-icons closeButton">close</i>

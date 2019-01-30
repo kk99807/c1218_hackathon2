@@ -147,7 +147,7 @@ body {
     padding: 3% 1%;
 }
 
-.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user-plus {
+.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
     font-size: 2em;
 }
 
@@ -168,7 +168,7 @@ body {
     font-size: 3.7em;
 }
 
-.fas {
+.fas, .addNew {
     color: white;
 }
 

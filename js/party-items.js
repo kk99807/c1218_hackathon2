@@ -6,12 +6,18 @@ class PartyItems {
         this.domList = this.domElement.find('.contentContainer');
 
         this.items = items || [];
+    }
 
-        // TODO: Used for testing - remove
-        this.items = [
-            new PartyItem(1, 'PartyItem1', '', '', ''),
-            new PartyItem(2, 'PartyItem2', '', '', '')
-        ];
+    bindEvents() {
+        this.handleSearch = this.handleSearch.bind(this);
+        this.showSearch = this.showSearch.bind(this);
+        this.hideSearch = this.hideSearch.bind(this);
+
+        this.domElement.find('.searchButton').click(this.handleSearch);
+        this.domElement.find('.questionIcon').click(this.handleSearch);
+        
+        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        this.domElement.find('.addItems').click(this.showSearch);
     }
 
     handleSearch() {
@@ -33,22 +39,17 @@ class PartyItems {
     }
 
     showList() {
-        this.hideSearch();
-        this.hideDetails();
-        console.log('PartyItems.showList');
         let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
     }
 
     showSearch() {
-        this.hideList();
-        this.hideDetails();
+        setAccordion(false);
         this.domElement.find('.searchContainer').show();
     }
 
     showDetails() {
-        this.hideList();
-        this.hideSearch();
+        setAccordion(false);
         this.domElement.find('.informationContainer').show();
     }
 
@@ -57,10 +58,12 @@ class PartyItems {
     }
 
     hideSearch() {
+        setAccordion(true);
         this.domElement.find('.searchContainer').hide();
     }
 
     hideDetails() {
+        setAccordion(true);
         this.domElement.find('.informationContainer').hide();       
     }
 }

@@ -1,8 +1,7 @@
 class CocktailItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.domElement.find('.searchButton').click(this.handleSearch);
+        this.bindEvents();
     }
 
     asyncSearch() {
