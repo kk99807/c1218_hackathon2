@@ -1,0 +1,220 @@
+h1{
+    margin:0
+}
+body {
+    height: 100vh;
+    margin:0;
+}
+.landing{
+    background-image: url('images/landingBackground.png');
+    height:100vh;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+}
+.startButton{
+    position:absolute;
+    bottom: 10%;
+    left:50%;
+    transform:translate(-50%);
+    font-size: 1.5rem;
+}
+.main{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.section{
+    height:25%;
+    flex: 1;
+    padding: 0;
+    /* transition: flex 0.5s ease; */
+}
+
+.section p {
+    padding: 0;
+}
+/* .section:hover {
+    flex: 7;
+    transition: flex 0.8s ease;
+} */
+.section{
+    position:relative;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    border:1px solid purple;
+    box-sizing:border-box;
+
+}
+.sectionTitle{
+    font-size:1.5rem;
+    margin:0;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: white;
+}
+.details{
+    background-image:url('images/details.png')
+}
+.detailsImage {
+    height: 100px;
+}
+.cocktail {
+    background-color: brown;
+    background-image:url('images/cocktails.png')
+}
+.food {
+    background-color: royalblue;
+    background-image: url('images/food.jpeg')
+}
+.music {
+    background-color: grey;
+    background-image:url('images/music.png')
+}
+
+.informationModalExample {
+    display: none;
+}
+
+.informationContainer {
+    display:none;
+    z-index: 5;
+    overflow-y: scroll;
+}
+
+.searchContainer {
+    z-index: 3;
+}
+
+/* main background images */
+.wholeContainer{
+    height:100%;
+    display:none;
+}
+
+.card {
+    background-color: #f3e5f5;
+}
+
+.card.selected {
+    background-color: #a0274f;
+}
+
+.contentContainerTitle h2 {
+    display: inline-block;
+    font-size: 2rem;
+    color: white;
+    margin: 1%;
+}
+
+.contentContainerTitle {
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+}
+
+.searchContainer,
+.informationContainer,
+.contentContainer {
+    display: none;
+    position: absolute;
+}
+
+.contentContainer {
+    height: 85%;
+    width: 100%;
+    background-color: #fce4ec;
+    overflow-y: scroll;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.searchContainer, .informationContainer {
+    height: 85%;
+    width: 100%;
+    background-color: #f3e5f5;
+}
+
+
+
+.searchIcon {
+    width: 20%;
+    height: 80%;
+    background-color: #ba68c8;
+    text-align: center;
+    padding: 3% 1%;
+}
+
+.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
+    font-size: 2em;
+}
+
+.fas.fa-plus {
+    font-size: 1em;
+}
+
+.beefIcon {
+    padding: 0.7% 0;
+}
+
+.beef {
+    width: 90%;
+    padding: 1% 0;
+}
+
+.searchIcon .fas {
+    font-size: 3.7em;
+}
+
+.fas, .addNew {
+    color: white;
+}
+
+.btn-floating {
+    float: right;
+}
+
+
+.videoContainer {
+    height: 95%;
+}
+
+.searchHeading {
+    height: 15%;
+}
+.listItemContainer {
+    overflow-y: scroll;
+    height: 85%;
+}
+
+.ingredientList {
+    list-style-type: disc;
+}
+
+.displayContainer {
+    padding: 0 3% 3% 3%;
+}
+
+.listImageContainer {
+    float: left;
+    padding: 0 3% 3% 0;
+}
+
+.detailsTitle {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.recipe {
+    clear: left;
+
+}
