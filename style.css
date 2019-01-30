@@ -9,7 +9,6 @@ body {
     height:100vh;
     background-repeat:no-repeat;
     background-size: 100% 100%;
-    display:none;
 }
 .startButton{
     position:absolute;
@@ -28,7 +27,7 @@ body {
     height:25%;
     flex: 1;
     padding: 0;
-    transition: flex 0.5s ease;
+    /* transition: flex 0.5s ease; */
 }
 
 .section p {
@@ -84,3 +83,7 @@ body {
 
 }
 /* main background images */
+.wholeContainer{
+    height:100%;
+    display:none;
+}
