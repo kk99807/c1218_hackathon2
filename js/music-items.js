@@ -24,19 +24,22 @@ class MusicItems extends PartyItems {
                 data: {q: 'techno', maxResults: 5},
                 success: data => {
                     let items = data.video.map(item => new VideoItem(
-                        item.id, 
-                        item.title, 
-                        `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`, 
-                        this.handleItemClick, 
+                        item.id,
+                        item.title,
+                        `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`,
+                        this.handleItemClick,
                         {}
                     ));
                     resolve(items);
-                    
+
                 },
-                error: function(error){
+                error: function (error) {
                     throw new Exception("You're data request failed");
                 }
             });
         });
     }
+
+
 }
+
