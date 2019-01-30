@@ -124,6 +124,6 @@ body {
     background-color: lightpink;
 }
 
-.fas {
+.fas, .addNew {
     color: white;
 }

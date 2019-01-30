@@ -8,6 +8,16 @@ class PartyItems {
         this.items = items || [];
     }
 
+    bindEvents() {
+        this.handleSearch = this.handleSearch.bind(this);
+        this.showSearch = this.showSearch.bind(this);
+        this.hideSearch = this.hideSearch.bind(this);
+
+        this.domElement.find('.searchButton').click(this.handleSearch);
+        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        this.domElement.find('.addNew').click(this.showSearch); 
+    }
+
     handleSearch() {
         this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
