@@ -59,7 +59,7 @@ body {
     background-image:url('images/details.png')
 }
 .detailsImage {
-    height: 50px;
+    height: 100px;
 }
 .cocktail {
     background-color: brown;
@@ -127,6 +127,7 @@ body {
     height: 85%;
     width: 100%;
     background-color: #fce4ec;
+    overflow-y: scroll;
 }
 
 .titleContainer {
@@ -178,4 +179,26 @@ body {
 
 .btn-floating {
     float: right;
+}
+
+.ingredientList {
+    list-style-type: disc;
+}
+
+.displayContainer {
+    padding: 0 3% 3% 3%;
+}
+
+.listImageContainer {
+    float: left;
+    padding: 0 3% 3% 0;
+}
+
+.detailsTitle {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.recipe {
+    clear: left;
 }

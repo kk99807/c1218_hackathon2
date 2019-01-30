@@ -28,7 +28,7 @@ class FoodItems extends PartyItems {
                 method: 'get',
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
-                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
+                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=5&tags=appetizer',
                 success: data => {
                     let items = data.recipes.map(item => new RecipeItem(
                         item.id, 
@@ -40,6 +40,45 @@ class FoodItems extends PartyItems {
                     resolve(items);
                     
                 },
+
+                success: data => {
+                    let items = data.recipes.map(item => {
+                        let ingredients = [];
+                        for (let i = 1; i < item.extendedIngredients.length; i++) {
+                            let ingredient = item['strIngredient'+i];
+                            if (ingredient) ingredients.push(ingredient);
+                        }
+
+                        return new RecipeItem(
+                            item.idDrink, 
+                            item.strDrink, 
+                            item.strDrinkThumb, 
+                            this.handleItemClick, 
+                            {ingredients: ingredients, instructions: item.strInstructions}
+                        );
+                    });
+                    resolve(items);
+                    
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 error: function(error){
                     throw new Exception("You're data request failed");
                 }
