@@ -32,21 +32,19 @@ class PartyItems {
     /**
      * 
      * @param {PartyItem} item 
-     * @param {string} eventType - add|remove|view
+     * @param {string} eventType - add|delete|view
      */
     handleItemClick(item, eventType) {
         console.log('PartyItems::handleItemClick item=', item, '; eventType=', eventType);
         if (eventType === 'view') {
             this.showDetails(item);
+        } else if (eventType === 'delete') {
+            this.data = this.data.filter(element => element !== item);
+            item.fadeOut(() => item.remove());
+        } else if (eventType === 'add') {
+            this.items.push(item);   
+            this.domList.append(item.renderSearch(true));         
         }
-    }
-
-    handleAddItem() {
-        console.log('PartyItems.handleAddItem');
-    }
-
-    handleRemoveItem() {
-        console.log('PartyItems.handleRemoveItem');
     }
 
     showList() {

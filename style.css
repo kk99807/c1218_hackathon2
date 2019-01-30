@@ -83,6 +83,10 @@ body {
     z-index: 5;
 }
 
+.searchContainer {
+    z-index: 3;
+}
+
 /* main background images */
 .wholeContainer{
     height:100%;

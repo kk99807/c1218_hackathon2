@@ -52,6 +52,10 @@ class PartyItem {
             .appendTo(buttonContainer);
 
         title.click(target => this.eventCallback(this, 'view'));
+        button.click(target => {
+            card.fadeOut(() => card.remove());
+            this.eventCallback(this, buttonDef.label);
+        });
 
         return card;
     }
