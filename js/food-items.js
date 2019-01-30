@@ -28,56 +28,27 @@ class FoodItems extends PartyItems {
                 method: 'get',
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
-                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=5&tags=appetizer',
+                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
                 success: data => {
+                    console.log(data)
+                    let ingredients = [];
+              
+                    for(let i = 0; i < data.recipes[0].extendedIngredients.length; i++){
+                        let ingredient = data.recipes[0].extendedIngredients[i].original;
+                        ingredients.push(ingredient);
+     
+                    }
+                        
                     let items = data.recipes.map(item => new RecipeItem(
                         item.id, 
                         item.title, 
                         item.image, 
                         this.handleItemClick, 
-                        {ingredients: item.extendedIngredients, instructions: item.instructions}
+                        {ingredients: ingredients, instructions: item.instructions}
                     ));
                     resolve(items);
                     
                 },
-
-                // success: data => {
-                //     let items = data.recipes.map(item => {
-                //         let ingredients = [];
-                //         for (let i = 1; i < item.extendedIngredients.length; i++) {
-                //             let ingredient = item['strIngredient'+i];
-                //             if (ingredient) ingredients.push(ingredient);
-                //         }
-
-                //         return new RecipeItem(
-                //             item.idDrink, 
-                //             item.strDrink, 
-                //             item.strDrinkThumb, 
-                //             this.handleItemClick, 
-                //             {ingredients: ingredients, instructions: item.strInstructions}
-                //         );
-                //     });
-                //     resolve(items);
-                    
-                // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 error: function(error){
                     throw new Exception("You're data request failed");
