@@ -39,7 +39,7 @@ class PartyItem {
             {label:'add', colors: 'purple lighten-2'};
 
         let buttonContainer = $('<a>')
-            .addClass('btn-floating btn-large right-fab waves-effect waves-light ' + buttonDef.colors)
+            .addClass('btn-floating btn-large waves-effect waves-light ' + buttonDef.colors)
             .appendTo(cardContent);
 
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
