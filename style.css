@@ -145,11 +145,13 @@ body {
 }
 
 .searchIcon {
-    width: 20%;
-    height: 80%;
-    background-color: #ba68c8;
+    width: 15%;
+    height: 30%;
+    background-color: #26a69a;
     text-align: center;
     padding: 3% 1%;
+    box-shadow: 0 8px 6px -6px gray;
+    border-radius: 4px;
 }
 
 .fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
@@ -165,12 +167,12 @@ body {
 }
 
 .beef {
-    width: 90%;
-    padding: 1% 0;
+    width: 85%;
+    padding: 6% 0 0 0;
 }
 
 .searchIcon .fas {
-    font-size: 3.7em;
+    font-size: 2.4em;
 }
 
 .fas, .addNew {
