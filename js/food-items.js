@@ -13,9 +13,15 @@ class FoodItems extends PartyItems {
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
                 url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
-                success: function(data){
+                success: data => {
                     console.log(data);
-                    let items = data.recipes.map(item => new PartyItem(item.id, item.title, item.image, {ingredients: item.extendedIngredients, instructions: item.instructions}));
+                    let items = data.recipes.map(item => new PartyItem(
+                        item.id, 
+                        item.title, 
+                        item.image, 
+                        this.handleItemClick, 
+                        {ingredients: item.extendedIngredients, instructions: item.instructions}
+                    ));
                     resolve(items);
                     
                 },
@@ -26,15 +32,5 @@ class FoodItems extends PartyItems {
             });
 
         });
-    }
-
-    asyncGetDetails( item ) {
-        console.log('In FoodItems.asyncGetDetails');
-    }
-
-    showDetails() {
-        super.showDetails();
-        
-        console.log('PartyItems.showDetails');
     }
 }

@@ -8,7 +8,6 @@ class Party {
     }
 
     start() {
-        this.partyOrganizer.foods.showList();
         this.partyOrganizer.cocktails.showList();        
     }
 }

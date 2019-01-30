@@ -9,6 +9,7 @@ class PartyItems {
     }
 
     bindEvents() {
+        this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.showSearch = this.showSearch.bind(this);
         this.hideSearch = this.hideSearch.bind(this);
@@ -24,8 +25,16 @@ class PartyItems {
             .then(items => this.domSearchResults.empty().append(items));
     }
 
-    handleGetDetails() {
-        console.log('PartyItems.handleGetDetails');
+    /**
+     * 
+     * @param {PartyItem} item 
+     * @param {string} eventType - add|remove|view
+     */
+    handleItemClick(item, eventType) {
+        console.log('PartyItems::handleItemClick item=', item, '; eventType=', eventType);
+        if (eventType === 'view') {
+            this.showDetails(item);
+        }
     }
 
     handleAddItem() {
@@ -46,9 +55,9 @@ class PartyItems {
         this.domElement.find('.searchContainer').show();
     }
 
-    showDetails() {
+    showDetails(item) {
         setAccordion(false);
-        this.domElement.find('.informationContainer').show();
+        this.domElement.find('.informationContainer').append(item.renderDetails()).show();
     }
 
     hideList() {

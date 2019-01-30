@@ -1,8 +1,9 @@
 class PartyItem {
-    constructor(id, name, imageURL, props) {
+    constructor(id, name, imageURL, eventCallback, props) {
         this.id = id;
         this.name = name;
         this.imageURL = imageURL;
+        this.eventCallback = eventCallback;
         this.props = props;
     }
 
@@ -30,10 +31,14 @@ class PartyItem {
             .addClass('card-content')
             .appendTo(cardStacked);
 
+        let titleLink = $('<a>')
+            .addClass('titleLink')
+            .appendTo(cardContent);
+
         let title = $('<p>')
             .addClass('searchTitle')
             .text(this.name)
-            .appendTo(cardContent);
+            .appendTo(titleLink);
 
         let buttonDef = selected ? 
             {label:'delete', colors: 'pink lighten-2'} :
@@ -46,10 +51,13 @@ class PartyItem {
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
             .appendTo(buttonContainer);
 
+        title.click(target => this.eventCallback(this, 'view'));
+
         return card;
     }
 
     renderDetails(classes){
+        debugger;
         let container = $('<div>').addClass('displayContainer');
 
         let title = $('<h3>').addClass('detailsTitle').text(this.name);
