@@ -81,6 +81,7 @@ body {
 .informationContainer {
     display:none;
     z-index: 5;
+    overflow-y: scroll;
 }
 
 .searchContainer {
@@ -140,8 +141,9 @@ body {
     height: 85%;
     width: 100%;
     background-color: #f3e5f5;
-    overflow-y: scroll;
 }
+
+
 
 .searchIcon {
     width: 20%;
@@ -178,4 +180,16 @@ body {
 
 .btn-floating {
     float: right;
+}
+
+.videoContainer {
+    height: 95%;
+}
+
+.searchHeading {
+    height: 15%;
+}
+.listItemContainer {
+    overflow-y: scroll;
+    height: 85%;
 }

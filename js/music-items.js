@@ -40,24 +40,6 @@ class MusicItems extends PartyItems {
         });
     }
 
-    renderVideo(item){
-        var video = $('<iframe>').attr({
-            type: 'text/html',
-            width: '100%',
-            height: '100%',
-            src: `https://www.youtube.com/embed/${item.id}`
-        })
-        return video;
-    }
-
-    asyncGetDetails( item ) {
-        console.log('In CocktailItems.asyncGetDetails');
-    }
-
-    showDetails() {
-        super.showDetails();
-        
-        console.log('PartyItems.showDetails');
-    }
 
 }
+
