@@ -41,25 +41,25 @@ class FoodItems extends PartyItems {
                     
                 },
 
-                success: data => {
-                    let items = data.recipes.map(item => {
-                        let ingredients = [];
-                        for (let i = 1; i < item.extendedIngredients.length; i++) {
-                            let ingredient = item['strIngredient'+i];
-                            if (ingredient) ingredients.push(ingredient);
-                        }
+                // success: data => {
+                //     let items = data.recipes.map(item => {
+                //         let ingredients = [];
+                //         for (let i = 1; i < item.extendedIngredients.length; i++) {
+                //             let ingredient = item['strIngredient'+i];
+                //             if (ingredient) ingredients.push(ingredient);
+                //         }
 
-                        return new RecipeItem(
-                            item.idDrink, 
-                            item.strDrink, 
-                            item.strDrinkThumb, 
-                            this.handleItemClick, 
-                            {ingredients: ingredients, instructions: item.strInstructions}
-                        );
-                    });
-                    resolve(items);
+                //         return new RecipeItem(
+                //             item.idDrink, 
+                //             item.strDrink, 
+                //             item.strDrinkThumb, 
+                //             this.handleItemClick, 
+                //             {ingredients: ingredients, instructions: item.strInstructions}
+                //         );
+                //     });
+                //     resolve(items);
                     
-                }
+                // }
 
 
 
