@@ -17,7 +17,7 @@ class MusicItems extends PartyItems {
                 success: function(data){
                     console.log(data);
                     // let items = data.drinks.map(item => new PartyItem(item.id, item.name, item.descriptionn, item.image, item.linkURL));
-                    let items = data.video.map(item => new PartyItem(item.id, item.title, "", `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`, ""));
+                    let items = data.video.map(item => new PartyItem(item.id, item.title, `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`, {}));
                     resolve(items);
                     
                 },
