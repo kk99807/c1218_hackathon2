@@ -7,6 +7,7 @@ class PartyItem {
     }
 
     renderSearch(selected) {
+        // SEE: Horizontal Cards at https://materializecss.com/cards.html
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
@@ -45,23 +46,8 @@ class PartyItem {
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
             .appendTo(buttonContainer);
 
-
-        
-        // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-        // imageContainer.append(image);
-        // itemContainer.append(title);
-        // buttonContainer.append(button);
-        // container.append(imageContainer, itemContainer, buttonContainer);
-
-        // return container
         return card;
     }
-
-    //     <div class="card-action">
-    //       <a href="#">This is a link</a>
-    //     </div>
-    //   </div>
-    // </div>
 
     renderDetails(classes){
         let container = $('<div>').addClass('displayContainer');
