@@ -17,6 +17,7 @@
     <script src="js/detail-items.js"></script>
     <script src="js/music-items.js"></script>
     <script src="js/party.js"></script>
+    <script src="clickHandle.js"></script>
 
     <script>
         $(document).ready(initApp);
@@ -25,131 +26,60 @@
         function initApp() {
             party = new Party();
             party.start();
+            $('.main').on('click','.section', showAccordion);
+            $('.startButton').on('click', hideLanding)
         }
+        function showAccordion(){
+            $('.wholeContainer').hide();
+            $('.section').css('flex','1');
+            $(this).find('.sectionTitle').hide();
+            $(this).css('flex','7 30%');
+            $(this).find('.wholeContainer').show();
+        }
+        function hideLanding(){
+            $('.landing').hide();
+        }
+
     </script>
 
     <title>Let's Party!</title>
 </head>
 <body>
-    <div class="landing">
-        <h1>The Party Bus</h1>
-        <button class="startButton waves-effect waves-light btn-large pulse">Let's Party!</button>
-    </div>
+<div class="landing">
+    <h1>The Party Bus</h1>
+    <button class="startButton waves-effect waves-light btn-large pulse">Let's Party!</button>
+</div>
     <div class="main">
         <div class="section details">
-            <p>Details</p>
-            <div class="contentContainer">
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
-                    </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="listItemDetails"></p>
-                    </div>
-                    <div class="deleteButtonContainer">
-                        <button class="deleteButton">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="searchContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <input placeholder="search" class="search" type="text">
-                    <button class="searchButton">Search</button>
-                </div>
-                <div class="listItems">
-                </div>
-            </div>
-            <div class="informationContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <h2>Details</h2>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
-                    </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="recipe"></p>
+            <p class='sectionTitle'>Details</p>
+            <div class="wholeContainer">
+                <div class="contentContainer">
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="listItemDetails"></p>
+                        </div>
+                        <div class="deleteButtonContainer">
+                            <button class="deleteButton">Delete</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="section cocktail">
-            <p>Cocktail</p>
-            <div class="contentContainer">
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
+                <div class="searchContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <input placeholder="search" class="search" type="text">
+                        <button class="searchButton">Search</button>
                     </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="listItemDetails"></p>
-                    </div>
-                    <div class="deleteButtonContainer">
-                        <button class="deleteButton">Delete</button>
+                    <div class="listItems">
                     </div>
                 </div>
-            </div>
-            <div class="searchContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <input placeholder="search" class="search" type="text">
-                    <button class="searchButton">Search</button>
-                </div>
-                <div class="listItems">
-                </div>
-            </div>
-            <div class="informationContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <h2>Details</h2>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
-                    </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="recipe"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section food">
-            <p>Food</p>
-            <div class="contentContainer">
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
-                    </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="listItemDetails"></p>
-                    </div>
-                    <div class="deleteButtonContainer">
-                        <button class="deleteButton">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="searchContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <input placeholder="search" class="search" type="text">
-                    <button class="searchButton">Search</button>
-                </div>
-                <div class="listItems">
-                </div>
-            </div>
-            <div class="informationContainer">
-                <button class="closeButton">X</button>
-                <div class="displayContainer">
-                    <!-- <div class="titleContainer">
-                    <h2>Details</h2>
+                <div class="informationContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <h2>Details</h2>
                     </div>
                     <div class="listItemContainer">
                         <div class="listImageContainer">
@@ -159,48 +89,141 @@
                             <h3>Name</h3>
                             <p class="recipe"></p>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
-            </div>
+            </div>    
+        </div>
+
+        <div class="section cocktail">
+            <p class='sectionTitle'>Cocktail</p>
+                <div class="wholeContainer">
+                <div class="contentContainer">
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="listItemDetails"></p>
+                        </div>
+                        <div class="deleteButtonContainer">
+                            <button class="deleteButton">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="searchContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <input placeholder="search" class="search" type="text">
+                        <button class="searchButton">Search</button>
+                    </div>
+                    <div class="listItems">
+                    </div>
+                </div>
+                <div class="informationContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <h2>Details</h2>
+                    </div>
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="recipe"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="section food">
+            <p class='sectionTitle'>Food</p>
+            <div class="wholeContainer">
+                <div class="contentContainer">
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="listItemDetails"></p>
+                        </div>
+                        <div class="deleteButtonContainer">
+                            <button class="deleteButton">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="searchContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <input placeholder="search" class="search" type="text">
+                        <button class="searchButton">Search</button>
+                    </div>
+                    <div class="listItems">
+                    </div>
+                </div>
+                <div class="informationContainer">
+                    <button class="closeButton">X</button>
+                    <div class="displayContainer">
+                      <!--
+                    <div class="titleContainer">
+                        <h2>Details</h2>
+                    </div>
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="recipe"></p>
+                        </div>
+                      </div>
+                    -->
+                </div>
+            </div>    
         </div>
 
         <div class="section music">
-            <p>Music</p>
-            <div class="contentContainer">
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
-                    </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="listItemDetails"></p>
-                    </div>
-                    <div class="deleteButtonContainer">
-                        <button class="deleteButton">Delete</button>
+            <p class='sectionTitle'>Music</p>
+            <div class="wholeContainer">
+                <div class="contentContainer">
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="listItemDetails"></p>
+                        </div>
+                        <div class="deleteButtonContainer">
+                            <button class="deleteButton">Delete</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="searchContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <input placeholder="search" class="search" type="text">
-                    <button class="searchButton">Search</button>
-                </div>
-                <div class="listItems">
-                </div>
-            </div>
-            <div class="informationContainer">
-                <button class="closeButton">X</button>
-                <div class="titleContainer">
-                    <h2>Details</h2>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listImageContainer">
-                        <img>
+                <div class="searchContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <input placeholder="search" class="search" type="text">
+                        <button class="searchButton">Search</button>
                     </div>
-                    <div class="listContentContainer">
-                        <h3>Name</h3>
-                        <p class="recipe"></p>
+                    <div class="listItems">
+                    </div>
+                </div>
+                <div class="informationContainer">
+                    <button class="closeButton">X</button>
+                    <div class="titleContainer">
+                        <h2>Details</h2>
+                    </div>
+                    <div class="listItemContainer">
+                        <div class="listImageContainer">
+                            <img>
+                        </div>
+                        <div class="listContentContainer">
+                            <h3>Name</h3>
+                            <p class="recipe"></p>
+                        </div>
                     </div>
                 </div>
             </div>
