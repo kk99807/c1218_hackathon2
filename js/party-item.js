@@ -1,4 +1,14 @@
+/** Class representing a party item (e.g. music selection, appetizer recipe) */
 class PartyItem {
+
+    /**
+     * @constructor
+     * @param {string} id - ID of this item per its source API
+     * @param {string} name - Name of this item
+     * @param {string} imageURL - Image URL for this item
+     * @param {*} eventCallback - Callback when item is clicked in DOM
+     * @param {{}} props - Additional type-specific properties (ex: recipe ingredients)
+     */
     constructor(id, name, imageURL, eventCallback, props) {
         this.id = id;
         this.name = name;
@@ -7,6 +17,10 @@ class PartyItem {
         this.props = props;
     }
 
+    /**
+     * @param {boolean} selected - Whether or not this is currently selected
+     * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
+     */
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
         let card = $('<div>').addClass('card horizontal');
@@ -61,8 +75,13 @@ class PartyItem {
     }
 }
 
+/** Class representing a recipe-type party item */
 class RecipeItem extends PartyItem {
-    renderDetails(classes){
+
+    /**
+     * @returns jQuery wrapper with DOM showing details of this recipe
+     */
+    renderDetails(){
         let container = $('<div>')
             .addClass('displayContainer');
 
@@ -102,8 +121,13 @@ class RecipeItem extends PartyItem {
     }
 }
 
+/** Class representing a video-type party item */
 class VideoItem extends PartyItem {
-    renderDetails(classes){
+
+    /**
+     * @returns jQuery wrapper with DOM showing this video/details
+     */
+    renderDetails(){
         let container = $('<div>')
             .addClass('displayContainer');
 

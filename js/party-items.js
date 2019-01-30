@@ -1,13 +1,22 @@
+/** Base class for searching and managing a set of party items. */
 class PartyItems {
+
+    /**
+     * @constructor
+     * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
+     * @param {[]} items - OPTIONAL List of initial party items
+     */
     constructor(domElement, items) {
         this.domElement = domElement;
-        this.domSearch = this.domElement.find('.search');
         this.domSearchResults = this.domElement.find('.listItems');
         this.domList = this.domElement.find('.contentContainer');
 
         this.items = items || [];
     }
 
+    /**
+     * Bind event handlers and attach to DOM elements
+     */
     bindEvents() {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -23,6 +32,9 @@ class PartyItems {
         this.domElement.find('.addItems').click(this.showSearch);
     }
 
+    /**
+     * Perform search using async search method implemented in subclasses & display results
+     */
     handleSearch() {
         this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
@@ -30,12 +42,12 @@ class PartyItems {
     }
 
     /**
+     * Add or delete a party item from current selection or view its details
      * 
-     * @param {PartyItem} item 
+     * @param {PartyItem} item - The party item represented by the clicked DOM element
      * @param {string} eventType - add|delete|view
      */
     handleItemClick(item, eventType) {
-        console.log('PartyItems::handleItemClick item=', item, '; eventType=', eventType);
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
@@ -47,16 +59,26 @@ class PartyItems {
         }
     }
 
+    /**
+     * Show the list of selected party items of this type
+     */
     showList() {
         let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
     }
 
+    /**
+     * Show a search screen for party items of this type
+     */
     showSearch() {
         setAccordion(false);
         this.domElement.find('.searchContainer').show();
     }
 
+    /**
+     * Show details for a selected Party Item
+     * @param {PartyItem} item 
+     */
     showDetails(item) {
         setAccordion(false);
         this.domElement.find('.informationContainer .displayContainer')
@@ -65,15 +87,17 @@ class PartyItems {
         this.domElement.find('.informationContainer').show();
     }
 
-    hideList() {
-        this.domElement.find('.contentContainer').hide();
-    }
-
+    /**
+     * Hide the search screen for items of this type
+     */
     hideSearch() {
         setAccordion(true);
         this.domElement.find('.searchContainer').hide();
     }
 
+    /**
+     * Hide the details screen for items of this type
+     */
     hideDetails() {
         setAccordion(true);
         this.domElement.find('.informationContainer').hide();       

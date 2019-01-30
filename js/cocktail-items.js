@@ -1,9 +1,20 @@
+/** Class for searching and managing cocktail selections. */
 class CocktailItems extends PartyItems {
+
+    /**
+     * @constructor
+     * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
+     * @param {*} items - OPTIONAL List of initial cocktail selections
+     */
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
     }
 
+    /**
+     * Called by PartyItems superclass when user requests a search to retrieve cocktail recipes
+     * @returns {RecipeItem} a Promise to retrieve an array of RecipeItem
+     */
     asyncSearch() {
         return new Promise((resolve, reject) => {
 
@@ -15,8 +26,6 @@ class CocktailItems extends PartyItems {
                     'api-key':'1'
                 },
                 success: data => {
-                    console.log(data);
-                    // let items = data.drinks.map(item => new PartyItem(item.id, item.name, item.descriptionn, item.image, item.linkURL));
                     let items = data.drinks.map(item => {
                         let ingredients = [];
                         for (let i = 1; i < 16; i++) {
@@ -32,7 +41,6 @@ class CocktailItems extends PartyItems {
                             {ingredients: ingredients, instructions: item.strInstructions}
                         );
                     });
-                    console.log('items: ', items);
                     resolve(items);
                     
                 },

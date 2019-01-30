@@ -1,12 +1,21 @@
+/** Class for searching and managing food selections. */
 class FoodItems extends PartyItems {
+
+    /**
+     * @constructor
+     * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
+     * @param {*} items - OPTIONAL List of initial food selections
+     */
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
     }
 
+    /**
+     * Called by PartyItems superclass when user requests a search to retrieve food recipes
+     * @returns {Promise} a Promise to retrieve an array of RecipeItem of the specified type (chicken|beef|vegetarian)
+     */
     asyncSearch() {
-        console.log(this)
-    
         // chicken: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=chicken
 
         // beef: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=beef
@@ -21,7 +30,6 @@ class FoodItems extends PartyItems {
                 headers: {[API_KEY_KEY]: API_KEY},
                 url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
                 success: data => {
-                    console.log(data);
                     let items = data.recipes.map(item => new RecipeItem(
                         item.id, 
                         item.title, 
@@ -33,8 +41,7 @@ class FoodItems extends PartyItems {
                     
                 },
                 error: function(error){
-                    throw new Exception("You're data request failed")
-                    console.log('Your data request failed: ', error);
+                    throw new Exception("You're data request failed");
                 }
             });
 
