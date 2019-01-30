@@ -1,16 +1,24 @@
-h1{
-    margin:0
+h1 {
+    margin: 0;
 }
+
 body {
     height: 100vh;
-    margin:0;
+    margin: 0;
 }
+
+/*----------------- LANDING PAGE -----------------*/
+
 .landing{
     background-image: url('images/landingBackground.png');
-    height:100vh;
+    height:100%;
+    width:100%;
     background-repeat:no-repeat;
     background-size: 100% 100%;
+    position:fixed;
+    z-index:1;
 }
+
 .startButton{
     position:absolute;
     bottom: 10%;
@@ -18,34 +26,34 @@ body {
     transform:translate(-50%);
     font-size: 1.5rem;
 }
+
+/*----------------- MAIN PAGE -----------------*/
+
 .main{
     height:100%;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .section{
     height:25%;
     flex: 1;
     padding: 0;
-    /* transition: flex 0.5s ease; */
 }
 
 .section p {
     padding: 0;
 }
-/* .section:hover {
-    flex: 7;
-    transition: flex 0.8s ease;
-} */
+
 .section{
     position:relative;
     background-size:100% 100%;
     background-repeat:no-repeat;
     border:1px solid purple;
     box-sizing:border-box;
-
 }
+
 .sectionTitle{
     font-size:1.5rem;
     margin:0;
@@ -55,58 +63,10 @@ body {
     transform:translate(-50%, -50%);
     color: white;
 }
-.details{
-    background-image:url('images/details.png')
-}
-.detailsImage {
-    height: 100px;
-}
-.cocktail {
-    background-color: brown;
-    background-image:url('images/cocktails.png')
-}
-.food {
-    background-color: royalblue;
-    background-image: url('images/food.jpeg')
-}
-.music {
-    background-color: grey;
-    background-image:url('images/music.png')
-}
 
-.informationModalExample {
-    display: none;
-}
-
-.informationContainer {
-    display:none;
-    z-index: 5;
-    overflow-y: scroll;
-}
-
-.searchContainer {
-    z-index: 3;
-}
-
-/* main background images */
 .wholeContainer{
     height:100%;
     display:none;
-}
-
-.card {
-    background-color: #f3e5f5;
-}
-
-.card.selected {
-    background-color: #a0274f;
-}
-
-.contentContainerTitle h2 {
-    display: inline-block;
-    font-size: 2rem;
-    color: white;
-    margin: 1%;
 }
 
 .contentContainerTitle {
@@ -117,11 +77,11 @@ body {
     padding: 0 4%;
 }
 
-.searchContainer,
-.informationContainer,
-.contentContainer {
-    display: none;
-    position: absolute;
+.contentContainerTitle h2 {
+    display: inline-block;
+    font-size: 2rem;
+    color: white;
+    margin: 1%;
 }
 
 .contentContainer {
@@ -131,6 +91,80 @@ body {
     overflow-y: scroll;
 }
 
+/*----------------- DETAILS -----------------*/
+
+.details{
+    background-image:url('images/details.png');
+}
+
+.detailsTitle {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.detailsImage {
+    height: 100px;
+}
+
+/*----------------- COCKTAILS -----------------*/
+
+.cocktail {
+    background-image:url('images/cocktails.png');
+}
+
+/*----------------- FOOD -----------------*/
+
+.food {
+    background-image: url('images/food.jpeg');
+}
+
+.titleContainer.foodSearch {
+    width: 93%;
+    padding-top: 2%;
+    float: right;
+}
+
+/*----------------- MUSIC -----------------*/
+
+.music {
+    background-image:url('images/music.png');
+}
+
+.videoContainer {
+    height: 95%;
+}
+
+/*----------------- MODALS -----------------*/
+
+.searchContainer,
+.informationContainer,
+.contentContainer {
+    display: none;
+    position: absolute;
+}
+
+.searchContainer, 
+.informationContainer {
+    height: 85%;
+    width: 100%;
+    background-color: #f3e5f5;
+}
+
+.listImageContainer {
+    float: left;
+    padding: 0 3% 3% 0;
+}
+
+/*----------------- SEARCH MODAL -----------------*/
+
+.searchContainer {
+    z-index: 3;
+}
+
+.searchHeading {
+    height: 15%;
+}
+
 .titleContainer {
     display: flex;
     flex-direction: row;
@@ -138,23 +172,72 @@ body {
     justify-content: space-evenly;
 }
 
-.searchContainer, .informationContainer {
+.listItemContainer {
+    overflow-y: scroll;
     height: 85%;
-    width: 100%;
-    background-color: #f3e5f5;
 }
-
-
 
 .searchIcon {
-    width: 20%;
-    height: 80%;
-    background-color: #ba68c8;
+    width: 15%;
+    height: 30%;
+    background-color: #26a69a;
     text-align: center;
     padding: 3% 1%;
+    box-shadow: 0 8px 6px -6px gray;
+    border-radius: 4px;
 }
 
-.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
+.beef {
+    width: 85%;
+    padding: 6% 0 0 0;
+}
+
+/*----------------- INFORMATION MODAL -----------------*/
+
+.informationContainer {
+    display:none;
+    z-index: 5;
+    overflow-y: scroll;
+}
+
+.displayContainer {
+    padding: 0 3% 3% 3%;
+}
+
+.recipe {
+    clear: left;
+}
+
+/*----------------- CARD CONTAINERS -----------------*/
+
+.card {
+    background-color: #a0274f;
+}
+
+.card.selected {
+    background-color: #a0274f;
+}
+
+.buttonStyle {
+    align-self:flex-end;
+}
+
+.titleLink{
+    height:100%;
+    font-size:20px;
+    color:white;
+}
+
+.mainTitle{
+    text-align:center;
+}
+
+/*----------------- FONTAWESOME -----------------*/
+
+.fa-utensils, 
+.fa-glass-martini-alt, 
+.fa-music, 
+.fa-user {
     font-size: 2em;
 }
 
@@ -166,58 +249,10 @@ body {
     padding: 0.7% 0;
 }
 
-.beef {
-    width: 90%;
-    padding: 1% 0;
-}
-
 .searchIcon .fas {
-    font-size: 3.7em;
+    font-size: 2.4em;
 }
 
-.fas, .addNew {
-    color: white;
-}
-
-.btn-floating {
-    float: right;
-}
-
-
-.videoContainer {
-    height: 95%;
-}
-
-.searchHeading {
-    height: 15%;
-}
-.listItemContainer {
-    overflow-y: scroll;
-    height: 85%;
-}
-
-.ingredientList {
-    list-style-type: disc;
-}
-
-.displayContainer {
-    padding: 0 3% 3% 3%;
-}
-
-.listImageContainer {
-    float: left;
-    padding: 0 3% 3% 0;
-}
-
-.detailsTitle {
-    margin-top: 0;
-    font-size: 2rem;
-}
-
-.recipe {
-    clear: left;
-
-}
 .inputContainer {
     width: 80%;
     position: relative;
@@ -232,4 +267,16 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.fas {
+    color: white;
+}
+
+.addToast{
+    background-color:'blue';
+}
+
+.removeToast{
+    background-color:'red';
 }

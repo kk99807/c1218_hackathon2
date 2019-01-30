@@ -43,7 +43,7 @@ class PartyItem {
             .appendTo(card);
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked);
+            .appendTo(cardStacked).css({'display':'flex'});//'padding':'0px'
 
         let titleLink = $('<a>')
             .addClass('titleLink')
@@ -59,7 +59,7 @@ class PartyItem {
             {label:'add', colors: 'purple lighten-2'};
 
         let buttonContainer = $('<a>')
-            .addClass('btn-floating btn-large waves-effect waves-light ' + buttonDef.colors)
+            .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
             .appendTo(cardContent);
 
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
