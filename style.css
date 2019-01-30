@@ -59,7 +59,7 @@ body {
     background-image:url('images/details.png')
 }
 .detailsImage {
-    height: 50px;
+    height: 100px;
 }
 .cocktail {
     background-color: brown;
@@ -99,7 +99,7 @@ body {
 }
 
 .card.selected {
-    background-color: #fce4ec;
+    background-color: #a0274f;
 }
 
 .contentContainerTitle h2 {
@@ -128,6 +128,7 @@ body {
     height: 85%;
     width: 100%;
     background-color: #fce4ec;
+    overflow-y: scroll;
 }
 
 .titleContainer {
@@ -182,6 +183,7 @@ body {
     float: right;
 }
 
+
 .videoContainer {
     height: 95%;
 }
@@ -192,4 +194,27 @@ body {
 .listItemContainer {
     overflow-y: scroll;
     height: 85%;
+}
+
+.ingredientList {
+    list-style-type: disc;
+}
+
+.displayContainer {
+    padding: 0 3% 3% 3%;
+}
+
+.listImageContainer {
+    float: left;
+    padding: 0 3% 3% 0;
+}
+
+.detailsTitle {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.recipe {
+    clear: left;
+
 }
