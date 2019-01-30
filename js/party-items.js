@@ -17,7 +17,7 @@ class PartyItems {
     handleSearch() {
         console.log('PartyItems.handleSearch');
         this.asyncSearch()
-            .then(items => items.map(item => item.render()))
+            .then(items => items.map(item => item.renderSearch()))
             .then(items => this.domSearchResults.empty().append(items));
     }
 
@@ -37,7 +37,7 @@ class PartyItems {
         this.hideSearch();
         this.hideDetails();
         console.log('PartyItems.showList');
-        let renderedItems = this.items.map(item => item.render());
+        let renderedItems = this.items.map(item => item.renderSearch());
         this.domList.append(renderedItems);
     }
 

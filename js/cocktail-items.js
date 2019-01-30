@@ -18,7 +18,7 @@ class CocktailItems extends PartyItems {
                 success: function(data){
                     console.log(data);
                     // let items = data.drinks.map(item => new PartyItem(item.id, item.name, item.descriptionn, item.image, item.linkURL));
-                    let items = data.drinks.map(item => new PartyItem(item.idDrink, item.strDrink, "", item.strDrinkThumb, ""));
+                    let items = data.drinks.map(item => new PartyItem(item.idDrink, item.strDrink, item.strDrinkThumb, {}));
                     resolve(items);
                     
                 },

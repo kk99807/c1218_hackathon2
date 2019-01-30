@@ -16,7 +16,7 @@ class FoodItems extends PartyItems {
                 url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
                 success: function(data){
                     console.log(data);
-                    let items = data.recipes.map(item => new PartyItem(1, item.title, "", item.image, ""));
+                    let items = data.recipes.map(item => new PartyItem(item.id, item.title, item.image, {ingredients: item.extendedIngredients, instructions: item.instructions}));
                     resolve(items);
                     
                 },
