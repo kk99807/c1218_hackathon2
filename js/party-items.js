@@ -9,7 +9,6 @@ class PartyItems {
     }
 
     handleSearch() {
-        debugger;
         this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
             .then(items => this.domSearchResults.empty().append(items));
