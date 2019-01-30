@@ -15,6 +15,7 @@ class PartyItems {
     }
 
     handleSearch() {
+        debugger;
         this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
             .then(items => this.domSearchResults.empty().append(items));
@@ -41,13 +42,19 @@ class PartyItems {
     }
 
     showSearch() {
+        this.hideList();
         this.hideDetails();
         this.domElement.find('.searchContainer').show();
     }
 
     showDetails() {
+        this.hideList();
         this.hideSearch();
         this.domElement.find('.informationContainer').show();
+    }
+
+    hideList() {
+        this.domElement.find('.contentContainer').hide();
     }
 
     hideSearch() {
