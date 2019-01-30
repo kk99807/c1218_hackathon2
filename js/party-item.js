@@ -54,6 +54,27 @@ class PartyItem {
             .text(this.name)
             .appendTo(titleLink);
 
+
+
+        //card reveal
+        let cardReveal = $('<div>')
+            .addClass('card-reveal')
+            .appendTo(card);
+
+        let revealTitle = $('<span>')
+            .addClass('class-title')
+            .text(this.name)
+            .appendTo(cardReveal);
+
+        let closeButton = $('<i>')
+            .addClass('material-icons right close')
+            .text('close')
+            .appendTo(revealTitle);
+
+        let revealContent = $('<p>')
+            .text('Please put in description')
+            .appendTo(cardReveal);
+
         let buttonDef = selected ? 
             {label:'delete', colors: 'pink lighten-2'} :
             {label:'add', colors: 'purple lighten-2'};
@@ -65,12 +86,17 @@ class PartyItem {
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
             .appendTo(buttonContainer);
 
+        let revealIcon = $('<i>')
+            .addClass('material-icons right activator')
+            .text('more_vert')
+            .appendTo(cardContent);
+
         title.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
             card.fadeOut(() => card.remove());
             this.eventCallback(this, buttonDef.label);
         });
-
+        closeButton.click(() => cardReveal.hide());
         return card;
     }
 }
