@@ -1,18 +1,27 @@
+/** Class for searching and managing food selections. */
 class FoodItems extends PartyItems {
+
+    /**
+     * @constructor
+     * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
+     * @param {*} items - OPTIONAL List of initial food selections
+     */
     constructor(domElement, items) {
         super(domElement, items);
-
-        this.handleSearch = this.handleSearch.bind(this);
-        this.showSearch = this.showSearch.bind(this);
-        this.hideSearch = this.hideSearch.bind(this);
-
-        this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.addNew').click(this.showSearch);
+        this.bindEvents();
     }
 
+    /**
+     * Called by PartyItems superclass when user requests a search to retrieve food recipes
+     * @returns {Promise} a Promise to retrieve an array of RecipeItem of the specified type (chicken|beef|vegetarian)
+     */
     asyncSearch() {
-        console.log('In FoodItems.asyncSearch');
+        // chicken: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=chicken
+
+        // beef: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=beef
+
+        // vegetarian: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=vegetarian
+
         return new Promise((resolve, reject) => {
 
             $.ajax({
@@ -20,28 +29,22 @@ class FoodItems extends PartyItems {
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
                 url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
-                success: function(data){
-                    console.log(data);
-                    let items = data.recipes.map(item => new PartyItem(item.id, item.title, item.image, {ingredients: item.extendedIngredients, instructions: item.instructions}));
+                success: data => {
+                    let items = data.recipes.map(item => new RecipeItem(
+                        item.id, 
+                        item.title, 
+                        item.image, 
+                        this.handleItemClick, 
+                        {ingredients: item.extendedIngredients, instructions: item.instructions}
+                    ));
                     resolve(items);
                     
                 },
                 error: function(error){
-                    throw new Exception("You're data request failed")
-                    console.log('Your data request failed: ', error);
+                    throw new Exception("You're data request failed");
                 }
             });
 
         });
-    }
-
-    asyncGetDetails( item ) {
-        console.log('In FoodItems.asyncGetDetails');
-    }
-
-    showDetails() {
-        super.showDetails();
-        
-        console.log('PartyItems.showDetails');
     }
 }

@@ -19,8 +19,8 @@
     <script src="js/detail-items.js"></script>
     <script src="js/music-items.js"></script>
     <script src="js/party.js"></script>
-    <script src="clickHandle.js"></script>
     <script src='main.js'></script>
+
     <title>Let's Party!</title>
 </head>
 <body>
@@ -33,60 +33,56 @@
             <p class='sectionTitle'>Details</p>
             <div class="wholeContainer">
                 <div class='contentContainerTitle'>
-                    <h2>Details</h2>
-                    <i class="medium material-icons addNew">add_box</i>
+                    <div>
+                        <h2>Details</h2>
+                    </div>
+                    
+                    <div class="addItems">
+                        <i class="fas fas fa-user"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
+
                 </div>
-                <div class="contentContainer">
-                </div>
+                <div class="contentContainer"></div>
                 <div class="searchContainer">
-                    <button class="closeButton">X</button>
+                    <i class="material-icons closeButton">close</i>
                     <div class="titleContainer">
                         <input placeholder="search" class="search" type="text">
                         <button class="searchButton">Search</button>
                     </div>
-                    <div class="listItems">
-                    </div>
+                    <div class="listItems"></div>
                 </div>
                 <div class="informationContainer">
-                    <button class="closeButton">X</button>
-                    <div class="displayContainer">
-                    </div>
+                    <i class="material-icons closeButton">close</i>
+                    <div class="displayContainer"></div>
                 </div>
             </div>    
         </div>
 
         <div class="section cocktail">
-            <p class='sectionTitle'>Cocktail</p>
+            <p class='sectionTitle'>Cocktails</p>
                 <div class="wholeContainer">
                 <div class='contentContainerTitle'>
-                    <h2>Cocktail</h2>
-                    <i class="medium material-icons addNew">add_box</i>
+                    <div>
+                        <h2>Cocktails</h2>
+                    </div>
+                    <div class="addItems">
+                        <i class="fas fa-glass-martini-alt"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
                 </div>
-                <div class="contentContainer">
-                </div>
+
+                <div class="contentContainer"></div>
                 <div class="searchContainer">
-                    <button class="closeButton">X</button>
+                    <i class="material-icons closeButton">close</i>
                     <div class="titleContainer">
-                        <input placeholder="search" class="search" type="text">
-                        <button class="searchButton">Search</button>
+                        <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
                     </div>
-                    <div class="listItems">
-                    </div>
+                    <div class="listItems"></div>
                 </div>
                 <div class="informationContainer">
-                    <button class="closeButton">X</button>
-                    <div class="titleContainer">
-                        <h2>Details</h2>
-                    </div>
-                    <div class="listItemContainer">
-                        <div class="listImageContainer">
-                            <img>
-                        </div>
-                        <div class="listContentContainer">
-                            <h3>Name</h3>
-                            <p class="recipe"></p>
-                        </div>
-                    </div>
+                    <i class="material-icons closeButton">close</i>
+                    <div class="displayContainer"></div>
                 </div>
             </div>    
         </div>
@@ -95,25 +91,29 @@
             <p class='sectionTitle'>Food</p>
             <div class="wholeContainer">
                 <div class='contentContainerTitle'>
-                    <h2>Food</h2>
-
-                    <i class="medium material-icons addNew">add_box</i>
+                    <div>
+                       <h2>Food</h2> 
+                    </div>
+                    <div class="addItems">
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
                 </div>
-                <div class="contentContainer">
-                </div>
+      
+                <div class="contentContainer"></div>
                 <div class="searchContainer">
-                    <button class="closeButton">X</button>
+                    <i class="material-icons closeButton">close</i>
                     <div class="titleContainer">
-                        <input placeholder="search" class="search" type="text">
-                        <button class="searchButton">Search</button>
+                        <div class="searchIcon beefIcon"><img class="beef" src="images/beef.png"></div>
+                        <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
+                        <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
+                        <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
                     </div>
-                    <div class="listItems">
-                    </div>
+                    <div class="listItems"></div>
                 </div>
                 <div class="informationContainer">
-                    <button class="closeButton">X</button>
-                    <div class="displayContainer">
-                    </div>
+                    <i class="material-icons closeButton">close</i>
+                    <div class="displayContainer"></div>
                 </div>
             </div>    
         </div>
@@ -122,24 +122,26 @@
             <p class='sectionTitle'>Music</p>
             <div class="wholeContainer">
                 <div class='contentContainerTitle'>
-                    <h2>Music</h2>
-                    <i class="medium material-icons addNew">add_box</i>
+                    <div>
+                        <h2>Music</h2>
+                    </div>
+                    <div class="addItems">
+                       <i class="fas fa-music"></i>
+                        <i class="fas fa-plus"></i> 
+                    </div>
                 </div>
-                <div class="contentContainer">
-                </div>
+
+                <div class="contentContainer"></div>
                 <div class="searchContainer">
-                    <button class="closeButton">X</button>
+                    <i class="material-icons closeButton">close</i>
                     <div class="titleContainer">
-                        <input placeholder="search" class="search" type="text">
-                        <button class="searchButton">Search</button>
+                        <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
                     </div>
-                    <div class="listItems">
-                    </div>
+                    <div class="listItems"></div>
                 </div>
                 <div class="informationContainer">
-                    <button class="closeButton">X</button>
-                    <div class="displayContainer">
-                    </div>
+                    <i class="material-icons closeButton">close</i>
+                    <div class="displayContainer"></div>
                 </div>
             </div>
         </div>

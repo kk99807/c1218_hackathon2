@@ -1,11 +1,26 @@
+/** Class representing a party item (e.g. music selection, appetizer recipe) */
 class PartyItem {
-    constructor(id, name, imageURL, props) {
+
+    /**
+     * @constructor
+     * @param {string} id - ID of this item per its source API
+     * @param {string} name - Name of this item
+     * @param {string} imageURL - Image URL for this item
+     * @param {*} eventCallback - Callback when item is clicked in DOM
+     * @param {{}} props - Additional type-specific properties (ex: recipe ingredients)
+     */
+    constructor(id, name, imageURL, eventCallback, props) {
         this.id = id;
         this.name = name;
         this.imageURL = imageURL;
+        this.eventCallback = eventCallback;
         this.props = props;
     }
 
+    /**
+     * @param {boolean} selected - Whether or not this is currently selected
+     * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
+     */
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
         let card = $('<div>').addClass('card horizontal');
@@ -30,47 +45,97 @@ class PartyItem {
             .addClass('card-content')
             .appendTo(cardStacked);
 
+        let titleLink = $('<a>')
+            .addClass('titleLink')
+            .appendTo(cardContent);
+
         let title = $('<p>')
             .addClass('searchTitle')
             .text(this.name)
-            .appendTo(cardContent);
+            .appendTo(titleLink);
 
         let buttonDef = selected ? 
             {label:'delete', colors: 'pink lighten-2'} :
             {label:'add', colors: 'purple lighten-2'};
 
         let buttonContainer = $('<a>')
-            .addClass('btn-floating btn-large right-fab waves-effect waves-light ' + buttonDef.colors)
+            .addClass('btn-floating btn-large waves-effect waves-light ' + buttonDef.colors)
             .appendTo(cardContent);
 
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
             .appendTo(buttonContainer);
 
+        title.click(target => this.eventCallback(this, 'view'));
+        button.click(target => {
+            card.fadeOut(() => card.remove());
+            this.eventCallback(this, buttonDef.label);
+        });
+
         return card;
     }
+}
 
-    renderDetails(classes){
-        let container = $('<div>').addClass('displayContainer');
+/** Class representing a recipe-type party item */
+class RecipeItem extends PartyItem {
 
-        let title = $('<h3>').addClass('detailsTitle').text(this.name);
+    /**
+     * @returns jQuery wrapper with DOM showing details of this recipe
+     */
+    renderDetails(){
+        let container = $('<div>')
+            .addClass('displayContainer');
 
-        let imageContainer = $('<div>').addClass('listImageContainer');
-        let image = $('<img>').addClass('detailsImage').attr('src', this.imageURL);
+        let title = $('<h3>')
+            .addClass('detailsTitle')
+            .text(this.name);
 
-        let infoContainer = $('<div>').addClass('listContentContainer');
-        let ingredientList = $('<ul>').addClass('ingredientList');
+        let imageContainer = $('<div>')
+            .addClass('listImageContainer');
+
+        let image = $('<img>')
+            .addClass('detailsImage')
+                .attr('src', this.imageURL);
+
+        let infoContainer = $('<div>')
+            .addClass('listContentContainer');
+
+        let ingredientList = $('<ul>')
+            .addClass('ingredientList');
 
         for(let i = 0; i < this.props.ingredients.length; i++){
-            let ingredients = $('<li>').addClass('ingredients').text(this.props.ingredients[i]);
+            let ingredients = $('<li>')
+                .addClass('ingredients')
+                .text(this.props.ingredients[i]);
             ingredientList.append(ingredients);
         }
 
-        let instructions = $('<p>').addClass('recipe').text(this.props.instructions);
+        let instructions = $('<p>')
+            .addClass('recipe')
+            .text(this.props.instructions);
 
         imageContainer.append(image);
         infoContainer.append(ingredientList, instructions)
         container.append(title, imageContainer, infoContainer)
         
-        return container
+        return container;
+    }
+}
+
+/** Class representing a video-type party item */
+class VideoItem extends PartyItem {
+
+    /**
+     * @returns jQuery wrapper with DOM showing this video/details
+     */
+    renderDetails(){
+        let container = $('<div>')
+            .addClass('displayContainer');
+
+        let title = $('<h3>')
+            .addClass('detailsTitle')
+            .text(this.name)
+            .appendTo(container);
+
+        return container;
     }
 }
