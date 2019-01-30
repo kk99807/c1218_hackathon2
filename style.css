@@ -263,10 +263,14 @@ body {
     margin-bottom: 0;
 }
 
-.readyToPartyButton {
+.readyToPartyButton, .eventLink {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.eventLink {
+    margin-top: 5px;
 }
 
 .fas {
