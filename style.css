@@ -87,3 +87,11 @@ body {
     height:100%;
     display:none;
 }
+
+.card {
+    background-color: #f3e5f5;
+}
+
+.card.selected {
+    background-color: #fce4ec;
+}

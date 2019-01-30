@@ -3,7 +3,7 @@ class PartyItems {
         this.domElement = domElement;
         this.domSearch = this.domElement.find('.search');
         this.domSearchResults = this.domElement.find('.listItems');
-        this.domList = this.domElement.children('.contentContainer');
+        this.domList = this.domElement.find('.contentContainer');
 
         this.items = items || [];
 
@@ -15,7 +15,6 @@ class PartyItems {
     }
 
     handleSearch() {
-        console.log('PartyItems.handleSearch');
         this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
             .then(items => this.domSearchResults.empty().append(items));
@@ -37,7 +36,7 @@ class PartyItems {
         this.hideSearch();
         this.hideDetails();
         console.log('PartyItems.showList');
-        let renderedItems = this.items.map(item => item.renderSearch());
+        let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
     }
 

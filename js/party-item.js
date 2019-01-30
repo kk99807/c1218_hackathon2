@@ -6,25 +6,62 @@ class PartyItem {
         this.props = props;
     }
 
-    renderSearch(classes) {
-        let container = $('<div>').addClass('listItemContainer');
+    renderSearch(selected) {
+        let card = $('<div>').addClass('card horizontal');
 
-        let imageContainer = $('<div>').addClass('listImageContainer');
-        let image = $('<img>').addClass('searchImage').attr('src', this.imageURL);
+        if (selected) {
+            card.addClass('selected');
+        }
 
-        let itemContainer = $('<div>').addClass('listContentContainer');
-        let title = $('<h3>').addClass('searchTitle').text(this.name);
+        let cardImage = $('<div>')
+            .addClass('card-image')
+            .appendTo(card);
 
-        let buttonContainer = $('<div>').addClass('addButtonContainer');
-        let button = $('<button>').addClass('addButton').text('Add');
+        let image = $('<img>')
+            .addClass('searchImage')
+            .attr('src', this.imageURL)
+            .appendTo(cardImage);
 
-        imageContainer.append(image);
-        itemContainer.append(title);
-        buttonContainer.append(button);
-        container.append(imageContainer, itemContainer, buttonContainer);
+        let cardStacked = $('<div>')
+            .addClass('card-stacked')
+            .appendTo(card);
+        let cardContent = $('<div>')
+            .addClass('card-content')
+            .appendTo(cardStacked);
 
-        return container
+        let title = $('<p>')
+            .addClass('searchTitle')
+            .text(this.name)
+            .appendTo(cardContent);
+
+        let buttonDef = selected ? 
+            {label:'delete', colors: 'pink lighten-2'} :
+            {label:'add', colors: 'purple lighten-2'};
+
+        let buttonContainer = $('<a>')
+            .addClass('btn-floating btn-large right-fab waves-effect waves-light ' + buttonDef.colors)
+            .appendTo(cardContent);
+
+        let button = $('<i>').addClass('material-icons').text(buttonDef.label)
+            .appendTo(buttonContainer);
+
+
+        
+        // <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        // imageContainer.append(image);
+        // itemContainer.append(title);
+        // buttonContainer.append(button);
+        // container.append(imageContainer, itemContainer, buttonContainer);
+
+        // return container
+        return card;
     }
+
+    //     <div class="card-action">
+    //       <a href="#">This is a link</a>
+    //     </div>
+    //   </div>
+    // </div>
 
     renderDetails(classes){
         let container = $('<div>').addClass('displayContainer');
