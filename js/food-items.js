@@ -15,22 +15,29 @@ class FoodItems extends PartyItems {
      * Called by PartyItems superclass when user requests a search to retrieve food recipes
      * @returns {Promise} a Promise to retrieve an array of RecipeItem of the specified type (chicken|beef|vegetarian)
      */
-    asyncSearch() {
-        // chicken: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=chicken
+    asyncSearch(target) {
+        let buttonClass = target.currentTarget.attributes.class.nodeValue;
+        let query;
 
-        // beef: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=beef
+        if(buttonClass === 'searchIcon beefIcon'){
+            query = 'appetizer%2C+beef';
+        } else if(buttonClass === 'searchIcon chickenIcon'){
+            query = 'appetizer%2C+chicken';
+        } else if(buttonClass === 'searchIcon veggieIcon'){
+            query = 'appetizer%2C+vegetarian';
+        } else if(buttonClass === 'searchIcon questionIcon'){
+            query = 'appetizer';
+        }
 
-        // vegetarian: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=vegetarian
+        const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=';
 
         return new Promise((resolve, reject) => {
-
             $.ajax({
                 method: 'get',
                 dataType: 'json',
                 headers: {[API_KEY_KEY]: API_KEY},
-                url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
+                url: BASEURL + query,
                 success: data => {
-                    console.log(data)
                     let ingredients = [];
               
                     for(let i = 0; i < data.recipes[0].extendedIngredients.length; i++){
