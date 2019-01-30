@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
 
@@ -30,11 +30,15 @@
             $('.startButton').on('click', hideLanding)
         }
         function showAccordion(){
-            $('.wholeContainer').hide();
+            $('.sectionTitle').show();
+            $('.contentContainer, .contentContainerTitle, .wholeContainer').hide();
             $('.section').css('flex','1');
             $(this).find('.sectionTitle').hide();
             $(this).css('flex','7 30%');
             $(this).find('.wholeContainer').show();
+            $(this).find('.contentContainerTitle').show();
+            $(this).find('.contentContainer').show();
+            
         }
         function hideLanding(){
             $('.landing').hide();
@@ -53,6 +57,10 @@
         <div class="section details">
             <p class='sectionTitle'>Details</p>
             <div class="wholeContainer">
+                <div class='contentContainerTitle'>
+                    <h2>Details</h2>
+                    <i class="fas fa-user-plus userAdd"></i>
+                </div>
                 <div class="contentContainer">
                     <div class="listItemContainer">
                         <div class="listImageContainer">
@@ -97,6 +105,10 @@
         <div class="section cocktail">
             <p class='sectionTitle'>Cocktail</p>
                 <div class="wholeContainer">
+                <div class='contentContainerTitle'>
+                    <h2>Cocktail</h2>
+                    <i class="fas fa-glass-martini-alt"></i>
+                </div>
                 <div class="contentContainer">
                     <div class="listItemContainer">
                         <div class="listImageContainer">
@@ -141,6 +153,10 @@
         <div class="section food">
             <p class='sectionTitle'>Food</p>
             <div class="wholeContainer">
+                <div class='contentContainerTitle'>
+                    <h2>Food</h2>
+                    <i class="fas fa-hamburger"></i>
+                </div>
                 <div class="contentContainer">
                     <div class="listItemContainer">
                         <div class="listImageContainer">
@@ -185,6 +201,10 @@
         <div class="section music">
             <p class='sectionTitle'>Music</p>
             <div class="wholeContainer">
+                <div class='contentContainerTitle'>
+                    <h2>Music</h2>
+                    <i class="fas fa-music"></i>
+                </div>
                 <div class="contentContainer">
                     <div class="listItemContainer">
                         <div class="listImageContainer">
