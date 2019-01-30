@@ -24,7 +24,7 @@ class CocktailItems extends PartyItems {
                             if (ingredient) ingredients.push(ingredient);
                         }
 
-                        return new PartyItem(
+                        return new RecipeItem(
                             item.idDrink, 
                             item.strDrink, 
                             item.strDrinkThumb, 

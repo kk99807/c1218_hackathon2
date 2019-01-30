@@ -5,7 +5,14 @@ class FoodItems extends PartyItems {
     }
 
     asyncSearch() {
-        console.log('In FoodItems.asyncSearch');
+        console.log(this)
+    
+        // chicken: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=chicken
+
+        // beef: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=beef
+
+        // vegetarian: https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&type=appetizer&query=vegetarian
+
         return new Promise((resolve, reject) => {
 
             $.ajax({
@@ -15,7 +22,7 @@ class FoodItems extends PartyItems {
                 url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=appetizer',
                 success: data => {
                     console.log(data);
-                    let items = data.recipes.map(item => new PartyItem(
+                    let items = data.recipes.map(item => new RecipeItem(
                         item.id, 
                         item.title, 
                         item.image, 

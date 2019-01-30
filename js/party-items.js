@@ -13,10 +13,14 @@ class PartyItems {
         this.handleSearch = this.handleSearch.bind(this);
         this.showSearch = this.showSearch.bind(this);
         this.hideSearch = this.hideSearch.bind(this);
+        this.hideDetails = this.hideDetails.bind(this);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
+        this.domElement.find('.questionIcon').click(this.handleSearch);
+        
         this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.addNew').click(this.showSearch); 
+        this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
+        this.domElement.find('.addItems').click(this.showSearch);
     }
 
     handleSearch() {
@@ -57,7 +61,10 @@ class PartyItems {
 
     showDetails(item) {
         setAccordion(false);
-        this.domElement.find('.informationContainer').append(item.renderDetails()).show();
+        this.domElement.find('.informationContainer .displayContainer')
+            .empty()
+            .append(item.renderDetails());
+        this.domElement.find('.informationContainer').show();
     }
 
     hideList() {

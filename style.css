@@ -58,6 +58,9 @@ body {
 .details{
     background-image:url('images/details.png')
 }
+.detailsImage {
+    height: 50px;
+}
 .cocktail {
     background-color: brown;
     background-image:url('images/cocktails.png')
@@ -74,15 +77,12 @@ body {
 .informationModalExample {
     display: none;
 }
-/*.searchContainer {
-    display: none;
-}*/
+
 .informationContainer {
     display:none;
+    z-index: 5;
 }
-.clicked{
 
-}
 /* main background images */
 .wholeContainer{
     height:100%;
@@ -107,8 +107,9 @@ body {
 .contentContainerTitle {
     height: 15%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 4%;
 }
 
 .searchContainer,
@@ -121,9 +122,56 @@ body {
 .contentContainer {
     height: 85%;
     width: 100%;
-    background-color: lightpink;
+    background-color: #fce4ec;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.searchContainer, .informationContainer {
+    height: 85%;
+    width: 100%;
+    background-color: #f3e5f5;
+    overflow-y: scroll;
+}
+
+.searchIcon {
+    width: 20%;
+    height: 80%;
+    background-color: #ba68c8;
+    text-align: center;
+    padding: 3% 1%;
+}
+
+.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
+    font-size: 2em;
+}
+
+.fas.fa-plus {
+    font-size: 1em;
+}
+
+.beefIcon {
+    padding: 0.7% 0;
+}
+
+.beef {
+    width: 90%;
+    padding: 1% 0;
+}
+
+.searchIcon .fas {
+    font-size: 3.7em;
 }
 
 .fas, .addNew {
     color: white;
+}
+
+.btn-floating {
+    float: right;
 }

@@ -45,7 +45,7 @@ class PartyItem {
             {label:'add', colors: 'purple lighten-2'};
 
         let buttonContainer = $('<a>')
-            .addClass('btn-floating btn-large right-fab waves-effect waves-light ' + buttonDef.colors)
+            .addClass('btn-floating btn-large waves-effect waves-light ' + buttonDef.colors)
             .appendTo(cardContent);
 
         let button = $('<i>').addClass('material-icons').text(buttonDef.label)
@@ -55,30 +55,59 @@ class PartyItem {
 
         return card;
     }
+}
 
+class RecipeItem extends PartyItem {
     renderDetails(classes){
-        debugger;
-        let container = $('<div>').addClass('displayContainer');
+        let container = $('<div>')
+            .addClass('displayContainer');
 
-        let title = $('<h3>').addClass('detailsTitle').text(this.name);
+        let title = $('<h3>')
+            .addClass('detailsTitle')
+            .text(this.name);
 
-        let imageContainer = $('<div>').addClass('listImageContainer');
-        let image = $('<img>').addClass('detailsImage').attr('src', this.imageURL);
+        let imageContainer = $('<div>')
+            .addClass('listImageContainer');
 
-        let infoContainer = $('<div>').addClass('listContentContainer');
-        let ingredientList = $('<ul>').addClass('ingredientList');
+        let image = $('<img>')
+            .addClass('detailsImage')
+                .attr('src', this.imageURL);
+
+        let infoContainer = $('<div>')
+            .addClass('listContentContainer');
+
+        let ingredientList = $('<ul>')
+            .addClass('ingredientList');
 
         for(let i = 0; i < this.props.ingredients.length; i++){
-            let ingredients = $('<li>').addClass('ingredients').text(this.props.ingredients[i]);
+            let ingredients = $('<li>')
+                .addClass('ingredients')
+                .text(this.props.ingredients[i]);
             ingredientList.append(ingredients);
         }
 
-        let instructions = $('<p>').addClass('recipe').text(this.props.instructions);
+        let instructions = $('<p>')
+            .addClass('recipe')
+            .text(this.props.instructions);
 
         imageContainer.append(image);
         infoContainer.append(ingredientList, instructions)
         container.append(title, imageContainer, infoContainer)
         
-        return container
+        return container;
+    }
+}
+
+class VideoItem extends PartyItem {
+    renderDetails(classes){
+        let container = $('<div>')
+            .addClass('displayContainer');
+
+        let title = $('<h3>')
+            .addClass('detailsTitle')
+            .text(this.name)
+            .appendTo(container);
+
+        return container;
     }
 }
