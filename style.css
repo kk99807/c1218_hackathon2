@@ -24,7 +24,26 @@ body {
     bottom: 10%;
     left:50%;
     transform:translate(-50%);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    background-color:rgb(218,11,79)
+}
+.mainTitle{
+    text-align:center;
+    color: rgb(53, 34, 221);
+    text-shadow: #cacbf6 1px 1px 1px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Major Mono Display', monospace;
+    font-weight:bold;
+    font-size:3.5rem;
+}
+.description{
+    text-align:center;
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-family: 'Shadows Into Light', cursive;
+    color:white;
 }
 
 /*----------------- MAIN PAGE -----------------*/
@@ -55,13 +74,14 @@ body {
 }
 
 .sectionTitle{
-    font-size:1.5rem;
+    font-size:2rem;
     margin:0;
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
     color: white;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .wholeContainer{
@@ -75,6 +95,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 4%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight:bold;
 }
 
 .contentContainerTitle h2 {
@@ -228,9 +250,6 @@ body {
     color:white;
 }
 
-.mainTitle{
-    text-align:center;
-}
 
 /*----------------- FONTAWESOME -----------------*/
 
