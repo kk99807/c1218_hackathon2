@@ -14,8 +14,10 @@ class PartyItems {
         this.hideSearch = this.hideSearch.bind(this);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
+        this.domElement.find('.questionIcon').click(this.handleSearch);
+        
         this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.addNew').click(this.showSearch); 
+        this.domElement.find('.addItems').click(this.showSearch);
     }
 
     handleSearch() {
