@@ -8,6 +8,7 @@ function initApp() {
     $('.main').on('click','.section', showAccordion);
     $('.startButton').on('click', hideLanding);
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+    $('.details .informationContainer .btn').css('margin', '20px');
 }
 
 function setAccordion( active ) {
