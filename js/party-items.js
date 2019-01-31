@@ -25,7 +25,7 @@ class PartyItems {
         this.hideDetails = this.hideDetails.bind(this);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.questionIcon').click(this.handleSearch);
+        this.domElement.find('.searchIcon').click(this.handleSearch);
         
         this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
         this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
@@ -35,10 +35,16 @@ class PartyItems {
     /**
      * Perform search using async search method implemented in subclasses & display results
      */
-    handleSearch() {
-        this.asyncSearch()
+    handleSearch(target) {
+        let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
+        $('.listItemContainer').append(spinner);
+
+        this.asyncSearch(target)
             .then(items => items.map(item => item.renderSearch()))
-            .then(items => this.domSearchResults.empty().append(items));
+            .then(items => {
+                this.domSearchResults.empty().append(items);
+                $('.fa-spinner').remove();
+            });
     }
 
     /**
@@ -51,11 +57,15 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
+            M.toast({html:'Item has been deleted',displayLength:1000});
+            $('.toast').css('background-color', 'red');  
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
         } else if (eventType === 'add') {
             this.items.push(item);   
-            this.domList.append(item.renderSearch(true));         
+            this.domList.append(item.renderSearch(true));
+            M.toast({html:'Item has been added', displayLength:1000}); 
+            $('.toast').css('background-color', 'green'); 
         }
     }
 
