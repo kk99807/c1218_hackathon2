@@ -1,203 +1,201 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="js/config.js"></script>
-    <script src="js/party-item.js"></script>
-    <script src="js/party-items.js"></script>
-    <script src="js/cocktail-items.js"></script>
-    <script src="js/food-items.js"></script>
-    <script src="js/detail-items.js"></script>
-    <script src="js/music-items.js"></script>
-    <script src="js/party.js"></script>
-    <script src='main.js'></script>
-
-    <title>Let's Party!</title>
-</head>
-<body>
-<div class="landing">
-    <h1 class='mainTitle'>The Party Bus</h1>
-    <button class="startButton waves-effect waves-light btn-large pulse">Let's Party!</button>
-</div>
-    <div class="main">
-        <div class="section details">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <script type="text/javascript" src="js/config.js"></script>
+      <script src="js/party-item.js"></script>
+      <script src="js/party-items.js"></script>
+      <script src="js/cocktail-items.js"></script>
+      <script src="js/food-items.js"></script>
+      <script src="js/detail-items.js"></script>
+      <script src="js/music-items.js"></script>
+      <script src="js/party.js"></script>
+      <script src='main.js'></script>
+      <title>Let's Party!</title>
+   </head>
+   <body>
+      <div class="landing">
+         <h1 class='mainTitle'>The Party Bus</h1>
+         <button class="startButton waves-effect waves-light btn-large pulse">Let's Party!</button>
+      </div>
+      <div class="main">
+         <div class="section details">
             <p class='sectionTitle'>Details</p>
             <div class="wholeContainer">
-                <div class='contentContainerTitle'>
-                    <div>
-                        <h2>Details</h2>
-                    </div>
-                    
-                    <div class="addItems">
-                        <i class="fas fa-calendar-edit"></i>
-                        <i class="fas fa-plus"></i>
-                    </div>
-
-                </div>
-                <div class="contentContainer">
-                    <div class="inputContainer">
-                        <div class="titleInput row">
-                            <div class="input-field">
-                                <i class="material-icons prefix">add</i>
-                                <input type="text" id="inputTitle">
-                                <label for="inputTitle">Name Your Party</label>
-                            </div>
+               <div class='contentContainerTitle'>
+                  <div>
+                     <h2>Details</h2>
+                  </div>
+                  <div class="addItems">
+                     <i class="fas fa-calendar-edit"></i>
+                     <i class="fas fa-plus"></i>
+                  </div>
+               </div>
+               <div class="contentContainer">
+                  <div class="inputContainer">
+                     <div class="titleInput row">
+                        <div class="input-field">
+                           <i class="material-icons prefix">add</i>
+                           <input type="text" id="inputTitle">
+                           <label for="inputTitle">Name Your Party</label>
                         </div>
-
-                        <div class="dateInput row">
-                            <div class="input-field">
-                                <i class="material-icons prefix">event</i>
-                                <input type="text" class="datepicker" id="pickDate">
-                                <label for="pickDate">Pick Start Date</label>
-                            </div>
+                     </div>
+                     <div class="dateInput row">
+                        <div class="input-field">
+                           <i class="material-icons prefix">event</i>
+                           <input type="text" class="datepicker" id="pickDate">
+                           <label for="pickDate">Pick Start Date</label>
                         </div>
-
-                        <div class="timeInput row">
-                            <div class="input-field">
-                                <i class="material-icons prefix">access_time</i>
-                                <input type="time" id="pickStartTime">
-                                <label for="pickTime">Pick Start Time</label>
-                            </div>
+                     </div>
+                     <div class="timeInput row">
+                        <div class="input-field">
+                           <i class="material-icons prefix">access_time</i>
+                           <input type="time" id="pickStartTime">
+                           <label for="pickTime">Pick Start Time</label>
                         </div>
-
-                        <div class="timeInput row">
-                            <div class="input-field">
-                                <i class="material-icons prefix">access_time</i>
-                                <input type="time" id="pickEndTime">
-                                <label for="pickTime">Pick End Time</label>
-                            </div>
+                     </div>
+                     <div class="timeInput row">
+                        <div class="input-field">
+                           <i class="material-icons prefix">access_time</i>
+                           <input type="time" id="pickEndTime">
+                           <label for="pickTime">Pick End Time</label>
                         </div>
-
-                        <div class="row">
-                            <a class="waves-effect waves-light btn readyToPartyButton"><i class="fas fa-glass-cheers"></i> Save</a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="searchContainer">
-                </div>
-                <div class="informationContainer">
-                    <div class="searchHeading">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="titleContainer">
-                            <p>Add to Calendar?</p>
-                        </div>
-                    </div>
-                    <div class="buttonPanel row">
-                        <a href="#" target="_blank" class="waves-effect waves-light btn closeButton eventLink">Yes</a>
-                        <a href="#" class="waves-effect waves-light btn closeButton">No</a>
-                    </div>
-                </div>
-            </div>    
-        </div>
-
-        <div class="section cocktail">
+                     </div>
+                     <div class="row">
+                        <a class="waves-effect waves-light btn readyToPartyButton"><i class="fas fa-glass-cheers"></i> Save</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="searchContainer">
+               </div>
+               <div class="informationContainer">
+                  <div class="searchHeading">
+                     <i class="material-icons closeButton">close</i>
+                     <div class="titleContainer">
+                        <p>Add to Calendar?</p>
+                     </div>
+                  </div>
+                  <div class="buttonPanel row">
+                     <a href="#" target="_blank" class="waves-effect waves-light btn closeButton eventLink">Yes</a>
+                     <a href="#" class="waves-effect waves-light btn closeButton">No</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="section cocktail">
             <p class='sectionTitle'>Cocktails</p>
-                <div class="wholeContainer">
-                <div class='contentContainerTitle'>
-                    <div>
+            <div class="wholeContainer">
+               <div class='contentContainerTitle'>
+                  <div>
+                     <h2>Cocktails</h2>
+                  </div>
+                  <div class="informationContainer">
+                     <i class="material-icons closeButton">close</i>
+                     <div class="displayContainer"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="section cocktail">
+               <p class='sectionTitle'>Cocktails</p>
+               <div class="wholeContainer">
+                  <div class='contentContainerTitle'>
+                     <div>
                         <h2>Cocktails</h2>
-                    </div>
-                    <div class="addItems">
+                     </div>
+                     <div class="addItems">
                         <i class="fas fa-glass-martini-alt"></i>
                         <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-
-                <div class="contentContainer"></div>
-                <div class="searchContainer">
-                    <div class="searchHeading">
+                     </div>
+                  </div>
+                  <div class="contentContainer"></div>
+                  <div class="searchContainer">
+                     <div class="searchHeading">
                         <i class="material-icons closeButton">close</i>
                         <div class="titleContainer">
-                            <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
+                           <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
                         </div>
-                    </div>
-                    <div class="listItemContainer">
+                     </div>
+                     <div class="listItemContainer">
                         <div class="listItems"></div>
-                    </div>
-                </div>
-                <div class="informationContainer">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="displayContainer"></div>
-                </div>
-            </div>    
-        </div>
-
-        <div class="section food">
-            <p class='sectionTitle'>Food</p>
-            <div class="wholeContainer">
-                <div class='contentContainerTitle'>
-                    <div>
-                       <h2>Food</h2> 
-                    </div>
-                    <div class="addItems">
+                     </div>
+                  </div>
+                  <div class="informationContainer">
+                     <i class="material-icons closeButton">close</i>
+                     <div class="displayContainer"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="section food">
+               <p class='sectionTitle'>Food</p>
+               <div class="wholeContainer">
+                  <div class='contentContainerTitle'>
+                     <div>
+                        <h2>Food</h2>
+                     </div>
+                     <div class="addItems">
                         <i class="fas fa-utensils"></i>
                         <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-      
-                <div class="contentContainer"></div>
-
-                <div class="searchContainer">
-                    <div class="searchHeading">
+                     </div>
+                  </div>
+                  <div class="contentContainer"></div>
+                  <div class="searchContainer">
+                     <div class="searchHeading">
                         <i class="material-icons closeButton">close</i>
                         <div class="titleContainer foodSearch">
-                            <div class="searchIcon beefIcon"><img class="beef" src="images/beef.png"></div>
-                            <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
-                            <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
-                            <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
+                           <div class="searchIcon beefIcon"><img class="beef" src="images/beef.png"></div>
+                           <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
+                           <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
+                           <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
                         </div>
-                    </div>
-                    <div class="listItemContainer">
+                     </div>
+                     <div class="listItemContainer">
                         <div class="listItems"></div>
-                    </div>
-                </div>
-                <div class="informationContainer">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="displayContainer"></div>
-                </div>
-            </div>    
-        </div>
-
-        <div class="section music">
-            <p class='sectionTitle'>Music</p>
-            <div class="wholeContainer">
-                <div class='contentContainerTitle'>
-                    <div>
+                     </div>
+                  </div>
+                  <div class="informationContainer">
+                     <i class="material-icons closeButton">close</i>
+                     <div class="displayContainer"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="section music">
+               <p class='sectionTitle'>Music</p>
+               <div class="wholeContainer">
+                  <div class='contentContainerTitle'>
+                     <div>
                         <h2>Music</h2>
-                    </div>
-                    <div class="addItems">
-                       <i class="fas fa-music"></i>
+                     </div>
+                     <div class="addItems">
+                        <i class="fas fa-music"></i>
                         <i class="fas fa-plus"></i> 
-                    </div>
-                </div>
-
-                <div class="contentContainer"></div>
-                <div class="searchContainer">
-                    <div class="searchHeading">
+                     </div>
+                  </div>
+                  <div class="contentContainer"></div>
+                  <div class="searchContainer">
+                     <div class="searchHeading">
                         <i class="material-icons closeButton">close</i>
                         <div class="titleContainer">
-                            <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
+                           <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
                         </div>
-                    </div>
-                    <div class="listItemContainer">
+                     </div>
+                     <div class="listItemContainer">
                         <div class="listItems"></div>
-                    </div>
-                </div>
-                <div class="informationContainer">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="displayContainer videoContainer"></div>
-                </div>
+                     </div>
+                  </div>
+                  <div class="informationContainer">
+                     <i class="material-icons closeButton">close</i>
+                     <div class="displayContainer videoContainer"></div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-</body>
-</html> 
+         </div>
+      </div>
+   </body>
+</html>
