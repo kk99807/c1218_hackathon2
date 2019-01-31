@@ -233,11 +233,11 @@ body {
 /*----------------- CARD CONTAINERS -----------------*/
 
 .card {
-    background-color: #a0274f;
+    background-color: #9c27b0;
 }
 
 .card.selected {
-    background-color: #a0274f;
+    background-color: #d81b60;
 }
 
 .buttonStyle {
@@ -251,7 +251,15 @@ body {
 }
 
 
+.pink.lighten-2 {
+    background-color: #f48fb1;
+}
+
 /*----------------- FONTAWESOME -----------------*/
+
+.fas {
+    color: white;
+}
 
 .fa-utensils, 
 .fa-glass-martini-alt, 
@@ -272,13 +280,40 @@ body {
     font-size: 2.4em;
 }
 
+.fa-spinner {
+    font-size: 3em;
+    color: #9c27b0;
+    position: absolute;
+    top: 50%;
+    left: 43%;
+    transform: translate(-50%, -50%); 
+}
+
+.inputContainer {
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.readyToPartyButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonPanel {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPannel .btn {
+    margin: 20px;
+}
+
 .fas {
     color: white;
-}
-/*----------------- TOAST -----------------*/
-.addToast{
-    background-color:'blue';
-}
-.removeToast{
-    background-color:'red';
 }
