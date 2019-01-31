@@ -263,14 +263,19 @@ body {
     margin-bottom: 0;
 }
 
-.readyToPartyButton, .eventLink {
+.readyToPartyButton {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.eventLink {
-    margin-top: 5px;
+.buttonPanel {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPannel .btn {
+    margin: 20px;
 }
 
 .fas {

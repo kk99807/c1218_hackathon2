@@ -6,16 +6,13 @@ class Party {
      * @constructor
      */
     constructor(title, date, startTime, endTime) {
-        // title = 'My Test Event';
-        // date = '2019-01-30';
-        // startTime = '01:00 PM';
-        // endTime = '02:00 PM';
-
         this.title = title;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.eventKey = null;
+
+        this.addInviteDOM = $('.details .informationContainer');
 
         this.partyOrganizer = {
             foods: new FoodItems($('.food')),
@@ -26,7 +23,7 @@ class Party {
         this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
 
         $('.readyToPartyButton').click(this.handleUpdateDetails);
-        $('.eventLink').hide();
+        this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
 
     /**
@@ -47,13 +44,11 @@ class Party {
         this.startTime = $('#pickStartTime').val();
         this.endTime = $('#pickEndTime').val();
 
-        console.log('Party in updateDetails after setting values: ', this);
         this.asyncCreateCalendarEntry()
             .then(eventKey => {
                 this.eventKey = eventKey;
-                $('.eventLink').attr('href', `http://evt.to/${eventKey}`)
-                    .text('Add to Calendar')
-                    .show();
+                $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
+                this.addInviteDOM.show();
             });
     }
 
