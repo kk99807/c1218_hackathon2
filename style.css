@@ -1,105 +1,103 @@
-h1{
-    margin:0
+h1 {
+    margin: 0;
 }
+
 body {
     height: 100vh;
-    margin:0;
+    margin: 0;
 }
+
+/*----------------- LANDING PAGE -----------------*/
+
 .landing{
     background-image: url('images/landingBackground.png');
-    height:100vh;
+    height:100%;
+    width:100%;
     background-repeat:no-repeat;
     background-size: 100% 100%;
+    position:fixed;
+    z-index:1;
 }
+
 .startButton{
     position:absolute;
     bottom: 10%;
     left:50%;
     transform:translate(-50%);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    background-color:rgb(218,11,79)
 }
+.mainTitle{
+    text-align:center;
+    color: rgb(53, 34, 221);
+    text-shadow: #cacbf6 1px 1px 1px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Major Mono Display', monospace;
+    font-weight:bold;
+    font-size:3.5rem;
+    padding-top: 15px;
+}
+.description{
+    text-align:center;
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-family: 'Shadows Into Light', cursive;
+    color:white;
+}
+
+/*----------------- MAIN PAGE -----------------*/
+
 .main{
     height:100%;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .section{
     height:25%;
     flex: 1;
     padding: 0;
-    /* transition: flex 0.5s ease; */
 }
 
 .section p {
     padding: 0;
 }
-/* .section:hover {
-    flex: 7;
-    transition: flex 0.8s ease;
-} */
+
 .section{
     position:relative;
     background-size:100% 100%;
     background-repeat:no-repeat;
     border:1px solid purple;
     box-sizing:border-box;
-
 }
+
 .sectionTitle{
-    font-size:1.5rem;
+    font-size:2rem;
     margin:0;
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
     color: white;
-}
-.details{
-    background-image:url('images/details.png')
-}
-.detailsImage {
-    height: 100px;
-}
-.cocktail {
-    background-color: brown;
-    background-image:url('images/cocktails.png')
-}
-.food {
-    background-color: royalblue;
-    background-image: url('images/food.jpeg')
-}
-.music {
-    background-color: grey;
-    background-image:url('images/music.png')
+    font-family: 'Shadows Into Light', cursive;
 }
 
-.informationModalExample {
-    display: none;
-}
-
-.informationContainer {
-    display:none;
-    z-index: 5;
-    overflow-y: scroll;
-}
-
-.searchContainer {
-    z-index: 3;
-}
-
-/* main background images */
 .wholeContainer{
     height:100%;
     display:none;
 }
 
-.card {
-    background-color: #f3e5f5;
-}
-
-.card.selected {
-    background-color: #a0274f;
+.contentContainerTitle {
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight:bold;
 }
 
 .contentContainerTitle h2 {
@@ -109,13 +107,57 @@ body {
     margin: 1%;
 }
 
-.contentContainerTitle {
-    height: 15%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
+.contentContainer {
+    height: 85%;
+    width: 100%;
+    background-color: #fce4ec;
+    overflow-y: scroll;
 }
+
+/*----------------- DETAILS -----------------*/
+
+.details{
+    background-image:url('images/details.png');
+}
+
+.detailsTitle {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.detailsImage {
+    height: 100px;
+}
+
+/*----------------- COCKTAILS -----------------*/
+
+.cocktail {
+    background-image:url('images/cocktails.png');
+}
+
+/*----------------- FOOD -----------------*/
+
+.food {
+    background-image: url('images/food.jpeg');
+}
+
+.titleContainer.foodSearch {
+    width: 93%;
+    padding-top: 2%;
+    float: right;
+}
+
+/*----------------- MUSIC -----------------*/
+
+.music {
+    background-image:url('images/music.png');
+}
+
+.videoContainer {
+    height: 95%;
+}
+
+/*----------------- MODALS -----------------*/
 
 .searchContainer,
 .informationContainer,
@@ -124,11 +166,26 @@ body {
     position: absolute;
 }
 
-.contentContainer {
+.searchContainer, 
+.informationContainer {
     height: 85%;
     width: 100%;
-    background-color: #fce4ec;
-    overflow-y: scroll;
+    background-color: #f3e5f5;
+}
+
+.listImageContainer {
+    float: left;
+    padding: 0 3% 3% 0;
+}
+
+/*----------------- SEARCH MODAL -----------------*/
+
+.searchContainer {
+    z-index: 3;
+}
+
+.searchHeading {
+    height: 15%;
 }
 
 .titleContainer {
@@ -138,23 +195,77 @@ body {
     justify-content: space-evenly;
 }
 
-.searchContainer, .informationContainer {
+.listItemContainer {
+    overflow-y: scroll;
     height: 85%;
-    width: 100%;
-    background-color: #f3e5f5;
 }
-
-
 
 .searchIcon {
-    width: 20%;
-    height: 80%;
-    background-color: #ba68c8;
+    width: 15%;
+    height: 30%;
+    background-color: #26a69a;
     text-align: center;
     padding: 3% 1%;
+    box-shadow: 0 8px 6px -6px gray;
+    border-radius: 4px;
 }
 
-.fa-utensils, .fa-glass-martini-alt, .fa-music, .fa-user {
+.beef {
+    width: 85%;
+    padding: 6% 0 0 0;
+}
+
+/*----------------- INFORMATION MODAL -----------------*/
+
+.informationContainer {
+    display:none;
+    z-index: 5;
+    overflow-y: scroll;
+}
+
+.displayContainer {
+    padding: 0 3% 3% 3%;
+}
+
+.recipe {
+    clear: left;
+}
+
+/*----------------- CARD CONTAINERS -----------------*/
+
+.card {
+    background-color: #9c27b0;
+}
+
+.card.selected {
+    background-color: #d81b60;
+}
+
+.buttonStyle {
+    align-self:flex-end;
+}
+
+.titleLink{
+    height:100%;
+    font-size:20px;
+    color:white;
+}
+
+
+.pink.lighten-2 {
+    background-color: #f48fb1;
+}
+
+/*----------------- FONTAWESOME -----------------*/
+
+.fas {
+    color: white;
+}
+
+.fa-utensils, 
+.fa-glass-martini-alt, 
+.fa-music, 
+.fa-user {
     font-size: 2em;
 }
 
@@ -166,55 +277,44 @@ body {
     padding: 0.7% 0;
 }
 
-.beef {
-    width: 90%;
-    padding: 1% 0;
-}
-
 .searchIcon .fas {
-    font-size: 3.7em;
+    font-size: 2.4em;
 }
 
-.fas, .addNew {
+.fa-spinner {
+    font-size: 3em;
+    color: #9c27b0;
+    position: absolute;
+    top: 50%;
+    left: 43%;
+    transform: translate(-50%, -50%); 
+}
+
+.inputContainer {
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.readyToPartyButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonPanel {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPannel .btn {
+    margin: 20px;
+}
+
+.fas {
     color: white;
-}
-
-.btn-floating {
-    float: right;
-}
-
-
-.videoContainer {
-    height: 95%;
-}
-
-.searchHeading {
-    height: 15%;
-}
-.listItemContainer {
-    overflow-y: scroll;
-    height: 85%;
-}
-
-.ingredientList {
-    list-style-type: disc;
-}
-
-.displayContainer {
-    padding: 0 3% 3% 3%;
-}
-
-.listImageContainer {
-    float: left;
-    padding: 0 3% 3% 0;
-}
-
-.detailsTitle {
-    margin-top: 0;
-    font-size: 2rem;
-}
-
-.recipe {
-    clear: left;
-
 }

@@ -43,7 +43,7 @@ class PartyItem {
             .appendTo(card);
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked);
+            .appendTo(cardStacked).css({'display':'flex'});//'padding':'0px'
 
         let titleLink = $('<a>')
             .addClass('titleLink')
@@ -54,23 +54,51 @@ class PartyItem {
             .text(this.name)
             .appendTo(titleLink);
 
+
+
+        //card reveal
+        let cardReveal = $('<div>')
+            .addClass('card-reveal')
+            .appendTo(card);
+
+        let revealTitle = $('<span>')
+            .addClass('class-title')
+            .text(this.name)
+            .appendTo(cardReveal);
+
+        let closeButton = $('<i>')
+            .addClass('material-icons right close')
+            .text('close')
+            .appendTo(revealTitle);
+
+        let revealContent = $('<p>')
+            .text('Please put in description')
+            .appendTo(cardReveal);
+
         let buttonDef = selected ? 
             {label:'delete', colors: 'pink lighten-2'} :
             {label:'add', colors: 'purple lighten-2'};
 
         let buttonContainer = $('<a>')
-            .addClass('btn-floating btn-large waves-effect waves-light ' + buttonDef.colors)
+            .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
             .appendTo(cardContent);
 
-        let button = $('<i>').addClass('material-icons').text(buttonDef.label)
+        let button = $('<i>')
+            .addClass('material-icons')
+            .text(buttonDef.label)
             .appendTo(buttonContainer);
+
+        let revealIcon = $('<i>')
+            .addClass('material-icons right activator')
+            .text('more_vert')
+            .appendTo(cardContent);
 
         title.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
             card.fadeOut(() => card.remove());
             this.eventCallback(this, buttonDef.label);
         });
-
+        closeButton.click(() => cardReveal.hide());
         return card;
     }
 }
@@ -94,7 +122,7 @@ class RecipeItem extends PartyItem {
 
         let image = $('<img>')
             .addClass('detailsImage')
-                .attr('src', this.imageURL);
+            .attr('src', this.imageURL);
 
         let infoContainer = $('<div>')
             .addClass('listContentContainer');
@@ -129,25 +157,23 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer').css('height', '95%');
+            .addClass('displayContainer')
+            .css('height', '95%');
 
-        //let title = $('<h3>')
-           // .addClass('detailsTitle')
-           // .text(this.name)
-           // .appendTo(container);
-
-        let video = $('<iframe>').attr({
-            type: 'text/html',
-            width: '80%',
-            height: '90%',
-            src: `https://www.youtube.com/embed/${this.id}`,
-            fs: '1'
-        }).css({
-            position: 'relative',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -55%)'
-        });
+        let video = $('<iframe>')
+            .attr({
+                type: 'text/html',
+                width: '80%',
+                height: '90%',
+                src: `https://www.youtube.com/embed/${this.id}`,
+                fs: '1'
+            })
+            .css({
+                position: 'relative',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -55%)'
+            });
         container.append(video);
 
         return container;

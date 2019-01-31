@@ -6,7 +6,9 @@ function initApp() {
     party = new Party();
     party.start();
     $('.main').on('click','.section', showAccordion);
-    $('.startButton').on('click', hideLanding)
+    $('.startButton').on('click', hideLanding);
+    $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+    $('.details .informationContainer .btn').css('margin', '20px');
 }
 
 function setAccordion( active ) {
@@ -25,8 +27,7 @@ function showAccordion(){
     $(this).css('flex','7 30%');
     $(this).find('.wholeContainer').show();
     $(this).find('.contentContainerTitle').show();
-    $(this).find('.contentContainer').show();
-    
+    $(this).find('.contentContainer').show(); 
 }
 
 function hideLanding(){
