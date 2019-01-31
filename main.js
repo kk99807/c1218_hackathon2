@@ -26,8 +26,7 @@ function showAccordion(){
     $(this).css('flex','7 30%');
     $(this).find('.wholeContainer').show();
     $(this).find('.contentContainerTitle').show();
-    $(this).find('.contentContainer').show();
-    
+    $(this).find('.contentContainer').show(); 
 }
 
 function hideLanding(){
