@@ -6,7 +6,8 @@ function initApp() {
     party = new Party();
     party.start();
     $('.main').on('click','.section', showAccordion);
-    $('.startButton').on('click', hideLanding)
+    $('.startButton').on('click', hideLanding);
+    $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
 }
 
 function setAccordion( active ) {

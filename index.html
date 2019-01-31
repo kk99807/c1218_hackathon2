@@ -19,7 +19,6 @@
         <script src="js/music-items.js"></script>
         <script src="js/party.js"></script>
         <script src='main.js'></script>
-
         <title>Let's Party!</title>
     </head>
     <body>
@@ -37,22 +36,62 @@
                         </div>
                         
                         <div class="addItems">
-                            <i class="fas fas fa-user"></i>
+                            <i class="fas fa-calendar-edit"></i>
                             <i class="fas fa-plus"></i>
                         </div>
 
                     </div>
-                    <div class="contentContainer"></div>
-                    <div class="searchContainer">
-                        <div class="searchHeading">
-                            <i class="material-icons closeButton">close</i>
-                            <div class="titleContainer">
-                                <input placeholder="search" class="search" type="text">
-                                <button class="searchButton">Search</button>
+
+                <div class="contentContainer">
+                    <div class="inputContainer">
+                        <div class="titleInput row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">add</i>
+                                <input type="text" id="inputTitle">
+                                <label for="inputTitle">Name Your Party</label>
                             </div>
                         </div>
-                        <div class="listItemContainer">
-                            <div class="listItems"></div>
+
+                        <div class="dateInput row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">event</i>
+                                <input type="text" class="datepicker" id="pickDate">
+                                <label for="pickDate">Pick Start Date</label>
+                            </div>
+                        </div>
+
+                        <div class="timeInput row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">access_time</i>
+                                <input type="time" id="pickStartTime">
+                                <label for="pickTime">Pick Start Time</label>
+                            </div>
+                        </div>
+
+                        <div class="timeInput row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">access_time</i>
+                                <input type="time" id="pickEndTime">
+                                <label for="pickTime">Pick End Time</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <a class="waves-effect waves-light btn readyToPartyButton"><i class="fas fa-glass-cheers"></i> Save</a>
+                        </div>
+
+                        <div class="row">
+                            <a href="#" target="_blank" class="waves-effect waves-light btn eventLink"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="searchContainer">
+                    <div class="searchHeading">
+                        <i class="material-icons closeButton">close</i>
+                        <div class="titleContainer">
+                            <input placeholder="search" class="search" type="text">
+                            <button class="searchButton">Search</button>
                         </div>
 
                     </div>

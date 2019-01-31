@@ -269,3 +269,27 @@ body {
     left: 43%;
     transform: translate(-50%, -50%); 
 }
+
+.inputContainer {
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.readyToPartyButton, .eventLink {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eventLink {
+    margin-top: 5px;
+}
+
+.fas {
+    color: white;
+}
