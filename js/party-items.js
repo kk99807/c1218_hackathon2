@@ -57,15 +57,15 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
-            M.toast({html:'Item has been deleted',displayLength:1000});
-            $('.toast').css('background-color', 'red');  
+            M.toast({html:'Item has been deleted', displayLength:1000});
+            $('.toast').css('background-color', 'red');
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
         } else if (eventType === 'add') {
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
             M.toast({html:'Item has been added', displayLength:1000}); 
-            $('.toast').css('background-color', 'green'); 
+            $('.toast').css('background-color', 'green');
         }
     }
 

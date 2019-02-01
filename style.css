@@ -24,7 +24,6 @@ body {
     bottom: 10%;
     left:50%;
     transform:translate(-50%);
-    /*font-size: 1.4rem;*/
     font-size: 130%;
     background-color:rgb(218,11,79)
 }
@@ -160,7 +159,7 @@ body {
 
 .titleContainer.foodSearch {
     width: 93%;
-    padding-top: 2%;
+    padding-top: 1%;
     float: right;
 }
 
@@ -180,6 +179,27 @@ body {
 
 .music .titleLink {
     font-size: 16px;  
+}
+
+.music .titleContainer {
+    margin-top: -2%;
+}
+
+.displayContainer {
+    height: 95%;
+}
+
+.musicSearchInput {
+    height: 2rem !important;
+    width: 60% !important;
+    margin-top: 1% !important;
+}
+
+.videoIFrame {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
 }
 
 /*----------------- MODALS -----------------*/
@@ -267,14 +287,28 @@ body {
     clear: left;
 }
 
+.ingredients {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
 /*----------------- CARD CONTAINERS -----------------*/
 
 .card {
     background-color: #9c27b0;
+    margin-bottom: 2.5%;
 }
 
 .card.selected {
     background-color: #d81b60;
+}
+
+.card-content {
+    padding: 3% 5%;
+}
+
+.card-image {
+    width: 40%;
 }
 
 .buttonStyle {
@@ -283,6 +317,7 @@ body {
 
 .titleLink{
     height:100%;
+    width: 82%;
     font-size:20px;  
 }
 

@@ -31,7 +31,6 @@ class PartyItem {
 
         let cardImage = $('<div>')
             .addClass('card-image')
-            .css('width', '40%')
             .appendTo(card);
 
         let image = $('<img>')
@@ -45,8 +44,7 @@ class PartyItem {
 
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked)
-            .css('padding', '3% 5%');
+            .appendTo(cardStacked);
 
         let titleLink = $('<div>')
             .addClass('titleLink')
@@ -136,8 +134,7 @@ class RecipeItem extends PartyItem {
         for(let i = 0; i < this.props.ingredients.length; i++){
             let ingredients = $('<li>')
                 .addClass('ingredients')
-                .text(this.props.ingredients[i])
-                .css({'list-style-type': 'disc', 'list-style-position': 'inside'});
+                .text(this.props.ingredients[i]);
             ingredientList.append(ingredients);
         }
 
@@ -161,8 +158,7 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer')
-            .css('height', '95%');
+            .addClass('displayContainer');
 
         let video = $('<iframe>')
             .attr({
@@ -172,12 +168,8 @@ class VideoItem extends PartyItem {
                 src: `https://www.youtube.com/embed/${this.id}`,
                 fs: '1'
             })
-            .css({
-                position: 'relative',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -55%)'
-            });
+            .addClass('videoIFrame');
+            
         container.append(video);
 
         return container;
