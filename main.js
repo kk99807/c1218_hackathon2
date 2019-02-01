@@ -1,8 +1,11 @@
 $(document).ready(initApp);
 
 let party = null;
+let music;
 
 function initApp() {
+    music = document.getElementById("player");
+    music.playbackRate = 1.32;
     party = new Party();
     party.start();
     $('.main').on('click','.section', showAccordion);
@@ -32,4 +35,12 @@ function showAccordion(){
 
 function hideLanding(){
     $('.landing').hide();
+    music.pause();
 }
+
+
+
+
+
+
+

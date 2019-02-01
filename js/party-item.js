@@ -31,6 +31,7 @@ class PartyItem {
 
         let cardImage = $('<div>')
             .addClass('card-image')
+            .css('width', '40%')
             .appendTo(card);
 
         let image = $('<img>')
@@ -41,20 +42,20 @@ class PartyItem {
         let cardStacked = $('<div>')
             .addClass('card-stacked')
             .appendTo(card);
+
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked).css({'display':'flex'});//'padding':'0px'
+            .appendTo(cardStacked)
+            .css('padding', '3% 5%');
 
-        let titleLink = $('<a>')
+        let titleLink = $('<div>')
             .addClass('titleLink')
             .appendTo(cardContent);
 
-        let title = $('<p>')
+        let title = $('<a>')
             .addClass('searchTitle')
             .text(this.name)
             .appendTo(titleLink);
-
-
 
         //card reveal
         let cardReveal = $('<div>')
@@ -94,10 +95,12 @@ class PartyItem {
             .appendTo(cardContent);
 
         title.click(target => this.eventCallback(this, 'view'));
+        image.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
             card.fadeOut(() => card.remove());
             this.eventCallback(this, buttonDef.label);
         });
+
         closeButton.click(() => cardReveal.hide());
         return card;
     }
@@ -133,7 +136,8 @@ class RecipeItem extends PartyItem {
         for(let i = 0; i < this.props.ingredients.length; i++){
             let ingredients = $('<li>')
                 .addClass('ingredients')
-                .text(this.props.ingredients[i]);
+                .text(this.props.ingredients[i])
+                .css({'list-style-type': 'disc', 'list-style-position': 'inside'});
             ingredientList.append(ingredients);
         }
 
