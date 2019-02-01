@@ -17,11 +17,13 @@ class MusicItems extends PartyItems {
      */
     asyncSearch() {
         return new Promise((resolve, reject) => {
+            var searchQuery = $('.musicSearchInput').val();
+            console.log(searchQuery);
             $.ajax({
                 method: 'post',
                 dataType: 'json',
                 url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
-                data: {q: 'techno', maxResults: 5},
+                data: {q: `${searchQuery} music`, maxResults: 8},
                 success: data => {
                     let items = data.video.map(item => new VideoItem(
                         item.id,
