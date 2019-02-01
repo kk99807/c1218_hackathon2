@@ -18,7 +18,6 @@ class MusicItems extends PartyItems {
     asyncSearch() {
         return new Promise((resolve, reject) => {
             var searchQuery = $('.musicSearchInput').val();
-            console.log(searchQuery);
             $.ajax({
                 method: 'post',
                 dataType: 'json',
