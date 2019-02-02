@@ -160,6 +160,11 @@ class VideoItem extends PartyItem {
             .addClass('displayContainer')
             .css('height', '95%');
 
+        let spinner = $('<i>')
+            .addClass("fa fa-spinner fa-spin");
+
+        container.append(spinner);
+
         let video = $('<iframe>')
             .attr({
                 type: 'text/html',
