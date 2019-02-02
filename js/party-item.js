@@ -41,20 +41,19 @@ class PartyItem {
         let cardStacked = $('<div>')
             .addClass('card-stacked')
             .appendTo(card);
+
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked).css({'display':'flex'});//'padding':'0px'
+            .appendTo(cardStacked);
 
-        let titleLink = $('<a>')
+        let titleLink = $('<div>')
             .addClass('titleLink')
             .appendTo(cardContent);
 
-        let title = $('<p>')
+        let title = $('<a>')
             .addClass('searchTitle')
             .text(this.name)
             .appendTo(titleLink);
-
-
 
         //card reveal
         let cardReveal = $('<div>')
@@ -94,10 +93,12 @@ class PartyItem {
             .appendTo(cardContent);
 
         title.click(target => this.eventCallback(this, 'view'));
+        image.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
             card.fadeOut(() => card.remove());
             this.eventCallback(this, buttonDef.label);
         });
+
         closeButton.click(() => cardReveal.hide());
         return card;
     }
@@ -157,8 +158,7 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer')
-            .css('height', '95%');
+            .addClass('displayContainer');
 
         let spinner = $('<i>')
             .addClass("fa fa-spinner fa-spin");
@@ -173,12 +173,8 @@ class VideoItem extends PartyItem {
                 src: `https://www.youtube.com/embed/${this.id}`,
                 fs: '1'
             })
-            .css({
-                position: 'relative',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -55%)'
-            });
+            .addClass('videoIFrame');
+            
         container.append(video);
 
         return container;

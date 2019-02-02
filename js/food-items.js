@@ -29,30 +29,30 @@ class FoodItems extends PartyItems {
             query = 'appetizer';
         }
 
-        const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=';
+        const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=5&tags=';
 
         return new Promise((resolve, reject) => {
             $.ajax({
                 method: 'get',
                 dataType: 'json',
-                headers: {[API_KEY_KEY]: API_KEY},
+                headers: {'X-RapidAPI-Key': API_KEY},
                 url: BASEURL + query,
                 success: data => {
-                    let ingredients = [];
-              
-                    for(let i = 0; i < data.recipes[0].extendedIngredients.length; i++){
-                        let ingredient = data.recipes[0].extendedIngredients[i].original;
-                        ingredients.push(ingredient);
-     
-                    }
-                        
-                    let items = data.recipes.map(item => new RecipeItem(
-                        item.id, 
-                        item.title, 
-                        item.image, 
-                        this.handleItemClick, 
-                        {ingredients: ingredients, instructions: item.instructions}
-                    ));
+                    let items = data.recipes.map(item => {
+                        let ingredients = [];
+                        for(let i = 0; i < item.extendedIngredients.length; i++){
+                            let ingredient = item.extendedIngredients[i].original;
+                            ingredients.push(ingredient);
+                        }
+
+                        return new RecipeItem(
+                            item.id, 
+                            item.title, 
+                            item.image, 
+                            this.handleItemClick, 
+                            {ingredients: ingredients, instructions: item.instructions}
+                        );
+                    });
                     resolve(items);
                     
                 },
