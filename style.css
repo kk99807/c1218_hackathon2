@@ -1,11 +1,132 @@
-h1 {
-    margin: 0;
-}
-
 body {
     height: 100vh;
     margin: 0;
+    padding: 0;
+    font-family: 'Shadows Into Light', cursive;
 }
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.contentContainer {
+    padding-top: 7%;
+}
+
+.detailsHeader, .foodHeader {
+    height: 15vh;
+    margin: 0;
+    padding-top: 5%;
+    color: white;
+    text-align: center;
+    background-size: cover;
+}    
+
+/*-------------- DETAILS --------------*/
+
+.details {
+    color: #d650b0;
+}
+
+.detailsHeader {
+    background-image: url(images/details.png);
+    background-position-y: 50%;
+}
+
+.details .text {
+    margin-bottom: 8%;
+}
+
+.details .contentContainer {
+    height: 85vh;
+    background-color: #fce4ec;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.inputContainer {
+    height: 72%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.readyToPartyButton {
+    width: 60%;
+    padding-bottom: 15%;
+    font-size: 2em;
+    font-family: 'Shadows Into Light', cursive;
+    background-color: #d650b0;
+}
+
+.readyToPartyButton .fas {
+    font-size: 0.9em;
+}
+
+/*-------------- FOOD --------------*/
+
+
+.foodHeader {
+    background-image: url(images/food.jpeg);
+    background-position-y: 50%;
+}
+
+.foodDetails {
+    color: #b245c4;
+    background-color: #f1cbf7;
+}
+
+.searchResults img {
+    height: 100px;
+    width: 100px;
+}
+
+.searchInputContainer {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.foodSearchButton {
+    width: 10%;
+    padding: 0.5% 1% 1% 1%;
+    background-color: #b245c4;
+
+}
+
+.foodSearchInput {
+    border-bottom-color: #b245c4;
+}
+
+.foodSearchInput::placeholder{
+    color: #b245c4;
+    opacity: 1;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.goToMusic {
+    background-color: #b245c4;
+}
+
+/*-------------- SLICK --------------*/
+
+.slick-list {
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+
 
 /*----------------- LANDING PAGE -----------------*/
 
@@ -27,6 +148,7 @@ body {
     font-size: 130%;
     background-color:rgb(218,11,79)
 }
+
 .mainTitle{
     text-align:center;
     color: rgb(53, 34, 221);
@@ -49,32 +171,32 @@ body {
 
 /*----------------- MAIN PAGE -----------------*/
 
-.main{
+/*.main{
     height:100%;
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+}*/
 
-.section{
+/*.section{
     height:25%;
     flex: 1;
     padding: 0;
-}
+}*/
 
-.section p {
+/*.section p {
     padding: 0;
-}
+}*/
 
-.section{
+/*.section{
     position:relative;
     background-size:100% 100%;
     background-repeat:no-repeat;
     border:1px solid purple;
     box-sizing:border-box;
-}
+}*/
 
-.sectionTitle{
+/*.sectionTitle{
     font-size:3rem;
     margin:0;
     position:absolute;
@@ -83,14 +205,14 @@ body {
     transform:translate(-50%, -50%);
     color: white;
     font-family: 'Shadows Into Light', cursive;
-}
+}*/
 
-.wholeContainer{
+/*.wholeContainer{
     height:100%;
     display:none;
-}
+}*/
 
-.contentContainerTitle {
+/*.contentContainerTitle {
     height: 15%;
     display: flex;
     justify-content: space-between;
@@ -98,48 +220,32 @@ body {
     padding: 0 4%;
     font-family: 'Shadows Into Light', cursive;
     font-weight:bold;
-}
+}*/
 
-.contentContainerTitle h2 {
+/*.contentContainerTitle h2 {
     display: inline-block;
     font-size: 2rem;
     color: white;
     margin: 1%;
-}
+}*/
 
-.contentContainer {
-    height: 85%;
-    width: 100%;
-    background-color: #fce4ec;
-    overflow-y: scroll;
-}
+
 
 /*----------------- CALENDAR -----------------*/
 
-.details{
-    background-image:url('images/details.png');
-}
+
 
 .eventLink {
     margin-right: 5%;
 }
 
-.inputContainer {
-    width: 80%;
-    position: relative;
-    left: 10%;
-}
 
 .row {
     margin-bottom: 0;
     margin-top: 3%;
 }
 
-.readyToPartyButton {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 
 .calendarButton {
     width: 15%;
@@ -204,9 +310,8 @@ body {
 
 /*----------------- MODALS -----------------*/
 
-.searchContainer,
-.informationContainer,
-.contentContainer {
+
+.informationContainer {
     display: none;
     position: absolute;
 }
@@ -240,10 +345,10 @@ body {
     justify-content: space-evenly;
 }
 
-.listItemContainer {
+/*.listItemContainer {
     overflow-y: scroll;
     height: 85%;
-}
+}*/
 
 .searchIcon {
     width: 15%;
@@ -272,12 +377,12 @@ body {
     padding: 0 3% 3% 3%;
 }
 
-.detailsTitle {
+/*.detailsTitle {
     margin: 0 0 3% 0;
     font-size: 2.2rem;
     font-family: 'Shadows Into Light', cursive;
     color: #9c27b0;
-}
+}*/
 
 .detailsImage {
     height: 100px;

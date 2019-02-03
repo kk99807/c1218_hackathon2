@@ -20,16 +20,16 @@ class PartyItems {
     bindEvents() {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.showSearch = this.showSearch.bind(this);
-        this.hideSearch = this.hideSearch.bind(this);
-        this.hideDetails = this.hideDetails.bind(this);
+        // this.showSearch = this.showSearch.bind(this);
+        // this.hideSearch = this.hideSearch.bind(this);
+        // this.hideDetails = this.hideDetails.bind(this);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.searchIcon').click(this.handleSearch);
+        this.domElement.find('.foodSearchButton').click(this.handleSearch);
         
-        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
-        this.domElement.find('.addItems').click(this.showSearch);
+        // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
+        // this.domElement.find('.addItems').click(this.showSearch);
     }
 
     /**
@@ -77,39 +77,39 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    /**
-     * Show a search screen for party items of this type
-     */
-    showSearch() {
-        setAccordion(false);
-        this.domElement.find('.searchContainer').show();
-    }
+    // /**
+    //  * Show a search screen for party items of this type
+    //  */
+    // showSearch() {
+    //     setAccordion(false);
+    //     this.domElement.find('.searchContainer').show();
+    // }
 
-    /**
-     * Show details for a selected Party Item
-     * @param {PartyItem} item 
-     */
-    showDetails(item) {
-        setAccordion(false);
-        this.domElement.find('.informationContainer .displayContainer')
-            .empty()
-            .append(item.renderDetails());
-        this.domElement.find('.informationContainer').show();
-    }
+    // /**
+    //  * Show details for a selected Party Item
+    //  * @param {PartyItem} item 
+    //  */
+    // showDetails(item) {
+    //     setAccordion(false);
+    //     this.domElement.find('.informationContainer .displayContainer')
+    //         .empty()
+    //         .append(item.renderDetails());
+    //     this.domElement.find('.informationContainer').show();
+    // }
 
-    /**
-     * Hide the search screen for items of this type
-     */
-    hideSearch() {
-        setAccordion(true);
-        this.domElement.find('.searchContainer').hide();
-    }
+    // /**
+    //  * Hide the search screen for items of this type
+    //  */
+    // hideSearch() {
+    //     setAccordion(true);
+    //     this.domElement.find('.searchContainer').hide();
+    // }
 
-    /**
-     * Hide the details screen for items of this type
-     */
-    hideDetails() {
-        setAccordion(true);
-        this.domElement.find('.informationContainer').hide();       
-    }
+    // /**
+    //  * Hide the details screen for items of this type
+    //  */
+    // hideDetails() {
+    //     setAccordion(true);
+    //     this.domElement.find('.informationContainer').hide();       
+    // }
 }

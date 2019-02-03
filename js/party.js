@@ -30,7 +30,7 @@ class Party {
      * Start the app
      */
     start() {
-        this.partyOrganizer.foods.showList();
+        // this.partyOrganizer.foods.showList();
         this.partyOrganizer.cocktails.showList();
         this.partyOrganizer.music.showList();
     }
@@ -49,8 +49,6 @@ class Party {
                 this.eventKey = eventKey;
                 $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
                 this.addInviteDOM.show();
-                M.toast({html:'Your information has been saved!', displayLength:1000});
-                $('.toast').css('background-color', 'green');
             });
     }
 
