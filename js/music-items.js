@@ -31,7 +31,8 @@ class MusicItems extends PartyItems {
                         item.title,
                         `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`,
                         this.handleItemClick,
-                        {}
+                        {},
+                        $('.musicHeader .badge')
                     ));
                     resolve(items);
 

@@ -432,3 +432,8 @@ body {
     top: 80%;
     transform: translateX(-50%);
 }
+
+.musicTitle,
+.badge {
+    color: white;
+}

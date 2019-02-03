@@ -66,6 +66,10 @@ class PartyItems {
         } else if (eventType === 'add') {
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
+
+            let badgeValue = item.badge.text();
+            item.badge.text(++badgeValue);
+
             M.toast({html:'Item has been added', displayLength:1000}); 
             $('.toast').css('background-color', 'green');
         }
@@ -113,5 +117,34 @@ class PartyItems {
     hideDetails() {
         setAccordion(true);
         this.domElement.find('.informationContainer').hide();       
+    }
+
+    nextHandlerSearch(){
+        this.nextElement.asyncSearch()
+            .then(items => {
+                items.map(item => {
+
+                    let img = $('<img>').attr('src', item.imageURL);
+
+                    let div = $('<div>');
+                    img.click(target => {
+                        this.handleItemClick(item, 'add');
+                        div.remove();
+                    });
+                    div.append(img);
+                    $('.searchResults').append(div).slick('unslick').slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 1500,
+                        swipe: true,
+                        adaptiveHeight: true,
+                        touchMove: true,
+                        centerMode: true,
+                    });
+
+
+                })
+            });
     }
 }

@@ -70,35 +70,7 @@ class FoodItems extends PartyItems {
 
     nextClickHandler(){
         $('.food').hide();
-        this.nextElement.asyncSearch()
-            .then(items => {
-                items.map(item => {
-
-                    let img = $('<img>').attr('src', item.imageURL);
-
-                    let div = $('<div>');
-                    img.click(target => {
-                        this.handleItemClick(item, 'add');
-                        div.remove();
-                    });
-                    div.append(img);
-                    $('.searchResults').append(div);
-                    $('.searchResults').slick('unslick');
-                    $('.searchResults').slick({
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        autoplaySpeed: 1500,
-                        swipe: true,
-                        adaptiveHeight: true,
-                        touchMove: true,
-                        centerMode: true,
-                    });
-
-
-                })
-            });
-
+        this.nextHandlerSearch();
         $('.music').show();
     }
 
