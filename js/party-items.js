@@ -25,13 +25,16 @@ class PartyItems {
         this.hideSearch = this.hideSearch.bind(this);
         this.hideDetails = this.hideDetails.bind(this);
 
+        this.badgeClickHandler = this.badgeClickHandler.bind(this);
+        this.domElement.find('.badge').click(this.badgeClickHandler);
+
+
         this.domElement.find('.searchButton').click(this.handleSearch);
         this.domElement.find('.searchIcon').click(this.handleSearch);
         
         this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
         this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
         this.domElement.find('.addItems').click(this.showSearch);
-
     }
 
     /**
@@ -128,7 +131,7 @@ class PartyItems {
 
                     let div = $('<div>');
                     img.click(target => {
-                        this.handleItemClick(item, 'add');
+                        this.nextElement.handleItemClick(item, 'add');
                         div.remove();
                     });
                     div.append(img);
@@ -147,4 +150,22 @@ class PartyItems {
                 })
             });
     }
+
+    badgeClickHandler(){
+        let addedItemContainer = $('<div>').addClass('addedItemContainer');
+        let closeButtonAddedItemContainer = $('<i>')
+            .addClass('material-icons closeButtonAddedItem')
+            .text('close')
+            .css('color', 'white')
+            .click(this.closeButtonAddedItemHandler);
+
+        addedItemContainer.append(closeButtonAddedItemContainer, this.items.map(item => item.renderSearch()));
+        this.domElement.append(addedItemContainer);
+    }
+
+    closeButtonAddedItemHandler(){
+        $('.addedItemContainer').hide();
+    }
+
+
 }
