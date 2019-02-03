@@ -25,7 +25,7 @@ class PartyItems {
         // this.hideDetails = this.hideDetails.bind(this);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.foodSearchButton').click(this.handleSearch);
+        
         
         // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
         // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);

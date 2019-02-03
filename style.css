@@ -13,6 +13,14 @@ h1, h2, h3, h4, h5 {
     display: none;
 }
 
+.contentContainer {
+    height: 85vh;
+    padding: 4% 3% 0 3%;
+    
+    overflow-y: scroll;
+    text-align: center;
+}
+
 .startButton, .readyToPartyButton, .goToMusic {
     width: 60%;
     position:absolute;
@@ -51,11 +59,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .details .contentContainer {
-    height: 85vh;
-    padding: 4% 3% 0 3%;
+    
+
     background-color: #fce4ec;
-    overflow-y: scroll;
-    text-align: center;
 }
 
 .inputContainer {
@@ -94,16 +100,26 @@ h1, h2, h3, h4, h5 {
 
 .searchInputContainer {
     margin-top: 10%;
+    padding: 0 3%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
 }
 
+.foodSearchButton:hover, .goToMusic:hover {
+    background-color: #b245c4;
+}
+
 .foodSearchButton {
     width: 10%;
+    margin: 3% 0 0 3%;
     padding: 0.5% 1% 1% 1%;
     background-color: #b245c4;
+}
+
+.foodSearchInput {
+    width: 80%;
 }
 
 .foodSearchInput::placeholder{

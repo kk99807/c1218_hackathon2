@@ -9,6 +9,7 @@ class FoodItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        this.domElement.find('.goToFood').click(this.handleSearch);
     }
 
     /**
