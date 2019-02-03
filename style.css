@@ -61,14 +61,14 @@ h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
-.foodDetails, .musicDetails {
+.cocktailDetails, .foodDetails, .musicDetails {
     height: 85vh;
     padding: 4% 3% 0 3%;
     text-align: center;
     overflow: hidden;
 }
 
-.detailsHeader, .foodHeader, .musicHeader {
+.detailsHeader, .cocktailsHeader, .foodHeader, .musicHeader {
     height: 15vh;
     margin: 0;
     padding-top: 5%;
@@ -101,14 +101,14 @@ h1, h2, h3, h4, h5 {
     padding: 0.5% 1% 1% 1%;
 }
 
-.startButton, .readyToPartyButton, .goToMusic, .goToParties {
+.startButton, .readyToPartyButton, .goToFood, .goToMusic, .goToParties {
     width: 60%;
     position:absolute;
     left:50%;
     transform:translate(-50%);
 }
 
-.readyToPartyButton, .goToMusic, .goToParties {
+.readyToPartyButton, .goToFood, .goToMusic, .goToParties {
     bottom: 4%;
     font-size: 1.8em;
     font-family: 'Shadows Into Light', cursive;
@@ -145,6 +145,21 @@ h1, h2, h3, h4, h5 {
 
 .readyToPartyButton:hover {
     background-color: #d650b0;
+}
+
+/*-------------- COCKTAILS --------------*/
+
+.cocktailDetails {
+    background-color: #cdf1fd;
+}
+
+.cocktailsHeader {
+    background-image: url(images/cocktails.png);
+    background-position-y: 50%;
+}
+
+.goToFood, .goToFood:hover {
+    background-color: #45a6c4;
 }
 
 /*-------------- FOOD --------------*/
