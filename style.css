@@ -158,6 +158,14 @@ h1, h2, h3, h4, h5 {
     background-position-y: 50%;
 }
 
+.cocktailsTitle .collection-item {
+    margin-left: 27%;
+}
+
+.cocktailsBadge.badge {
+    color: #45a6c4;
+}
+
 .goToFood, .goToFood:hover {
     background-color: #45a6c4;
 }
@@ -174,11 +182,15 @@ h1, h2, h3, h4, h5 {
     background-position-y: 50%;
 }
 
+.foodTitle .collection-item {
+    margin-left: 10%;
+}
+
 .foodSearchButton, .foodSearchButton:hover, .goToMusic, .goToMusic:hover {
     background-color: #b245c4;
 }
 
-.foodSearchInput, .foodSearchInput::placeholder {
+.foodSearchInput, .foodSearchInput::placeholder, .foodBadge.badge {
     color: #b245c4;
 }
 
@@ -194,11 +206,15 @@ h1, h2, h3, h4, h5 {
     background-position-y: 90%;
 }
 
+.musicTitle .collection-item {
+    margin-left: 39%;
+}
+
 .musicSearchButton, .musicSearchButton:hover, .goToParties, .goToParties:hover {
     background-color: #7d45c4;
 }
 
-.musicSearchInput, .musicSearchInput::placeholder {
+.musicSearchInput, .musicSearchInput::placeholder, .musicBadge.badge {
     color: #7d45d4;
 }
 
@@ -211,6 +227,25 @@ h1, h2, h3, h4, h5 {
 .searchResults img {
     height: 100px;
     width: 100px;
+}
+
+/*-------------- BADGES --------------*/
+
+.collection-item {
+    height: 5vh;
+    width: 9%;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: white;
+    color: white;  
+}
+
+.badge {
+    position: relative;
+    top: 11%;
+    left: 14%;
+    font-size: 0.5em !important;
+    font-weight: 900;
 }
 
 /*-------------- SLICK --------------*/
