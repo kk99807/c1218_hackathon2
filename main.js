@@ -5,13 +5,26 @@ let music;
 
 function initApp() {
     music = document.getElementById("player");
-    music.playbackRate = 1.32;
+    //music.playbackRate = 1.32;
     party = new Party();
     party.start();
     $('.main').on('click','.section', showAccordion);
     $('.startButton').on('click', hideLanding);
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
     $('.details .informationContainer .btn').css('margin', '20px');
+
+    $('.searchResults').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        swipe: true,
+        adaptiveHeight: true,
+        touchMove: true,
+        centerMode: true,
+    });
+
+    $('.slick-prev, .slick-next').text('');
 }
 
 function setAccordion( active ) {
@@ -37,6 +50,11 @@ function hideLanding(){
     $('.landing').hide();
     music.pause();
 }
+
+
+
+
+
 
 
 

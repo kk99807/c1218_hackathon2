@@ -15,10 +15,10 @@ class Party {
         this.addInviteDOM = $('.details .informationContainer');
 
         this.partyOrganizer = {
-            foods: new FoodItems($('.food')),
-            cocktails: new CocktailItems($('.cocktail')),
             music: new MusicItems($('.music'))
-        }
+        };
+        this.partyOrganizer.foods = new FoodItems($('.food'), this.partyOrganizer.music);
+        this.partyOrganizer.cocktails =  new CocktailItems($('.cocktail'), this.partyOrganizer.foods);
 
         this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
 
