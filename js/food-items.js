@@ -15,19 +15,9 @@ class FoodItems extends PartyItems {
      * Called by PartyItems superclass when user requests a search to retrieve food recipes
      * @returns {Promise} a Promise to retrieve an array of RecipeItem of the specified type (chicken|beef|vegetarian)
      */
-    asyncSearch(target) {
-        // let buttonClass = target.currentTarget.attributes.class.nodeValue;
+    asyncSearch() {
         let query = $('.foodSearchInput').val();
-
-        // if(buttonClass === 'searchIcon beefIcon'){
-        //     query = 'appetizer%2C+beef';
-        // } else if(buttonClass === 'searchIcon chickenIcon'){
-        //     query = 'appetizer%2C+chicken';
-        // } else if(buttonClass === 'searchIcon veggieIcon'){
-        //     query = 'appetizer%2C+vegetarian';
-        // } else if(buttonClass === 'searchIcon questionIcon'){
-        //     query = 'appetizer';
-        // }
+        let i = 1;
 
         const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=';
 
@@ -38,12 +28,19 @@ class FoodItems extends PartyItems {
                 headers: {'X-RapidAPI-Key': API_KEY},
                 url: BASEURL + query,
                 success: data => {
+                    console.log(data)
                     let items = data.recipes.map(item => {
                         let ingredients = [];
                         for(let i = 0; i < item.extendedIngredients.length; i++){
                             let ingredient = item.extendedIngredients[i].original;
                             ingredients.push(ingredient);
                         }
+
+                        $(`.item${i} img`).attr('src', item.image);
+                        $(`.item${i} p`).text(item.title);
+                        i++
+
+                        // if no image....
 
                         return new RecipeItem(
                             item.id, 

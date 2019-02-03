@@ -23,15 +23,6 @@ class PartyItem {
      */
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
-        let card = $('<div>');
-
-        let image = $('<img>')
-            .attr('src', this.imageURL);
-
-        let title = $('<p>')
-            .text(this.name);
-
-        card.append(image, title);
  
         // let card = $('<div>').addClass('card horizontal');
 
@@ -110,7 +101,7 @@ class PartyItem {
         // });
 
         // closeButton.click(() => cardReveal.hide());
-        return card;
+        // return card;
     }
 }
 

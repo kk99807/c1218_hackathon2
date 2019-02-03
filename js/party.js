@@ -30,7 +30,7 @@ class Party {
      * Start the app
      */
     start() {
-        // this.partyOrganizer.foods.showList();
+        this.partyOrganizer.foods.showList();
         this.partyOrganizer.cocktails.showList();
         this.partyOrganizer.music.showList();
     }

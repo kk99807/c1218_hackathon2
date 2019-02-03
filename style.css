@@ -13,8 +13,11 @@ h1, h2, h3, h4, h5 {
     display: none;
 }
 
-.contentContainer {
-    padding-top: 7%;
+.startButton, .goToMusic {
+    position:absolute;
+    left:50%;
+    transform:translate(-50%);
+    font-size: 130%;
 }
 
 .detailsHeader, .foodHeader {
@@ -24,7 +27,11 @@ h1, h2, h3, h4, h5 {
     color: white;
     text-align: center;
     background-size: cover;
-}    
+} 
+
+.details h4, .food h4 {
+    margin-bottom: 8%;
+} 
 
 /*-------------- DETAILS --------------*/
 
@@ -35,10 +42,6 @@ h1, h2, h3, h4, h5 {
 .detailsHeader {
     background-image: url(images/details.png);
     background-position-y: 50%;
-}
-
-.details .text {
-    margin-bottom: 8%;
 }
 
 .details .contentContainer {
@@ -68,20 +71,18 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- FOOD --------------*/
 
-
-.foodHeader {
-    background-image: url(images/food.jpeg);
-    background-position-y: 50%;
-}
-
 .foodDetails {
+    height: 85vh;
+    padding: 4% 3% 0 3%;
+    text-align: center;
+    overflow: hidden;
     color: #b245c4;
     background-color: #f1cbf7;
 }
 
-.searchResults img {
-    height: 100px;
-    width: 100px;
+.foodHeader {
+    background-image: url(images/food.jpeg);
+    background-position-y: 50%;
 }
 
 .searchInputContainer {
@@ -96,11 +97,6 @@ h1, h2, h3, h4, h5 {
     width: 10%;
     padding: 0.5% 1% 1% 1%;
     background-color: #b245c4;
-
-}
-
-.foodSearchInput {
-    border-bottom-color: #b245c4;
 }
 
 .foodSearchInput::placeholder{
@@ -110,7 +106,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .goToMusic {
+    bottom: 4%;
     background-color: #b245c4;
+}
+
+/*-------------- DISPLAY SEARCH RESULTS --------------*/
+
+.searcResults {
+    height: 28.2%;
+}
+
+.searchResults img {
+    height: 100px;
+    width: 100px;
 }
 
 /*-------------- SLICK --------------*/
@@ -119,7 +127,9 @@ h1, h2, h3, h4, h5 {
     height: 80%;
 }
 
-
+.slick-slide p {
+    margin-bottom: 0;
+}
 
 
 
@@ -141,11 +151,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .startButton{
-    position:absolute;
     bottom: 10%;
-    left:50%;
-    transform:translate(-50%);
-    font-size: 130%;
     background-color:rgb(218,11,79)
 }
 

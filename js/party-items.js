@@ -35,14 +35,15 @@ class PartyItems {
     /**
      * Perform search using async search method implemented in subclasses & display results
      */
-    handleSearch(target) {
+    handleSearch() {
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItemContainer').append(spinner);
 
-        this.asyncSearch(target)
+        this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
             .then(items => {
-                this.domSearchResults.empty().append(items);
+                // this.domSearchResults.empty().append(items);
+                this.domSearchResults.append(items);
                 $('.fa-spinner').remove();
             });
     }
