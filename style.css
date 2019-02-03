@@ -670,3 +670,37 @@ h1, h2, h3, h4, h5 {
     position: absolute;
     top: 15%;
 }
+/*----------------- test for search container -----------------*/
+/*
+.sectionTitle {
+    display: none;
+}
+.wholeContainer {
+    display: none;
+}
+.newPageSearchContainer {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 85%;
+}
+.newSection {
+    height: 100%;
+}
+*/
+
+.newPageSearchContainer {
+    height: 85%;
+    width: 100%;
+    display:none;
+    position: absolute;
+    top: 15%;
+    overflow-y: scroll;
+}
+.newSection {
+    height: 100%;
+}
+
+.newSearchCloseButton {
+    color: white;
+}
