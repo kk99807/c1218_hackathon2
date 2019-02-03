@@ -272,6 +272,10 @@ h1, h2, h3, h4, h5 {
     background-color: #3232ff;
 }
 
+.partyBadge.badge {
+    color: #3232ff;
+}
+
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .searcResults {
