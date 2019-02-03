@@ -29,11 +29,11 @@ class Party {
     /**
      * Start the app
      */
-    // start() {
-    //     this.partyOrganizer.foods.showList();
-    //     this.partyOrganizer.cocktails.showList();
-    //     this.partyOrganizer.music.showList();
-    // }
+    start() {
+        this.partyOrganizer.foods.showList();
+        this.partyOrganizer.cocktails.showList();
+        this.partyOrganizer.music.showList();
+    }
 
     /**
      * Save Event Details and create a calendar entry on user request to update details
