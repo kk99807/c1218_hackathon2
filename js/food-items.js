@@ -70,7 +70,6 @@ class FoodItems extends PartyItems {
 
     nextClickHandler(){
         $('.food').hide();
-        console.log(this);
         this.nextElement.asyncSearch()
             .then(items => {
                 items.map(item => {
@@ -78,13 +77,24 @@ class FoodItems extends PartyItems {
                     let img = $('<img>').attr('src', item.imageURL);
 
                     let div = $('<div>');
-                    img.click( target => {
-                        console.log(item);
+                    img.click(target => {
                         this.handleItemClick(item, 'add');
                         div.remove();
                     });
                     div.append(img);
                     $('.searchResults').append(div);
+                    $('.searchResults').slick('unslick');
+                    $('.searchResults').slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 1500,
+                        swipe: true,
+                        adaptiveHeight: true,
+                        touchMove: true,
+                        centerMode: true,
+                    });
+
 
                 })
             });

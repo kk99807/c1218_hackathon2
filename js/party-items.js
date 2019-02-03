@@ -64,8 +64,6 @@ class PartyItems {
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
         } else if (eventType === 'add') {
-            console.log(item);
-            console.log(item instanceof VideoItem);
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
             M.toast({html:'Item has been added', displayLength:1000}); 

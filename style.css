@@ -418,3 +418,17 @@ body {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+
+
+.contentContainer > p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.informationContainer > .closeButton {
+    position: relative;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+}
