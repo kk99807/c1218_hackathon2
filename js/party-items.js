@@ -21,41 +21,36 @@ class PartyItems {
     bindEvents() {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.showSearch = this.showSearch.bind(this);
-        this.hideSearch = this.hideSearch.bind(this);
-        this.hideDetails = this.hideDetails.bind(this);
-
+        // this.showSearch = this.showSearch.bind(this);
+        // this.hideSearch = this.hideSearch.bind(this);
+        // this.hideDetails = this.hideDetails.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
         this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
         this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
         this.domElement.find('.badge').click(this.badgeClickHandler);
-        this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
-        this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
-
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.searchIcon').click(this.handleSearch);
+        // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
+        // this.domElement.find('.addItems').click(this.showSearch);
 
-
-        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
-        this.domElement.find('.addItems').click(this.showSearch);
+        this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
+        this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
     }
 
     /**
      * Perform search using async search method implemented in subclasses & display results
      */
-    handleSearch(target) {
+    handleSearch() {
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
-        $('.listItemContainer').append(spinner);
+        $('.listItems').append(spinner);
         $('.newPageSearchContainer').append(spinner);
 
-        this.asyncSearch(target)
-            .then(items => items.map(item => item.renderSearch()))
+        this.asyncSearch()
+            // .then(items => items.map(item => item.renderSearch()))
             .then(items => {
-                this.domSearchResults.empty().append(items);
-                this.domElement.find('.newPageSearchContainer').append(items);
-
+                // this.domSearchResults.empty().append(items);
+                this.domSearchResults.append(items);
                 $('.fa-spinner').remove();
             });
     }
@@ -94,41 +89,43 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    /**
-     * Show a search screen for party items of this type
-     */
-    showSearch() {
-        setAccordion(false);
-        this.domElement.find('.searchContainer').show();
-    }
+    // /**
+    //  * Show a search screen for party items of this type
+    //  */
+    // showSearch() {
+    //     setAccordion(false);
+    //     this.domElement.find('.searchContainer').show();
+    // }
 
-    /**
-     * Show details for a selected Party Item
-     * @param {PartyItem} item 
-     */
-    showDetails(item) {
-        setAccordion(false);
-        this.domElement.find('.informationContainer .displayContainer')
-            .empty()
-            .append(item.renderDetails());
-        this.domElement.find('.informationContainer').show();
-    }
+    // /**
+    //  * Show details for a selected Party Item
+    //  * @param {PartyItem} item 
+    //  */
+    // showDetails(item) {
+    //     setAccordion(false);
+    //     this.domElement.find('.informationContainer .displayContainer')
+    //         .empty()
+    //         .append(item.renderDetails());
+    //     this.domElement.find('.informationContainer').show();
+    // }
 
-    /**
-     * Hide the search screen for items of this type
-     */
-    hideSearch() {
-        setAccordion(true);
-        this.domElement.find('.searchContainer').hide();
-    }
+    // /**
+    //  * Hide the search screen for items of this type
+    //  */
+    // hideSearch() {
+    //     setAccordion(true);
+    //     this.domElement.find('.searchContainer').hide();
+    // }
 
-    /**
-     * Hide the details screen for items of this type
-     */
-    hideDetails() {
-        setAccordion(true);
-        this.domElement.find('.informationContainer').hide();       
-    }
+
+    // /**
+    //  * Hide the details screen for items of this type
+    //  */
+    // hideDetails() {
+    //     setAccordion(true);
+    //     this.domElement.find('.informationContainer').hide();       
+    // }
+
 
     nextHandlerSearch(){
         this.nextElement.asyncSearch()
