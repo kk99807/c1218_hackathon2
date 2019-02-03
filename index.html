@@ -3,15 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="assets/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/slick/slick/slick.css"/>
+        <link rel="stylesheet" href="assets/materialize.min.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/slick/slick/slick.css"/>
+        <link rel="stylesheet" href="assets/materialize-icons.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <script src="assets/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/materialize.min.js"></script>
-        <script type="text/javascript" src="js/config.js"></script>
+        <script src="assets/materialize.min.js"></script>
+        <script src="js/config.js"></script>
         <script src="js/party-item.js"></script>
         <script src="js/party-items.js"></script>
         <script src="js/cocktail-items.js"></script>
@@ -130,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="food">
+            <div class="food hidden">
                 <div class="foodHeader">
                     <h2 class="foodTitle">Appetizers</h2>
                     <a href="#!" class="collection-item"><span class="badge">1</span></a>
@@ -160,68 +161,56 @@
 
                     <button class="goToMusic waves-effect waves-light btn-large">Next</button>
                 </div>
-                <!-- <p class='sectionTitle'>Food</p>
-                <div class="wholeContainer">
-                    <div class='contentContainerTitle'>
-                        <div>
-                            <h2>Food</h2>
-                        </div>
-                    </div>
-
-                    <div class="contentContainer"></div>
-                    <div class="searchContainer">
-                        <div class="searchHeading">
-                            <i class="material-icons closeButton">close</i>
-                            <div class="titleContainer foodSearch">
-                                <div class="searchIcon beefIcon"><img class="beef" src="images/beef.png"></div>
-                                <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
-                                <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
-                                <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
-                            </div>
-                        </div>
-                        <div class="listItemContainer">
-                            <div class="listItems"></div>
-                        </div>
-                    </div>
-                    <div class="informationContainer">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="displayContainer"></div>
-                    </div>
-                </div> -->
             </div>
 
-            <div class="music hidden">
-                <p class='sectionTitle'>Music</p>
-                <div class="wholeContainer">
-                    <div class='contentContainerTitle'>
-                        <div>
-                            <h2>Music</h2>
-                        </div>
-                        <div class="addItems">
-                            <i class="fas fa-music"></i>
-                            <i class="fas fa-plus"></i>
-                        </div>
+            <div class="music">
+                <div class="musicHeader">
+                    <h2 class="musicTitle">Music</h2>
+                    <a href="#!" class="collection-item"><span class="badge">1</span></a>
+                </div>
+  
+                <div class="musicDetails">
+                    <h4 class="text">What music will you play?</h4>
+                    <h5 class="text">Tap to add a song:</h5>
+                    <div class="searchResults listItems">
+                        <div class="item1"><img><p></p></div>
+                        <div class="item2"><img><p></p></div>
+                        <div class="item3"><img><p></p></div>
+                        <div class="item4"><img><p></p></div>
+                        <div class="item5"><img><p></p></div>
+                        <div class="item6"><img><p></p></div>
+                        <div class="item7"><img><p></p></div>
+                        <div class="item8"><img><p></p></div>
+                        <div class="item9"><img><p></p></div>
+                        <div class="item10"><img><p></p></div>
                     </div>
-                    <div class="contentContainer"></div>
-                    <div class="searchContainer">
-                        <div class="searchHeading">
-                            <i class="material-icons closeButton">close</i>
-                            <div class="titleContainer">
-                              <input type="text" class="musicSearchInput col s4" placeholder="MUSIC">
-                              <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
-                            </div>
-                        </div>
-                        <div class="listItemContainer">
-                            <div class="listItems"></div>
-                        </div>
+                    <h5 class="text">Or search for your favorite artist:</h5>
+                    
+                    <div class="searchInputContainer">
+                        <input type="text" class="musicSearchInput" placeholder="Search">
+                        <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
-                    <div class="informationContainer">
+
+                    <button class="goToParties waves-effect waves-light btn-large">Next</button>
+                </div>
+
+                <!-- <div class="searchContainer">
+                    <div class="searchHeading">
                         <i class="material-icons closeButton">close</i>
-                        <div class="displayContainer videoContainer"></div>
+                        <div class="titleContainer">
+                          <input type="text" class="musicSearchInput col s4" placeholder="MUSIC">
+                          <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
+                        </div>
+                    </div>
+                    <div class="listItemContainer">
+                        <div class="listItems"></div>
                     </div>
                 </div>
+                <div class="informationContainer">
+                    <i class="material-icons closeButton">close</i>
+                    <div class="displayContainer videoContainer"></div>
+                </div> -->
             </div>
-        <!-- </div> -->
 
         <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>
     </body>
