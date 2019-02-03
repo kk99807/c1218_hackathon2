@@ -39,7 +39,6 @@
                         </div> -->
                     <div class="detailsHeader">
                         <h2 class="detailsTitle">Details</h2>
-                        <a href="#!" class="collection-item"><span class="badge">1</span></a>
                     </div>
                         <!-- <div class="addItems">
                             <i class="fas fa-calendar-edit"></i>
@@ -143,40 +142,49 @@
                 <!-- </div> -->
             </div>
 
-            <div class="food">
+            <div class="food hidden">
                 <div class="foodHeader">
                     <h2 class="foodTitle">
                         Appetizers
                         <span class="collection-item">
                             <span class="foodBadge badge">0</span>
                         </span>
-                    </h2>
-                    
+                    </h2>  
                 </div>
   
-                <div class="foodDetails">
-                    <h4 class="text">What food will you serve?</h4>
-                    <h5 class="text">Tap to add an appetizer:</h5>
-                    <div class="searchResults listItems">
-                        <div class="item1"><img><p></p></div>
-                        <div class="item2"><img><p></p></div>
-                        <div class="item3"><img><p></p></div>
-                        <div class="item4"><img><p></p></div>
-                        <div class="item5"><img><p></p></div>
-                        <div class="item6"><img><p></p></div>
-                        <div class="item7"><img><p></p></div>
-                        <div class="item8"><img><p></p></div>
-                        <div class="item9"><img><p></p></div>
-                        <div class="item10"><img><p></p></div>
-                    </div>
-                    <h5 class="text">Or search for your favorite dish:</h5>
-                    
-                    <div class="searchInputContainer">
-                        <input type="text" class="foodSearchInput" placeholder="Search by ingredient">
-                        <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                <div class="contentContainer">
+                    <div class="foodDetails addItems">
+                        <h4 class="text">What food will you serve?</h4>
+                        <h5 class="text">Tap to add an appetizer:</h5>
+                        <div class="searchResults listItems">
+                            <div class="item1"><img><p></p></div>
+                            <div class="item2"><img><p></p></div>
+                            <div class="item3"><img><p></p></div>
+                            <div class="item4"><img><p></p></div>
+                            <div class="item5"><img><p></p></div>
+                            <div class="item6"><img><p></p></div>
+                            <div class="item7"><img><p></p></div>
+                            <div class="item8"><img><p></p></div>
+                            <div class="item9"><img><p></p></div>
+                            <div class="item10"><img><p></p></div>
+                        </div>
+                        <h5 class="text">Or search for your favorite dish:</h5>
+                        
+                        <div class="searchInputContainer">
+                            <input type="text" class="foodSearchInput" placeholder="Search by ingredient">
+                            <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                        </div>
+
+                        <button class="goToMusic waves-effect waves-light btn-large">Next</button>
                     </div>
 
-                    <button class="goToMusic waves-effect waves-light btn-large">Next</button>
+                    <div class="foodItems addedItems hidden">
+                        
+                    </div>
+
+                    <div class="foodIngredients ingredients hidden">
+                      
+                    </div>
                 </div>
             </div>
 
@@ -189,30 +197,32 @@
                         </span>
                     </h2>
                 </div>
-  
-                <div class="musicDetails">
-                    <h4 class="text">What music will you play?</h4>
-                    <h5 class="text">Tap to add a song:</h5>
-                    <div class="searchResults listItems">
-                        <div class="item1"><img><p></p></div>
-                        <div class="item2"><img><p></p></div>
-                        <div class="item3"><img><p></p></div>
-                        <div class="item4"><img><p></p></div>
-                        <div class="item5"><img><p></p></div>
-                        <div class="item6"><img><p></p></div>
-                        <div class="item7"><img><p></p></div>
-                        <div class="item8"><img><p></p></div>
-                        <div class="item9"><img><p></p></div>
-                        <div class="item10"><img><p></p></div>
-                    </div>
-                    <h5 class="text">Or search for your favorite artist:</h5>
-                    
-                    <div class="searchInputContainer">
-                        <input type="text" class="musicSearchInput" placeholder="Search">
-                        <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
-                    </div>
 
-                    <button class="goToParties waves-effect waves-light btn-large">Next</button>
+                <div class="contentContainer">
+                    <div class="musicDetails addItems">
+                        <h4 class="text">What music will you play?</h4>
+                        <h5 class="text">Tap to add a song:</h5>
+                        <div class="searchResults listItems">
+                            <div class="item1"><img><p></p></div>
+                            <div class="item2"><img><p></p></div>
+                            <div class="item3"><img><p></p></div>
+                            <div class="item4"><img><p></p></div>
+                            <div class="item5"><img><p></p></div>
+                            <div class="item6"><img><p></p></div>
+                            <div class="item7"><img><p></p></div>
+                            <div class="item8"><img><p></p></div>
+                            <div class="item9"><img><p></p></div>
+                            <div class="item10"><img><p></p></div>
+                        </div>
+                        <h5 class="text">Or search for your favorite artist:</h5>
+                        
+                        <div class="searchInputContainer">
+                            <input type="text" class="musicSearchInput" placeholder="Search">
+                            <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                        </div>
+
+                        <button class="goToParties waves-effect waves-light btn-large">Next</button>
+                    </div>
                 </div>
 
                 <!-- <div class="searchContainer">
@@ -231,6 +241,22 @@
                     <i class="material-icons closeButton">close</i>
                     <div class="displayContainer videoContainer"></div>
                 </div> -->
+            </div>
+
+            <div class="parties">
+                <div class="partiesHeader">
+                    <h2 class="partyTitle">
+                        Parties
+                        <span class="collection-item">
+                            <span class="foodBadge badge">0</span>
+                        </span>
+                    </h2>  
+                </div>
+
+                <div class="contentContainer">
+                    <div class="partyDetails"></div>
+                    <button class="goToDetails waves-effect waves-light btn-large">Next</button>  
+                </div>
             </div>
 
         <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>

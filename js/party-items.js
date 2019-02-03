@@ -37,10 +37,10 @@ class PartyItems {
      */
     handleSearch() {
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
-        $('.listItemContainer').append(spinner);
+        $('.listItems').append(spinner);
 
         this.asyncSearch()
-            .then(items => items.map(item => item.renderSearch()))
+            // .then(items => items.map(item => item.renderSearch()))
             .then(items => {
                 // this.domSearchResults.empty().append(items);
                 this.domSearchResults.append(items);

@@ -21,87 +21,88 @@ class PartyItem {
      * @param {boolean} selected - Whether or not this is currently selected
      * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
      */
+    // renderSearch(selected) {
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
  
-        // let card = $('<div>').addClass('card horizontal');
+        let card = $('<div>').addClass('card horizontal');
 
-        // if (selected) {
-        //     card.addClass('selected');
-        // }
+        if (selected) {
+            card.addClass('selected');
+        }
 
-        // let cardImage = $('<div>')
-        //     .addClass('card-image')
-        //     .appendTo(card);
+        let cardImage = $('<div>')
+            .addClass('card-image')
+            .appendTo(card);
 
-        // let image = $('<img>')
-        //     .addClass('searchImage')
-        //     .attr('src', this.imageURL)
-        //     .appendTo(cardImage);
+        let image = $('<img>')
+            .addClass('searchImage')
+            .attr('src', this.imageURL)
+            .appendTo(cardImage);
 
-        // let cardStacked = $('<div>')
-        //     .addClass('card-stacked')
-        //     .appendTo(card);
+        let cardStacked = $('<div>')
+            .addClass('card-stacked')
+            .appendTo(card);
 
-        // let cardContent = $('<div>')
-        //     .addClass('card-content')
-        //     .appendTo(cardStacked);
+        let cardContent = $('<div>')
+            .addClass('card-content')
+            .appendTo(cardStacked);
 
-        // let titleLink = $('<div>')
-        //     .addClass('titleLink')
-        //     .appendTo(cardContent);
+        let titleLink = $('<div>')
+            .addClass('titleLink')
+            .appendTo(cardContent);
 
-        // let title = $('<a>')
-        //     .addClass('searchTitle')
-        //     .text(this.name)
-        //     .appendTo(titleLink);
+        let title = $('<a>')
+            .addClass('searchTitle')
+            .text(this.name)
+            .appendTo(titleLink);
 
-        // //card reveal
-        // let cardReveal = $('<div>')
-        //     .addClass('card-reveal')
-        //     .appendTo(card);
+        //card reveal
+        let cardReveal = $('<div>')
+            .addClass('card-reveal')
+            .appendTo(card);
 
-        // let revealTitle = $('<span>')
-        //     .addClass('class-title')
-        //     .text(this.name)
-        //     .appendTo(cardReveal);
+        let revealTitle = $('<span>')
+            .addClass('class-title')
+            .text(this.name)
+            .appendTo(cardReveal);
 
-        // let closeButton = $('<i>')
-        //     .addClass('material-icons right close')
-        //     .text('close')
-        //     .appendTo(revealTitle);
+        let closeButton = $('<i>')
+            .addClass('material-icons right close')
+            .text('close')
+            .appendTo(revealTitle);
 
-        // let revealContent = $('<p>')
-        //     .text('Please put in description')
-        //     .appendTo(cardReveal);
+        let revealContent = $('<p>')
+            .text('Please put in description')
+            .appendTo(cardReveal);
 
-        // let buttonDef = selected ? 
-        //     {label:'delete', colors: 'pink lighten-2'} :
-        //     {label:'add', colors: 'purple lighten-2'};
+        let buttonDef = selected ? 
+            {label:'delete', colors: 'pink lighten-2'} :
+            {label:'add', colors: 'purple lighten-2'};
 
-        // let buttonContainer = $('<a>')
-        //     .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
-        //     .appendTo(cardContent);
+        let buttonContainer = $('<a>')
+            .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
+            .appendTo(cardContent);
 
-        // let button = $('<i>')
-        //     .addClass('material-icons')
-        //     .text(buttonDef.label)
-        //     .appendTo(buttonContainer);
+        let button = $('<i>')
+            .addClass('material-icons')
+            .text(buttonDef.label)
+            .appendTo(buttonContainer);
 
-        // let revealIcon = $('<i>')
-        //     .addClass('material-icons right activator')
-        //     .text('more_vert')
-        //     .appendTo(cardContent);
+        let revealIcon = $('<i>')
+            .addClass('material-icons right activator')
+            .text('more_vert')
+            .appendTo(cardContent);
 
-        // title.click(target => this.eventCallback(this, 'view'));
-        // image.click(target => this.eventCallback(this, 'view'));
-        // button.click(target => {
-        //     card.fadeOut(() => card.remove());
-        //     this.eventCallback(this, buttonDef.label);
-        // });
+        title.click(target => this.eventCallback(this, 'view'));
+        image.click(target => this.eventCallback(this, 'view'));
+        button.click(target => {
+            card.fadeOut(() => card.remove());
+            this.eventCallback(this, buttonDef.label);
+        });
 
-        // closeButton.click(() => cardReveal.hide());
-        // return card;
+        closeButton.click(() => cardReveal.hide());
+        return card;
     }
 }
 
