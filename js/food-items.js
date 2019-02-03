@@ -6,11 +6,12 @@ class FoodItems extends PartyItems {
      * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
      * @param {*} items - OPTIONAL List of initial food selections
      */
-    constructor(domElement, items) {
-        super(domElement, items);
+    constructor(domElement, nextElement, items) {
+        super(domElement, nextElement, items);
         this.bindEvents();
         this.domElement.find('.foodSearchButton').click(this.handleSearch);
-      
+        this.nextClickHandler = this.nextClickHandler.bind(this);
+        this.addFoodNextHandler();
     }
 
     /**
@@ -62,5 +63,16 @@ class FoodItems extends PartyItems {
             });
 
         });
+    }
+
+    nextClickHandler(){
+        $('.food').hide();
+        this.nextHandlerSearch();
+        $('.music').show();
+    }
+
+
+    addFoodNextHandler(){
+        $('.goToMusic').click(this.nextClickHandler);
     }
 }

@@ -33,7 +33,7 @@ class CocktailItems extends PartyItems {
                             let measurement = item['strIngredient'+i];
                             let fullString = "";
                             if (ingredient && measurement){
-                                fullString = ingredient + ' ' + measurement
+                                fullString = ingredient + ' ' + measurement;
                                 ingredients.push(fullString);
                             } 
                         }

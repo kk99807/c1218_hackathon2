@@ -9,6 +9,7 @@ class MusicItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        this.addMusicNextHandler();
     }
 
     /**
@@ -18,6 +19,7 @@ class MusicItems extends PartyItems {
     asyncSearch() {
         return new Promise((resolve, reject) => {
             var searchQuery = $('.musicSearchInput').val();
+            searchQuery = searchQuery || 'bigbang';
             $.ajax({
                 method: 'post',
                 dataType: 'json',
@@ -29,7 +31,8 @@ class MusicItems extends PartyItems {
                         item.title,
                         `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`,
                         this.handleItemClick,
-                        {}
+                        {},
+                        $('.musicHeader .badge')
                     ));
                     resolve(items);
 
@@ -41,6 +44,13 @@ class MusicItems extends PartyItems {
         });
     }
 
+    nextClickHandler(){
+        $('.music').hide();
+        $('.party').show();
+    }
 
+    addMusicNextHandler(){
+        $('.goToParty').click(this.nextClickHandler);
+    }
 }
 

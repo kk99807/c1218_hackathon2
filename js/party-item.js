@@ -9,12 +9,13 @@ class PartyItem {
      * @param {*} eventCallback - Callback when item is clicked in DOM
      * @param {{}} props - Additional type-specific properties (ex: recipe ingredients)
      */
-    constructor(id, name, imageURL, eventCallback, props) {
+    constructor(id, name, imageURL, eventCallback, props, badge) {
         this.id = id;
         this.name = name;
         this.imageURL = imageURL;
         this.eventCallback = eventCallback;
         this.props = props;
+        this.badge = badge;
     }
 
     /**
@@ -161,6 +162,11 @@ class VideoItem extends PartyItem {
     renderDetails(){
         let container = $('<div>')
             .addClass('displayContainer');
+
+        let spinner = $('<i>')
+            .addClass("fa fa-spinner fa-spin");
+
+        container.append(spinner);
 
         let video = $('<iframe>')
             .attr({

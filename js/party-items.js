@@ -6,10 +6,11 @@ class PartyItems {
      * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
      * @param {[]} items - OPTIONAL List of initial party items
      */
-    constructor(domElement, items) {
+    constructor(domElement, nextElement, items) {
         this.domElement = domElement;
         this.domSearchResults = this.domElement.find('.listItems');
         this.domList = this.domElement.find('.contentContainer');
+        this.nextElement = nextElement;
 
         this.items = items || [];
     }
@@ -23,10 +24,9 @@ class PartyItems {
         // this.showSearch = this.showSearch.bind(this);
         // this.hideSearch = this.hideSearch.bind(this);
         // this.hideDetails = this.hideDetails.bind(this);
-
+        this.badgeClickHandler = this.badgeClickHandler.bind(this);
+        this.domElement.find('.badge').click(this.badgeClickHandler);
         this.domElement.find('.searchButton').click(this.handleSearch);
-        
-        
         // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
         // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
         // this.domElement.find('.addItems').click(this.showSearch);
@@ -65,6 +65,10 @@ class PartyItems {
         } else if (eventType === 'add') {
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
+
+            let badgeValue = item.badge.text();
+            item.badge.text(++badgeValue);
+
             M.toast({html:'Item has been added', displayLength:1000}); 
             $('.toast').css('background-color', 'green');
         }
@@ -106,6 +110,7 @@ class PartyItems {
     //     this.domElement.find('.searchContainer').hide();
     // }
 
+
     // /**
     //  * Hide the details screen for items of this type
     //  */
@@ -113,4 +118,51 @@ class PartyItems {
     //     setAccordion(true);
     //     this.domElement.find('.informationContainer').hide();       
     // }
+
+
+    nextHandlerSearch(){
+        this.nextElement.asyncSearch()
+            .then(items => {
+                items.map(item => {
+
+                    let img = $('<img>').attr('src', item.imageURL);
+
+                    let div = $('<div>');
+                    img.click(target => {
+                        this.nextElement.handleItemClick(item, 'add');
+                        div.remove();
+                    });
+                    div.append(img);
+                    $('.searchResults').append(div).slick('unslick').slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 1500,
+                        swipe: true,
+                        adaptiveHeight: true,
+                        touchMove: true,
+                        centerMode: true,
+                    });
+
+
+                })
+            });
+    }
+
+    badgeClickHandler(){
+        let addedItemContainer = $('<div>').addClass('addedItemContainer');
+        let closeButtonAddedItemContainer = $('<i>')
+            .addClass('material-icons closeButtonAddedItem')
+            .text('close')
+            .css('color', 'white')
+            .click(this.closeButtonAddedItemHandler);
+
+        addedItemContainer.append(closeButtonAddedItemContainer, this.items.map(item => item.renderSearch()));
+        this.domElement.append(addedItemContainer);
+    }
+
+    closeButtonAddedItemHandler(){
+        $('.addedItemContainer').hide();
+    }
+
 }

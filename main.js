@@ -4,9 +4,7 @@ let party = null;
 
 function initApp() {
     party = new Party();
-
-    // party.start();
-    
+    party.start();
     // $('.main').on('click','.section', showAccordion);
     $('.startButton').on('click', hideLanding);
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});

@@ -1,3 +1,5 @@
+/*----------------- NEW CODE -----------------*/
+
 body {
     height: 100vh;
     margin: 0;
@@ -315,8 +317,7 @@ h1, h2, h3, h4, h5 {
 
 
 
-
-
+/*----------------- OLD CODE -----------------*/
 
 
 /*----------------- MAIN PAGE -----------------*/
@@ -642,4 +643,29 @@ h1, h2, h3, h4, h5 {
     top: 5%;
     right: 0;
     color: white;
+}
+
+.contentContainer > p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.informationContainer > .closeButton {
+    position: relative;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+}
+
+/*.musicTitle,
+.badge {
+    color: white;
+}*/
+
+.addedItemContainer {
+    background-color: #1f1f1f;
+    width: 100%;
+    height: 85%;
+    position: absolute;
+    top: 15%;
 }
