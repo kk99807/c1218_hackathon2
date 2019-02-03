@@ -61,6 +61,7 @@ body {
     height:25%;
     flex: 1;
     padding: 0;
+    transition:flex .5s;
 }
 
 .section p {

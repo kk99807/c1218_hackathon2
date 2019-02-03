@@ -9,8 +9,15 @@ class CocktailItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        $('.alcohol').on('click',this.testSearch)
     }
+    testSearch(){
+        let clickedText = $(this).text();
+        return new Promise((resolve,reject)=>{
+            $.getJson(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${clickedText}`)
 
+        })
+    }
     /**
      * Called by PartyItems superclass when user requests a search to retrieve cocktail recipes
      * @returns {RecipeItem} a Promise to retrieve an array of RecipeItem

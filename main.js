@@ -12,6 +12,8 @@ function initApp() {
     $('.startButton').on('click', hideLanding);
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
     $('.details .informationContainer .btn').css('margin', '20px');
+    //sky added
+    
 }
 
 function setAccordion( active ) {
