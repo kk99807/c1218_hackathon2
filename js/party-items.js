@@ -26,12 +26,17 @@ class PartyItems {
         this.hideDetails = this.hideDetails.bind(this);
 
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
+        this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
+        this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
         this.domElement.find('.badge').click(this.badgeClickHandler);
+        this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
+        this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
 
 
         this.domElement.find('.searchButton').click(this.handleSearch);
         this.domElement.find('.searchIcon').click(this.handleSearch);
-        
+
+
         this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
         this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
         this.domElement.find('.addItems').click(this.showSearch);
@@ -43,11 +48,14 @@ class PartyItems {
     handleSearch(target) {
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItemContainer').append(spinner);
+        $('.newPageSearchContainer').append(spinner);
 
         this.asyncSearch(target)
             .then(items => items.map(item => item.renderSearch()))
             .then(items => {
                 this.domSearchResults.empty().append(items);
+                this.domElement.find('.newPageSearchContainer').append(items);
+
                 $('.fa-spinner').remove();
             });
     }
@@ -153,13 +161,18 @@ class PartyItems {
 
     badgeClickHandler(){
         let addedItemContainer = $('<div>').addClass('addedItemContainer');
+        let addedItemContainerHeader = $('<p>').text('Your Selections').css({
+            'text-align': 'center',
+            'color': 'white'
+        });
+
         let closeButtonAddedItemContainer = $('<i>')
             .addClass('material-icons closeButtonAddedItem')
             .text('close')
             .css('color', 'white')
             .click(this.closeButtonAddedItemHandler);
 
-        addedItemContainer.append(closeButtonAddedItemContainer, this.items.map(item => item.renderSearch()));
+        addedItemContainer.append(closeButtonAddedItemContainer, addedItemContainerHeader,this.items.map(item => item.renderSearch()));
         this.domElement.append(addedItemContainer);
     }
 
@@ -167,5 +180,12 @@ class PartyItems {
         $('.addedItemContainer').hide();
     }
 
+    newPageSearchHandler(){
+        this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
+        this.handleSearch();
+    }
 
+    newSearchCloseButtonHandler() {
+        this.domElement.find('.newPageSearchContainer').hide();
+    }
 }
