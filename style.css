@@ -13,11 +13,17 @@ h1, h2, h3, h4, h5 {
     display: none;
 }
 
-.startButton, .goToMusic {
+.startButton, .readyToPartyButton, .goToMusic {
+    width: 60%;
     position:absolute;
     left:50%;
     transform:translate(-50%);
-    font-size: 130%;
+}
+
+.readyToPartyButton, .goToMusic {
+    bottom: 4%;
+    font-size: 1.8em;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .detailsHeader, .foodHeader {
@@ -46,6 +52,7 @@ h1, h2, h3, h4, h5 {
 
 .details .contentContainer {
     height: 85vh;
+    padding: 4% 3% 0 3%;
     background-color: #fce4ec;
     overflow-y: scroll;
     text-align: center;
@@ -58,15 +65,15 @@ h1, h2, h3, h4, h5 {
 }
 
 .readyToPartyButton {
-    width: 60%;
-    padding-bottom: 15%;
-    font-size: 2em;
-    font-family: 'Shadows Into Light', cursive;
     background-color: #d650b0;
 }
 
 .readyToPartyButton .fas {
     font-size: 0.9em;
+}
+
+.readyToPartyButton:hover {
+    background-color: #d650b0;
 }
 
 /*-------------- FOOD --------------*/
@@ -106,7 +113,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .goToMusic {
-    bottom: 4%;
     background-color: #b245c4;
 }
 
@@ -151,6 +157,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .startButton{
+    font-size: 130%;
     bottom: 10%;
     background-color:rgb(218,11,79)
 }
