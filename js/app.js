@@ -16,7 +16,7 @@ class App {
         this.hideLanding = this.hideLanding.bind(this);
 
         $('.startButton').on('click', this.hideLanding);
-        $('.details, .cocktail, .food, .music, .parties, .editParty').hide();
+        $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         $('.collapsible').collapsible();
     
