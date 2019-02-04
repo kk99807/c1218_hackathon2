@@ -131,13 +131,13 @@ class PartyItems {
         $('.addItems').show();
     }
 
-    newPageSearchHandler(){
-        this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
-        this.handleSearch();
-    }
+    // newPageSearchHandler(){
+    //     this.domElement.find('.newPageSearchContainer').show();
+    //     this.handleSearch();
+    // }
 
-    newSearchCloseButtonHandler() {
-        this.domElement.find('.newPageSearchContainer').hide();
-    }
+    // newSearchCloseButtonHandler() {
+    //     this.domElement.find('.newPageSearchContainer').hide();
+    // }
 
 }
