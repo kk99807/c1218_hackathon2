@@ -67,7 +67,7 @@ class PartyItems {
         let badgeValue = item.badge.text();
 
         if (eventType === 'view') {
-            debugger;
+        
             this.showDetails(item);
             if(item instanceof VideoItem){
                 console.log(item instanceof VideoItem);
