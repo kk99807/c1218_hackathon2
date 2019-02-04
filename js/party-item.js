@@ -77,17 +77,13 @@ class PartyItem {
             .text('Please put in description')
             .appendTo(cardReveal);
 
-        let buttonDef = selected ? 
-            {label:'delete', colors: 'pink lighten-2'} :
-            {label:'add', colors: 'purple lighten-2'};
-
         let buttonContainer = $('<a>')
-            .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
+            .addClass('btn waves-effect waves-light buttonStyle itemDelete')
             .appendTo(cardContent);
 
         let button = $('<i>')
-            .addClass('material-icons')
-            .text(buttonDef.label)
+            .addClass('material-icons trashIcon')
+            .text('delete')
             .appendTo(buttonContainer);
 
         let revealIcon = $('<i>')
