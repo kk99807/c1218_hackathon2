@@ -31,7 +31,11 @@ class Party {
         this.showNextContainer = this.showNextContainer.bind(this);
 
         // $('.readyToPartyButton').click(this.handleUpdateDetails);
-        $('.details .btnNext').click(this.handleUpdateDetails);
+        // $('.btnUpdateDetails').click(this.handleUpdateDetails);
+        $( "#detailsForm" ).submit( event => {
+            this.handleUpdateDetails();
+            event.preventDefault();
+        });
         $('.btnNext').click(this.showNextContainer);
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
@@ -64,6 +68,8 @@ class Party {
                 // $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
                 // this.addInviteDOM.show();
             });
+
+        this.showNextContainer();
     }
 
     /**
