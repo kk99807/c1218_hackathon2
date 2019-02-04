@@ -75,12 +75,25 @@ class App {
     }
 
     showParty( party ) {
-        let partyItemContainer = $('<div>');
-        party.containers.map(item => {
-            if(item.items){
-                item.items.map(item => partyItemContainer.append(item.card));
-            }
+        debugger;
+        $('.parties').hide();
+        $('.editParty').show();
+
+        party.cocktailItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.cocktailsBody'));
         });
-       return partyItemContainer;
+        party.foodItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.foodBody'));
+        });
+        party.musicItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.musicBody'));
+        });
+
     }
 }
