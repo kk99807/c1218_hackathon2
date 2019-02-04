@@ -164,7 +164,9 @@ h1, h2, h3, h4, h5 {
     margin: 0 auto;
 }
 
-.readyToPartyButton, .editDetails {
+.readyToPartyButton, 
+.editDetails {
+    color: white;
     background-color: #d650b0;
 }
 
@@ -174,6 +176,26 @@ h1, h2, h3, h4, h5 {
 
 .readyToPartyButton:hover {
     background-color: #d650b0;
+}
+
+.datepicker-date-display, 
+.timepicker-digital-display {
+    background-color: #d650b0;
+}
+
+.datepicker-done, 
+.datepicker-cancel, 
+.timepicker-close {
+    color: #d650b0;
+}
+
+.timepicker-canvas line {
+  stroke: #d650b0;  
+}
+
+.timepicker-canvas-bg, 
+.timepicker-canvas-bearing {
+    fill: #d650b0;
 }
 
 /*-------------- COCKTAILS --------------*/
