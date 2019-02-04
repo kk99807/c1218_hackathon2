@@ -11,7 +11,7 @@ class FoodItems extends PartyItems {
         this.bindEvents();
         this.domElement.find('.foodSearchButton').click(this.handleSearch);
         this.nextClickHandler = this.nextClickHandler.bind(this);
-        this.addFoodNextHandler();
+        this.addNextHandler();
     }
 
     /**
@@ -71,8 +71,7 @@ class FoodItems extends PartyItems {
         $('.music').show();
     }
 
-
-    addFoodNextHandler(){
+    addNextHandler(){
         $('.goToMusic').click(this.nextClickHandler);
     }
 }

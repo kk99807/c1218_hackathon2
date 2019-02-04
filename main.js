@@ -7,6 +7,7 @@ function initApp() {
     party.start();
     // $('.main').on('click','.section', showAccordion);
     $('.startButton').on('click', hideLanding);
+    $('.details, .food, .music, .parties').hide();
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
     // $('.details .informationContainer .btn').css('margin', '20px');
 
@@ -25,8 +26,8 @@ function initApp() {
 }
 
 function hideLanding(){
-    $('.landing').addClass('hidden');
-    $('.details').removeClass('hidden');
+    $('.landing').hide();
+    $('.details').show();
 }
 
 // function setAccordion( active ) {
