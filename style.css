@@ -390,6 +390,20 @@ h1, h2, h3, h4, h5 {
     padding-top: 1%;
 }
 
+.partyDetails .card {
+    font-size: 1.5em;
+    background-color: #3232ff;
+}
+
+.partyDetails .card-content {
+    color: white;
+    text-align: left;
+}
+
+.btnAddToCalendar, .btnEditParty {
+    color: white !important;
+}
+
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .searchResults {
@@ -538,131 +552,3 @@ h1, h2, h3, h4, h5 {
 .slick-slide p {
     margin-bottom: 5%;
 }
-
-
-
-
-
-
-
-/*----------------- OLD CODE -----------------*/
-
-/*----------------- CALENDAR -----------------*/
-
-/*.eventLink {
-    margin-right: 5%;
-}
-
-.calendarButton {
-    width: 15%;
-}*/
-
-/*----------------- MUSIC -----------------*/
-
-/*.videoContainer {
-    height: 95%;
-}
-
-.displayContainer {
-    height: 95%;
-}
-
-.videoIFrame {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}*/
-
-/*----------------- MODALS -----------------*/
-
-/*.informationContainer {
-    display: none;
-    position: absolute;
-}
-
-.searchContainer, 
-.informationContainer {
-    height: 85%;
-    width: 100%;
-    background-color: #f3e5f5;
-}
-
-.listImageContainer {
-    float: left;
-    padding: 0 3% 3% 0;
-}*/
-
-/*----------------- INFORMATION MODAL -----------------*/
-/*
-.informationContainer {
-    display:none;
-    z-index: 5;
-    overflow-y: scroll;
-}
-
-.displayContainer {
-    padding: 0 3% 3% 3%;
-}
-
-.detailsImage {
-    height: 100px;
-}
-
-.recipe {
-    clear: left;
-}
-
-.ingredients {
-    list-style-type: disc;
-    list-style-position: inside;
-}*/
-
-/*----------------- FONTAWESOME -----------------*/
-
-/*.fa-spinner {
-    font-size: 3em;
-    color: #9c27b0;
-    position: absolute;
-    top: 50%;
-    left: 43%;
-    transform: translate(-50%, -50%); 
-}
-
-.activator {
-    position: absolute;
-    top: 5%;
-    right: 0;
-    color: white;
-}
-
-.contentContainer > p {
-    text-align: center;
-    font-weight: bold;
-}
-
-.informationContainer > .closeButton {
-    position: relative;
-    left: 50%;
-    top: 80%;
-    transform: translateX(-50%);
-}
-
-.buttonPanel {
-    display: flex;
-    justify-content: center;
-}
-
-.buttonPannel .btn {
-    margin: 20px;
-}
-
- .musicDetails .searchInputContainer {
-    position: relative;
-    bottom: 45%;
-} 
-
-.cocktailsCount, .foodCount, .musicCount {
-    font-weight: bold;
-}
-*/
