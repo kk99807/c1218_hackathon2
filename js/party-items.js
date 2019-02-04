@@ -89,6 +89,65 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
+    nextHandlerSearch(){
+        this.nextElement.asyncSearch()
+            .then(items => {
+                items.map(item => {
+                    let p = $('<p>').text(item.name);
+                    let img = $('<img>').attr('src', item.imageURL);
+                    let div = $('<div>');
+
+                    img.click(target => {
+                        this.nextElement.handleItemClick(item, 'add');
+                        div.remove();
+                    });
+                    div.append(img, p);
+                    $('.searchResults').empty().append(div).slick('unslick').slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 1500,
+                        swipe: true,
+                        adaptiveHeight: true,
+                        touchMove: true,
+                        centerMode: true,
+                    });
+                });
+                $('.slick-arrow').addClass('hidden')
+            });
+    }
+
+    badgeClickHandler(){
+        let addedItemContainer = $('<div>').addClass('addedItemContainer');
+        let addedItemContainerHeader = $('<p>').text('Your Selections').css({
+            'text-align': 'center',
+            'color': 'white'
+        });
+
+        let closeButtonAddedItemContainer = $('<i>')
+            .addClass('material-icons closeButtonAddedItem')
+            .text('close')
+            .css('color', 'white')
+            .click(this.closeButtonAddedItemHandler);
+
+        addedItemContainer.append(closeButtonAddedItemContainer, addedItemContainerHeader,this.items.map(item => item.renderSearch()));
+        this.domElement.append(addedItemContainer);
+    }
+
+    closeButtonAddedItemHandler(){
+        $('.addedItemContainer').hide();
+    }
+
+    newPageSearchHandler(){
+        //this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
+        this.domElement.find('.searchResults').show()
+        this.handleSearch();
+    }
+
+    newSearchCloseButtonHandler() {
+        this.domElement.find('.newPageSearchContainer').hide();
+    }
+
     // /**
     //  * Show a search screen for party items of this type
     //  */
@@ -126,64 +185,4 @@ class PartyItems {
     //     this.domElement.find('.informationContainer').hide();       
     // }
 
-
-    nextHandlerSearch(){
-        this.nextElement.asyncSearch()
-            .then(items => {
-                items.map(item => {
-
-                    let img = $('<img>').attr('src', item.imageURL);
-
-                    let div = $('<div>');
-                    img.click(target => {
-                        this.nextElement.handleItemClick(item, 'add');
-                        div.remove();
-                    });
-                    div.append(img);
-                    $('.searchResults').append(div).slick('unslick').slick({
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        autoplaySpeed: 1500,
-                        swipe: true,
-                        adaptiveHeight: true,
-                        touchMove: true,
-                        centerMode: true,
-                    });
-
-
-                })
-            });
-    }
-
-    badgeClickHandler(){
-        let addedItemContainer = $('<div>').addClass('addedItemContainer');
-        let addedItemContainerHeader = $('<p>').text('Your Selections').css({
-            'text-align': 'center',
-            'color': 'white'
-        });
-
-        let closeButtonAddedItemContainer = $('<i>')
-            .addClass('material-icons closeButtonAddedItem')
-            .text('close')
-            .css('color', 'white')
-            .click(this.closeButtonAddedItemHandler);
-
-        addedItemContainer.append(closeButtonAddedItemContainer, addedItemContainerHeader,this.items.map(item => item.renderSearch()));
-        this.domElement.append(addedItemContainer);
-    }
-
-    closeButtonAddedItemHandler(){
-        $('.addedItemContainer').hide();
-    }
-
-    newPageSearchHandler(){
-        //this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
-        this.domElement.find('.searchResults').show()
-        this.handleSearch();
-    }
-
-    newSearchCloseButtonHandler() {
-        this.domElement.find('.newPageSearchContainer').hide();
-    }
 }

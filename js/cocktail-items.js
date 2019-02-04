@@ -9,6 +9,8 @@ class CocktailItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        this.nextClickHandler = this.nextClickHandler.bind(this);
+        this.addNextHandler();
     }
 
     /**
@@ -55,5 +57,15 @@ class CocktailItems extends PartyItems {
             });
 
         });
+    }
+
+    nextClickHandler(){
+        $('.cocktail').hide();
+        this.nextHandlerSearch();
+        $('.food').show();
+    }
+
+    addNextHandler(){
+        $('.goToFood').click(this.nextClickHandler);
     }
 }

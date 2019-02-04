@@ -267,8 +267,7 @@ h1, h2, h3, h4, h5 {
     margin-left: 32%;
 }
 
-.goToDetails, 
-.goToDeatails:hover {
+.goToDetails, .parties .btn-large:hover {
     background-color: #3232ff;
 }
 

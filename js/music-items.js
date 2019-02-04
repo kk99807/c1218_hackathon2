@@ -9,7 +9,8 @@ class MusicItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
-        this.addMusicNextHandler();
+        this.nextClickHandler = this.nextClickHandler.bind(this);
+        this.addNextHandler();
     }
 
     /**
@@ -50,7 +51,8 @@ class MusicItems extends PartyItems {
         $('.parties').show();
     }
 
-    addMusicNextHandler(){
+
+    addNextHandler(){
         $('.goToParties').click(this.nextClickHandler);
     }
 }
