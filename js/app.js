@@ -94,6 +94,9 @@ class App {
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));
         });
-       
+        let date = $('<p>').text(`Date: ${party.date}`);
+        let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
+        let endTime = $('<p>').text(`End Time: ${party.endTime}`);
+        $('.detailsBody').append(date, startTime, endTime);
     }
 }
