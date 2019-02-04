@@ -14,6 +14,7 @@ class CocktailItems extends PartyItems {
         $('.alcohol').on('click',this.searchByAlcohol);//must have 4 buttons vodka, gin, rum, tequila with class of alcohol
         this.storeDrinksInArray = this.storeDrinksInArray.bind(this);
         this.searchDrinkByAlcohol = this.searchDrinkByAlcohol.bind(this);
+        $('.cocktailSearchButton').on('click',this.handleSearch);
 
     }
     searchByAlcohol( event ){
@@ -162,7 +163,7 @@ class CocktailItems extends PartyItems {
             $.ajax({
                 method: 'get',
                 dataType: 'json',
-                url: 'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+                url: 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=blue',
                 data:{
                     'api-key':'1'
                 },
