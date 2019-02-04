@@ -363,13 +363,10 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
-<<<<<<< HEAD
 .searchResults {
     height: 28.2%;
 }
 
-=======
->>>>>>> f4fb35b84ae0f93112f762bc201ee67d2cfbf439
 .searchResults img {
     height: 100px;
     width: 100px;
