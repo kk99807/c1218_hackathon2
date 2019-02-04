@@ -103,7 +103,6 @@ class PartyItems {
      * @param {PartyItem} item 
      */
     showDetails(item) {
-        setAccordion(false);
         this.domElement.find('.informationContainer .displayContainer')
             .empty()
             .append(item.renderDetails());

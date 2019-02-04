@@ -28,7 +28,6 @@ class FoodItems extends PartyItems {
                 headers: {'X-RapidAPI-Key': API_KEY},
                 url: BASEURL + query,
                 success: data => {
-                    console.log(data)
                     let items = data.recipes.map(item => {
                         let ingredients = [];
                         for(let i = 0; i < item.extendedIngredients.length; i++){
