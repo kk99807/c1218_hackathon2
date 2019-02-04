@@ -554,9 +554,8 @@ h1, h2, h3, h4, h5 {
 }
 
 
-.musicBody,
-.cocktailsBody,
-.foodBody {
+.collapsible-body {
+    height: 55vh;;
     overflow-y: scroll;
 }
 
