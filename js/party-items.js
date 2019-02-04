@@ -70,7 +70,6 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
-            debugger;
             item.badge.text(--badgeValue);
 
             M.toast({html:'Item has been deleted', displayLength:1000});
@@ -97,6 +96,18 @@ class PartyItems {
     showList() {
         let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
+    }
+
+    /**
+     * Show details for a selected Party Item
+     * @param {PartyItem} item 
+     */
+    showDetails(item) {
+        setAccordion(false);
+        this.domElement.find('.informationContainer .displayContainer')
+            .empty()
+            .append(item.renderDetails());
+        this.domElement.find('.informationContainer').show();
     }
 
     loadData(){
