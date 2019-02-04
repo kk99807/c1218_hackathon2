@@ -14,25 +14,38 @@ class Party {
 
         this.addInviteDOM = $('.details .informationContainer');
 
-        this.partyOrganizer = {
-            music: new MusicItems($('.music'))
-        };
-        this.partyOrganizer.foods = new FoodItems($('.food'), this.partyOrganizer.music);
-        this.partyOrganizer.cocktails =  new CocktailItems($('.cocktail'), this.partyOrganizer.foods);
+        this.containers = [
+            new DetailsContainer($('.details')),
+            new CocktailItems($('.cocktail')),
+            new FoodItems($('.food')),
+            new MusicItems($('.music'))
+        ];
 
+        this.currentContainerIndex = -1;
+
+        this.bindEvents();
+    }
+
+    bindEvents() {
         this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
+        this.showNextContainer = this.showNextContainer.bind(this);
 
-        $('.readyToPartyButton').click(this.handleUpdateDetails);
+        // $('.readyToPartyButton').click(this.handleUpdateDetails);
+        $('.btnNext').click(this.showNextContainer);
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
 
-    /**
-     * Start the app
-     */
-    start() {
-        this.partyOrganizer.foods.showList();
-        this.partyOrganizer.cocktails.showList();
-        this.partyOrganizer.music.showList();
+    showNextContainer() {
+        this.containers.forEach(container => container.domElement.hide());
+
+        this.currentContainerIndex++;
+        if (this.currentContainerIndex === this.containers.length) {
+            $('.parties').show();
+        } else {
+            let container = this.containers[this.currentContainerIndex];
+            container.preloadData();
+            container.domElement.show();
+        }
     }
 
     /**
