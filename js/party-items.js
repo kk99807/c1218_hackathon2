@@ -24,6 +24,7 @@ class PartyItems {
         // this.showSearch = this.showSearch.bind(this);
         // this.hideSearch = this.hideSearch.bind(this);
         // this.hideDetails = this.hideDetails.bind(this);
+        this.preloadData = this.preloadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
         this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
         this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
@@ -98,7 +99,7 @@ class PartyItems {
                     let div = $('<div>');
 
                     img.click(target => {
-                        this.nextElement.handleItemClick(item, 'add');
+                        this.handleItemClick(item, 'add');
                         div.remove();
                     });
                     div.append(img, p);
