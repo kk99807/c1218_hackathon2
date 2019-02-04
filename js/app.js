@@ -75,6 +75,12 @@ class App {
     }
 
     showParty( party ) {
-        console.log('In showParty: ', party.title);
+        let partyItemContainer = $('<div>');
+        party.containers.map(item => {
+            if(item.items){
+                item.items.map(item => partyItemContainer.append(item.card));
+            }
+        });
+       return partyItemContainer;
     }
 }
