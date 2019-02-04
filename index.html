@@ -23,7 +23,7 @@
         <title>Let's Party!</title>
     </head>
     <body>
-        <div class="landing hidden">
+        <div class="landing">
             <h1 class='mainTitle'>shades of soiree</h1>
             <h4 class='description'>PLAN THE<br>BEST<br>PARTY<br>EVER!</h4>
             <button class="startButton waves-effect waves-light btn-large pulse">Get Started</button>
@@ -124,13 +124,9 @@
                     <button class="goToFood waves-effect waves-light btn-large">Next</button>
                 </div>
 
-                <div class="cocktailItems addedItems hidden">
-                    <p>Your Selections</p>
-                </div>
+                <div class="cocktailItems addedItems hidden"></div>
 
-                <div class="cocktailIngredients ingredients hidden">
-                  
-                </div>
+                <div class="cocktailInfo itemInfo hidden"></div>
             </div>
         </div>
 
@@ -159,13 +155,9 @@
                     <button class="goToMusic waves-effect waves-light btn-large">Next</button>
                 </div>
 
-                <div class="foodItems addedItems hidden">
-                    <p>Your Selections</p>
-                </div>
+                <div class="foodItems addedItems hidden"></div>
 
-                <div class="foodIngredients ingredients hidden">
-                  
-                </div>
+                <div class="foodInfo itemInfo hidden"></div>
             </div>
         </div>
 
@@ -193,6 +185,10 @@
 
                     <button class="goToParties waves-effect waves-light btn-large">Next</button>
                 </div>
+
+                <div class="musicItems addedItems hidden"></div>
+
+                <div class="musicInfo itemInfo hidden"></div>
             </div>
                 <!-- <div class="contentContainer">
                     <p>Your Selections</p>
@@ -233,6 +229,66 @@
             <div class="contentContainer">
                 <div class="partyDetails"></div>
                 <button class="goToDetails waves-effect waves-light btn-large">Next</button>  
+            </div>
+        </div>
+
+        <div class="editParty">
+            <div class="editPartyHeader">
+                <h2 class="editPartyTitle">
+                    My Party
+                </h2>  
+            </div>
+
+            <div class="contentContainer">
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="editDetails collapsible-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            Details
+                        </div>
+                        <div class="detailsBody collapsible-body">
+                            <p>Date:</p> 
+                            <p>Start Time:</p>
+                            <p>End Time:</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editCocktails collapsible-header">
+                            <i class="fas fa-glass-martini"></i>
+                            Cocktails
+                        </div>
+                        <div class="cocktailsBody collapsible-body">
+                            <p>Drink 1</p>
+                            <p>Drink 2</p>
+                            <p>Drink 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editFood collapsible-header">
+                            <i class="fas fa-utensils"></i>
+                            Appetizers
+                        </div>
+                        <div class="foodBody collapsible-body">
+                            <p>Food 1</p>
+                            <p>Food 2</p>
+                            <p>Food 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editMusic collapsible-header">
+                            <i class="material-icons">music_note</i>
+                            Music
+                        </div>
+                        <div class="musicBody collapsible-body">
+                            <p>Video 1</p>
+                            <p>Video 2</p>
+                            <p>Video 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="backToParties">Back</div>
+                    </li>
+                </ul>
             </div>
         </div>
 

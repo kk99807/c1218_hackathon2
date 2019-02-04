@@ -7,8 +7,9 @@ function initApp() {
     party.start();
     // $('.main').on('click','.section', showAccordion);
     $('.startButton').on('click', hideLanding);
-    $('.details, .food, .music, .parties').hide();
+    $('.details, .cocktail, .food, .music, .parties, .editParty').hide();
     $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+    $('.collapsible').collapsible();
     // $('.details .informationContainer .btn').css('margin', '20px');
 
     $('.searchResults').slick({
@@ -21,8 +22,6 @@ function initApp() {
         touchMove: true,
         centerMode: true,
     });
-
-    $('.slick-prev, .slick-next').text('');
 }
 
 function hideLanding(){
