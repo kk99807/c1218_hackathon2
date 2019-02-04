@@ -43,7 +43,8 @@ class CocktailItems extends PartyItems {
                             item.strDrink, 
                             item.strDrinkThumb, 
                             this.handleItemClick, 
-                            {ingredients: ingredients, instructions: item.strInstructions}
+                            {ingredients: ingredients, instructions: item.strInstructions},
+                            $('.cocktailsHeader .badge')
                         );
                     });
                     resolve(items);
