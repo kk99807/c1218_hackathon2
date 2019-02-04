@@ -42,7 +42,7 @@ class PartyItems {
      * Perform search using async search method implemented in subclasses & display results
      */
     handleSearch() {
-
+/*
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItems').append(spinner);
         $('.newPageSearchContainer').append(spinner);
@@ -54,7 +54,7 @@ class PartyItems {
                 this.domElement.find('.newPageSearchContainer').append(items);
                 $('.fa-spinner').remove();
             });
-
+*/
         this.loadData();
     }
 
@@ -70,8 +70,8 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
-
             item.badge.text(--badgeValue);
+
             M.toast({html:'Item has been deleted', displayLength:1000});
             $('.toast').css('background-color', 'red');
             this.data = this.data.filter(element => element !== item);
@@ -96,6 +96,17 @@ class PartyItems {
     showList() {
         let renderedItems = this.items.map(item => item.renderSearch(true));
         this.domList.append(renderedItems);
+    }
+
+    /**
+     * Show details for a selected Party Item
+     * @param {PartyItem} item 
+     */
+    showDetails(item) {
+        this.domElement.find('.informationContainer .displayContainer')
+            .empty()
+            .append(item.renderDetails());
+        this.domElement.find('.informationContainer').show();
     }
 
     loadData(){

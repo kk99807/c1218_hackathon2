@@ -95,7 +95,7 @@ class PartyItem {
         image.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
             card.fadeOut(() => card.remove());
-            this.eventCallback(this);
+            this.eventCallback(this, button.text());
         });
 
         closeButton.click(() => cardReveal.hide());
