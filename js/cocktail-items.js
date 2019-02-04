@@ -12,7 +12,6 @@ class CocktailItems extends PartyItems {
         this.searchByAlcohol = this.searchByAlcohol.bind(this);
         this.searchDrinkByName = this.searchDrinkByName.bind(this);
         $('.alcohol').on('click',this.searchByAlcohol);//must have 4 buttons vodka, gin, rum, tequila with class of alcohol
-        $('.cocktailSearchButton').on('click', this.searchDrinkByName);
         this.storeDrinksInArray = this.storeDrinksInArray.bind(this);
         this.searchDrinkByAlcohol = this.searchDrinkByAlcohol.bind(this);
 
@@ -34,9 +33,46 @@ class CocktailItems extends PartyItems {
         })
         //.then((result3)=>console.log(result3));
     }
+    handleSearch(){
+
+    }
     searchDrinkByName(){
         let cocktailName = $('.cocktailSearchInput').val();
-        
+        console.log(cocktailName);
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                method: 'get',
+                dataType: 'json',
+                url: `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`,
+                data:{
+                    'api-key':'1'
+                },
+                success: data => {
+                    let items = data.drinks.map(item => {
+                        let ingredients = [];
+                        for (let i = 1; i < 16; i++) {
+                            let ingredient = item['strMeasure' + i];
+                            let measurement = item['strIngredient'+i];
+                            let fullString = "";
+                            if (ingredient && measurement){
+                                fullString = ingredient + ' ' + measurement;
+                                ingredients.push(fullString);
+                            } 
+                        }
+
+                        return new RecipeItem(
+                            item.idDrink, 
+                            item.strDrink, 
+                            item.strDrinkThumb, 
+                            this.handleItemClick, 
+                            {ingredients: ingredients, instructions: item.strInstructions},
+                            $('.cocktailsHeader .badge')
+                        );
+                    });
+                    resolve(items);
+                },
+            });
+        });
     }
     searchDrinkByAlcohol( event ){
         let clickedText = $( event.target ).text();
