@@ -94,6 +94,6 @@ class App {
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));
         });
-
+        party
     }
 }

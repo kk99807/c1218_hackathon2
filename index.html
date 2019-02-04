@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="assets/materialize-icons.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <script src="assets/jquery.min.js"></script>
+        <script src="assets/jquery.validate.min.js"></script>
         <script src="assets/materialize.min.js"></script>
         <script src="js/config.js"></script>
         <script src="js/party-item.js"></script>
@@ -26,8 +27,8 @@
     </head>
     <body>
         <div class="landing">
-            <h1 class='mainTitle'>shades of soiree</h1>
-            <h4 class='description'>PLAN THE<br>BEST<br>PARTY<br>EVER!</h4>
+            <h1 class='mainTitle'>PARTY! <span class="upsideDown">PARTY! </span></h1>
+            <h4 class='description'>PLAN THE BEST PARTY EVER!</h4>
             <button class="startButton waves-effect waves-light btn-large pulse">Get Started</button>
         </div>
         <!-- <div class="main"> -->
@@ -46,34 +47,36 @@
                         <i class="fas fa-calendar-edit"></i>
                     </div> -->
                 <!-- </div> -->
+
+                <form id="detailsForm">
                 <div class="contentContainer">
                     <h4 class="text">When is your party?</h4>
                     <div class="inputContainer">
                         <div class="titleInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">add</i>
-                                <input type="text" id="inputTitle">
+                                <input name="inputTitle" type="text" id="inputTitle" required="" aria-required="true">
                                 <label for="inputTitle">Name Your Party</label>
                             </div>
                         </div>
                         <div class="dateInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">event</i>
-                                <input type="text" class="datepicker" id="pickDate">
+                                <input name="pickDate" type="text" class="datepicker" id="pickDate" required="" aria-required="true">
                                 <label for="pickDate">Pick Start Date</label>
                             </div>
                         </div>
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input type="text" id="pickStartTime" class="timepicker">
+                                <input name="pickStartTime" type="text" id="pickStartTime" class="timepicker" required="" aria-required="true">
                                 <label for="pickStartTime">Pick Start Time</label>
                             </div>
                         </div>
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input type="text" id="pickEndTime" class="timepicker">
+                                <input name="pickEndTime" type="text" id="pickEndTime" class="timepicker" required="" aria-required="true">
                                 <label for="pickEndTime">Pick End Time</label>
                             </div>
                         </div>
@@ -82,8 +85,9 @@
                         <!-- </div> -->
                     </div>
 
-                    <button class="readyToPartyButton waves-effect waves-light btn-large btnNext">Next</button>
+                    <button class="readyToPartyButton waves-effect waves-light btn-large btnUpdateDetails" type="submit">Next</button>
 
+                    </form>
                 </div>
                 <div class="searchContainer"></div>
                 <div class="informationContainer">
@@ -288,7 +292,7 @@
         <!-- Card used for each Party on Parties page -->
         <template id="templatePartyCard">
             <div class="card">
-                <div class="card-content black-text">
+                <div class="card-content">
                     <span class="card-title">My Super Party</span>
                     <div>When: <span class="datetime">02/03/2019 10:00 PM - 02/03/2019 11:00 PM</span></div>
                     <div>
