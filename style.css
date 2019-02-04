@@ -1,5 +1,7 @@
 /*----------------- NEW CODE -----------------*/
-
+html {
+    touch-action: manipulation;
+}
 body {
     height: 100vh;
     margin: 0;
