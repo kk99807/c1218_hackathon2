@@ -64,7 +64,7 @@ class PartyItem {
             .addClass('card-reveal')
             .appendTo(card);
 
-        let revealTitle = $('<span>')
+        let revealTitle = $('<h5>')
             .addClass('class-title')
             .text(this.name)
             .appendTo(cardReveal);
@@ -74,8 +74,19 @@ class PartyItem {
             .text('close')
             .appendTo(revealTitle);
 
+        // let instructions = $('<p>')
+        // .addClass('recipe')
+        // .text(this.props.instructions);
+        if(this.props.ingredients){
+            for(let i = 0; i < this.props.ingredients.length; i++){
+                let ingredients = $('<h5>')
+                    .addClass('ingredients')
+                    .text(this.props.ingredients[i]);
+                cardReveal.append(ingredients);
+            }
+        }
         let revealContent = $('<p>')
-            .text('Please put in description')
+            .text(this.props.instructions)
             .appendTo(cardReveal);
 
         let buttonContainer = $('<a>')
@@ -106,11 +117,12 @@ class PartyItem {
 
 /** Class representing a recipe-type party item */
 class RecipeItem extends PartyItem {
-
+    //Card reveal render Details
     /**
      * @returns jQuery wrapper with DOM showing details of this recipe
      */
     renderDetails(){
+        //for old code
         let container = $('<div>')
             .addClass('displayContainer');
 

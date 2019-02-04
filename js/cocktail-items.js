@@ -91,7 +91,7 @@ class CocktailItems extends PartyItems {
                                 ingredients.push(fullString);
                             } 
                         }
-
+//TODO : return renderDetails after new recipeItem is created, plug it into click handler when clicked on card reveal button
                         return new RecipeItem(
                             item.idDrink, 
                             item.strDrink, 
