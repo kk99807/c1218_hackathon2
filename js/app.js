@@ -17,6 +17,7 @@ class App {
         $('.startButton').on('click', this.hideLanding);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+        $('.timepicker').timepicker();
         $('.collapsible').collapsible();
     
         $('.searchResults').slick({
