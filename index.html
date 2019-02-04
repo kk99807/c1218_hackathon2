@@ -15,15 +15,17 @@
         <script src="js/config.js"></script>
         <script src="js/party-item.js"></script>
         <script src="js/party-items.js"></script>
+        <script src="js/details-container.js"></script>
         <script src="js/cocktail-items.js"></script>
         <script src="js/food-items.js"></script>
         <script src="js/music-items.js"></script>
         <script src="js/party.js"></script>
+        <script src="js/app.js"></script>
         <script src='main.js'></script>
         <title>Let's Party!</title>
     </head>
     <body>
-        <div class="landing hidden">
+        <div class="landing">
             <h1 class='mainTitle'>shades of soiree</h1>
             <h4 class='description'>PLAN THE<br>BEST<br>PARTY<br>EVER!</h4>
             <button class="startButton waves-effect waves-light btn-large pulse">Get Started</button>
@@ -80,7 +82,7 @@
                         <!-- </div> -->
                     </div>
 
-                    <button class="readyToPartyButton waves-effect waves-light btn-large"><i class="fas fa-glass-cheers"></i> Save</button>
+                    <button class="readyToPartyButton waves-effect waves-light btn-large btnNext"><i class="fas fa-glass-cheers"></i> Save</button>
 
                 </div>
                 <div class="searchContainer"></div>
@@ -122,7 +124,7 @@
                 </div>
 
                 <div class="cocktailDetails contentContainer">
-                    <button class="goToFood waves-effect waves-light btn-large">Next</button>
+                    <button class="goToFood waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
                 <div class="searchContainer">
@@ -165,7 +167,7 @@
                         <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
-                    <button class="goToMusic waves-effect waves-light btn-large">Next</button>
+                    <button class="goToMusic waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
                 <div class="foodItems addedItems hidden">
@@ -200,7 +202,7 @@
                         <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
-                    <button class="goToParties waves-effect waves-light btn-large">Next</button>
+                    <button class="goToParties waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
             </div>
                 <!-- <div class="contentContainer">
@@ -241,7 +243,7 @@
 
             <div class="contentContainer">
                 <div class="partyDetails"></div>
-                <button class="goToDetails waves-effect waves-light btn-large">Next</button>  
+                <button class="goToDetails waves-effect waves-light btn-large btnNewParty">New Party</button>  
             </div>
         </div>
 

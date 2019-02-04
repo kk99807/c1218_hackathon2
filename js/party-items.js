@@ -89,8 +89,8 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    nextHandlerSearch(){
-        this.nextElement.asyncSearch()
+    preloadData(){
+        this.asyncSearch()
             .then(items => {
                 items.map(item => {
                     let p = $('<p>').text(item.name);
@@ -146,42 +146,5 @@ class PartyItems {
     newSearchCloseButtonHandler() {
         this.domElement.find('.newPageSearchContainer').hide();
     }
-
-    // /**
-    //  * Show a search screen for party items of this type
-    //  */
-    // showSearch() {
-    //     setAccordion(false);
-    //     this.domElement.find('.searchContainer').show();
-    // }
-
-    // /**
-    //  * Show details for a selected Party Item
-    //  * @param {PartyItem} item 
-    //  */
-    // showDetails(item) {
-    //     setAccordion(false);
-    //     this.domElement.find('.informationContainer .displayContainer')
-    //         .empty()
-    //         .append(item.renderDetails());
-    //     this.domElement.find('.informationContainer').show();
-    // }
-
-    // /**
-    //  * Hide the search screen for items of this type
-    //  */
-    // hideSearch() {
-    //     setAccordion(true);
-    //     this.domElement.find('.searchContainer').hide();
-    // }
-
-
-    // /**
-    //  * Hide the details screen for items of this type
-    //  */
-    // hideDetails() {
-    //     setAccordion(true);
-    //     this.domElement.find('.informationContainer').hide();       
-    // }
 
 }

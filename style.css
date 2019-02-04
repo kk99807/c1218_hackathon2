@@ -111,10 +111,8 @@ h1, h2, h3, h4, h5 {
 
 .startButton, 
 .readyToPartyButton, 
-.goToFood, 
-.goToMusic, 
-.goToParties,
-.goToDetails {
+.btnNext,
+.btnNewParty {
     width: 60%;
     position:absolute;
     left:50%;
@@ -122,10 +120,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .readyToPartyButton, 
-.goToFood, 
-.goToMusic, 
-.goToParties,
-.goToDetails {
+.btnNext,
+.btnNewParty {
     bottom: 4%;
     font-size: 1.8em;
     font-family: 'Shadows Into Light', cursive;
