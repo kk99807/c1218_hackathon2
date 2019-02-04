@@ -580,20 +580,8 @@ li:last-child {
     margin: 20px;
 }
 
-/*----------------- test for search container -----------------*/
-
-.newPageSearchContainer {
-    height: 85%;
-    width: 100%;
-    display:none;
-    position: absolute;
-    top: 15%;
-    overflow-y: scroll;
-}
-.newSection {
-    height: 100%;
-}
-
-.newSearchCloseButton {
-    color: white;
+.musicDetails .searchInputContainer,
+.musicDetails .text {
+    position: relative;
+    bottom: 45%;
 }

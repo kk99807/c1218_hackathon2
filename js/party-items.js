@@ -110,7 +110,6 @@ class PartyItems {
                     let p = $('<p>').text(item.name);
                     let img = $('<img>').attr('src', item.imageURL);
                     let div = $('<div>').addClass('slide');
-                    debugger;
                     img.click(target => {
                         this.handleItemClick(item, 'add');
                     });
