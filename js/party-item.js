@@ -22,8 +22,10 @@ class PartyItem {
      * @param {boolean} selected - Whether or not this is currently selected
      * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
      */
+    // renderSearch(selected) {
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
+ 
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
