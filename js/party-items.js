@@ -96,9 +96,9 @@ class PartyItems {
                     let p = $('<p>').text(item.name);
                     let img = $('<img>').attr('src', item.imageURL);
                     let div = $('<div>');
-
+                    debugger;
                     img.click(target => {
-                        this.nextElement.handleItemClick(item, 'add');
+                        this.handleItemClick(item, 'add');
                         div.remove();
                     });
                     div.append(img, p);
