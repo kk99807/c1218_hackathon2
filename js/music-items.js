@@ -9,6 +9,7 @@ class MusicItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        this.domElement.find('.musicSearchButton').click(this.handleSearch);
     }
 
     /**

@@ -34,7 +34,38 @@ class CocktailItems extends PartyItems {
         //.then((result3)=>console.log(result3));
     }
     handleSearch(){
+        this.searchDrinkByName().then(items => {
+            let itemElements = items.map(item => {
+                let p = $('<p>').text(item.name);
+                let img = $('<img>').attr('src', item.imageURL);
+                let div = $('<div>').addClass('slide');
+                img.click(target => {
+                    this.handleItemClick(item, 'add');
+                });
+                div.append(img, p);
+                return div;
+            });
 
+            this.domSearchResults.slick('slickRemove', null, null, true);
+            this.domSearchResults
+                .slick('unslick')
+                .empty()
+                .append(itemElements)
+                .slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    swipe: true,
+                    adaptiveHeight: true,
+                    touchMove: true,
+                    centerMode: true
+                });
+            $('.slick-arrow').addClass('hidden');
+
+            $('.fa-spinner').remove();
+
+        });
     }
     searchDrinkByName(){
         let cocktailName = $('.cocktailSearchInput').val();
