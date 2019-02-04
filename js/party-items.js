@@ -99,6 +99,18 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
+    /**
+     * Show details for a selected Party Item
+     * @param {PartyItem} item 
+     */
+    showDetails(item) {
+        setAccordion(false);
+        this.domElement.find('.informationContainer .displayContainer')
+            .empty()
+            .append(item.renderDetails());
+        this.domElement.find('.informationContainer').show();
+    }
+
     loadData(){
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         this.domList.append(spinner);
