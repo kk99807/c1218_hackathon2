@@ -108,7 +108,7 @@ class PartyItems {
                         });
                     });
                     div.append(img, p);
-                    $('.searchResults').append(div).slick('unslick').slick({
+                    this.domElement.find('.searchResults').append(div).slick('unslick').slick({
                         slidesToShow: 2,
                         slidesToScroll: 1,
                         autoplay: true,
