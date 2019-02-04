@@ -70,7 +70,6 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
-            debugger;
             item.badge.text(--badgeValue);
 
             M.toast({html:'Item has been deleted', displayLength:1000});
