@@ -25,8 +25,7 @@ class PartyItems {
         // this.hideDetails = this.hideDetails.bind(this);
         this.loadData = this.loadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
-        // this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
-        // this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
+
         this.domElement.find('.badge').click(this.badgeClickHandler);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
@@ -68,7 +67,14 @@ class PartyItems {
         let badgeValue = item.badge.text();
 
         if (eventType === 'view') {
+        
             this.showDetails(item);
+            if(item instanceof VideoItem){
+                console.log(item instanceof VideoItem);
+                item.renderDetails();
+                $('.musicInfo').show();
+                $('.musicSpinner').remove();
+            }
         } else if (eventType === 'delete') {
             item.badge.text(--badgeValue);
 
