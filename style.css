@@ -552,3 +552,10 @@ h1, h2, h3, h4, h5 {
 .slick-slide p {
     margin-bottom: 5%;
 }
+
+
+.collapsible-body {
+    height: 55vh;;
+    overflow-y: scroll;
+}
+

@@ -75,6 +75,28 @@ class App {
     }
 
     showParty( party ) {
-        console.log('In showParty: ', party.title);
+
+        $('.parties').hide();
+        $('.editParty').show();
+
+        party.cocktailItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.cocktailsBody'));
+        });
+        party.foodItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.foodBody'));
+        });
+        party.musicItems.items.map(item => {
+            let partyItemContainer = $('<div>');
+            partyItemContainer.append(item.card);
+            partyItemContainer.appendTo($('.musicBody'));
+        });
+        let date = $('<p>').text(`Date: ${party.date}`);
+        let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
+        let endTime = $('<p>').text(`End Time: ${party.endTime}`);
+        $('.detailsBody').append(date, startTime, endTime);
     }
 }
