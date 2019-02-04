@@ -363,10 +363,6 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
-.searcResults {
-    height: 28.2%;
-}
-
 .searchResults img {
     height: 100px;
     width: 100px;
@@ -395,16 +391,47 @@ h1, h2, h3, h4, h5 {
     background-color: #45a6c4;
 }
 
+.cocktailItems .itemDelete {
+    background-color: #cdf1fd;
+}
+
 .foodItems .card {
     background-color: #b245c4;
+}
+
+.foodItems .itemDelete {
+    background-color: #f1cbf7;
 }
 
 .musicItems .card {
     background-color: #7d45c4;
 }
 
+.musicItems .itemDelete {
+    background-color: #e3cefe;
+}
+
 .card-image {
     width: 40%;
+}
+
+.itemDelete {
+    position: absolute;
+    right: 2.5%;
+    bottom: 3%; 
+    font-weight: 900;
+}
+
+.cocktailItems .trashIcon {
+    color: #45a6c4;
+}
+
+.foodItems .trashIcon {
+    color: #b245c4;
+}
+
+.musicItems .trashIcon {
+    color: #7d45d4;
 }
 
 /*-------------- BADGES --------------*/
@@ -428,12 +455,16 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- SLICK --------------*/
 
+.slider {
+    height: 100px;
+}
+
 .slick-list {
     height: 80%;
 }
 
 .slick-slide p {
-    margin-bottom: 0;
+    margin-bottom: 5%;
 }
 
 
@@ -524,16 +555,6 @@ h1, h2, h3, h4, h5 {
     top: 50%;
     left: 43%;
     transform: translate(-50%, -50%); 
-}
-
-.pink, .purple {
-    position: absolute;
-    right: 2.5%;
-    bottom: 3%; 
-}
-
-.purple > .material-icons {
-    font-weight: 900;
 }
 
 .activator {
