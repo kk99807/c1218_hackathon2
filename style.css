@@ -616,8 +616,14 @@ h1, h2, h3, h4, h5 {
 .videoDisplay {
     position: absolute;
     top: 15%;
+    left: 0;
     height: 85%;
     width: 100%;
     background-color: black;
     z-index: 2;
+}
+
+.musicDetailClose {
+    display: block;
+    margin: 3% 0 0 90%;
 }
