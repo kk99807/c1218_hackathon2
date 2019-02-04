@@ -15,12 +15,21 @@ class CocktailItems extends PartyItems {
         this.searchDrinkByAlcohol = this.searchDrinkByAlcohol.bind(this);
     }
     doStuff( event ){
+        
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItemContainer').append(spinner);
         this.searchDrinkByAlcohol( event )
         .then( result => this.storeDrinksInArray(result) )
         .then( result2 => Promise.all(result2.map(this.getJSON)) )
         .then( result4 => this.storeIngredientData(result4) )
+        .then( result5 => result5.map(item=>item.renderSearch()))
+        .then( result6 => {
+            this.domSearchResults.empty().append(result6);
+            $('.fa-spinner').remove();
+            $('.cocktail .contentContainer').hide();
+            $('.cocktail .searchContainer').show();
+            
+        })
         //.then((result3)=>console.log(result3));
     }
 
