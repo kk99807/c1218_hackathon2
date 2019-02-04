@@ -43,7 +43,7 @@ class Party {
             $('.parties').show();
         } else {
             let container = this.containers[this.currentContainerIndex];
-            container.preloadData();
+            container.loadData();
             container.domElement.show();
         }
     }
