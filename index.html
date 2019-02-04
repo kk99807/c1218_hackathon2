@@ -100,47 +100,38 @@
         </div>
 
         <div class="cocktail">
-            <!-- <p class='sectionTitle'>Cocktails</p> -->
-            <!-- <div class="wholeContainer"> -->
-                <!-- <div class='contentContainerTitle'>
-                    <div>
-                        <h2>Cocktails</h2>
-                    </div>
-                    <div class="addItems">
-                        <i class="fas fa-glass-martini-alt"></i>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div> -->
+            <div class="cocktailsHeader">
+                <h2 class="cocktailsTitle">
+                    Cocktails
+                    <span class="collection-item">
+                        <span class="cocktailsBadge badge">0</span>
+                    </span>
+                </h2>  
+            </div>
 
-                <div class="cocktailsHeader">
-                    <h2 class="cocktailsTitle">
-                        Cocktails
-                        <span class="collection-item">
-                            <span class="cocktailsBadge badge">0</span>
-                        </span>
-                    </h2>
-                </div>
+            <div class="contentContainer">
+                <div class="cocktailDetails addItems">
+                    <h4 class="text">What drinks will you serve?</h4>
+                    <h5 class="text">Tap to add a cocktail:</h5>
+                    <div class="searchResults listItems"></div>
 
-                <div class="cocktailDetails contentContainer">
+                    <h5 class="text">Or search for your favorite drink:</h5>
+                    <div class="searchInputContainer">
+                        <input type="text" class="cocktailSearchInput" placeholder="Search by ingredient">
+                        <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                    </div>
+
                     <button class="goToFood waves-effect waves-light btn-large">Next</button>
                 </div>
 
-                <div class="searchContainer">
-                    <div class="searchHeading">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="titleContainer">
-                            <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
-                        </div>
-                    </div>
-                    <div class="listItemContainer">
-                        <div class="listItems"></div>
-                    </div>
+                <div class="cocktailItems addedItems hidden">
+                    <p>Your Selections</p>
                 </div>
-                <div class="informationContainer">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="displayContainer"></div>
+
+                <div class="cocktailIngredients ingredients hidden">
+                  
                 </div>
-            <!-- </div> -->
+            </div>
         </div>
 
         <div class="food">

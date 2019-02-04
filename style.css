@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5 {
     background-size: cover;
 } 
 
-.details h4, 
+.details h4,
+.cocktail h4, 
 .food h4, 
 .music h4 {
     margin-bottom: 8%;
@@ -96,12 +97,14 @@ h1, h2, h3, h4, h5 {
     justify-content: space-evenly;
 }
 
+.cocktailSearchInput::placeholder,
 .foodSearchInput::placeholder, 
 .musicSearchInput::placeholder{
     opacity: 1;
     font-family: 'Shadows Into Light', cursive;
 }
 
+.cocktailSearchButton,
 .foodSearchButton, 
 .musicSearchButton {
     width: 10%;
@@ -170,7 +173,10 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- COCKTAILS --------------*/
 
-.cocktailDetails {
+.cocktailDetails,
+.cocktailItems,
+.cocktailIngredients {
+    color: #45a6c4;
     background-color: #cdf1fd;
 }
 
@@ -183,13 +189,17 @@ h1, h2, h3, h4, h5 {
     margin-left: 27%;
 }
 
-.cocktailsBadge.badge {
-    color: #45a6c4;
-}
-
+.cocktailSearchButton, 
+.cocktailSearchButton:hover, 
 .goToFood, 
 .goToFood:hover {
     background-color: #45a6c4;
+}
+
+.cocktailSearchInput, 
+.cocktailSearchInput::placeholder, 
+.cocktailsBadge.badge {
+    color: #45a6c4;
 }
 
 /*-------------- FOOD --------------*/

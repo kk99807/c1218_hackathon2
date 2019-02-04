@@ -20,7 +20,6 @@ class FoodItems extends PartyItems {
      */
     asyncSearch() {
         let query = $('.foodSearchInput').val();
-        let i = 1;
 
         const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=';
 
@@ -38,12 +37,6 @@ class FoodItems extends PartyItems {
                             let ingredient = item.extendedIngredients[i].original;
                             ingredients.push(ingredient);
                         }
-
-                        $(`.item${i} img`).attr('src', item.image);
-                        $(`.item${i} p`).text(item.title);
-                        i++
-
-                        // if no image....
 
                         return new RecipeItem(
                             item.id, 
