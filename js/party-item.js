@@ -16,6 +16,7 @@ class PartyItem {
         this.eventCallback = eventCallback;
         this.props = props;
         this.badge = badge;
+        this.card = null;
     }
 
     /**
