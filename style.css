@@ -558,4 +558,14 @@ h1, h2, h3, h4, h5 {
     height: 55vh;;
     overflow-y: scroll;
 }
-
+.videoDisplay {
+    position: absolute;
+    top: 15%;
+    height: 85%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+}
+.itemInfo {
+    padding: 0;
+}

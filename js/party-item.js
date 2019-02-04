@@ -158,12 +158,18 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer');
+            .addClass('videoDisplay');
 
         let spinner = $('<i>')
-            .addClass("fa fa-spinner fa-spin");
-
-        container.append(spinner);
+            .addClass("fa fa-spinner fa-spin musicSpinner");
+        let closeDiv =  $('<div>');
+        let closeButton = $('<i>')
+            .addClass('material-icons musicDetailClose')
+            .text('close')
+            .click(target => $('.videoDisplay').hide())
+            .css('color', 'white');
+        closeDiv.append(closeButton);
+        container.append(closeDiv, spinner);
 
         let video = $('<iframe>')
             .attr({
@@ -176,7 +182,6 @@ class VideoItem extends PartyItem {
             .addClass('videoIFrame');
             
         container.append(video);
-
-        return container;
+        $('.musicInfo').append(container);
     }
 }
