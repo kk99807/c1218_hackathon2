@@ -367,7 +367,7 @@ h1, h2, h3, h4, h5 {
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .searchResults {
-    height: 28.2%;
+    height: 42%;
 }
 
 .searchResults img {
@@ -505,10 +505,6 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- SLICK --------------*/
 
-.slider {
-    height: 100px;
-}
-
 .slick-list {
     height: 80%;
 }
@@ -633,9 +629,4 @@ h1, h2, h3, h4, h5 {
 
 .buttonPannel .btn {
     margin: 20px;
-}
-
-.musicDetails .searchInputContainer {
-    position: relative;
-    bottom: 45%;
 }
