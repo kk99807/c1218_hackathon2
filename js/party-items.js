@@ -90,6 +90,7 @@ class PartyItems {
     }
 
     preloadData(){
+        let newSlider = this.domSearchResults.clone();
         this.asyncSearch()
             .then(items => {
                 items.map(item => {
@@ -101,17 +102,19 @@ class PartyItems {
                         this.handleItemClick(item, 'add');
                         div.remove();
                     });
-                    div.append(img, p);
-                    $('.searchResults').empty().append(div).slick('unslick').slick({
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        autoplaySpeed: 1500,
-                        swipe: true,
-                        adaptiveHeight: true,
-                        touchMove: true,
-                        centerMode: true,
-                    });
+                    div.append(img, p)
+                        .appendTo(this.domSearchResults);
+                });
+
+                this.domSearchResults.slick('unslick').slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    swipe: true,
+                    adaptiveHeight: true,
+                    touchMove: true,
+                    centerMode: true
                 });
                 $('.slick-arrow').addClass('hidden')
             });
