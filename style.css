@@ -22,41 +22,45 @@ h1, h2, h3, h4, h5 {
 
 /*----------------- LANDING PAGE -----------------*/
 
-.landing {
-    background-image: url('images/landingBackground.png');
+.landing{
+    background-image: url('images/newBackground.jpg');
     height:100%;
     width:100%;
     background-repeat:no-repeat;
-    background-size: 100% 100%;
+    background-position-x: 50%;
     position:fixed;
     z-index:1;
 }
 
 .startButton {
-    font-size: 130%;
+    font-size: 1.7em;
     bottom: 10%;
-    background-color:rgb(218,11,79)
+    background-color: #d650b0;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .mainTitle {
     text-align:center;
-    color: rgb(53, 34, 221);
-    text-shadow: #cacbf6 1px 1px 1px;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Major Mono Display', monospace;
+    color: white;
     font-weight:bold;
     font-size:3.5rem;
     padding-top: 15px;
 }
 
 .description {
+    width: 80%;
     text-align:center;
     position:absolute;
-    top:45%;
+    top:65%;
     left:50%;
     transform:translate(-50%, -50%);
     font-family: 'Shadows Into Light', cursive;
     color:white;
+}
+
+.upsideDown {
+    display: inline-block;
+    transform: scale(-1, 1); 
 }
 
 /*----------------- SECTIONS -----------------*/
@@ -386,6 +390,20 @@ h1, h2, h3, h4, h5 {
     padding-top: 1%;
 }
 
+.partyDetails .card {
+    font-size: 1.5em;
+    background-color: #3232ff;
+}
+
+.partyDetails .card-content {
+    color: white;
+    text-align: left;
+}
+
+.btnAddToCalendar, .btnEditParty {
+    color: white !important;
+}
+
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .searchResults {
@@ -533,131 +551,4 @@ h1, h2, h3, h4, h5 {
 
 .slick-slide p {
     margin-bottom: 5%;
-}
-
-
-
-
-
-
-
-/*----------------- OLD CODE -----------------*/
-
-/*----------------- CALENDAR -----------------*/
-
-.eventLink {
-    margin-right: 5%;
-}
-
-.calendarButton {
-    width: 15%;
-}
-
-/*----------------- MUSIC -----------------*/
-
-.videoContainer {
-    height: 95%;
-}
-
-.displayContainer {
-    height: 95%;
-}
-
-.videoIFrame {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}
-
-/*----------------- MODALS -----------------*/
-
-.informationContainer {
-    display: none;
-    position: absolute;
-}
-
-.searchContainer, 
-.informationContainer {
-    height: 85%;
-    width: 100%;
-    background-color: #f3e5f5;
-}
-
-.listImageContainer {
-    float: left;
-    padding: 0 3% 3% 0;
-}
-
-/*----------------- INFORMATION MODAL -----------------*/
-
-.informationContainer {
-    display:none;
-    z-index: 5;
-    overflow-y: scroll;
-}
-
-.displayContainer {
-    padding: 0 3% 3% 3%;
-}
-
-.detailsImage {
-    height: 100px;
-}
-
-.recipe {
-    clear: left;
-}
-
-.ingredients {
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-/*----------------- FONTAWESOME -----------------*/
-
-.fa-spinner {
-    font-size: 3em;
-    color: #9c27b0;
-    position: absolute;
-    top: 50%;
-    left: 43%;
-    transform: translate(-50%, -50%); 
-}
-
-.activator {
-    position: absolute;
-    top: 5%;
-    right: 0;
-    color: white;
-}
-
-.contentContainer > p {
-    text-align: center;
-    font-weight: bold;
-}
-
-.informationContainer > .closeButton {
-    position: relative;
-    left: 50%;
-    top: 80%;
-    transform: translateX(-50%);
-}
-
-.buttonPanel {
-    display: flex;
-    justify-content: center;
-}
-
-.buttonPannel .btn {
-    margin: 20px;
-}
-
-/* .musicDetails .searchInputContainer {
-    position: relative;
-    bottom: 45%;
-} */
-
-.cocktailsCount, .foodCount, .musicCount {
-    font-weight: bold;
 }
