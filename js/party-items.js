@@ -23,7 +23,7 @@ class PartyItems {
         // this.showSearch = this.showSearch.bind(this);
         // this.hideSearch = this.hideSearch.bind(this);
         // this.hideDetails = this.hideDetails.bind(this);
-        this.preloadData = this.preloadData.bind(this);
+        this.loadData = this.loadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
         this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
         this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
@@ -42,6 +42,7 @@ class PartyItems {
      * Perform search using async search method implemented in subclasses & display results
      */
     handleSearch() {
+
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItems').append(spinner);
         $('.newPageSearchContainer').append(spinner);
@@ -53,6 +54,9 @@ class PartyItems {
                 this.domElement.find('.newPageSearchContainer').append(items);
                 $('.fa-spinner').remove();
             });
+
+        this.loadData();
+
     }
 
     /**
@@ -96,11 +100,13 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    preloadData(){
-        let newSlider = this.domSearchResults.clone();
+    loadData(){
+        let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
+        this.domList.append(spinner);
+
         this.asyncSearch()
             .then(items => {
-                items.map(item => {
+                let itemElements = items.map(item => {
                     let p = $('<p>').text(item.name);
                     let img = $('<img>').attr('src', item.imageURL);
                     let div = $('<div>').addClass('slide');
@@ -108,22 +114,29 @@ class PartyItems {
                     img.click(target => {
                         this.handleItemClick(item, 'add');
                     });
-                    div.append(img, p)
-                        .appendTo(this.domSearchResults);
+                    div.append(img, p);
+                    return div;
                 });
 
-                this.domSearchResults.slick('unslick').slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1500,
-                    swipe: true,
-                    adaptiveHeight: true,
-                    touchMove: true,
-                    centerMode: true
+                this.domSearchResults.slick('slickRemove', null, null, true);
+                this.domSearchResults
+                    .slick('unslick')
+                    .empty()
+                    .append(itemElements)
+                    .slick({
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 1500,
+                        swipe: true,
+                        adaptiveHeight: true,
+                        touchMove: true,
+                        centerMode: true
+                    });
+                $('.slick-arrow').addClass('hidden');
 
-                });
-                $('.slick-arrow').addClass('hidden')
+                $('.fa-spinner').remove();
+
             });
     }
 
