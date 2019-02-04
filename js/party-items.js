@@ -62,18 +62,25 @@ class PartyItems {
      * @param {string} eventType - add|delete|view
      */
     handleItemClick(item, eventType) {
+        let badgeValue = item.badge.text();
+
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
+
+            item.badge.text(--badgeValue);
             M.toast({html:'Item has been deleted', displayLength:1000});
             $('.toast').css('background-color', 'red');
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
+
+
         } else if (eventType === 'add') {
+            debugger;
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
-
-            let badgeValue = item.badge.text();
+            this.domElement.find('.addedItems').append(item.renderSearch(true));
+            
             item.badge.text(++badgeValue);
 
             M.toast({html:'Item has been added', displayLength:1000}); 
@@ -100,13 +107,6 @@ class PartyItems {
                     debugger;
                     img.click(target => {
                         this.handleItemClick(item, 'add');
-                        $('.slider').slick({
-                            dots: true
-                        });
-
-                        $('.slide').on('click', function() {
-                            $('.slider').slick('slickRemove', $('.slick-slide').index(this) - 1)
-                        });
                     });
                     div.append(img, p)
                         .appendTo(this.domSearchResults);
@@ -128,8 +128,7 @@ class PartyItems {
     }
 
     badgeClickHandler(){
-        $('.closeAddedItems').click(this.closeAddedItemsHandler)
-        $('.addedItems').append(this.items.map(item => item.renderSearch()));
+        $('.closeAddedItems').click(this.closeAddedItemsHandler);
         $('.addItems').hide();
         $('.addedItems').show();
     }
@@ -140,8 +139,7 @@ class PartyItems {
     }
 
     newPageSearchHandler(){
-        //this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
-        this.domElement.find('.searchResults').show()
+        this.domElement.find('.searchResults').show();
         this.handleSearch();
     }
 
