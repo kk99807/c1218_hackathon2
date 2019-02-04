@@ -75,7 +75,7 @@ class App {
     }
 
     showParty( party ) {
-        debugger;
+
         $('.parties').hide();
         $('.editParty').show();
 
@@ -94,6 +94,6 @@ class App {
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));
         });
-        party
+       
     }
 }
