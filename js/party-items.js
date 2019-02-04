@@ -95,14 +95,20 @@ class PartyItems {
                 items.map(item => {
                     let p = $('<p>').text(item.name);
                     let img = $('<img>').attr('src', item.imageURL);
-                    let div = $('<div>');
+                    let div = $('<div>').addClass('slide');
                     debugger;
                     img.click(target => {
                         this.handleItemClick(item, 'add');
-                        div.remove();
+                        $('.slider').slick({
+                            dots: true
+                        });
+
+                        $('.slide').on('click', function() {
+                            $('.slider').slick('slickRemove', $('.slick-slide').index(this) - 1)
+                        });
                     });
                     div.append(img, p);
-                    $('.searchResults').empty().append(div).slick('unslick').slick({
+                    $('.searchResults').append(div).slick('unslick').slick({
                         slidesToShow: 2,
                         slidesToScroll: 1,
                         autoplay: true,
