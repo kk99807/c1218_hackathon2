@@ -80,7 +80,6 @@ class PartyItems {
 
 
         } else if (eventType === 'add') {
-            debugger;
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
             this.domElement.find('.addedItems').append(item.renderSearch(true));
@@ -110,7 +109,6 @@ class PartyItems {
                     let p = $('<p>').text(item.name);
                     let img = $('<img>').attr('src', item.imageURL);
                     let div = $('<div>').addClass('slide');
-                    debugger;
                     img.click(target => {
                         this.handleItemClick(item, 'add');
                     });
