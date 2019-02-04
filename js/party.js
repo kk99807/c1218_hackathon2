@@ -14,25 +14,38 @@ class Party {
 
         this.addInviteDOM = $('.details .informationContainer');
 
-        this.partyOrganizer = {
-            foods: new FoodItems($('.food')),
-            cocktails: new CocktailItems($('.cocktail')),
-            music: new MusicItems($('.music'))
-        }
+        this.containers = [
+            new DetailsContainer($('.details')),
+            new CocktailItems($('.cocktail')),
+            new FoodItems($('.food')),
+            new MusicItems($('.music'))
+        ];
 
+        this.currentContainerIndex = -1;
+
+        this.bindEvents();
+    }
+
+    bindEvents() {
         this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
+        this.showNextContainer = this.showNextContainer.bind(this);
 
-        $('.readyToPartyButton').click(this.handleUpdateDetails);
+        // $('.readyToPartyButton').click(this.handleUpdateDetails);
+        $('.btnNext').click(this.showNextContainer);
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
 
-    /**
-     * Start the app
-     */
-    start() {
-        this.partyOrganizer.foods.showList();
-        this.partyOrganizer.cocktails.showList();
-        this.partyOrganizer.music.showList();
+    showNextContainer() {
+        this.containers.forEach(container => container.domElement.hide());
+
+        this.currentContainerIndex++;
+        if (this.currentContainerIndex === this.containers.length) {
+            $('.parties').show();
+        } else {
+            let container = this.containers[this.currentContainerIndex];
+            container.preloadData();
+            container.domElement.show();
+        }
     }
 
     /**
@@ -49,8 +62,6 @@ class Party {
                 this.eventKey = eventKey;
                 $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
                 this.addInviteDOM.show();
-                M.toast({html:'Your information has been saved!',displayLength:1000});
-                $('.toast').css('background-color', 'green');
             });
     }
 

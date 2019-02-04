@@ -102,7 +102,7 @@ class CocktailItems extends PartyItems {
                             let measurement = item['strIngredient'+i];
                             let fullString = "";
                             if (ingredient && measurement){
-                                fullString = ingredient + ' ' + measurement
+                                fullString = ingredient + ' ' + measurement;
                                 ingredients.push(fullString);
                             } 
                         }
@@ -112,7 +112,8 @@ class CocktailItems extends PartyItems {
                             item.strDrink, 
                             item.strDrinkThumb, 
                             this.handleItemClick, 
-                            {ingredients: ingredients, instructions: item.strInstructions}
+                            {ingredients: ingredients, instructions: item.strInstructions},
+                            $('.cocktailsHeader .badge')
                         );
                     });
                     resolve(items);

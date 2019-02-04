@@ -9,20 +9,23 @@ class PartyItem {
      * @param {*} eventCallback - Callback when item is clicked in DOM
      * @param {{}} props - Additional type-specific properties (ex: recipe ingredients)
      */
-    constructor(id, name, imageURL, eventCallback, props) {
+    constructor(id, name, imageURL, eventCallback, props, badge) {
         this.id = id;
         this.name = name;
         this.imageURL = imageURL;
         this.eventCallback = eventCallback;
         this.props = props;
+        this.badge = badge;
     }
 
     /**
      * @param {boolean} selected - Whether or not this is currently selected
      * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
      */
+    // renderSearch(selected) {
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
+ 
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
@@ -31,7 +34,6 @@ class PartyItem {
 
         let cardImage = $('<div>')
             .addClass('card-image')
-            .css('width', '40%')
             .appendTo(card);
 
         let image = $('<img>')
@@ -45,8 +47,7 @@ class PartyItem {
 
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked)
-            .css('padding', '3% 5%');
+            .appendTo(cardStacked);
 
         let titleLink = $('<div>')
             .addClass('titleLink')
@@ -136,8 +137,7 @@ class RecipeItem extends PartyItem {
         for(let i = 0; i < this.props.ingredients.length; i++){
             let ingredients = $('<li>')
                 .addClass('ingredients')
-                .text(this.props.ingredients[i])
-                .css({'list-style-type': 'disc', 'list-style-position': 'inside'});
+                .text(this.props.ingredients[i]);
             ingredientList.append(ingredients);
         }
 
@@ -161,8 +161,12 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer')
-            .css('height', '95%');
+            .addClass('displayContainer');
+
+        let spinner = $('<i>')
+            .addClass("fa fa-spinner fa-spin");
+
+        container.append(spinner);
 
         let video = $('<iframe>')
             .attr({
@@ -172,12 +176,8 @@ class VideoItem extends PartyItem {
                 src: `https://www.youtube.com/embed/${this.id}`,
                 fs: '1'
             })
-            .css({
-                position: 'relative',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -55%)'
-            });
+            .addClass('videoIFrame');
+            
         container.append(video);
 
         return container;

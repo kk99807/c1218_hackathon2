@@ -1,9 +1,9 @@
 $(document).ready(initApp);
 
-let party = null;
-let music;
+let app = null;
 
 function initApp() {
+<<<<<<< HEAD
     music = document.getElementById("player");
     music.playbackRate = 1.32;
     party = new Party();
@@ -14,35 +14,8 @@ function initApp() {
     $('.details .informationContainer .btn').css('margin', '20px');
     //sky added
     
+=======
+    app = new App();
+>>>>>>> 65120abccc420137e01c32a6eda5b13a5ef5728a
 }
-
-function setAccordion( active ) {
-    if (active) {
-        $('.main').on('click','.section', showAccordion);
-    } else {
-        $('.main').off('click');
-    }
-}
-
-function showAccordion(){
-    $('.sectionTitle').show();
-    $('.contentContainer, .contentContainerTitle, .wholeContainer').hide();
-    $('.section').css('flex','1');
-    $(this).find('.sectionTitle').hide();
-    $(this).css('flex','7 30%');
-    $(this).find('.wholeContainer').show();
-    $(this).find('.contentContainerTitle').show();
-    $(this).find('.contentContainer').show(); 
-}
-
-function hideLanding(){
-    $('.landing').hide();
-    music.pause();
-}
-
-
-
-
-
-
 

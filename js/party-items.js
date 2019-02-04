@@ -20,29 +20,37 @@ class PartyItems {
     bindEvents() {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.showSearch = this.showSearch.bind(this);
-        this.hideSearch = this.hideSearch.bind(this);
-        this.hideDetails = this.hideDetails.bind(this);
+        // this.showSearch = this.showSearch.bind(this);
+        // this.hideSearch = this.hideSearch.bind(this);
+        // this.hideDetails = this.hideDetails.bind(this);
+        this.preloadData = this.preloadData.bind(this);
+        this.badgeClickHandler = this.badgeClickHandler.bind(this);
+        this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
+        this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
+        this.domElement.find('.badge').click(this.badgeClickHandler);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.searchIcon').click(this.handleSearch);
-        
-        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
-        this.domElement.find('.addItems').click(this.showSearch);
+        // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
+        // this.domElement.find('.addItems').click(this.showSearch);
+
+        this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
+        this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
     }
 
     /**
      * Perform search using async search method implemented in subclasses & display results
      */
-    handleSearch(target) {
+    handleSearch() {
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
-        $('.listItemContainer').append(spinner);
+        $('.listItems').append(spinner);
+        $('.newPageSearchContainer').append(spinner);
 
-        this.asyncSearch(target)
-            .then(items => items.map(item => item.renderSearch()))
+        this.asyncSearch()
+            // .then(items => items.map(item => item.renderSearch()))
             .then(items => {
-                this.domSearchResults.empty().append(items);
+                // this.domSearchResults.empty().append(items);
+                this.domSearchResults.append(items);
                 $('.fa-spinner').remove();
             });
     }
@@ -57,15 +65,19 @@ class PartyItems {
         if (eventType === 'view') {
             this.showDetails(item);
         } else if (eventType === 'delete') {
-            M.toast({html:'Item has been deleted',displayLength:1000});
-            $('.toast').css('background-color', 'red');  
+            M.toast({html:'Item has been deleted', displayLength:1000});
+            $('.toast').css('background-color', 'red');
             this.data = this.data.filter(element => element !== item);
             item.fadeOut(() => item.remove());
         } else if (eventType === 'add') {
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
+
+            let badgeValue = item.badge.text();
+            item.badge.text(++badgeValue);
+
             M.toast({html:'Item has been added', displayLength:1000}); 
-            $('.toast').css('background-color', 'green'); 
+            $('.toast').css('background-color', 'green');
         }
     }
 
@@ -77,39 +89,56 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    /**
-     * Show a search screen for party items of this type
-     */
-    showSearch() {
-        setAccordion(false);
-        this.domElement.find('.searchContainer').show();
+    preloadData(){
+        let newSlider = this.domSearchResults.clone();
+        this.asyncSearch()
+            .then(items => {
+                items.map(item => {
+                    let p = $('<p>').text(item.name);
+                    let img = $('<img>').attr('src', item.imageURL);
+                    let div = $('<div>');
+
+                    img.click(target => {
+                        this.handleItemClick(item, 'add');
+                        div.remove();
+                    });
+                    div.append(img, p)
+                        .appendTo(this.domSearchResults);
+                });
+
+                this.domSearchResults.slick('unslick').slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    swipe: true,
+                    adaptiveHeight: true,
+                    touchMove: true,
+                    centerMode: true
+                });
+                $('.slick-arrow').addClass('hidden')
+            });
     }
 
-    /**
-     * Show details for a selected Party Item
-     * @param {PartyItem} item 
-     */
-    showDetails(item) {
-        setAccordion(false);
-        this.domElement.find('.informationContainer .displayContainer')
-            .empty()
-            .append(item.renderDetails());
-        this.domElement.find('.informationContainer').show();
+    badgeClickHandler(){
+        $('.closeAddedItems').click(this.closeAddedItemsHandler)
+        $('.addedItems').append(this.items.map(item => item.renderSearch()));
+        $('.addItems').hide();
+        $('.addedItems').show();
     }
 
-    /**
-     * Hide the search screen for items of this type
-     */
-    hideSearch() {
-        setAccordion(true);
-        this.domElement.find('.searchContainer').hide();
+    closeAddedItemsHandler(){
+        $('.addedItems').hide();
+        $('.addItems').show();
     }
 
-    /**
-     * Hide the details screen for items of this type
-     */
-    hideDetails() {
-        setAccordion(true);
-        this.domElement.find('.informationContainer').hide();       
+    newPageSearchHandler(){
+        this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
+        this.handleSearch();
     }
+
+    newSearchCloseButtonHandler() {
+        this.domElement.find('.newPageSearchContainer').hide();
+    }
+
 }
