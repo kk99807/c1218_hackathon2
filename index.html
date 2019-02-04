@@ -15,10 +15,12 @@
         <script src="js/config.js"></script>
         <script src="js/party-item.js"></script>
         <script src="js/party-items.js"></script>
+        <script src="js/details-container.js"></script>
         <script src="js/cocktail-items.js"></script>
         <script src="js/food-items.js"></script>
         <script src="js/music-items.js"></script>
         <script src="js/party.js"></script>
+        <script src="js/app.js"></script>
         <script src='main.js'></script>
         <title>Let's Party!</title>
     </head>
@@ -80,7 +82,7 @@
                         <!-- </div> -->
                     </div>
 
-                    <button class="readyToPartyButton waves-effect waves-light btn-large"><i class="fas fa-glass-cheers"></i> Save</button>
+                    <button class="readyToPartyButton waves-effect waves-light btn-large btnNext"><i class="fas fa-glass-cheers"></i> Save</button>
 
                 </div>
                 <div class="searchContainer"></div>
@@ -121,7 +123,7 @@
                         <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
-                    <button class="goToFood waves-effect waves-light btn-large">Next</button>
+                    <button class="goToFood waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
                 <div class="cocktailItems addedItems hidden"></div>
@@ -152,7 +154,7 @@
                         <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
-                    <button class="goToMusic waves-effect waves-light btn-large">Next</button>
+                    <button class="goToMusic waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
                 <div class="foodItems addedItems hidden"></div>
@@ -183,37 +185,13 @@
                         <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
-                    <button class="goToParties waves-effect waves-light btn-large">Next</button>
+                    <button class="goToParties waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
                 <div class="musicItems addedItems hidden"></div>
 
                 <div class="musicInfo itemInfo hidden"></div>
             </div>
-                <!-- <div class="contentContainer">
-                    <p>Your Selections</p>
-                </div>
-                <div class="searchContainer">
-                    <div class="searchHeading">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="titleContainer">
-                          <input type="text" class="musicSearchInput col s4" placeholder="FIND MUSIC">
-                          <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
-                        </div>
-                    </div>
-                    <div class="listItemContainer">
-                        <div class="listItems"></div>
-
-                    </div>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listItems"></div>
-                </div>
-            </div>
-            <div class="informationContainer">
-                <i class="material-icons closeButton">close</i>
-                <div class="displayContainer videoContainer"></div>
-            </div> -->
         </div> 
 
         <div class="parties">
@@ -228,7 +206,7 @@
 
             <div class="contentContainer">
                 <div class="partyDetails"></div>
-                <button class="goToDetails waves-effect waves-light btn-large">Next</button>  
+                <button class="goToDetails waves-effect waves-light btn-large btnNewParty">New Party</button>  
             </div>
         </div>
 

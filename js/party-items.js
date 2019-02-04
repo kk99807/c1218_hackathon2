@@ -24,6 +24,7 @@ class PartyItems {
         // this.showSearch = this.showSearch.bind(this);
         // this.hideSearch = this.hideSearch.bind(this);
         // this.hideDetails = this.hideDetails.bind(this);
+        this.preloadData = this.preloadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
         this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
         this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
@@ -89,8 +90,8 @@ class PartyItems {
         this.domList.append(renderedItems);
     }
 
-    nextHandlerSearch(){
-        this.nextElement.asyncSearch()
+    preloadData(){
+        this.asyncSearch()
             .then(items => {
                 items.map(item => {
                     let p = $('<p>').text(item.name);
@@ -98,7 +99,7 @@ class PartyItems {
                     let div = $('<div>');
 
                     img.click(target => {
-                        this.nextElement.handleItemClick(item, 'add');
+                        this.handleItemClick(item, 'add');
                         div.remove();
                     });
                     div.append(img, p);
@@ -146,42 +147,5 @@ class PartyItems {
     newSearchCloseButtonHandler() {
         this.domElement.find('.newPageSearchContainer').hide();
     }
-
-    // /**
-    //  * Show a search screen for party items of this type
-    //  */
-    // showSearch() {
-    //     setAccordion(false);
-    //     this.domElement.find('.searchContainer').show();
-    // }
-
-    // /**
-    //  * Show details for a selected Party Item
-    //  * @param {PartyItem} item 
-    //  */
-    // showDetails(item) {
-    //     setAccordion(false);
-    //     this.domElement.find('.informationContainer .displayContainer')
-    //         .empty()
-    //         .append(item.renderDetails());
-    //     this.domElement.find('.informationContainer').show();
-    // }
-
-    // /**
-    //  * Hide the search screen for items of this type
-    //  */
-    // hideSearch() {
-    //     setAccordion(true);
-    //     this.domElement.find('.searchContainer').hide();
-    // }
-
-
-    // /**
-    //  * Hide the details screen for items of this type
-    //  */
-    // hideDetails() {
-    //     setAccordion(true);
-    //     this.domElement.find('.informationContainer').hide();       
-    // }
 
 }
