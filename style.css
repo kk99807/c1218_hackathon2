@@ -580,8 +580,7 @@ li:last-child {
     margin: 20px;
 }
 
-.musicDetails .searchInputContainer,
-.musicDetails .text {
+.musicDetails .searchInputContainer {
     position: relative;
     bottom: 45%;
 }
