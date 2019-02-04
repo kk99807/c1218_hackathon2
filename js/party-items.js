@@ -24,6 +24,7 @@ class PartyItems {
         // this.showSearch = this.showSearch.bind(this);
         // this.hideSearch = this.hideSearch.bind(this);
         // this.hideDetails = this.hideDetails.bind(this);
+        this.preloadData = this.preloadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
         this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
         this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
