@@ -10,8 +10,6 @@ class FoodItems extends PartyItems {
         super(domElement, nextElement, items);
         this.bindEvents();
         this.domElement.find('.foodSearchButton').click(this.handleSearch);
-        this.nextClickHandler = this.nextClickHandler.bind(this);
-        this.addNextHandler();
     }
 
     /**
@@ -63,15 +61,5 @@ class FoodItems extends PartyItems {
             });
 
         });
-    }
-
-    nextClickHandler(){
-        $('.food').hide();
-        this.nextHandlerSearch();
-        $('.music').show();
-    }
-
-    addNextHandler(){
-        $('.goToMusic').click(this.nextClickHandler);
     }
 }
