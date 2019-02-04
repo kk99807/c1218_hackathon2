@@ -15,6 +15,7 @@ class App {
         this.hideLanding = this.hideLanding.bind(this);
 
         $('.startButton').on('click', this.hideLanding);
+        $('.goToDetails').click(this.goToDetails);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         $('.timepicker').timepicker();
@@ -41,6 +42,11 @@ class App {
         } else {
             // TODO: Show Parties Page
         }
+    }
+
+    goToDetails(){
+        $('.parties').hide();
+        $('.details').show();
     }
 
     newParty() {
