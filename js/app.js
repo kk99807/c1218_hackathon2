@@ -15,6 +15,7 @@ class App {
         this.hideLanding = this.hideLanding.bind(this);
 
         $('.startButton').on('click', this.hideLanding);
+        $('.goToDetails').click(this.goToDetails);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         $('.timepicker').timepicker();
@@ -43,11 +44,37 @@ class App {
         }
     }
 
+    goToDetails(){
+        $('.parties').hide();
+        $('.details').show();
+    }
+
     newParty() {
         this.currentPartyIndex = this.parties.length;
         let party = new Party(`Untitled Party ${this.currentPartyIndex}`);
         this.parties.push(party);
 
         return party;
+    }
+
+    showParties() {
+        let partyElements = this.parties.map(party => {
+            let html = $('#templatePartyCard').html();
+            html = $(html);
+            html.find('.card-title').text(party.title);
+            html.find('.datetime').text(`${party.date} ${party.startTime} - ${party.date} ${party.endTime}`);
+            html.find('.cocktailsCount').text( party.cocktailItems.items.length );
+            html.find('.foodCount').text( party.foodItems.items.length );
+            html.find('.musicCount').text( party.musicItems.items.length );
+            html.find('.btnAddToCalendar').attr('href', `http://evt.to/${party.eventKey}`);
+            html.find('.btnEditParty').click( event => this.showParty(party) );
+            return html;
+        });
+        $('.parties').find('.partyDetails').append(partyElements);
+        $('.parties').show();
+    }
+
+    showParty( party ) {
+        console.log('In showParty: ', party.title);
     }
 }

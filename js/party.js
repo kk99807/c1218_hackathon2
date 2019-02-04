@@ -31,6 +31,7 @@ class Party {
         this.showNextContainer = this.showNextContainer.bind(this);
 
         // $('.readyToPartyButton').click(this.handleUpdateDetails);
+        $('.details .btnNext').click(this.handleUpdateDetails);
         $('.btnNext').click(this.showNextContainer);
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
@@ -40,7 +41,7 @@ class Party {
 
         this.currentContainerIndex++;
         if (this.currentContainerIndex === this.containers.length) {
-            $('.parties').show();
+            app.showParties();
         } else {
             let container = this.containers[this.currentContainerIndex];
             container.loadData();
@@ -60,8 +61,8 @@ class Party {
         this.asyncCreateCalendarEntry()
             .then(eventKey => {
                 this.eventKey = eventKey;
-                $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
-                this.addInviteDOM.show();
+                // $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
+                // this.addInviteDOM.show();
             });
     }
 
@@ -82,5 +83,17 @@ class Party {
         return new Promise((resolve, reject) => {
             $.getJSON( CALENDAR_API_URL, data, response => resolve(response.data.uniquekey));
         });
+    }
+
+    get cocktailItems() {
+        return this.containers[1];
+    }
+
+    get foodItems() {
+        return this.containers[2];
+    }
+
+    get musicItems() {
+        return this.containers[3];
     }
 }

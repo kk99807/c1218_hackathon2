@@ -32,7 +32,7 @@
         </div>
         <!-- <div class="main"> -->
 
-        <div class="details hidden">
+        <div class="details">
             <!-- <p class='sectionTitle'>Details</p> -->
             <!-- <div class="wholeContainer"> -->
                 <!-- <div class='contentContainerTitle'> -->
@@ -82,7 +82,7 @@
                         <!-- </div> -->
                     </div>
 
-                    <button class="readyToPartyButton waves-effect waves-light btn-large btnNext"><i class="fas fa-glass-cheers"></i> Save</button>
+                    <button class="readyToPartyButton waves-effect waves-light btn-large btnNext">Next</button>
 
                 </div>
                 <div class="searchContainer"></div>
@@ -122,7 +122,7 @@
                     </div>
                     <h5 class="text">Or search for your favorite drink:</h5>
                     <div class="searchInputContainer">
-                        <input type="text" class="cocktailSearchInput" placeholder="Search by ingredient">
+                        <input type="text" class="cocktailSearchInput" placeholder="Search by name">
                         <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
 
@@ -130,8 +130,11 @@
                 </div>
 
                 <div class="cocktailItems addedItems">
-                    <i class="material-icons closeAddedItems">close</i>
-                    <p>Your Saved Items</p>
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div> 
+                    <div class="clearFix"></div>
                 </div>
 
                 <div class="cocktailInfo itemInfo"></div>
@@ -165,15 +168,18 @@
                 </div>
 
                 <div class="foodItems addedItems">
-                    <i class="material-icons closeAddedItems">close</i>
-                    <p>Your Saved Items</p>
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div>
+                    <div class="clearFix"></div>
                 </div>
 
                 <div class="foodInfo itemInfo"></div>
             </div>
         </div>
 
-        <div class="music hidden">
+        <div class="music">
             <div class="musicHeader">
                 <h2 class="musicTitle">
                     Music
@@ -187,7 +193,7 @@
                 <div class="musicDetails addItems">
                     <h4 class="text">What music will you play?</h4>
                     <h5 class="text">Tap to add a song:</h5>
-                    <div class="searchResults listItems slider"></div>
+                    <div class="searchResults listItems"></div>
                     <h5 class="text musicSearchHeader">Or search for your favorite artist:</h5>
                     
                     <div class="searchInputContainer">
@@ -199,8 +205,11 @@
                 </div>
 
                 <div class="musicItems addedItems">
-                    <i class="material-icons closeAddedItems">close</i>
-                    <p>Your Saved Items</p>
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div>
+                    <div class="clearFix"></div>
                 </div>
 
                 <div class="musicInfo itemInfo"></div>
@@ -280,6 +289,26 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Templates -->
+        <!-- Card used for each Party on Parties page -->
+        <template id="templatePartyCard">
+            <div class="card">
+                <div class="card-content black-text">
+                    <span class="card-title">My Super Party</span>
+                    <div>When: <span class="datetime">02/03/2019 10:00 PM - 02/03/2019 11:00 PM</span></div>
+                    <div>
+                        Cocktails: <span class="cocktailsCount">1</span>
+                        Appetizers: <span class="foodCount">4</span>
+                        Music: <span class="musicCount">5</span>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a class="btnAddToCalendar" target="_blank" href="#">Add to Calendar</a>
+                    <a class="btnEditParty" href="#">Edit</a>
+                </div>
+            </div>
+        </template>
 
         <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>
     </body>
