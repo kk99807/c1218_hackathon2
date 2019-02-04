@@ -590,3 +590,24 @@ h1, h2, h3, h4, h5 {
 .slick-slide p {
     margin-bottom: 5%;
 }
+
+/*-------------- LAST MINUTE FIXES --------------*/
+
+.addedItems .card {
+    text-align: left;
+}
+
+.material-icons.right.close {
+    position: absolute;
+    top: 4%;
+    left: 88%;
+}
+
+.addedItems .card-reveal .class-title {
+    font-size: 2.3em;
+    margin-bottom: 5%;
+}
+
+/*.addedItems .card-reveal .ingredients:last-child {
+    margin-bottom: 5%;
+}*/

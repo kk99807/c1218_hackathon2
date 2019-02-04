@@ -81,7 +81,7 @@ class PartyItem {
             for(let i = 0; i < this.props.ingredients.length; i++){
                 let ingredients = $('<h5>')
                     .addClass('ingredients')
-                    .text(this.props.ingredients[i]);
+                    .text('- ' + this.props.ingredients[i]);
                 cardReveal.append(ingredients);
             }
         }
