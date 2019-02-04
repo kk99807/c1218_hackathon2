@@ -43,18 +43,6 @@ class MusicItems extends PartyItems {
         });
     }
 
-/*
-    nextClickHandler(){
-        debugger;
-        $('.music').hide();
-        $('.parties').show();
-    }
-
-
-    addNextHandler(){
-        $('.goToParties').click(this.nextClickHandler);
-    }
- */
 
 }
 

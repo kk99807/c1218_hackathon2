@@ -90,6 +90,7 @@ class PartyItems {
     }
 
     preloadData(){
+        let newSlider = this.domSearchResults.clone();
         this.asyncSearch()
             .then(items => {
                 items.map(item => {
@@ -107,41 +108,35 @@ class PartyItems {
                             $('.slider').slick('slickRemove', $('.slick-slide').index(this) - 1)
                         });
                     });
-                    div.append(img, p);
-                    this.domElement.find('.searchResults').append(div).slick('unslick').slick({
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        autoplaySpeed: 1500,
-                        swipe: true,
-                        adaptiveHeight: true,
-                        touchMove: true,
-                        centerMode: true,
-                    });
+                    div.append(img, p)
+                        .appendTo(this.domSearchResults);
+                });
+
+                this.domSearchResults.slick('unslick').slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    swipe: true,
+                    adaptiveHeight: true,
+                    touchMove: true,
+                    centerMode: true
+
                 });
                 $('.slick-arrow').addClass('hidden')
             });
     }
 
     badgeClickHandler(){
-        let addedItemContainer = $('<div>').addClass('addedItemContainer');
-        let addedItemContainerHeader = $('<p>').text('Your Selections').css({
-            'text-align': 'center',
-            'color': 'white'
-        });
-
-        let closeButtonAddedItemContainer = $('<i>')
-            .addClass('material-icons closeButtonAddedItem')
-            .text('close')
-            .css('color', 'white')
-            .click(this.closeButtonAddedItemHandler);
-
-        addedItemContainer.append(closeButtonAddedItemContainer, addedItemContainerHeader,this.items.map(item => item.renderSearch()));
-        this.domElement.append(addedItemContainer);
+        $('.closeAddedItems').click(this.closeAddedItemsHandler)
+        $('.addedItems').append(this.items.map(item => item.renderSearch()));
+        $('.addItems').hide();
+        $('.addedItems').show();
     }
 
-    closeButtonAddedItemHandler(){
-        $('.addedItemContainer').hide();
+    closeAddedItemsHandler(){
+        $('.addedItems').hide();
+        $('.addItems').show();
     }
 
     newPageSearchHandler(){

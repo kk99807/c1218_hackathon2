@@ -239,7 +239,9 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- MUSIC --------------*/
 
-.musicDetails {
+.musicDetails, 
+.musicItems,
+.musicInfo {
     color: #7d45d4;
     background-color: #d8c7f2;
 }
@@ -366,6 +368,23 @@ li:last-child {
     width: 100px;
 }
 
+/*----------------- ADDED ITEMS -----------------*/
+
+.addedItems {
+    overflow-y: scroll;
+}
+
+.addedItems p {
+    display: inline-block;
+    margin-top: -2%;
+    font-size: 1.7em;
+}
+
+.closeAddedItems {
+    position: absolute;
+    left: 3%;
+}
+
 /*-------------- BADGES --------------*/
 
 .collection-item {
@@ -403,133 +422,25 @@ li:last-child {
 
 /*----------------- OLD CODE -----------------*/
 
-
-/*----------------- MAIN PAGE -----------------*/
-
-/*.main{
-    height:100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}*/
-
-/*.section{
-    height:25%;
-    flex: 1;
-    padding: 0;
-}*/
-
-/*.section p {
-    padding: 0;
-}*/
-
-/*.section{
-    position:relative;
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-    border:1px solid purple;
-    box-sizing:border-box;
-}*/
-
-/*.sectionTitle{
-    font-size:3rem;
-    margin:0;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    color: white;
-    font-family: 'Shadows Into Light', cursive;
-}*/
-
-/*.wholeContainer{
-    height:100%;
-    display:none;
-}*/
-
-/*.contentContainerTitle {
-    height: 15%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
-    font-family: 'Shadows Into Light', cursive;
-    font-weight:bold;
-}*/
-
-/*.contentContainerTitle h2 {
-    display: inline-block;
-    font-size: 2rem;
-    color: white;
-    margin: 1%;
-}*/
-
-
-
 /*----------------- CALENDAR -----------------*/
-
-
 
 .eventLink {
     margin-right: 5%;
 }
 
-
-/*.row {
-    margin-bottom: 0;
-    margin-top: 3%;
-}*/
-
-
-
 .calendarButton {
     width: 15%;
 }
 
-/*----------------- COCKTAILS -----------------*/
-
-/*.cocktail {
-    background-image:url('images/cocktails.png');
-}*/
-
-/*----------------- FOOD -----------------*/
-
-/*.food {
-    background-image: url('images/food.jpeg');
-}
-
-.titleContainer.foodSearch {
-    width: 93%;
-    padding-top: 1%;
-    float: right;
-}
-
-.food .titleLink {
-    font-size: 18px;  
-}*/
-
 /*----------------- MUSIC -----------------*/
-
-/*.music {
-    background-image:url('images/music.png');
-}*/
 
 .videoContainer {
     height: 95%;
 }
 
-/*.music .titleLink {
-    font-size: 16px;  
-}*/
-
-/*.music .titleContainer {
-    margin-top: -2%;
-}*/
-
 .displayContainer {
     height: 95%;
 }
-
 
 .videoIFrame {
     position: relative;
@@ -539,7 +450,6 @@ li:last-child {
 }
 
 /*----------------- MODALS -----------------*/
-
 
 .informationContainer {
     display: none;
@@ -558,43 +468,6 @@ li:last-child {
     padding: 0 3% 3% 0;
 }
 
-/*----------------- SEARCH MODAL -----------------*/
-
-/*.searchContainer {
-    z-index: 3;
-}
-
-.searchHeading {
-    height: 15%;
-}
-
-.titleContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-}*/
-
-/*.listItemContainer {
-    overflow-y: scroll;
-    height: 85%;
-}*/
-
-/*.searchIcon {
-    width: 15%;
-    height: 30%;
-    background-color: #26a69a;
-    text-align: center;
-    padding: 3% 1%;
-    box-shadow: 0 8px 6px -6px gray;
-    border-radius: 4px;
-}
-
-.beef {
-    width: 85%;
-    padding: 6% 0 0 0;
-}*/
-
 /*----------------- INFORMATION MODAL -----------------*/
 
 .informationContainer {
@@ -606,13 +479,6 @@ li:last-child {
 .displayContainer {
     padding: 0 3% 3% 3%;
 }
-
-/*.detailsTitle {
-    margin: 0 0 3% 0;
-    font-size: 2.2rem;
-    font-family: 'Shadows Into Light', cursive;
-    color: #9c27b0;
-}*/
 
 .detailsImage {
     height: 100px;
@@ -667,27 +533,6 @@ li:last-child {
 
 /*----------------- FONTAWESOME -----------------*/
 
-
-
-/*.fa-utensils, 
-.fa-glass-martini-alt, 
-.fa-music, 
-.fa-user {
-    font-size: 2em;
-}*/
-
-/*.fas.fa-plus {
-    font-size: 1em;
-}
-
-.beefIcon {
-    padding: 0.7% 0;
-}
-
-.searchIcon .fas {
-    font-size: 2.4em;
-}*/
-
 .fa-spinner {
     font-size: 3em;
     color: #9c27b0;
@@ -696,19 +541,6 @@ li:last-child {
     left: 43%;
     transform: translate(-50%, -50%); 
 }
-
-.buttonPanel {
-    display: flex;
-    justify-content: center;
-}
-
-.buttonPannel .btn {
-    margin: 20px;
-}
-
-/*.fas {
-    color: white;
-}*/
 
 .pink, .purple {
     position: absolute;
@@ -739,36 +571,16 @@ li:last-child {
     transform: translateX(-50%);
 }
 
-/*.musicTitle,
-.badge {
-    color: white;
-}*/
+.buttonPanel {
+    display: flex;
+    justify-content: center;
+}
 
-.addedItemContainer {
-    background-color: #1f1f1f;
-    width: 100%;
-    height: 85%;
-    position: absolute;
-    top: 15%;
+.buttonPannel .btn {
+    margin: 20px;
 }
+
 /*----------------- test for search container -----------------*/
-/*
-.sectionTitle {
-    display: none;
-}
-.wholeContainer {
-    display: none;
-}
-.newPageSearchContainer {
-    position: absolute;
-    top: 25%;
-    width: 100%;
-    height: 85%;
-}
-.newSection {
-    height: 100%;
-}
-*/
 
 .newPageSearchContainer {
     height: 85%;
