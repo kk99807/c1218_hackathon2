@@ -50,4 +50,20 @@ class App {
 
         return party;
     }
+
+    showParties() {
+        let partyElements = this.parties.map(party => {
+            let html = $('#templatePartyCard').html();
+            html = $(html);
+            html.find('.card-title').text(party.title);
+            html.find('.datetime').text(`${party.date} ${party.startTime} - ${party.date} ${party.endTime}`);
+            html.find('.cocktailsCount').text( party.cocktailItems.items.length );
+            html.find('.foodCount').text( party.foodItems.items.length );
+            html.find('.musicCount').text( party.musicItems.items.length );
+            html.find('.btnAddToCalendar').attr('href', `http://evt.to/${party.eventKey}`);
+            return html;
+        });
+        $('.parties').find('.partyDetails').append(partyElements);
+        $('.parties').show();
+    }
 }

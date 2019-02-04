@@ -597,3 +597,7 @@ h1, h2, h3, h4, h5 {
     position: relative;
     bottom: 45%;
 }
+
+.cocktailsCount, .foodCount, .musicCount {
+    font-weight: bold;
+}
