@@ -121,7 +121,8 @@ class PartyItems {
     }
 
     badgeClickHandler(){
-        $('.closeAddedItems').click(this.closeAddedItemsHandler)
+        $('.closeAddedItems').click(this.closeAddedItemsHandler);
+        //$('.addedItems').remove();
         $('.addedItems').append(this.items.map(item => item.renderSearch()));
         $('.addItems').hide();
         $('.addedItems').show();

@@ -69,13 +69,6 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
 }
 
-<<<<<<< HEAD
-.section{
-    height:25%;
-    flex: 1;
-    padding: 0;
-    transition:flex .5s;
-=======
 .detailsHeader, 
 .cocktailsHeader, 
 .foodHeader, 
@@ -95,7 +88,6 @@ h1, h2, h3, h4, h5 {
 .food h4, 
 .music h4 {
     margin-bottom: 8%;
->>>>>>> 65120abccc420137e01c32a6eda5b13a5ef5728a
 }
 
 .text:nth-child(2){
@@ -367,7 +359,7 @@ li:last-child {
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
-.searcResults {
+.searchResults {
     height: 28.2%;
 }
 

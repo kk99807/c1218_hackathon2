@@ -9,13 +9,15 @@ class CocktailItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
-        this.doStuff = this.doStuff.bind(this);
-        $('.alcohol').on('click',this.doStuff);
+        this.searchByAlcohol = this.searchByAlcohol.bind(this);
+        this.searchDrinkByName = this.searchDrinkByName.bind(this);
+        $('.alcohol').on('click',this.searchByAlcohol);//must have 4 buttons vodka, gin, rum, tequila with class of alcohol
+        $('.cocktailSearchButton').on('click', this.searchDrinkByName);
         this.storeDrinksInArray = this.storeDrinksInArray.bind(this);
         this.searchDrinkByAlcohol = this.searchDrinkByAlcohol.bind(this);
+
     }
-    doStuff( event ){
-        
+    searchByAlcohol( event ){
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItemContainer').append(spinner);
         this.searchDrinkByAlcohol( event )
@@ -32,7 +34,10 @@ class CocktailItems extends PartyItems {
         })
         //.then((result3)=>console.log(result3));
     }
-
+    searchDrinkByName(){
+        let cocktailName = $('.cocktailSearchInput').val();
+        
+    }
     searchDrinkByAlcohol( event ){
         let clickedText = $( event.target ).text();
         return new Promise((resolve,reject)=>
