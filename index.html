@@ -66,15 +66,15 @@
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input type="time" id="pickStartTime">
-                                <label for="pickTime">Pick Start Time</label>
+                                <input type="text" id="pickStartTime" class="timepicker">
+                                <label for="pickStartTime">Pick Start Time</label>
                             </div>
                         </div>
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input type="time" id="pickEndTime">
-                                <label for="pickTime">Pick End Time</label>
+                                <input type="text" id="pickEndTime" class="timepicker">
+                                <label for="pickEndTime">Pick End Time</label>
                             </div>
                         </div>
                         <!-- <div class="> -->
@@ -115,8 +115,11 @@
                 <div class="cocktailDetails addItems">
                     <h4 class="text">What drinks will you serve?</h4>
                     <h5 class="text">Tap to add a cocktail:</h5>
-                    <div class="searchResults listItems"></div>
+                    <div class="searchResults listItems">
+                        <div class="buttonContainer">
 
+                        </div>
+                    </div>
                     <h5 class="text">Or search for your favorite drink:</h5>
                     <div class="searchInputContainer">
                         <input type="text" class="cocktailSearchInput" placeholder="Search by ingredient">
