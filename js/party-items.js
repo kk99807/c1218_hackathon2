@@ -25,8 +25,8 @@ class PartyItems {
         // this.hideDetails = this.hideDetails.bind(this);
         this.loadData = this.loadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
-        this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
-        this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
+        // this.newPageSearchHandler = this.newPageSearchHandler.bind(this);
+        // this.newSearchCloseButtonHandler = this.newSearchCloseButtonHandler.bind(this);
         this.domElement.find('.badge').click(this.badgeClickHandler);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
@@ -34,8 +34,8 @@ class PartyItems {
         // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
         // this.domElement.find('.addItems').click(this.showSearch);
 
-        this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
-        this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
+        // this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
+        // this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
     }
 
     /**
@@ -56,7 +56,6 @@ class PartyItems {
             });
 
         this.loadData();
-
     }
 
     /**
@@ -80,7 +79,6 @@ class PartyItems {
 
 
         } else if (eventType === 'add') {
-            debugger;
             this.items.push(item);   
             this.domList.append(item.renderSearch(true));
             this.domElement.find('.addedItems').append(item.renderSearch(true));
@@ -150,13 +148,12 @@ class PartyItems {
         $('.addItems').show();
     }
 
-    newPageSearchHandler(){
-        this.domElement.find('.searchResults').show();
-        this.handleSearch();
-    }
+    // newPageSearchHandler(){
+    //     this.domElement.find('.newPageSearchContainer').show();
+    //     this.handleSearch();
+    // }
 
-    newSearchCloseButtonHandler() {
-        this.domElement.find('.newPageSearchContainer').hide();
-    }
-
+    // newSearchCloseButtonHandler() {
+    //     this.domElement.find('.newPageSearchContainer').hide();
+    // }
 }
