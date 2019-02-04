@@ -14,20 +14,18 @@ class CocktailItems extends PartyItems {
         this.storeDrinksInArray = this.storeDrinksInArray.bind(this);
         this.searchDrinkByAlcohol = this.searchDrinkByAlcohol.bind(this);
     }
-    doStuff(){
+    doStuff( event ){
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
         $('.listItemContainer').append(spinner);
-        this.searchDrinkByAlcohol()
-        .then((result)=>this.storeDrinksInArray(result))
-        .then((result2)=>{Promise.all(result2.map(this.getJSON))
-                            .then((result4)=>{result4.forEach(this.storeIngredientData(result4)
-                                //.then(items => items.map(item => item.renderSearch()))
-                                )})})
+        this.searchDrinkByAlcohol( event )
+        .then( result => this.storeDrinksInArray(result) )
+        .then( result2 => Promise.all(result2.map(this.getJSON)) )
+        .then( result4 => this.storeIngredientData(result4) )
         //.then((result3)=>console.log(result3));
     }
 
-    searchDrinkByAlcohol(){
-        let clickedText = $(this).text();
+    searchDrinkByAlcohol( event ){
+        let clickedText = $( event.target ).text();
         return new Promise((resolve,reject)=>
             {resolve($.getJSON(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${clickedText}`))}
             //.then((json)=>resolve(this.storeDrinksInArray(json)))
