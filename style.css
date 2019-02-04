@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Shadows Into Light', cursive;
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, h5 {
@@ -61,7 +62,7 @@ h1, h2, h3, h4, h5 {
 .musicDetails,
 .partyDetails, 
 .addedItems,
-.ingredients {
+.itemInfo {
     height: 85vh;
     padding: 4% 3% 0 3%;
     text-align: center;
@@ -72,7 +73,8 @@ h1, h2, h3, h4, h5 {
 .cocktailsHeader, 
 .foodHeader, 
 .musicHeader,
-.partiesHeader {
+.partiesHeader,
+.editPartyHeader {
     height: 15vh;
     margin: 0;
     padding-top: 5%;
@@ -81,10 +83,15 @@ h1, h2, h3, h4, h5 {
     background-size: cover;
 } 
 
-.details h4, 
+.details h4,
+.cocktail h4, 
 .food h4, 
 .music h4 {
     margin-bottom: 8%;
+}
+
+.text:nth-child(2){
+    margin-bottom: 4%;
 }
 
 .searchInputContainer {
@@ -96,12 +103,14 @@ h1, h2, h3, h4, h5 {
     justify-content: space-evenly;
 }
 
+.cocktailSearchInput::placeholder,
 .foodSearchInput::placeholder, 
 .musicSearchInput::placeholder{
     opacity: 1;
     font-family: 'Shadows Into Light', cursive;
 }
 
+.cocktailSearchButton,
 .foodSearchButton, 
 .musicSearchButton {
     width: 10%;
@@ -152,7 +161,7 @@ h1, h2, h3, h4, h5 {
     margin: 0 auto;
 }
 
-.readyToPartyButton {
+.readyToPartyButton, .editDetails {
     background-color: #d650b0;
 }
 
@@ -166,7 +175,10 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- COCKTAILS --------------*/
 
-.cocktailDetails {
+.cocktailDetails,
+.cocktailItems,
+.cocktailInfo {
+    color: #45a6c4;
     background-color: #cdf1fd;
 }
 
@@ -179,20 +191,25 @@ h1, h2, h3, h4, h5 {
     margin-left: 27%;
 }
 
-.cocktailsBadge.badge {
-    color: #45a6c4;
+.cocktailSearchButton, 
+.cocktailSearchButton:hover, 
+.goToFood, 
+.goToFood:hover,
+.editCocktails {
+    background-color: #45a6c4;
 }
 
-.goToFood, 
-.goToFood:hover {
-    background-color: #45a6c4;
+.cocktailSearchInput, 
+.cocktailSearchInput::placeholder, 
+.cocktailsBadge.badge {
+    color: #45a6c4;
 }
 
 /*-------------- FOOD --------------*/
 
 .foodDetails, 
 .foodItems,
-.foodIngredients {
+.foodInfo {
     color: #b245c4;
     background-color: #f1cbf7;
 }
@@ -209,7 +226,8 @@ h1, h2, h3, h4, h5 {
 .foodSearchButton, 
 .foodSearchButton:hover, 
 .goToMusic, 
-.goToMusic:hover {
+.goToMusic:hover,
+.editFood {
     background-color: #b245c4;
 }
 
@@ -238,7 +256,8 @@ h1, h2, h3, h4, h5 {
 .musicSearchButton, 
 .musicSearchButton:hover, 
 .goToParties, 
-.goToParties:hover {
+.goToParties:hover,
+.editMusic {
     background-color: #7d45c4;
 }
 
@@ -255,7 +274,7 @@ h1, h2, h3, h4, h5 {
     background-color: #ccccff;
 }
 
-.partiesHeader {
+.partiesHeader, .editPartyHeader {
     background-image: url(images/party.jpg);
 }
 
@@ -269,6 +288,71 @@ h1, h2, h3, h4, h5 {
 
 .partyBadge.badge {
     color: #3232ff;
+}
+
+/*-------------- EDIT PARTY --------------*/
+
+.editParty .contentContainer {
+    height: 85vh;
+    background-color: #ccccff;
+}
+
+.collapsible {
+    margin-top: 0;
+    color: white;
+}
+
+.collapsible-header, .backToParties {
+    font-size: 1.7em;
+}
+
+.collapsible-body {
+    font-size: 1.3em;
+    /*padding: 5%;*/
+    color: black;
+    padding: 4% 3% 0 3%;  
+    overflow-y: scroll;
+}
+
+.collapsible-body p {
+    margin-top: 0;
+}
+
+.detailsBody {
+    background-color: #fbdaf1;
+}
+
+.cocktailsBody {
+    background-color: #cdf1fd;
+}
+
+.foodBody {
+    background-color: #f1cbf7;
+}
+
+.musicBody {
+    background-color: #e3cefe;
+}
+
+.backToParties {
+    height: 10vh;
+    line-height: 10vh;
+    background-color: #3232ff;
+}
+
+li:last-child {
+  text-align: center
+}
+
+.fas.fa-glass-martini, 
+.fas.fa-calendar-alt,
+.fas.fa-utensils {
+    padding-top: 1.5%;
+}
+
+.editMusic .material-icons {
+    font-size: 1.3em;
+    padding-top: 1%;
 }
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
@@ -583,9 +667,7 @@ h1, h2, h3, h4, h5 {
 
 /*----------------- FONTAWESOME -----------------*/
 
-.fas {
-    color: white;
-}
+
 
 /*.fa-utensils, 
 .fa-glass-martini-alt, 
@@ -624,9 +706,9 @@ h1, h2, h3, h4, h5 {
     margin: 20px;
 }
 
-.fas {
+/*.fas {
     color: white;
-}
+}*/
 
 .pink, .purple {
     position: absolute;

@@ -102,47 +102,34 @@
         </div>
 
         <div class="cocktail">
-            <!-- <p class='sectionTitle'>Cocktails</p> -->
-            <!-- <div class="wholeContainer"> -->
-                <!-- <div class='contentContainerTitle'>
-                    <div>
-                        <h2>Cocktails</h2>
-                    </div>
-                    <div class="addItems">
-                        <i class="fas fa-glass-martini-alt"></i>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div> -->
+            <div class="cocktailsHeader">
+                <h2 class="cocktailsTitle">
+                    Cocktails
+                    <span class="collection-item">
+                        <span class="cocktailsBadge badge">0</span>
+                    </span>
+                </h2>  
+            </div>
 
-                <div class="cocktailsHeader">
-                    <h2 class="cocktailsTitle">
-                        Cocktails
-                        <span class="collection-item">
-                            <span class="cocktailsBadge badge">0</span>
-                        </span>
-                    </h2>
-                </div>
+            <div class="contentContainer">
+                <div class="cocktailDetails addItems">
+                    <h4 class="text">What drinks will you serve?</h4>
+                    <h5 class="text">Tap to add a cocktail:</h5>
+                    <div class="searchResults listItems"></div>
 
-                <div class="cocktailDetails contentContainer">
+                    <h5 class="text">Or search for your favorite drink:</h5>
+                    <div class="searchInputContainer">
+                        <input type="text" class="cocktailSearchInput" placeholder="Search by ingredient">
+                        <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                    </div>
+
                     <button class="goToFood waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
-                <div class="searchContainer">
-                    <div class="searchHeading">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="titleContainer">
-                            <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
-                        </div>
-                    </div>
-                    <div class="listItemContainer">
-                        <div class="listItems"></div>
-                    </div>
-                </div>
-                <div class="informationContainer">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="displayContainer"></div>
-                </div>
-            <!-- </div> -->
+                <div class="cocktailItems addedItems hidden"></div>
+
+                <div class="cocktailInfo itemInfo hidden"></div>
+            </div>
         </div>
 
         <div class="food">
@@ -170,13 +157,9 @@
                     <button class="goToMusic waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
-                <div class="foodItems addedItems hidden">
-                    <p>Your Selections</p>
-                </div>
+                <div class="foodItems addedItems hidden"></div>
 
-                <div class="foodIngredients ingredients hidden">
-                  
-                </div>
+                <div class="foodInfo itemInfo hidden"></div>
             </div>
         </div>
 
@@ -204,31 +187,11 @@
 
                     <button class="goToParties waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
-            </div>
-                <!-- <div class="contentContainer">
-                    <p>Your Selections</p>
-                </div>
-                <div class="searchContainer">
-                    <div class="searchHeading">
-                        <i class="material-icons closeButton">close</i>
-                        <div class="titleContainer">
-                          <input type="text" class="musicSearchInput col s4" placeholder="FIND MUSIC">
-                          <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
-                        </div>
-                    </div>
-                    <div class="listItemContainer">
-                        <div class="listItems"></div>
 
-                    </div>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listItems"></div>
-                </div>
+                <div class="musicItems addedItems hidden"></div>
+
+                <div class="musicInfo itemInfo hidden"></div>
             </div>
-            <div class="informationContainer">
-                <i class="material-icons closeButton">close</i>
-                <div class="displayContainer videoContainer"></div>
-            </div> -->
         </div> 
 
         <div class="parties">
@@ -244,6 +207,66 @@
             <div class="contentContainer">
                 <div class="partyDetails"></div>
                 <button class="goToDetails waves-effect waves-light btn-large btnNewParty">New Party</button>  
+            </div>
+        </div>
+
+        <div class="editParty">
+            <div class="editPartyHeader">
+                <h2 class="editPartyTitle">
+                    My Party
+                </h2>  
+            </div>
+
+            <div class="contentContainer">
+                <ul class="collapsible">
+                    <li class="active">
+                        <div class="editDetails collapsible-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            Details
+                        </div>
+                        <div class="detailsBody collapsible-body">
+                            <p>Date:</p> 
+                            <p>Start Time:</p>
+                            <p>End Time:</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editCocktails collapsible-header">
+                            <i class="fas fa-glass-martini"></i>
+                            Cocktails
+                        </div>
+                        <div class="cocktailsBody collapsible-body">
+                            <p>Drink 1</p>
+                            <p>Drink 2</p>
+                            <p>Drink 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editFood collapsible-header">
+                            <i class="fas fa-utensils"></i>
+                            Appetizers
+                        </div>
+                        <div class="foodBody collapsible-body">
+                            <p>Food 1</p>
+                            <p>Food 2</p>
+                            <p>Food 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editMusic collapsible-header">
+                            <i class="material-icons">music_note</i>
+                            Music
+                        </div>
+                        <div class="musicBody collapsible-body">
+                            <p>Video 1</p>
+                            <p>Video 2</p>
+                            <p>Video 3</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="backToParties">Back</div>
+                    </li>
+                </ul>
             </div>
         </div>
 
