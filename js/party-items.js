@@ -47,10 +47,10 @@ class PartyItems {
         $('.newPageSearchContainer').append(spinner);
 
         this.asyncSearch()
-            // .then(items => items.map(item => item.renderSearch()))
+            .then(items => items.map(item => item.renderSearch()))
             .then(items => {
-                // this.domSearchResults.empty().append(items);
-                this.domSearchResults.append(items);
+                this.domSearchResults.empty().append(items);
+                this.domElement.find('.newPageSearchContainer').append(items);
                 $('.fa-spinner').remove();
             });
     }
@@ -178,7 +178,8 @@ class PartyItems {
     }
 
     newPageSearchHandler(){
-        this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
+        //this.domElement.find('.newPageSearchContainer').css('background-color', 'black').show();
+        this.domElement.find('.searchResults').show()
         this.handleSearch();
     }
 

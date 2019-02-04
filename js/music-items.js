@@ -45,12 +45,13 @@ class MusicItems extends PartyItems {
     }
 
     nextClickHandler(){
+        debugger;
         $('.music').hide();
-        $('.party').show();
+        $('.parties').show();
     }
 
     addMusicNextHandler(){
-        $('.goToParty').click(this.nextClickHandler);
+        $('.goToParties').click(this.nextClickHandler);
     }
 }
 
