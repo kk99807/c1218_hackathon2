@@ -118,24 +118,15 @@ class PartyItems {
     }
 
     badgeClickHandler(){
-        let addedItemContainer = $('<div>').addClass('addedItemContainer');
-        let addedItemContainerHeader = $('<p>').text('Your Selections').css({
-            'text-align': 'center',
-            'color': 'white'
-        });
-
-        let closeButtonAddedItemContainer = $('<i>')
-            .addClass('material-icons closeButtonAddedItem')
-            .text('close')
-            .css('color', 'white')
-            .click(this.closeButtonAddedItemHandler);
-
-        addedItemContainer.append(closeButtonAddedItemContainer, addedItemContainerHeader,this.items.map(item => item.renderSearch()));
-        this.domElement.append(addedItemContainer);
+        $('.closeAddedItems').click(this.closeAddedItemsHandler)
+        $('.addedItems').append(this.items.map(item => item.renderSearch()));
+        $('.addItems').hide();
+        $('.addedItems').show();
     }
 
-    closeButtonAddedItemHandler(){
-        $('.addedItemContainer').hide();
+    closeAddedItemsHandler(){
+        $('.addedItems').hide();
+        $('.addItems').show();
     }
 
     newPageSearchHandler(){
