@@ -135,7 +135,7 @@ class PartyItems {
                     .append(itemElements)
                     .slick({
                         slidesToShow: 2,
-                        slidesToScroll: 1,
+                        slidesToScroll: 3,
                         autoplay: true,
                         autoplaySpeed: 1500,
                         swipe: true,

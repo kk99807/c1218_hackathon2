@@ -16,6 +16,7 @@ class App {
 
         $('.startButton').on('click', this.hideLanding);
         $('.goToDetails').click(this.goToDetails);
+        $('.backToParties').click(this.goToParties);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         $('.timepicker').timepicker();
@@ -23,7 +24,7 @@ class App {
     
         $('.searchResults').slick({
             slidesToShow: 2,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
             autoplay: true,
             autoplaySpeed: 1500,
             swipe: true,
@@ -49,6 +50,11 @@ class App {
         $('.details').show();
     }
 
+    goToParties(){
+        $('.editParty').hide();
+        $('.parties').show();
+    }
+
     newParty() {
         this.currentPartyIndex = this.parties.length;
         let party = new Party(`Untitled Party ${this.currentPartyIndex}`);
@@ -72,7 +78,7 @@ class App {
         });
         $('.parties').find('.partyDetails').append(partyElements);
         $('.parties').show();
-    }
+    } 
 
     showParty( party ) {
 
