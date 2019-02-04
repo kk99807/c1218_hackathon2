@@ -1,5 +1,9 @@
 /*----------------- NEW CODE -----------------*/
 
+html {
+    touch-action: manipulation;
+}
+
 body {
     height: 100vh;
     margin: 0;
@@ -61,7 +65,6 @@ h1, h2, h3, h4, h5 {
 .foodDetails, 
 .musicDetails,
 .partyDetails, 
-.addedItems,
 .itemInfo {
     height: 85vh;
     padding: 4% 3% 0 3%;
@@ -161,7 +164,9 @@ h1, h2, h3, h4, h5 {
     margin: 0 auto;
 }
 
-.readyToPartyButton, .editDetails {
+.readyToPartyButton, 
+.editDetails {
+    color: white;
     background-color: #d650b0;
 }
 
@@ -171,6 +176,26 @@ h1, h2, h3, h4, h5 {
 
 .readyToPartyButton:hover {
     background-color: #d650b0;
+}
+
+.datepicker-date-display, 
+.timepicker-digital-display {
+    background-color: #d650b0;
+}
+
+.datepicker-done, 
+.datepicker-cancel, 
+.timepicker-close {
+    color: #d650b0;
+}
+
+.timepicker-canvas line {
+  stroke: #d650b0;  
+}
+
+.timepicker-canvas-bg, 
+.timepicker-canvas-bearing {
+    fill: #d650b0;
 }
 
 /*-------------- COCKTAILS --------------*/
@@ -243,7 +268,7 @@ h1, h2, h3, h4, h5 {
 .musicItems,
 .musicInfo {
     color: #7d45d4;
-    background-color: #d8c7f2;
+    background-color: #e3cefe;
 }
 
 .musicHeader {
@@ -364,7 +389,7 @@ h1, h2, h3, h4, h5 {
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .searchResults {
-    height: 28.2%;
+    height: 42%;
 }
 
 .searchResults img {
@@ -375,12 +400,14 @@ h1, h2, h3, h4, h5 {
 /*----------------- ADDED ITEMS -----------------*/
 
 .addedItems {
+    height: 85vh;
+    text-align: center;
     overflow-y: scroll;
 }
 
 .addedItems p {
     display: inline-block;
-    margin-top: -2%;
+    margin: -2% 0 1% 0;
     font-size: 1.7em;
 }
 
@@ -389,14 +416,62 @@ h1, h2, h3, h4, h5 {
     left: 3%;
 }
 
+.wrapper {
+    width: 100%;
+    padding: 5% 0 3% 0;
+    position: fixed;
+    z-index: 2;
+}
+
+.cocktailItems .wrapper {
+    color: #45a6c4;
+    background-color: #cdf1fd;
+}
+
+.foodItems .wrapper {
+    color: #b245c4;
+    background-color: #f1cbf7;
+}
+
+.musicItems .wrapper {
+    color: #7d45c4;
+    background-color: #e3cefe;
+}
+
+.clearFix {
+    height: 9vh;
+}
+
 /*----------------- CARD CONTAINERS -----------------*/
+
+.card-content {
+    padding: 4% !important;
+}
+
+.card-image {
+    width: 40%;
+}
+
+.itemDelete {
+    position: absolute;
+    right: 2.5%;
+    bottom: 3%; 
+    font-weight: 900;
+}
+
+.titleLink {
+    text-align: left;  
+}
 
 .cocktailItems .card {
     background-color: #45a6c4;
 }
 
-.cocktailItems .searchTitle{
-    color:white;
+.cocktailItems .searchTitle,
+.foodItems .searchTitle,
+.musicItems .searchTitle {
+    color: white;
+    font-size: 1.6em;
 }
 
 .cocktailItems .itemDelete {
@@ -417,17 +492,6 @@ h1, h2, h3, h4, h5 {
 
 .musicItems .itemDelete {
     background-color: #e3cefe;
-}
-
-.card-image {
-    width: 40%;
-}
-
-.itemDelete {
-    position: absolute;
-    right: 2.5%;
-    bottom: 3%; 
-    font-weight: 900;
 }
 
 .cocktailItems .trashIcon {
@@ -462,10 +526,6 @@ h1, h2, h3, h4, h5 {
 }
 
 /*-------------- SLICK --------------*/
-
-.slider {
-    height: 100px;
-}
 
 .slick-list {
     height: 80%;
@@ -591,9 +651,4 @@ h1, h2, h3, h4, h5 {
 
 .buttonPannel .btn {
     margin: 20px;
-}
-
-.musicDetails .searchInputContainer {
-    position: relative;
-    bottom: 45%;
 }
