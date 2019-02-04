@@ -296,12 +296,15 @@ h1, h2, h3, h4, h5 {
 
 .editParty .contentContainer {
     height: 85vh;
-    background-color: #ccccff;
+    background-color: #3232ff;
 }
 
 .collapsible {
     margin-top: 0;
     color: white;
+    border-right: none;
+    border-left: none;
+    box-shadow: none;
 }
 
 .collapsible-header, .backToParties {
@@ -342,14 +345,15 @@ h1, h2, h3, h4, h5 {
     background-color: #3232ff;
 }
 
-li:last-child {
-  text-align: center
-}
-
 .fas.fa-glass-martini, 
 .fas.fa-calendar-alt,
-.fas.fa-utensils {
+.fas.fa-utensils,
+.fa-arrow-left {
     padding-top: 1.5%;
+}
+
+.fa-arrow-left {
+    margin-left: 7%;
 }
 
 .editMusic .material-icons {
@@ -383,6 +387,24 @@ li:last-child {
 .closeAddedItems {
     position: absolute;
     left: 3%;
+}
+
+/*----------------- CARD CONTAINERS -----------------*/
+
+.cocktailItems .card {
+    background-color: #45a6c4;
+}
+
+.foodItems .card {
+    background-color: #b245c4;
+}
+
+.musicItems .card {
+    background-color: #7d45c4;
+}
+
+.card-image {
+    width: 40%;
 }
 
 /*-------------- BADGES --------------*/
@@ -491,44 +513,6 @@ li:last-child {
 .ingredients {
     list-style-type: disc;
     list-style-position: inside;
-}
-
-/*----------------- CARD CONTAINERS -----------------*/
-
-.card {
-    background-color: #9c27b0;
-    margin-bottom: 2.5%;
-}
-
-.card.selected {
-    background-color: #d81b60;
-}
-
-.card-content {
-    padding: 3% 5%;
-}
-
-.card-image {
-    width: 40%;
-}
-
-.buttonStyle {
-    align-self:flex-end;
-}
-
-.titleLink{
-    height:100%;
-    width: 82%;
-    font-size:20px;  
-}
-
-.searchTitle {
-    color: white;
-    text-decoration: none;
-}
-
-.pink.lighten-2 {
-    background-color: #f48fb1;
 }
 
 /*----------------- FONTAWESOME -----------------*/

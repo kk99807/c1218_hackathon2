@@ -11,7 +11,6 @@ class App {
         this.initDOM();
     }
 
-    
     initDOM() {
         this.hideLanding = this.hideLanding.bind(this);
 
