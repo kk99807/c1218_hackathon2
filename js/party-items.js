@@ -6,11 +6,10 @@ class PartyItems {
      * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
      * @param {[]} items - OPTIONAL List of initial party items
      */
-    constructor(domElement, nextElement, items) {
+    constructor(domElement, items) {
         this.domElement = domElement;
         this.domSearchResults = this.domElement.find('.listItems');
         this.domList = this.domElement.find('.contentContainer');
-        this.nextElement = nextElement;
 
         this.items = items || [];
     }

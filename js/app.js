@@ -16,8 +16,9 @@ class App {
         this.hideLanding = this.hideLanding.bind(this);
 
         $('.startButton').on('click', this.hideLanding);
-        $('.details, .cocktail, .food, .music, .parties').hide();
+        $('.details, .cocktail, .food, .music, .parties, .editParty').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+        $('.collapsible').collapsible();
     
         $('.searchResults').slick({
             slidesToShow: 2,
@@ -29,8 +30,6 @@ class App {
             touchMove: true,
             centerMode: true,
         });
-    
-        $('.slick-prev, .slick-next').text('');
     }
     
     hideLanding(){

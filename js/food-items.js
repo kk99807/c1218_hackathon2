@@ -6,8 +6,8 @@ class FoodItems extends PartyItems {
      * @param {*} domElement - jQuery selector for the top-level DOM element used to visualize this set of items
      * @param {*} items - OPTIONAL List of initial food selections
      */
-    constructor(domElement, nextElement, items) {
-        super(domElement, nextElement, items);
+    constructor(domElement, items) {
+        super(domElement, items);
         this.bindEvents();
         this.domElement.find('.foodSearchButton').click(this.handleSearch);
     }
@@ -18,7 +18,6 @@ class FoodItems extends PartyItems {
      */
     asyncSearch() {
         let query = $('.foodSearchInput').val();
-        let i = 1;
 
         const BASEURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10&tags=';
 
@@ -37,18 +36,13 @@ class FoodItems extends PartyItems {
                             ingredients.push(ingredient);
                         }
 
-                        $(`.item${i} img`).attr('src', item.image);
-                        $(`.item${i} p`).text(item.title);
-                        i++
-
-                        // if no image....
-
                         return new RecipeItem(
                             item.id, 
                             item.title, 
                             item.image, 
                             this.handleItemClick, 
-                            {ingredients: ingredients, instructions: item.instructions}
+                            {ingredients: ingredients, instructions: item.instructions},
+                            $('.foodHeader .badge')
                         );
                     });
                     resolve(items);
