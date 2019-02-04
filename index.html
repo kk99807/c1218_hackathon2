@@ -32,7 +32,7 @@
         </div>
         <!-- <div class="main"> -->
 
-        <div class="details">
+        <div class="details hidden">
             <!-- <p class='sectionTitle'>Details</p> -->
             <!-- <div class="wholeContainer"> -->
                 <!-- <div class='contentContainerTitle'> -->
@@ -152,6 +152,7 @@
                 <div class="foodDetails addItems">
                     <h4 class="text">What food will you serve?</h4>
                     <h5 class="text">Tap to add an appetizer:</h5>
+
                     <div class="searchResults listItems"></div>
 
                     <h5 class="text">Or search for your favorite dish:</h5>
@@ -172,7 +173,7 @@
             </div>
         </div>
 
-        <div class="music">
+        <div class="music hidden">
             <div class="musicHeader">
                 <h2 class="musicTitle">
                     Music
@@ -186,7 +187,7 @@
                 <div class="musicDetails addItems">
                     <h4 class="text">What music will you play?</h4>
                     <h5 class="text">Tap to add a song:</h5>
-                    <div class="searchResults listItems"></div>
+                    <div class="searchResults listItems slider"></div>
                     <h5 class="text">Or search for your favorite artist:</h5>
                     
                     <div class="searchInputContainer">
@@ -208,12 +209,7 @@
 
         <div class="parties">
             <div class="partiesHeader">
-                <h2 class="partyTitle">
-                    Parties
-                    <span class="collection-item">
-                        <span class="partyBadge badge">0</span>
-                    </span>
-                </h2>  
+                <h2 class="partyTitle">Parties</h2>  
             </div>
 
             <div class="contentContainer">
@@ -276,7 +272,10 @@
                         </div>
                     </li>
                     <li>
-                        <div class="backToParties">Back</div>
+                        <div class="backToParties">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </div>
                     </li>
                 </ul>
             </div>
