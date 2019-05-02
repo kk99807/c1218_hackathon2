@@ -321,6 +321,10 @@ h1, h2, h3, h4, h5 {
 
 /*-------------- EDIT PARTY --------------*/
 
+.editParty {
+    overflow-x: scroll;
+}
+
 .editParty .contentContainer {
     height: 85vh;
     background-color: #3232ff;
