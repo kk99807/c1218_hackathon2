@@ -26,7 +26,7 @@ class PartyItem {
     // renderSearch(selected) {
     renderSearch(selected) {
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
- 
+
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
@@ -59,18 +59,26 @@ class PartyItem {
             .text(this.name)
             .appendTo(titleLink);
 
-        //card reveal
+        //recipe modal
         let cardReveal = $('<div>')
-            .addClass('card-reveal')
+            .addClass('modal').attr('id',this.name)
             .appendTo(card);
+
+        $('.modal').modal();
+
+        let modalContent = $('<div>').addClass('modal-content').appendTo(cardReveal);
+
+        let modalFooter = $('<div>').addClass('modal-footer').appendTo(cardReveal);
+
+        let modalFooterContent = $('<button>').addClass('modal-close btn').attr('href','#!').appendTo(modalFooter).text('Close')
 
         let revealTitle = $('<h5>')
             .addClass('class-title')
             .text(this.name)
-            .appendTo(cardReveal);
+            .appendTo(modalContent);
 
         let closeButton = $('<i>')
-            .addClass('material-icons right close')
+            .addClass('material-icons right modal-close')
             .text('close')
             .appendTo(revealTitle);
 
@@ -82,15 +90,18 @@ class PartyItem {
                 let ingredients = $('<h5>')
                     .addClass('ingredients')
                     .text('- ' + this.props.ingredients[i]);
-                cardReveal.append(ingredients);
+                modalContent.append(ingredients);
             }
         }
+
+        let addBreak = $('<br>').appendTo(modalContent);
+
         let revealContent = $('<p>')
             .text(this.props.instructions)
-            .appendTo(cardReveal);
+            .appendTo(modalContent);
 
         let buttonContainer = $('<a>')
-            .addClass('btn waves-effect waves-light buttonStyle itemDelete')
+            .addClass('btn waves-effect waves-light itemDelete')
             .appendTo(cardContent);
 
         let button = $('<i>')
@@ -98,10 +109,12 @@ class PartyItem {
             .text('delete')
             .appendTo(buttonContainer);
 
+        let modalActivate = $('<a>').addClass('btn waves-effect waves-light buttonStyle modal-trigger').attr('href', ('#'+this.name)).appendTo(cardContent);
+        
         let revealIcon = $('<i>')
-            .addClass('material-icons right activator')
+            .addClass('material-icons')
             .text('more_vert')
-            .appendTo(cardContent);
+            .appendTo(modalActivate);
 
         title.click(target => this.eventCallback(this, 'view'));
         image.click(target => this.eventCallback(this, 'view'));
