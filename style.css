@@ -19,13 +19,14 @@ h1, h2, h3, h4, h5 {
 }
 
 /*----------------- LANDING PAGE -----------------*/
-
 .landing{
+    /* Adobe Stock Image Licensed by Karen King */
     background-image: url('images/newBackground.jpg');
     height:100%;
     width:100%;
     background-repeat:no-repeat;
     background-position-x: 50%;
+    background-size: cover;
     position:fixed;
     z-index:1;
 }
@@ -35,9 +36,12 @@ h1, h2, h3, h4, h5 {
     bottom: 10%;
     background-color: #d650b0;
     font-family: 'Shadows Into Light', cursive;
+    max-width: 300px;
 }
 
 .mainTitle {
+    position: relative;
+    top: 2%;
     text-align:center;
     color: white;
     font-weight:bold;
