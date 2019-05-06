@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5 {
 /*----------------- LANDING PAGE -----------------*/
 .landing{
     /* Adobe Stock Image Licensed by Karen King */
-    background-image: url('images/newBackground.jpg');
+    background-image: url('images/landing-xs.jpg');
     height:100%;
     width:100%;
     background-repeat:no-repeat;
@@ -30,12 +30,26 @@ h1, h2, h3, h4, h5 {
     z-index:1;
 }
 
+@media only screen and (min-width: 600px) {    
+    .landing {background-image: url('images/landing-sm.jpg');}
+}
+
+@media only screen and (min-width: 768px) {    
+    .landing {background-image: url('images/landing-md.jpg');}
+} 
+
+@media only screen and (min-width: 992px) {    
+    .landing {background-image: url('images/landing-lg.jpg');}
+}
+
 .startButton {
     font-size: 1.7em;
     bottom: 10%;
     background-color: #d650b0;
     font-family: 'Shadows Into Light', cursive;
     max-width: 300px;
+    height: auto;
+    padding: 12px 16px;
 }
 
 .mainTitle {
