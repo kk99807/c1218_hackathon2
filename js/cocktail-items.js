@@ -149,9 +149,6 @@ class CocktailItems extends PartyItems {
         });
         return items;
     }
-    // renderDrinkDetails(drinksArray){
-    //     let drinkArrayCall = drinksArray.map()
-    // }
 
     /**
      * Called by PartyItems superclass when user requests a search to retrieve cocktail recipes
