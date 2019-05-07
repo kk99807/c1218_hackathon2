@@ -87,21 +87,12 @@ class PartyItems {
 
         } else if (eventType === 'add') {
             this.items.push(item);   
-            this.domList.append(item.renderSearch(true));
             this.domElement.find('.addedItems').append(item.renderSearch(true));
             item.card = item.renderSearch(true);
             item.badge.text(++badgeValue);
             M.toast({html:'Item has been added', displayLength:1000}); 
             $('.toast').css('background-color', 'green');
         }
-    }
-
-    /**
-     * Show the list of selected party items of this type
-     */
-    showList() {
-        let renderedItems = this.items.map(item => item.renderSearch(true));
-        this.domList.append(renderedItems);
     }
 
     /**
