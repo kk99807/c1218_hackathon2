@@ -57,9 +57,6 @@ class Party {
      * Save Event Details and create a calendar entry on user request to update details
      */
     handleUpdateDetails() {
-        M.toast({html:'Details have been saved!', displayLength:1000});
-        $('.toast').css('background-color', 'green');
-
         this.title = $('#inputTitle').val();
         this.date = $('#pickDate').val();
         this.startTime = $('#pickStartTime').val();
