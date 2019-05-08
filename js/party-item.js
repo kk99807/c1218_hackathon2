@@ -116,6 +116,7 @@ class PartyItem {
             .text('more_vert')
             .appendTo(modalActivate);
 
+        card.click(target => this.eventCallback(this, 'view'));
         title.click(target => this.eventCallback(this, 'view'));
         image.click(target => this.eventCallback(this, 'view'));
         button.click(target => {

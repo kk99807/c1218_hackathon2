@@ -96,7 +96,9 @@ class App {
             partyItemContainer.appendTo($('.foodBody'));
         });
         party.musicItems.items.map(item => {
+            party.musicItems.domList.empty();
             let partyItemContainer = $('<div>');
+            //item.card.click(()=>{item.eventCallback(item, 'view')});
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));
         });
