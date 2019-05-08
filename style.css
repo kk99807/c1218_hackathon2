@@ -350,6 +350,7 @@ h1, h2 {
 
 .editParty {
     overflow-x: scroll;
+    height:100%
 }
 
 .editParty .contentContainer {
@@ -404,6 +405,9 @@ h1, h2 {
     height: 10vh;
     line-height: 10vh;
     background-color: #3232ff;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
 }
 
 .fas.fa-glass-martini, 
@@ -514,6 +518,10 @@ h1, h2 {
 }
 
 /*----------------- CARD CONTAINERS -----------------*/
+
+.cocktailsBody .modal p{
+    font-size:15px;
+}
 
 .card-content {
     padding: 4% !important;

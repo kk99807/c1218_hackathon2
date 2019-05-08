@@ -13,7 +13,6 @@ class App {
 
     initDOM() {
         this.hideLanding = this.hideLanding.bind(this);
-
         $('.startButton').on('click', this.hideLanding);
         $('.goToDetails').click(this.goToDetails);
         $('.backToParties').click(this.goToParties);
@@ -21,7 +20,7 @@ class App {
         $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         $('.timepicker').timepicker();
         $('.collapsible').collapsible();
-    
+        $('.tabs').tabs();
         $('.searchResults').slick({
             slidesToShow: 2,
             slidesToScroll: 3,
@@ -81,19 +80,23 @@ class App {
     } 
 
     showParty( party ) {
-
         $('.parties').hide();
         $('.editParty').show();
-
         party.cocktailItems.items.map(item => {
+            item.card[0].children[1].children[0].children[2].attributes[1].value+='edit';
+            item.card[0].children[2].id+='edit';
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.cocktailsBody'));
+            $('.modal').modal();
         });
         party.foodItems.items.map(item => {
+            item.card[0].children[1].children[0].children[2].attributes[1].value += 'edit';
+            item.card[0].children[2].id += 'edit';
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.foodBody'));
+            $('.modal').modal();
         });
         party.musicItems.items.map(item => {
             party.musicItems.domList.empty();
