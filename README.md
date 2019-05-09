@@ -1,6 +1,6 @@
-# Shades of Soiree
+# Party Party
 
-Shades of Soiree is an app that helps you plan the perfect house party! Just click through the different sections and the app will guide you as you set your party details and select the drinks, appetizers and music needed to have fun!
+Party Party is an app that helps you plan the perfect house party! Just click through the different sections and the app will guide you as you set your party details and select the drinks, appetizers and music needed to have fun!
 
 ### Getting Started
 
