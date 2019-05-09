@@ -82,6 +82,7 @@ class App {
     showParty( party ) {
         $('.parties').hide();
         $('.editParty').show();
+
         party.cocktailItems.items.map(item => {
             item.card[0].children[1].children[0].children[2].attributes[1].value+='edit';
             item.card[0].children[2].id+='edit';
@@ -100,8 +101,10 @@ class App {
         });
         party.musicItems.items.map(item => {
             let partyItemContainer = $('<div>');
-            partyItemContainer.append(item.card);
+            let videoContainer = $('<div>').addClass('musicInfo editMusicInfo');
+            partyItemContainer.append(item.card, videoContainer);
             partyItemContainer.appendTo($('.musicBody'));
+
         });
         let date = $('<p>').text(`Date: ${party.date}`);
         let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
