@@ -9,7 +9,7 @@ In order to enjoy the full functionality of this app, the following information 
   - An Add Event api key set to a CALENDAR_API_CLIENT_ID variable
 
 ### Team 4
-  - Hannel Gwak
+  - Hannel(Sky) Gwak
   - Danika Quinteros
   - Karen King
   - Xiaoyun(Stella) Hsin
