@@ -203,11 +203,13 @@ class VideoItem extends PartyItem {
                 width: '80%',
                 height: '90%',
                 src: `https://www.youtube.com/embed/${this.id}`,
-                fs: '1'
+                fs: '1',
+                onload: ()=>{$(spinner).remove()}
             })
             .addClass('videoIFrame');
-            
+
         container.append(video);
+
         $('.musicInfo').append(container);
     }
 }

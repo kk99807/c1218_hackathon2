@@ -82,6 +82,7 @@ class App {
     showParty( party ) {
         $('.parties').hide();
         $('.editParty').show();
+
         party.cocktailItems.items.map(item => {
             item.card[0].children[1].children[0].children[2].attributes[1].value+='edit';
             item.card[0].children[2].id+='edit';
@@ -99,11 +100,11 @@ class App {
             $('.modal').modal();
         });
         party.musicItems.items.map(item => {
-            party.musicItems.domList.empty();
             let partyItemContainer = $('<div>');
-            //item.card.click(()=>{item.eventCallback(item, 'view')});
-            partyItemContainer.append(item.card);
+            let videoContainer = $('<div>').addClass('musicInfo editMusicInfo');
+            partyItemContainer.append(item.card, videoContainer);
             partyItemContainer.appendTo($('.musicBody'));
+
         });
         let date = $('<p>').text(`Date: ${party.date}`);
         let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
