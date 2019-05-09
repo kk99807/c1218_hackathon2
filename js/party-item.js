@@ -96,24 +96,31 @@ class PartyItem {
 
         let addBreak = $('<br>').appendTo(modalContent);
 
+        let buttonWrapper = $('<div>')
+            .addClass('button-wrapper')
+            .appendTo(cardContent)
+
         let revealContent = $('<p>')
             .text(this.props.instructions)
             .appendTo(modalContent);
 
         let buttonContainer = $('<a>')
             .addClass('btn waves-effect waves-light itemDelete')
-            .appendTo(cardContent);
+            .appendTo(buttonWrapper);
 
         let button = $('<i>')
             .addClass('material-icons trashIcon')
             .text('delete')
             .appendTo(buttonContainer);
 
-        let modalActivate = $('<a>').addClass('btn waves-effect waves-light buttonStyle modal-trigger').attr('href', ('#'+this.name)).appendTo(cardContent);
+        let modalActivate = $('<a>')
+            .addClass('btn waves-effect waves-light modal-trigger')
+            .attr('href', ('#'+this.name))
+            .appendTo(buttonWrapper);
         
         let revealIcon = $('<i>')
-            .addClass('material-icons')
-            .text('more_vert')
+            .addClass('material-icons infoIcon')
+            .text('info')
             .appendTo(modalActivate);
 
         title.click(target => this.eventCallback(this, 'view'));

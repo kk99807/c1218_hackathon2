@@ -83,7 +83,7 @@ class App {
         $('.parties').hide();
         $('.editParty').show();
         party.cocktailItems.items.map(item => {
-            item.card[0].children[1].children[0].children[2].attributes[1].value+='edit';
+            item.card[0].children[1].children[0].children[1].children[1].attributes[1].value+='edit';
             item.card[0].children[2].id+='edit';
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.card);
@@ -91,7 +91,7 @@ class App {
             $('.modal').modal();
         });
         party.foodItems.items.map(item => {
-            item.card[0].children[1].children[0].children[2].attributes[1].value += 'edit';
+            item.card[0].children[1].children[0].children[1].children[1].attributes[1].value += 'edit';
             item.card[0].children[2].id += 'edit';
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.card);
@@ -99,6 +99,7 @@ class App {
             $('.modal').modal();
         });
         party.musicItems.items.map(item => {
+            console.log(item)
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));

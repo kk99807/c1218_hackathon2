@@ -116,7 +116,8 @@ h1, h2 {
 .cocktailsTitle,
 .foodTitle,
 .musicTitle,
-.partyTitle {
+.partyTitle,
+.editPartyTitle {
     line-height: 15vh;
 }
 
@@ -139,6 +140,10 @@ h1, h2 {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+}
+
+.searchImage {
+    height: 200px;
 }
 
 .cocktailSearchInput,
@@ -209,6 +214,15 @@ h1, h2 {
     margin: 0 auto;
 }
 
+.active {
+    color: #d650b0 !important;
+}
+
+#detailsForm input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #d650b0;
+    box-shadow: 0 1px 0 0 #d650b0;
+}
+
 .readyToPartyButton, 
 .editDetails {
     color: white;
@@ -246,6 +260,10 @@ h1, h2 {
 .timepicker-canvas-bg, 
 .timepicker-canvas-bearing {
     fill: #d650b0;
+}
+
+.isToday {
+    color: black;
 }
 
 /*-------------- COCKTAILS --------------*/
@@ -429,6 +447,7 @@ h1, h2 {
     position: fixed;
     width: 100%;
     bottom: 0px;
+    z-index: 1;
 }
 
 .fas.fa-glass-martini, 
@@ -468,12 +487,22 @@ h1, h2 {
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
+.results-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .slick-list.draggable {
     height: 235px;
 }
 
 .slide.slick-slide {
     width: 200px !important;
+    height: 200px !important;
     margin: 0 0.2%;
 }
 
@@ -511,12 +540,14 @@ h1, h2 {
 
 .closeAddedItems {
     position: absolute;
-    left: 3%;
+    left: 15px;
+    top: 15px;
 }
 
 .wrapper {
+    height: 70px;
+    line-height: 70px;
     width: 100%;
-    padding: 5% 0 3% 0;
     position: fixed;
     z-index: 2;
 }
@@ -549,27 +580,41 @@ h1, h2 {
 
 /*----------------- CARD CONTAINERS -----------------*/
 
+.card {
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+}
+
 .cocktailsBody .modal p{
     font-size:15px;
 }
 
 .card-content {
     padding: 4% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-image {
-    width: 40%;
+    width: 50%;
 }
 
-.itemDelete {
-    position: absolute;
-    right: 2.5%;
-    bottom: 3%; 
-    font-weight: 900;
+.card-image img {
+    height: 200px;
+}
+
+.button-wrapper {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .titleLink {
-    text-align: left;  
+    text-align: center;  
 }
 
 .cocktailItems .searchTitle,
@@ -592,7 +637,9 @@ h1, h2 {
 }
 
 .cocktailItems .itemDelete,
-.cocktailsBody .itemDelete {
+.cocktailsBody .itemDelete,
+.cocktailItems .modal-trigger,
+.cocktailsBody .modal-trigger {
     background-color: #cdf1fd;
 }
 
@@ -602,7 +649,9 @@ h1, h2 {
 }
 
 .foodItems .itemDelete,
-.foodBody .itemDelete {
+.foodBody .itemDelete,
+.foodItems .modal-trigger,
+.foodBody .modal-trigger {
     background-color: #f1cbf7;
 }
 
@@ -612,23 +661,34 @@ h1, h2 {
 }
 
 .musicItems .itemDelete,
-.musicBody .itemDelete {
+.musicBody .itemDelete,
+.musicItems .modal-trigger,
+.musicBody .modal-trigger {
     background-color: #e3cefe;
 }
 
 .cocktailItems .trashIcon,
-.cocktailsBody .trashIcon {
+.cocktailsBody .trashIcon,
+.cocktailItems .infoIcon,
+.cocktailsBody .infoIcon  {
     color: #45a6c4;
+    font-size: 30px;
 }
 
 .foodItems .trashIcon,
-.foodBody .trashIcon {
+.foodBody .trashIcon,
+.foodItems .infoIcon,
+.foodBody .infoIcon {
     color: #b245c4;
+    font-size: 30px;
 }
 
 .musicItems .trashIcon,
-.musicBody .trashIcon {
+.musicBody .trashIcon,
+.musicItems .infoIcon,
+.musicBody .infoIcon {
     color: #7d45d4;
+    font-size: 30px;
 }
 
 /*-------------- BADGES --------------*/
@@ -721,12 +781,46 @@ h1, h2 {
     .cocktail h4, 
     .food h4, 
     .music h4 {
-        margin: 0 0 8% 0;
+        margin: 5% 0 5% 0;
     } 
+
+    .text:nth-child(2) {
+        margin-bottom: 8%;
+    }
+
+    .searchResults {
+        height: 38%;
+    }
 
     .searchResults img {
         height: 100px;
         width: 100px;
     }
-}
 
+    .inputContainer {
+        width: 80%;
+    }
+
+    .slick-list.draggable {
+        height: 160px;
+    }
+
+    .searchInputContainer {
+        width: 370px;
+        margin: 10% auto 0 auto;
+    }
+
+    .results-wrapper {
+        width: 100%;
+    }
+
+    .slide.slick-slide {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .button-wrapper {
+        width: 170px;
+    }
+}
+    
