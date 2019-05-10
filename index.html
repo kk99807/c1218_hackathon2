@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="assets/materialize-icons.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <script src="assets/jquery.min.js"></script>
-        <script src="assets/jquery.validate.min.js"></script>
         <script src="assets/materialize.min.js"></script>
         <script src="js/config.js"></script>
         <script src="js/party-item.js"></script>
@@ -36,35 +35,42 @@
                 <h2 class="detailsTitle">Details</h2>
             </div>
                     
-            <form id="detailsForm">
+            <form id="detailsForm" autocomplete="off">
                 <div class="contentContainer">
                     <h4 class="text">When is your party?</h4>
                     <div class="inputContainer">
                         <div class="titleInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">add</i>
-                                <input name="inputTitle" type="text" id="inputTitle" required="" aria-required="true">
+                                <input name="inputTitle" type="text" id="inputTitle" required aria-required="true" class="validate">
                                 <label for="inputTitle">Name Your Party</label>
                             </div>
                         </div>
                         <div class="dateInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">event</i>
-                                <input name="pickDate" type="text" class="datepicker" id="pickDate" required="" aria-required="true">
-                                <label for="pickDate">Pick Start Date</label>
+                                <input name="startDate" type="text" id="startDate" required aria-required="true" class="datepicker validate">
+                                <label for="startDate">Pick Start Date</label>
                             </div>
                         </div>
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input name="pickStartTime" type="text" id="pickStartTime" class="timepicker" required="" aria-required="true">
+                                <input name="pickStartTime" type="text" id="pickStartTime" required aria-required="true" class="timepicker validate">
                                 <label for="pickStartTime">Pick Start Time</label>
                             </div>
                         </div>
+                        <div class="dateInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">event</i>
+                                <input name="endDate" type="text" id="endDate" required aria-required="true" class="datepicker validate">
+                                <label for="endDate">Pick End Date</label>
+                            </div>
+                        </div>
                         <div class="timeInput">
                             <div class="input-field">
                                 <i class="material-icons prefix">access_time</i>
-                                <input name="pickEndTime" type="text" id="pickEndTime" class="timepicker" required="" aria-required="true">
+                                <input name="pickEndTime" type="text" id="pickEndTime" required aria-required="true" class="timepicker validate">
                                 <label for="pickEndTime">Pick End Time</label>
                             </div>
                         </div>
@@ -74,18 +80,6 @@
                 </div>
             </form>
             <div class="searchContainer"></div>
-            <div class="informationContainer">
-                <div class="searchHeading">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="titleContainer">
-                        <p>Add to Calendar?</p>
-                    </div>
-                </div>
-                <div class="buttonPanel row">
-                    <a href="#" target="_blank" class="waves-effect waves-light btn closeButton calendarButton eventLink">Yes</a>
-                    <a href="#" class="waves-effect waves-light btn closeButton calendarButton">No</a>
-                </div>
-            </div>
         </div>
 
         <div class="cocktail">
