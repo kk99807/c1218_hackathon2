@@ -18,7 +18,7 @@ class App {
         $('.goToDetails').click(this.goToDetails);
         $('.backToParties').click(this.goToParties);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
-        $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+        $('.datepicker').datepicker({format: 'mm/dd/yyyy', autoClose: true});
         $('.timepicker').timepicker();
         $('.collapsible').collapsible();
     
@@ -68,7 +68,7 @@ class App {
             let html = $('#templatePartyCard').html();
             html = $(html);
             html.find('.card-title').text(party.title);
-            html.find('.datetime').text(`${party.date} ${party.startTime} - ${party.date} ${party.endTime}`);
+            html.find('.datetime').text(`${party.startDate} ${party.startTime} - ${party.endDate} ${party.endTime}`);
             html.find('.cocktailsCount').text( party.cocktailItems.items.length );
             html.find('.foodCount').text( party.foodItems.items.length );
             html.find('.musicCount').text( party.musicItems.items.length );
@@ -100,9 +100,10 @@ class App {
             partyItemContainer.append(item.card);
             partyItemContainer.appendTo($('.musicBody'));
         });
-        let date = $('<p>').text(`Date: ${party.date}`);
+        let startDate = $('<p>').text(`Start Date: ${party.startDate}`);
         let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
+        let endDate = $('<p>').text(`End Date: ${party.endDate}`);
         let endTime = $('<p>').text(`End Time: ${party.endTime}`);
-        $('.detailsBody').append(date, startTime, endTime);
+        $('.detailsBody').append(startDate, startTime, endDate, endTime);
     }
 }
