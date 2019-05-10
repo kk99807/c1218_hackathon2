@@ -1,6 +1,6 @@
-# Shades of Soiree
+# Party Party
 
-Shades of Soiree is an app that helps you plan the perfect house party! Just click through the different sections and the app will guide you as you set your party details and select the drinks, appetizers and music needed to have fun!
+Party Party is an app that helps you plan the perfect house party! Just click through the different sections and the app will guide you as you set your party details and select the drinks, appetizers and music needed to have fun!
 
 ### Getting Started
 
@@ -9,7 +9,7 @@ In order to enjoy the full functionality of this app, the following information 
   - An Add Event api key set to a CALENDAR_API_CLIENT_ID variable
 
 ### Team 4
-  - Hannel Gwak
+  - Hannel(Sky) Gwak
   - Danika Quinteros
   - Karen King
   - Xiaoyun(Stella) Hsin

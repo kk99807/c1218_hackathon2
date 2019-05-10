@@ -67,14 +67,13 @@ class PartyItems {
         let badgeValue = item.badge.text();
 
         if (eventType === 'view') {
-        
             this.showDetails(item);
-            if(item instanceof VideoItem){
-                console.log(item instanceof VideoItem);
+            if(item instanceof VideoItem) {
+                $('.musicInfo').empty();
                 item.renderDetails();
                 $('.musicInfo').show();
-                $('.musicSpinner').remove();
             }
+
         } else if (eventType === 'delete') {
             item.badge.text(--badgeValue);
 
