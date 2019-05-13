@@ -77,17 +77,17 @@ class PartyItem {
             .text(this.name)
             .appendTo(modalContent);
 
-        let closeButton = $('<i>')
-            .addClass('material-icons right modal-close')
-            .text('close')
-            .appendTo(revealTitle);
+        // let closeButton = $('<i>')
+        //     .addClass('material-icons right modal-close')
+        //     .text('close')
+        //     .appendTo(revealTitle);
 
         // let instructions = $('<p>')
         // .addClass('recipe')
         // .text(this.props.instructions);
         if(this.props.ingredients){
             for(let i = 0; i < this.props.ingredients.length; i++){
-                let ingredients = $('<h5>')
+                let ingredients = $('<li>')
                     .addClass('ingredients')
                     .text('- ' + this.props.ingredients[i]);
                 modalContent.append(ingredients);
@@ -131,7 +131,7 @@ class PartyItem {
             this.eventCallback(this, button.text());
         });
 
-        closeButton.click(() => cardReveal.hide());
+        // closeButton.click(() => cardReveal.hide());
         return card;
     }
 }
@@ -192,6 +192,7 @@ class VideoItem extends PartyItem {
     renderDetails(){
         let container = $('<div>')
             .addClass('videoDisplay');
+
 
         let spinner = $('<i>')
             .addClass("fa fa-spinner fa-spin musicSpinner");
