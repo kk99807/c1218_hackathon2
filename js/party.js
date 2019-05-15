@@ -56,12 +56,21 @@ class Party {
      * Save Event Details and create a calendar entry on user request to update details
      */
     handleUpdateDetails() {
+
+        // Capture user inputs
         this.title = $('#inputTitle').val();
         this.startDate = $('#startDate').val();
         this.startTime = $('#pickStartTime').val();
         this.endDate = $('#endDate').val();
         this.endTime = $('#pickEndTime').val();
         app.save();
+
+        // Clear form
+        $('#inputTitle').val('');
+        $('#startDate').val('');
+        $('#pickStartTime').val('');
+        $('#endDate').val('');
+        $('#pickEndTime').val('');
 
         this.showNextContainer();
     }
