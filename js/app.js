@@ -81,22 +81,23 @@ class App {
     } 
 
     showParty( party ) {
-        $('.parties').hide();
-        $('.editParty').show();
 
+        // Clear previous display
+        $('.detailsBody').empty();
+        $('.cocktailsBody').empty();
+        $('.foodBody').empty();
+        $('.musicBody').empty();
+
+        // Add display for current party
         party.cocktailItems.items.map(item => {
-            item.card[0].children[1].children[0].children[1].children[1].attributes[1].value+='edit';
-            item.card[0].children[2].id+='edit';
             let partyItemContainer = $('<div>');
-            partyItemContainer.append(item.card);
+            partyItemContainer.append(item.renderSearch(true));
             partyItemContainer.appendTo($('.cocktailsBody'));
             $('.modal').modal();
         });
         party.foodItems.items.map(item => {
-            item.card[0].children[1].children[0].children[1].children[1].attributes[1].value += 'edit';
-            item.card[0].children[2].id += 'edit';
             let partyItemContainer = $('<div>');
-            partyItemContainer.append(item.card);
+            partyItemContainer.append(item.renderSearch(true));
             partyItemContainer.appendTo($('.foodBody'));
             $('.modal').modal();
         });
@@ -104,7 +105,7 @@ class App {
             console.log(item)
             let partyItemContainer = $('<div>');
             let videoContainer = $('<div>').addClass('musicInfo editMusicInfo');
-            partyItemContainer.append(item.card, videoContainer);
+            partyItemContainer.append(item.renderSearch(true), videoContainer);
             partyItemContainer.appendTo($('.musicBody'));
 
         });
@@ -113,6 +114,10 @@ class App {
         let endDate = $('<p>').text(`End Date: ${party.endDate}`);
         let endTime = $('<p>').text(`End Time: ${party.endTime}`);
         $('.detailsBody').append(startDate, startTime, endDate, endTime);
+
+        // Show display
+        $('.parties').hide();
+        $('.editParty').show();
     }
 
     /**
