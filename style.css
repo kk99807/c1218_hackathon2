@@ -380,6 +380,11 @@ input.valid[type=text]:not(.browser-default) {
 /*-------------- PARTIES --------------*/
 
 .partyDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
     color: white;
     background-color: #ccccff;
 }
@@ -392,7 +397,7 @@ input.valid[type=text]:not(.browser-default) {
     margin-left: 32%;
 }
 
-.goToDetails, .parties .btn-large:hover {
+.btnNewParty, .parties .btn-large:hover {
     background-color: #3232ff;
 }
 
@@ -402,6 +407,22 @@ input.valid[type=text]:not(.browser-default) {
 
 .partyDetails .card {
     width: 300px;
+}
+
+.partyDetails table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto !important;
+}
+
+.partyDetails tr,td {
+    border: none;
+    padding: 5px;
+}
+
+.partyDetails .counts {
+    margin: 8px;
 }
 
 /*-------------- EDIT PARTY --------------*/
@@ -485,13 +506,16 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .partyDetails .card {
-    font-size: 1.5em;
     background-color: #3232ff;
 }
 
 .partyDetails .card-content {
     color: white;
-    text-align: left;
+    text-align: center;
+}
+
+.partyDetails .card-action {
+    font-size: 1.2em;
 }
 
 .btnAddToCalendar, .btnEditParty {

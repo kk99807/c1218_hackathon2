@@ -85,14 +85,15 @@ class PartyItems {
 
 
         } else if (eventType === 'add') {
-            this.items.push(item);   
-            // this.domElement.find('.addedItems').append(item.renderSearch(true));
+            this.items.push(item);
             this.domElement.find('.results-wrapper').append(item.renderSearch(true));
             item.card = item.renderSearch(true);
             item.badge.text(++badgeValue);
             M.toast({html:'Item has been added', displayLength:1000}); 
             $('.toast').css('background-color', 'green');
         }
+
+        app.save();
     }
 
     /**
