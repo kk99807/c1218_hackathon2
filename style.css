@@ -381,7 +381,9 @@ input.valid[type=text]:not(.browser-default) {
 
 .partyDetails {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     color: white;
     background-color: #ccccff;
 }
