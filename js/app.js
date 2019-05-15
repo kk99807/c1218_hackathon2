@@ -68,7 +68,8 @@ class App {
             let html = $('#templatePartyCard').html();
             html = $(html);
             html.find('.card-title').text(party.title);
-            html.find('.datetime').text(`${party.startDate} ${party.startTime} - ${party.endDate} ${party.endTime}`);
+            html.find('.startTS').text(`${party.startDate} ${party.startTime}`);
+            html.find('.endTS').text(`${party.endDate} ${party.endTime}`);
             html.find('.cocktailsCount').text( party.cocktailItems.items.length );
             html.find('.foodCount').text( party.foodItems.items.length );
             html.find('.musicCount').text( party.musicItems.items.length );

@@ -380,6 +380,8 @@ input.valid[type=text]:not(.browser-default) {
 /*-------------- PARTIES --------------*/
 
 .partyDetails {
+    display: flex;
+    justify-content: center;
     color: white;
     background-color: #ccccff;
 }
@@ -402,6 +404,22 @@ input.valid[type=text]:not(.browser-default) {
 
 .partyDetails .card {
     width: 300px;
+}
+
+.partyDetails table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto !important;
+}
+
+.partyDetails tr,td {
+    border: none;
+    padding: 5px;
+}
+
+.partyDetails .counts {
+    margin: 8px;
 }
 
 /*-------------- EDIT PARTY --------------*/
@@ -490,7 +508,7 @@ input.valid[type=text]:not(.browser-default) {
 
 .partyDetails .card-content {
     color: white;
-    text-align: left;
+    text-align: center;
 }
 
 .partyDetails .card-action {
