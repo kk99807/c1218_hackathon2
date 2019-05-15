@@ -402,6 +402,11 @@ input.valid[type=text]:not(.browser-default) {
 .editMusicInfo {
     text-align: center;
 }
+
+.musicItems.addedItems .modal.open {
+    display: none;
+}
+
 /*-------------- PARTIES --------------*/
 
 .partyDetails {
@@ -825,6 +830,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .modal-content .class-title {
+    text-align: center;
     margin-bottom: 12px;
 }
 
@@ -845,16 +851,62 @@ li {
 
 .badge,
 .slide.slick-slide,
-.closeAddedItems {
+.closeAddedItems,
+.musicDetailClose {
     cursor: pointer;
 }
 
 /*----------------- MEDIA QUERIES -----------------*/
 
 @media only screen and (min-width: 415px){
-    .landing {
-        height: 736px;
-        width: 415px;
+    body {
+        background-image: url('./images/iphone.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .startButton,
+    .readyToPartyButton, 
+    .btnNext, 
+    .btnNewParty {
+        bottom: 2%;
+    }
+
+    .detailsHeader, 
+    .cocktailsHeader, 
+    .foodHeader, 
+    .musicHeader, 
+    .partiesHeader, 
+    .editPartyHeader {
+        height: 10vh;
+    }
+
+    .detailsTitle, 
+    .cocktailsTitle, 
+    .foodTitle, 
+    .musicTitle, 
+    .partyTitle, 
+    .editPartyTitle {
+        line-height: 10vh;
+    }
+
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        height: 542px;
+        width: 330px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .details .contentContainer,
@@ -864,30 +916,53 @@ li {
     .musicDetails, 
     .partyDetails, 
     .itemInfo,
-    .addedItems {
-        height: 78vh;
+    .addedItems,
+    .detailsBody {
+        height: 59vh;;
     }
 
-    .readyToPartyButton, 
-    .btnNext, 
-    .btnNewParty {
-        bottom: 8%;
-    }
-
+    .wrapper,
     .backToParties {
-        width: 415px;
+        width: 330px;
     }
 
-    .wrapper {
-        width: 415px;
+    .card.horizontal.selected {
+        height: 135px;
+        width: 290px;
+    }
+
+    .cocktailsBody .card.horizontal.selected {
+        margin-top: 0;
+    }
+
+    .detailsBody,
+    .cocktailsBody,
+    .foodBody,
+    .musicBody {
+        padding-top: 25px;
+    }
+
+    .detailsBody p {
+        margin-top: 0;
+    }
+
+    .card-image img {
+        height: 100%;
     }
 
     .modal {
-        width: 370px;
+        width: 300px;
+    }
+
+    .modal-overlay {
+        top: 0;
+        height: 101%;
     }
 
     .partyDetails .card {
-        width: 350px;
+        width: 270px;
+        height: auto;
+        margin: 20 auto;
     }
 
     .datepicker-container.modal-content,
@@ -895,16 +970,20 @@ li {
         flex-direction: column;
     }
 
-    .addItems h4 {
-        font-size: 2rem;
+    .modal.datepicker-modal.open {
+        top: 2%;
+    }
+
+    .addItems h4,
+    .details h4 {
+        font-size: 1.5rem;
+    }
+
+    .addItems h5 {
+        font-size: 1.3rem;
     }
 
     .collection-item .badge {
-    /*    float: right;
-        position: relative;
-        top: -68%;
-        left: -40%;*/
-
         min-width: 0;
         padding: 0;
         margin-left: 0;
@@ -916,6 +995,37 @@ li {
         float: right;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
-}
     }
+
+    .cocktailsTitle .collection-item {
+        margin-left: 15%;
+    }
+
+    .foodTitle .collection-item {
+        margin-left: 5%;
+    }
+
+    .searchResults {
+        height: 175px;
+    }
+
+    .cocktailSearchInput, 
+    .foodSearchInput, 
+    .musicSearchInput {
+        width: 200px !important;
+    }
+
+    .musicInfo {
+        background-color: transparent; 
+    }
+
+    .videoDisplay {
+        top: 14.5%;
+        height: 59vh;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        margin-right: 0; 
+    }
+
 }
