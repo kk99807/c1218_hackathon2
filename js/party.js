@@ -29,22 +29,14 @@ class Party {
     }
 
     bindEvents() {
-        this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
-        this.showNextContainer = this.showNextContainer.bind(this);
-
-        $( "#detailsForm" ).submit( event => {
-            this.handleUpdateDetails();
-            event.preventDefault();
-        });
-
         $('#startDate').on('change', event => validateDetailsForm());
         $('#endDate').on('change', event => validateDetailsForm());
 
-        $('.btnNext').click(this.showNextContainer);
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
 
     showNextContainer() {
+
         // Clear any previous display
         $('.results-wrapper').empty();
 

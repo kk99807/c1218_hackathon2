@@ -384,6 +384,7 @@ input.valid[type=text]:not(.browser-default) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow-y: scroll;
     color: white;
     background-color: #ccccff;
 }
@@ -396,7 +397,7 @@ input.valid[type=text]:not(.browser-default) {
     margin-left: 32%;
 }
 
-.goToDetails, .parties .btn-large:hover {
+.btnNewParty, .parties .btn-large:hover {
     background-color: #3232ff;
 }
 

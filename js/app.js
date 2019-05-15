@@ -13,8 +13,10 @@ class App {
 
     initDOM() {
         this.hideLanding = this.hideLanding.bind(this);
+        this.startNewParty = this.startNewParty.bind(this);
+
         $('.startButton').on('click', this.hideLanding);
-        $('.goToDetails').click(this.goToDetails);
+        $('.btnNewParty').on('click', this.startNewParty);
         $('.backToParties').click(this.goToParties);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy', autoClose: true});
@@ -31,6 +33,13 @@ class App {
             touchMove: true,
             centerMode: true,
         });
+
+        $('.btnNext').click(event => this.currentParty.showNextContainer());
+
+        $( "#detailsForm" ).submit( event => {
+            this.currentParty.handleUpdateDetails();
+            event.preventDefault();
+        });
     }
     
     hideLanding(){
@@ -40,14 +49,8 @@ class App {
             this.load();
             this.showParties();
         } else {
-            let party = this.newParty();
-            party.showNextContainer();
+            this.startNewParty();
         }
-    }
-
-    goToDetails(){
-        $('.parties').hide();
-        $('.details').show();
     }
 
     goToParties(){
@@ -55,15 +58,24 @@ class App {
         $('.parties').show();
     }
 
-    newParty() {
-        this.currentPartyIndex = this.parties.length;
+    startNewParty() {
+
+        // Create new Party instance
         let party = new Party(`Untitled Party ${this.currentPartyIndex}`);
         this.parties.push(party);
+        this.currentPartyIndex = this.parties.length - 1;
 
-        return party;
+        // Hide Parties page
+        $('.parties').hide();
+
+        // Show Details
+        party.showNextContainer();
     }
 
     showParties() {
+        let container = $('.parties').find('.partyDetails');
+        container.empty();
+
         let partyElements = this.parties.map(party => {
             let html = $('#templatePartyCard').html();
             html = $(html);
@@ -76,7 +88,8 @@ class App {
             html.find('.btnEditParty').click( event => this.showParty(party) );
             return html;
         });
-        $('.parties').find('.partyDetails').append(partyElements);
+        container.append(partyElements);
+        
         $('.parties').show();
     } 
 
@@ -118,6 +131,13 @@ class App {
         // Show display
         $('.parties').hide();
         $('.editParty').show();
+    }
+
+    /**
+     * @returns {Party} - the Party actively being edited
+     */
+    get currentParty() {
+        return this.parties[this.currentPartyIndex];
     }
 
     /**
