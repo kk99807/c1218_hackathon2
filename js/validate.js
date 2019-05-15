@@ -1,4 +1,7 @@
 function validateDetailsForm() {
+    const DATE_PATTERN = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+    const TIME_PATTERN = /^(2[0-3]|[01][0-9]):[0-5][0-9] [AP]M$/;
+
     // Get DOM elements
     let inputs = {
         startDate: $('#startDate')[0],
