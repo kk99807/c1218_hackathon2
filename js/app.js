@@ -73,7 +73,6 @@ class App {
             html.find('.cocktailsCount').text( party.cocktailItems.items.length );
             html.find('.foodCount').text( party.foodItems.items.length );
             html.find('.musicCount').text( party.musicItems.items.length );
-            html.find('.btnAddToCalendar').attr('href', `http://evt.to/${party.eventKey}`);
             html.find('.btnEditParty').click( event => this.showParty(party) );
             return html;
         });
