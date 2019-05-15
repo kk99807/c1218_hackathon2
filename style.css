@@ -485,13 +485,16 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .partyDetails .card {
-    font-size: 1.5em;
     background-color: #3232ff;
 }
 
 .partyDetails .card-content {
     color: white;
     text-align: left;
+}
+
+.partyDetails .card-action {
+    font-size: 1.2em;
 }
 
 .btnAddToCalendar, .btnEditParty {
