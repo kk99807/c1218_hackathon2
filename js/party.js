@@ -48,6 +48,9 @@ class Party {
     }
 
     showNextContainer() {
+        // Clear any previous display
+        $('.results-wrapper').empty();
+
         this.containers.forEach(container => container.domElement.hide());
 
         this.currentContainerIndex++;
@@ -71,33 +74,7 @@ class Party {
         this.endTime = $('#pickEndTime').val();
         app.save();
 
-        this.asyncCreateCalendarEntry()
-            .then(eventKey => { 
-                this.eventKey = eventKey;
-                // $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
-                // this.addInviteDOM.show();
-            });
-
         this.showNextContainer();
-    }
-
-    /**
-     * @returns {Promise} a Promise to return an eventKey from the Calendar Invite API
-     */
-    asyncCreateCalendarEntry() {
-        const {title, startDate, startTime, endDate, endTime} = this;
-        const CALENDAR_API_URL = 'https://www.addevent.com/dir/link/add/';
-        
-        let data = {
-            client: CALENDAR_API_CLIENT_ID,
-            start: `${startDate} ${startTime}`,
-            end: `${endDate} ${endTime}`,
-            title: title
-        };
-
-        return new Promise((resolve, reject) => {
-            $.getJSON( CALENDAR_API_URL, data, response => resolve(response.data.uniquekey));
-        });
     }
 
     //**********************************************************************************************/
