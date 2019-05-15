@@ -133,6 +133,7 @@ class Party {
         this.startTime = $('#pickStartTime').val();
         this.endDate = $('#endDate').val();
         this.endTime = $('#pickEndTime').val();
+        app.save();
 
         this.asyncCreateCalendarEntry()
             .then(eventKey => { 
