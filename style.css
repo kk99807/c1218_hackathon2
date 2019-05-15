@@ -604,6 +604,10 @@ input.valid[type=text]:not(.browser-default) {
     margin: 20px;
 }
 
+.card.horizontal.selected {
+    width: 372px;
+}
+
 .cocktailsBody .modal p{
     font-size:15px;
 }
@@ -719,6 +723,7 @@ input.valid[type=text]:not(.browser-default) {
 .cocktailsBody,
 .foodBody,
 .musicBody {
+    height: 70vh;
     padding-top: 25px;
 }
 
@@ -792,6 +797,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 /*-------------- Modal --------------*/
+
 .modal{
     padding: .5rem;
     max-height:80%;
