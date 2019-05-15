@@ -36,11 +36,12 @@ class App {
     hideLanding(){
         $('.landing').hide();
 
-        if (this.parties.length === 0) {
+        if (localStorage.data) {
+            this.load();
+            this.showParties();
+        } else {
             let party = this.newParty();
             party.showNextContainer();
-        } else {
-            // TODO: Show Parties Page
         }
     }
 
@@ -112,5 +113,67 @@ class App {
         let endDate = $('<p>').text(`End Date: ${party.endDate}`);
         let endTime = $('<p>').text(`End Time: ${party.endTime}`);
         $('.detailsBody').append(startDate, startTime, endDate, endTime);
+    }
+
+    /**
+     * Save data to local storage
+     */
+    save() {
+        const getItemInfo = item => {
+            return {
+                id: item.id, 
+                name: item.name, 
+                imageURL: item.imageURL, 
+                props: item.props
+            }
+        };
+
+        const data = this.parties.map(party => {
+            const {title, startDate, startTime, endDate, endTime} = party;
+            return {
+                title, 
+                startDate, 
+                startTime, 
+                endDate, 
+                endTime,
+                cocktailItems: party.cocktailItems.items.map(getItemInfo),
+                foodItems: party.foodItems.items.map(getItemInfo),
+                musicItems: party.musicItems.items.map(getItemInfo)
+            }
+        });
+
+        localStorage.data = JSON.stringify(data);
+    }
+
+    /**
+     * Load data from local storage
+     */
+    load() {
+        if (!localStorage.data) return;
+
+        const data = JSON.parse(localStorage.data);
+
+        this.parties = data.map(partyInfo => {
+            const {title, startDate, startTime, endDate, endTime} = partyInfo;
+            const party = new Party(title, startDate, startTime, endDate, endTime);
+
+            const containers = {
+                cocktailItems: RecipeItem,
+                foodItems: RecipeItem, 
+                musicItems: VideoItem
+            };
+
+            Object.entries(containers).forEach(([container, itemConstructor]) => {
+                partyInfo[container].forEach(itemInfo => {
+                    const {id, name, imageURL, props, badgeSelector} = itemInfo;
+                    const eventCallback = party[container].handleItemClick;
+                    const badge = party[container].domElement.find('.badge');
+                    const item = new itemConstructor(id, name, imageURL, eventCallback, props, badge);
+                    party[container].items.push(item);
+                });
+            });
+
+            return party;
+        });
     }
 }
