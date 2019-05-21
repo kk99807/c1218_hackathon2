@@ -100,9 +100,19 @@ class PartyItem {
             .addClass('button-wrapper')
             .appendTo(cardContent)
 
-        let revealContent = $('<p>')
-            .text(this.props.instructions)
-            .appendTo(modalContent);
+        let instructions_container = $('<ol>')
+
+        let instructions = this.props.instructions.split(".")
+
+        for(let i = 0; i < instructions.length; i++){
+            let instruction = instructions[i].trim();
+            let step = $('<li>').text(instruction);
+            if(instruction !== ""){
+                $(instructions_container).append(step);
+            }
+        }
+
+        $(instructions_container).appendTo(modalContent)
 
         let buttonContainer = $('<a>')
             .addClass('btn waves-effect waves-light itemDelete')

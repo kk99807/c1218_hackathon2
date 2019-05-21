@@ -851,7 +851,14 @@ input.valid[type=text]:not(.browser-default) {
 
 li {
     font-size: 1.7em;
+}
+
+div > li {
     list-style-type: none;
+}
+
+ol {
+    padding-left: 15px;
 }
 
 /*----------------- POINTER -----------------*/
