@@ -59,6 +59,7 @@ class App {
     }
 
     startNewParty() {
+        $('.badge').text("0");
 
         // Create new Party instance
         let party = new Party(`Untitled Party ${this.currentPartyIndex}`);
@@ -115,7 +116,6 @@ class App {
             $('.modal').modal();
         });
         party.musicItems.items.map(item => {
-            console.log(item)
             let partyItemContainer = $('<div>');
             let videoContainer = $('<div>').addClass('musicInfo editMusicInfo');
             partyItemContainer.append(item.renderSearch(true), videoContainer);

@@ -98,6 +98,16 @@ body {
     overflow: hidden;
 }
 
+.partyDetails{
+    padding: 2% 3% 25% 3%;
+}
+
+.cocktailsBody,
+.foodBody,
+.musicBody {
+    padding: 2% 3% 20% 3%;
+}
+
 .detailsHeader, 
 .cocktailsHeader, 
 .foodHeader, 
@@ -379,6 +389,11 @@ input.valid[type=text]:not(.browser-default) {
     display: none;
 }
 
+.musicBody > div > .card.horizontal.selected > .modal.open,
+.musicBody > div > .card.horizontal.selected > .modal-overlay {
+    display: none !important;
+}
+
 /*-------------- PARTIES --------------*/
 
 .partyDetails {
@@ -452,29 +467,6 @@ input.valid[type=text]:not(.browser-default) {
     background-color: #3232ff;
 }
 
-/*.collapsible {
-    margin-top: 0;
-    color: white;
-    border-right: none;
-    border-left: none;
-    box-shadow: none;
-}*/
-
-/*.collapsible-header, .backToParties {
-    font-size: 1.7em;
-}*/
-
-/*.collapsible-body {
-    font-size: 1.3em;
-    color: black;
-    padding: 4% 3% 0 3%;  
-    overflow-y: scroll;
-}*/
-
-/*.collapsible-body p {
-    margin-top: 0;
-}*/
-
 .detailsBody {
     font-size: 1.5em;
     color: #d650b0;
@@ -493,16 +485,6 @@ input.valid[type=text]:not(.browser-default) {
 .musicBody {
     background-color: #e3cefe;
 }
-
-/*.backToParties {
-    height: 10vh;
-    line-height: 10vh;
-    background-color: #3232ff;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
-    z-index: 1;
-}*/
 
 .fas.fa-glass-martini, 
 .fas.fa-calendar-alt,
@@ -541,6 +523,12 @@ input.valid[type=text]:not(.browser-default) {
 .collapsible-body {
     height: 35vh;
     overflow-y: scroll;
+}
+
+.cocktailsBody .card.horizontal.selected, 
+.foodBody .card.horizontal.selected, 
+.musicBody .card.horizontal.selected {
+    margin: 20px auto;
 }
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
@@ -763,7 +751,8 @@ input.valid[type=text]:not(.browser-default) {
 .cocktailsBody,
 .foodBody,
 .musicBody {
-    height: 79vh;
+    height: 100%;
+    min-height: 79vh;
     padding-top: 25px;
 }
 
