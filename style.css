@@ -389,9 +389,15 @@ input.valid[type=text]:not(.browser-default) {
     display: none;
 }
 
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal.open,
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal-overlay,
 .musicBody > div > .card.horizontal.selected > .modal.open,
 .musicBody > div > .card.horizontal.selected > .modal-overlay {
     display: none !important;
+}
+
+.musicSpinner {
+    z-index: 5;
 }
 
 /*-------------- PARTIES --------------*/

@@ -77,14 +77,6 @@ class PartyItem {
             .text(this.name)
             .appendTo(modalContent);
 
-        // let closeButton = $('<i>')
-        //     .addClass('material-icons right modal-close')
-        //     .text('close')
-        //     .appendTo(revealTitle);
-
-        // let instructions = $('<p>')
-        // .addClass('recipe')
-        // .text(this.props.instructions);
         if(this.props.ingredients){
             for(let i = 0; i < this.props.ingredients.length; i++){
                 let ingredients = $('<li>')
@@ -115,8 +107,6 @@ class PartyItem {
 
             $(instructions_container).appendTo(modalContent)
         }
-
-        
 
         let buttonContainer = $('<a>')
             .addClass('btn waves-effect waves-light itemDelete')
