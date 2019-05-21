@@ -72,10 +72,11 @@ class App {
         party.showNextContainer();
     }
 
-    showParties() {
+    showParties = () => {
         let container = $('.parties').find('.partyDetails');
         container.empty();
-
+        var addPartyButton = $('<button>').addClass('btn-large btnNewParty').text('New Party').on('click',this.startNewParty);
+        $('.partyDetails').append(addPartyButton);
         let partyElements = this.parties.map(party => {
             let html = $('#templatePartyCard').html();
             html = $(html);
@@ -175,7 +176,6 @@ class App {
      */
     load() {
         if (!localStorage.data) return;
-
         const data = JSON.parse(localStorage.data);
 
         this.parties = data.map(partyInfo => {
@@ -197,6 +197,7 @@ class App {
                     party[container].items.push(item);
                 });
             });
+
 
             return party;
         });
