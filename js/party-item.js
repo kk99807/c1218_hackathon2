@@ -127,10 +127,8 @@ class PartyItem {
         title.click(target => this.eventCallback(this, 'view'));
         image.click(target => this.eventCallback(this, 'view'));
         button.click(target => {
-            if(confirm('Are you sure you want to delete this?')){
-                card.fadeOut(() => card.remove());
-                this.eventCallback(this, button.text());
-            }
+            card.fadeOut(() => card.remove());
+            this.eventCallback(this, button.text());
         });
 
         // closeButton.click(() => cardReveal.hide());
