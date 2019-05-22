@@ -98,6 +98,16 @@ body {
     overflow: hidden;
 }
 
+.partyDetails{
+    padding: 2% 3% 25% 3%;
+}
+
+.cocktailsBody,
+.foodBody,
+.musicBody {
+    padding: 2% 3% 20% 3%;
+}
+
 .detailsHeader, 
 .cocktailsHeader, 
 .foodHeader, 
@@ -165,7 +175,8 @@ body {
 .startButton, 
 .readyToPartyButton, 
 .btnNext,
-.btnNewParty {
+.btnNewParty,
+.backToParties {
     width: 250px;
     position:absolute;
     left:50%;
@@ -175,7 +186,8 @@ body {
 
 .readyToPartyButton, 
 .btnNext,
-.btnNewParty {
+.btnNewParty,
+.backToParties {
     bottom: 4%;
     font-size: 1.8em;
 } 
@@ -377,6 +389,17 @@ input.valid[type=text]:not(.browser-default) {
     display: none;
 }
 
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal.open,
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal-overlay,
+.musicBody > div > .card.horizontal.selected > .modal.open,
+.musicBody > div > .card.horizontal.selected > .modal-overlay {
+    display: none !important;
+}
+
+.musicSpinner {
+    z-index: 5;
+}
+
 /*-------------- PARTIES --------------*/
 
 .partyDetails {
@@ -398,7 +421,13 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .btnNewParty, .parties .btn-large:hover {
-    background-color: #3232ff;
+    background-color: midnightblue;
+}
+
+.card .card-action {
+    background-color: midnightblue;
+    font-size: 1.5em;
+    padding: 10px 24px;
 }
 
 .partyBadge.badge {
@@ -407,6 +436,8 @@ input.valid[type=text]:not(.browser-default) {
 
 .partyDetails .card {
     width: 300px;
+    background-image: url(images/party.jpg);
+    background-size: contain;
 }
 
 .partyDetails table {
@@ -425,6 +456,11 @@ input.valid[type=text]:not(.browser-default) {
     margin: 8px;
 }
 
+.backToParties {
+    background-color: midnightblue;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
 /*-------------- EDIT PARTY --------------*/
 
 .editParty {
@@ -435,29 +471,6 @@ input.valid[type=text]:not(.browser-default) {
 .editParty .contentContainer {
     height: 85vh;
     background-color: #3232ff;
-}
-
-.collapsible {
-    margin-top: 0;
-    color: white;
-    border-right: none;
-    border-left: none;
-    box-shadow: none;
-}
-
-.collapsible-header, .backToParties {
-    font-size: 1.7em;
-}
-
-.collapsible-body {
-    font-size: 1.3em;
-    color: black;
-    padding: 4% 3% 0 3%;  
-    overflow-y: scroll;
-}
-
-.collapsible-body p {
-    margin-top: 0;
 }
 
 .detailsBody {
@@ -477,16 +490,6 @@ input.valid[type=text]:not(.browser-default) {
 
 .musicBody {
     background-color: #e3cefe;
-}
-
-.backToParties {
-    height: 10vh;
-    line-height: 10vh;
-    background-color: #3232ff;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
-    z-index: 1;
 }
 
 .fas.fa-glass-martini, 
@@ -518,13 +521,20 @@ input.valid[type=text]:not(.browser-default) {
     font-size: 1.2em;
 }
 
-.btnAddToCalendar, .btnEditParty {
+.btnEditParty {
     color: white !important;
+    font-family: 'Shadows Into Light Two', cursive;
 }
 
 .collapsible-body {
     height: 35vh;
     overflow-y: scroll;
+}
+
+.cocktailsBody .card.horizontal.selected, 
+.foodBody .card.horizontal.selected, 
+.musicBody .card.horizontal.selected {
+    margin: 20px auto;
 }
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
@@ -747,7 +757,8 @@ input.valid[type=text]:not(.browser-default) {
 .cocktailsBody,
 .foodBody,
 .musicBody {
-    height: 70vh;
+    height: 100%;
+    min-height: 79vh;
     padding-top: 25px;
 }
 
@@ -851,7 +862,14 @@ input.valid[type=text]:not(.browser-default) {
 
 li {
     font-size: 1.7em;
+}
+
+div > li {
     list-style-type: none;
+}
+
+ol {
+    padding-left: 15px;
 }
 
 /*----------------- POINTER -----------------*/
@@ -926,11 +944,11 @@ li {
     .detailsBody {
         height: 59vh;;
     }
-
+/*
     .wrapper,
     .backToParties {
         width: 330px;
-    }
+    }*/
 
     .card.horizontal.selected {
         height: 135px;
@@ -954,6 +972,8 @@ li {
         width: 270px;
         height: auto;
         margin: 20 auto;
+        background-image: url(images/party.jpg);
+        background-size: contain;
     }
 
     .datepicker-container.modal-content,

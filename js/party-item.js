@@ -77,14 +77,6 @@ class PartyItem {
             .text(this.name)
             .appendTo(modalContent);
 
-        // let closeButton = $('<i>')
-        //     .addClass('material-icons right modal-close')
-        //     .text('close')
-        //     .appendTo(revealTitle);
-
-        // let instructions = $('<p>')
-        // .addClass('recipe')
-        // .text(this.props.instructions);
         if(this.props.ingredients){
             for(let i = 0; i < this.props.ingredients.length; i++){
                 let ingredients = $('<li>')
@@ -100,9 +92,21 @@ class PartyItem {
             .addClass('button-wrapper')
             .appendTo(cardContent)
 
-        let revealContent = $('<p>')
-            .text(this.props.instructions)
-            .appendTo(modalContent);
+        if(this.props.instructions){
+            let instructions_container = $('<ol>')
+
+            let instructions = this.props.instructions.split(".")
+
+            for(let i = 0; i < instructions.length; i++){
+                let instruction = instructions[i].trim();
+                let step = $('<li>').text(instruction);
+                if(instruction !== ""){
+                    $(instructions_container).append(step);
+                }
+            }
+
+            $(instructions_container).appendTo(modalContent)
+        }
 
         let buttonContainer = $('<a>')
             .addClass('btn waves-effect waves-light itemDelete')
