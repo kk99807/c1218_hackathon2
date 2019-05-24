@@ -31,6 +31,8 @@ class Party {
     bindEvents() {
         $('#startDate').on('change', event => validateDetailsForm());
         $('#endDate').on('change', event => validateDetailsForm());
+        $('#pickStartTime').on('change', event => validateDetailsForm());
+        $('#pickEndTime').on('change', event => validateDetailsForm());
 
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }

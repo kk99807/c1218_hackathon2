@@ -45,7 +45,7 @@ function validateDetailsForm() {
     // Combined checks
     if (startDate && endDate) {
         if (inputs.startDate.checkValidity() && inputs.endDate.checkValidity() && endDate < startDate) {
-            inputs.endDate.setCustomValidity("End date must be or or after start date");
+            inputs.endDate.setCustomValidity("End date must be on or after start date");
         }
 
         if (inputs.startTime.value && inputs.endTime.value) {
