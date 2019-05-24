@@ -21,8 +21,8 @@ body {
 }
 
 .desktop {
-    width: 414px;
-    height: 736px;
+    width: 330px;
+    height: 542px;
     margin: 2% auto;
 }
 
@@ -114,7 +114,7 @@ body {
 .musicHeader,
 .partiesHeader,
 .editPartyHeader {
-    height: 15vh;
+    height: 1;
     margin: 0;
     color: white;
     text-align: center;
@@ -174,21 +174,25 @@ body {
 
 .startButton, 
 .readyToPartyButton, 
-.btnNext,
-.btnNewParty,
-.backToParties {
+
+.btnNext{
     width: 250px;
     position:absolute;
     left:50%;
     transform:translate(-50%);
     font-family: 'Shadows Into Light Two', cursive;
+    
+}
+
+.btnNewParty{
+    overflow: visible;
 }
 
 .readyToPartyButton, 
 .btnNext,
-.btnNewParty,
-.backToParties {
+.btnNewParty {
     bottom: 4%;
+
     font-size: 1.8em;
 } 
 
@@ -206,7 +210,7 @@ body {
 .details .contentContainer {
     height: 85vh;
     padding: 4% 3% 0 3%;  
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     text-align: center;
     background-color: #fce4ec;
 }
@@ -895,9 +899,9 @@ ol {
 
     .startButton,
     .readyToPartyButton, 
-    .btnNext, 
-    .btnNewParty {
-        bottom: 2%;
+    .btnNext
+    /*, .btnNewParty*/ { 
+        bottom: 7%;
     }
 
     .detailsHeader, 
@@ -927,10 +931,10 @@ ol {
     .editParty {
         height: 542px;
         width: 330px;
-        position: absolute;
+        /* position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
     }
 
     .details .contentContainer,
@@ -942,7 +946,7 @@ ol {
     .itemInfo,
     .addedItems,
     .detailsBody {
-        height: 59vh;;
+        /* height: 59vh; */
     }
 /*
     .wrapper,
