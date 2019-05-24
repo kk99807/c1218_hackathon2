@@ -14,15 +14,18 @@ class App {
     initDOM() {
         this.hideLanding = this.hideLanding.bind(this);
         this.startNewParty = this.startNewParty.bind(this);
+        this.deleteCurrentParty = this.deleteCurrentParty.bind(this);
 
         $('.startButton').on('click', this.hideLanding);
         $('.btnNewParty').on('click', this.startNewParty);
+        $('#deletePartyConfirm').on('click', this.deleteCurrentParty);
         $('.backToParties').click(this.goToParties);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy', autoClose: true});
         $('.timepicker').timepicker();
         $('.collapsible').collapsible();
         $('.tabs').tabs();
+
         $('.searchResults').slick({
             slidesToShow: 2,
             slidesToScroll: 3,
@@ -40,13 +43,18 @@ class App {
             this.currentParty.handleUpdateDetails();
             event.preventDefault();
         });
+
+        $('.modal').modal();
     }
-    
+
     hideLanding(){
         $('.landing').hide();
 
         if (localStorage.data) {
             this.load();
+        }
+
+        if (this.parties.length) {
             this.showParties();
         } else {
             this.startNewParty();
@@ -73,6 +81,12 @@ class App {
         party.showNextContainer();
     }
 
+    deleteCurrentParty() {
+        this.parties.splice(this.currentPartyIndex, 1);
+        this.save();
+        this.showParties();
+    }
+
     showParties() {
         let container = $('.parties').find('.partyDetails');
         container.empty();
@@ -87,6 +101,10 @@ class App {
             html.find('.foodCount').text( party.foodItems.items.length );
             html.find('.musicCount').text( party.musicItems.items.length );
             html.find('.btnEditParty').click( event => this.showParty(party) );
+            html.find('.btnDeleteParty').click( event => {
+                this.currentParty = party;
+                $('#deletePartyModal').modal('open');
+            });
             return html;
         });
         container.append(partyElements);
@@ -107,13 +125,11 @@ class App {
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.renderSearch(true));
             partyItemContainer.appendTo($('.cocktailsBody'));
-            $('.modal').modal();
         });
         party.foodItems.items.map(item => {
             let partyItemContainer = $('<div>');
             partyItemContainer.append(item.renderSearch(true));
             partyItemContainer.appendTo($('.foodBody'));
-            $('.modal').modal();
         });
         party.musicItems.items.map(item => {
             let partyItemContainer = $('<div>');
@@ -122,6 +138,8 @@ class App {
             partyItemContainer.appendTo($('.musicBody'));
 
         });
+        $('.modal').modal();
+
         let startDate = $('<p>').text(`Start Date: ${party.startDate}`);
         let startTime = $('<p>').text(`Start Time: ${party.startTime}`);
         let endDate = $('<p>').text(`End Date: ${party.endDate}`);
@@ -138,6 +156,14 @@ class App {
      */
     get currentParty() {
         return this.parties[this.currentPartyIndex];
+    }
+
+    /**
+     * @param {Party} party - the Party to make active
+     */
+    set currentParty(party) {
+        let index = this.parties.indexOf(party);
+        if (index != -1) this.currentPartyIndex = index;       
     }
 
     /**
