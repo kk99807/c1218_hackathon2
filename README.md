@@ -4,9 +4,11 @@ Party Party is an app that helps you plan the perfect house party! Just click th
 
 ### Getting Started
 
-In order to enjoy the full functionality of this app, the following information must be added to a config.js file:
-  - A Spoonacular api key set to an API_KEY variable
-  - An Add Event api key set to a CALENDAR_API_CLIENT_ID variable
+In order to enjoy the full functionality of this app, you will need an API key from [Spoonacular](https://spoonacular.com/food-api).  Add a `config.js` file to the `js` folder with the following contents:
+
+```
+const API_KEY = 'REPLACE_WITH_YOUR_API_KEY';
+```
 
 ### Team 4
   - Hannel(Sky) Gwak
@@ -15,7 +17,6 @@ In order to enjoy the full functionality of this app, the following information 
   - Xiaoyun(Stella) Hsin
 
 ### APIs Used
-  - [Add Event](https://www.addevent.com/api/direct-url-method) 
   - [The Cocktail Database](https://www.thecocktaildb.com/)
   - [Spoonacular](https://spoonacular.com/food-api)
   - [LearningFuze Youtube](http://s-apis.learningfuze.com/hackathon/youtube/search.php)
