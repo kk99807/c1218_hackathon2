@@ -891,7 +891,252 @@ ol {
 
 /*----------------- MEDIA QUERIES -----------------*/
 
-@media only screen and (min-width: 410px){
+@media screen and (min-height: 520px) and (min-width:420px){
+    .desktop,
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        height: 520px;
+        width: 320px;
+    }
+    .wrapper{
+        height:7%;
+        width: 320px;
+    }
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height:79%;
+        overflow:auto;
+    }
+
+    .datepicker-date-display{
+        height:20%
+    }
+
+    #deletePartyModal{
+        max-height:25%
+    }
+
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .goToFood,
+    .goToMusic,
+    .goToParties{
+        margin-top: 2rem;
+    }
+
+    .readyToPartyButton,
+    .goToFood.btnNext,
+    .goToMusic.btnNext,
+    .goToParties.btnNext,
+    .backToParties{
+        bottom:initial;
+    }
+
+    .btnNext, 
+    .btnNewParty {
+        bottom: 2%;
+        margin-top:10px;
+    }
+
+    .backToParties{
+        bottom:3em
+    }
+
+    .detailsHeader, 
+    .cocktailsHeader, 
+    .foodHeader, 
+    .musicHeader, 
+    .partiesHeader, 
+    .editPartyHeader {
+        height: 13%;
+    }
+
+    .detailsTitle, 
+    .cocktailsTitle, 
+    .foodTitle, 
+    .musicTitle, 
+    .partyTitle, 
+    .editPartyTitle {
+        line-height: inherit;
+    }
+
+    .cocktail .contentContainer,
+    .parties .contentContainer,
+    .food .contentContainer,
+    .music .contentContainer{
+        height:92%;
+        overflow-y:auto;
+    }
+
+    .details .contentContainer{
+        overflow:hidden;
+    }
+
+    .results-wrapper{
+        height:93%;
+        position:relative;
+        top:7%
+    }
+
+    .timepicker-text-container {
+        font-size: 3rem;
+    }
+
+    .timepicker-display-am-pm {
+        font-size: 1rem;
+    }
+
+    .timepicker-plate{
+        margin-top:5px;
+        margin-bottom:0px;
+    }
+
+    .partyDetails{
+        padding:0;
+    }
+
+    .details .contentContainer,
+    .editParty .contentContainer,
+    .cocktailDetails, 
+    .foodDetails, 
+    .musicDetails, 
+    .partyDetails, 
+    .itemInfo,
+    .addedItems,
+    .detailsBody {
+        height: 100%;
+    }
+
+    .card.horizontal.selected {
+        height: 135px;
+    }
+
+    .card-image img {
+        height: 100%;
+    }
+
+    .modal {
+        width: 300px;
+        padding:0;
+    }
+
+    .modal-overlay {
+        top: 0;
+        height: 101%;
+    }
+
+    .partyDetails .card {
+        width: 270px;
+        height: auto;
+        margin: 20 auto;
+        background-image: url(images/party.jpg);
+        background-size: contain;
+    }
+
+    .datepicker-container.modal-content,
+    .modal-content.timepicker-container {
+        flex-direction: column;
+    }
+    
+    .datepicker-date-display{
+        flex:none;
+    }
+
+    .modal.datepicker-modal.open {
+        top: 2%;
+    }
+
+    .addItems h4,
+    .details h4 {
+        font-size: 1.5rem;
+    }
+
+    .addItems h5 {
+        font-size: 1.3rem;
+    }
+
+    .collection-item .badge {
+        min-width: 0;
+        padding: 0;
+        margin-left: 0;
+        text-align: left;
+        font-size: 0;
+        line-height: 0;
+        height: 0;
+        color: #757575;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .cocktailsTitle .collection-item {
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    .foodTitle .collection-item {
+        margin-left: 5%;
+    }
+
+    .searchResults {
+        height: 175px;
+    }
+
+    .cocktailSearchInput, 
+    .foodSearchInput, 
+    .musicSearchInput {
+        width: 200px !important;
+    }
+
+    .musicInfo {
+        background-color: transparent; 
+    }
+
+    .videoDisplay {
+        top: 14.5%;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        margin-right: 0; 
+    }
+
+    .badge {
+        top: 52%;
+        left: -37%;
+    }
+
+    .editParty{
+        overflow-y:hidden;
+    }
+    
+    .tabs{
+        height:9%;
+    }
+
+    .card.horizontal.selected {
+    width: 100%;
+    }
+
+    .datepicker-controls, .datepicker-table, .datepicker-footer {
+        width:auto;
+    }
+}
+
+@media only screen and (min-width: 420px) and (min-height:600px){
     body {
         background-repeat: no-repeat;
         background-position: center;
@@ -966,7 +1211,6 @@ ol {
     .editParty {
         height: 736px;
         width: 414px;
-        /* position: absolute; */
     }
 
     .cocktail .contentContainer,
@@ -1003,11 +1247,6 @@ ol {
     .detailsBody {
         height: 100%;
     }
-/*
-    .wrapper,
-    .backToParties {
-        width: 330px;
-    }*/
 
     .card.horizontal.selected {
         height: 135px;
@@ -1091,7 +1330,6 @@ ol {
 
     .videoDisplay {
         top: 14.5%;
-        /* height: 59vh; */
     }
 
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
@@ -1104,3 +1342,4 @@ ol {
     }
 
 }
+
