@@ -410,7 +410,7 @@ input.valid[type=text]:not(.browser-default) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     color: white;
     background-color: #ccccff;
 }
@@ -464,10 +464,15 @@ input.valid[type=text]:not(.browser-default) {
     font-family: 'Shadows Into Light Two', cursive;
 }
 
+.tabs{
+    height:7%;
+    overflow-x:hidden;
+}
+
 /*-------------- EDIT PARTY --------------*/
 
 .editParty {
-    overflow-x: scroll;
+    overflow-x: auto;
     height:100%
 }
 
@@ -886,10 +891,17 @@ ol {
 
 /*----------------- MEDIA QUERIES -----------------*/
 
-@media only screen and (min-width: 413px){
+@media only screen and (min-width: 410px){
     body {
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height:84%
     }
 
     .datepicker-date-display{
@@ -921,6 +933,10 @@ ol {
     .btnNext, 
     .btnNewParty {
         bottom: 2%;
+    }
+
+    .backToParties{
+        bottom:10em
     }
 
     .detailsHeader, 
@@ -965,6 +981,17 @@ ol {
         overflow-y:hidden;
     }
 
+    .wrapper{
+        height:7%;
+        width: 414px;
+    }
+
+    .results-wrapper{
+        height:93%;
+        position:relative;
+        top:7%
+    }
+
     .details .contentContainer,
     .editParty .contentContainer,
     .cocktailDetails, 
@@ -984,7 +1011,6 @@ ol {
 
     .card.horizontal.selected {
         height: 135px;
-        width: 290px;
     }
 
     .card-image img {
