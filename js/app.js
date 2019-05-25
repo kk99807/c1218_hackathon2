@@ -77,7 +77,7 @@ class App {
         let container = $('.parties').find('.partyDetails');
         container.empty();
 
-        let partyElements = this.parties.map(party => {
+        let partyElements = this.parties.map((party, index) => {
             let html = $('#templatePartyCard').html();
             html = $(html);
             html.find('.card-title').text(party.title);
@@ -87,6 +87,9 @@ class App {
             html.find('.foodCount').text( party.foodItems.items.length );
             html.find('.musicCount').text( party.musicItems.items.length );
             html.find('.btnEditParty').click( event => this.showParty(party) );
+            html.find('.btnDeleteParty').click(function(){
+                console.log("Delete " + party.title)
+            });
             return html;
         });
         container.append(partyElements);
