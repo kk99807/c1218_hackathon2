@@ -91,7 +91,7 @@ class App {
         let container = $('.parties').find('.partyDetails');
         container.empty();
 
-        let partyElements = this.parties.map(party => {
+        let partyElements = this.parties.map((party, index) => {
             let html = $('#templatePartyCard').html();
             html = $(html);
             html.find('.card-title').text(party.title);
