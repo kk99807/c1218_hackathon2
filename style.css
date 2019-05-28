@@ -431,6 +431,9 @@ input.valid[type=text]:not(.browser-default) {
     background-color: midnightblue;
     font-size: 1.5em;
     padding: 10px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .partyBadge.badge {
@@ -529,9 +532,15 @@ input.valid[type=text]:not(.browser-default) {
     font-size: 1.2em;
 }
 
-.btnEditParty {
+.btnEditParty,
+.btnDeleteParty {
+    width: 50%;
     color: white !important;
     font-family: 'Shadows Into Light Two', cursive;
+}
+
+.btnEditParty {
+    border-right: 1px solid white;
 }
 
 .collapsible-body {
