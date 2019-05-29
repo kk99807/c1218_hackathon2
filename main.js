@@ -7,7 +7,7 @@ function initApp() {
 
   let width = $( window ).width();
 
-  if(width > 415){
+  if(width > 419){
     $('body').removeClass();
     $('body').addClass('desktop');
   } else {

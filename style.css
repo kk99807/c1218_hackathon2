@@ -1,5 +1,6 @@
 html {
     touch-action: manipulation;
+    box-sizing:border-box;
 }
 
 h1, h2, h3, h4, h5 {
@@ -35,8 +36,8 @@ body {
 .landing{
     /* Adobe Stock Image Licensed by Karen King */
     background-image: url('images/landing-md.jpg');
-    height:100%;
-    width:100%;
+    height:736px;
+    width:414px;
     background-repeat:no-repeat;
     background-position-x: 50%;
     background-size: cover;
@@ -92,7 +93,7 @@ body {
 .musicDetails,
 .partyDetails, 
 .itemInfo {
-    height: 85vh;
+    /* height: 85vh; */
     padding: 2% 3% 0 3%;
     text-align: center;
     overflow: hidden;
@@ -114,7 +115,7 @@ body {
 .musicHeader,
 .partiesHeader,
 .editPartyHeader {
-    height: 15vh;
+    /* height: 15vh; */
     margin: 0;
     color: white;
     text-align: center;
@@ -127,7 +128,7 @@ body {
 .musicTitle,
 .partyTitle,
 .editPartyTitle {
-    line-height: 15vh;
+    /* line-height: 15vh; */
 }
 
 .details h4,
@@ -175,7 +176,6 @@ body {
 .startButton, 
 .readyToPartyButton, 
 .btnNext,
-.btnNewParty,
 .backToParties {
     width: 250px;
     position:absolute;
@@ -186,7 +186,6 @@ body {
 
 .readyToPartyButton, 
 .btnNext,
-.btnNewParty,
 .backToParties {
     bottom: 4%;
     font-size: 1.8em;
@@ -204,7 +203,7 @@ body {
 }
 
 .details .contentContainer {
-    height: 85vh;
+    /* height: 85vh; */
     padding: 4% 3% 0 3%;  
     overflow-y: scroll;
     text-align: center;
@@ -219,6 +218,10 @@ body {
 
 .active {
     color: #d650b0 !important;
+}
+
+#detailsForm{
+    height:92%
 }
 
 #detailsForm input[type=text]:not(.browser-default):focus:not([readonly]),
@@ -407,7 +410,7 @@ input.valid[type=text]:not(.browser-default) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     color: white;
     background-color: #ccccff;
 }
@@ -464,15 +467,20 @@ input.valid[type=text]:not(.browser-default) {
     font-family: 'Shadows Into Light Two', cursive;
 }
 
+.tabs{
+    height:7%;
+    overflow-x:hidden;
+}
+
 /*-------------- EDIT PARTY --------------*/
 
 .editParty {
-    overflow-x: scroll;
+    overflow-x: auto;
     height:100%
 }
 
 .editParty .contentContainer {
-    height: 85vh;
+    /* height: 85vh; */
     background-color: #3232ff;
 }
 
@@ -536,7 +544,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .collapsible-body {
-    height: 35vh;
+    /* height: 35vh; */
     overflow-y: scroll;
 }
 
@@ -588,7 +596,7 @@ input.valid[type=text]:not(.browser-default) {
 /*----------------- ADDED ITEMS -----------------*/
 
 .addedItems {
-    height: 85vh;
+    /* height: 85vh; */
     text-align: center;
     overflow-y: scroll;
 }
@@ -629,7 +637,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .clearFix {
-    height: 9vh;
+    /* height: 9vh; */
 }
 
 .material-icons.right.activator {
@@ -767,7 +775,7 @@ input.valid[type=text]:not(.browser-default) {
 .foodBody,
 .musicBody {
     height: 100%;
-    min-height: 79vh;
+    /* min-height: 79vh; */
     padding-top: 25px;
 }
 
@@ -821,7 +829,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .collapsible-body {
-    height: 55vh;;
+    /* height: 55vh; */
     overflow-y: scroll;
 }
 
@@ -892,21 +900,69 @@ ol {
 
 /*----------------- MEDIA QUERIES -----------------*/
 
-@media only screen and (min-width: 415px){
+@media screen and (min-height: 520px) and (min-width:420px){
+    .desktop,
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        height: 520px;
+        width: 320px;
+    }
+    .wrapper{
+        height:7%;
+        width: 320px;
+    }
     body {
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height:79%;
+        overflow:auto;
+    }
+
+    .datepicker-date-display{
+        height:20%
+    }
+
+    #deletePartyModal{
+        max-height:25%
     }
 
     .mainTitle {
         font-size: 3rem;
     }
 
-    .startButton,
-    .readyToPartyButton, 
+    .goToFood,
+    .goToMusic,
+    .goToParties{
+        margin-top: 2rem;
+    }
+
+    .readyToPartyButton,
+    .goToFood.btnNext,
+    .goToMusic.btnNext,
+    .goToParties.btnNext,
+    .backToParties{
+        bottom:initial;
+    }
+
     .btnNext, 
     .btnNewParty {
         bottom: 2%;
+        margin-top:10px;
+    }
+
+    .backToParties{
+        bottom:3em
     }
 
     .detailsHeader, 
@@ -915,7 +971,7 @@ ol {
     .musicHeader, 
     .partiesHeader, 
     .editPartyHeader {
-        height: 10vh;
+        height: 13%;
     }
 
     .detailsTitle, 
@@ -924,22 +980,42 @@ ol {
     .musicTitle, 
     .partyTitle, 
     .editPartyTitle {
-        line-height: 10vh;
+        line-height: inherit;
     }
 
-    .landing,
-    .details,
-    .cocktail,
-    .food,
-    .music,
-    .parties,
-    .editParty {
-        height: 542px;
-        width: 330px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .cocktail .contentContainer,
+    .parties .contentContainer,
+    .food .contentContainer,
+    .music .contentContainer{
+        height:92%;
+        overflow-y:auto;
+    }
+
+    .details .contentContainer{
+        overflow:hidden;
+    }
+
+    .results-wrapper{
+        height:93%;
+        position:relative;
+        top:7%
+    }
+
+    .timepicker-text-container {
+        font-size: 3rem;
+    }
+
+    .timepicker-display-am-pm {
+        font-size: 1rem;
+    }
+
+    .timepicker-plate{
+        margin-top:5px;
+        margin-bottom:0px;
+    }
+
+    .partyDetails{
+        padding:0;
     }
 
     .details .contentContainer,
@@ -951,17 +1027,11 @@ ol {
     .itemInfo,
     .addedItems,
     .detailsBody {
-        height: 59vh;;
+        height: 100%;
     }
-/*
-    .wrapper,
-    .backToParties {
-        width: 330px;
-    }*/
 
     .card.horizontal.selected {
         height: 135px;
-        width: 290px;
     }
 
     .card-image img {
@@ -970,6 +1040,233 @@ ol {
 
     .modal {
         width: 300px;
+        padding:0;
+    }
+
+    .modal-overlay {
+        top: 0;
+        height: 101%;
+    }
+
+    .partyDetails .card {
+        width: 270px;
+        height: auto;
+        margin: 20 auto;
+        background-image: url(images/party.jpg);
+        background-size: contain;
+    }
+
+    .datepicker-container.modal-content,
+    .modal-content.timepicker-container {
+        flex-direction: column;
+    }
+    
+    .datepicker-date-display{
+        flex:none;
+    }
+
+    .modal.datepicker-modal.open {
+        top: 2%;
+    }
+
+    .addItems h4,
+    .details h4 {
+        font-size: 1.5rem;
+    }
+
+    .addItems h5 {
+        font-size: 1.3rem;
+    }
+
+    .collection-item .badge {
+        min-width: 0;
+        padding: 0;
+        margin-left: 0;
+        text-align: left;
+        font-size: 0;
+        line-height: 0;
+        height: 0;
+        color: #757575;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .cocktailsTitle .collection-item {
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    .foodTitle .collection-item {
+        margin-left: 5%;
+    }
+
+    .searchResults {
+        height: 175px;
+    }
+
+    .cocktailSearchInput, 
+    .foodSearchInput, 
+    .musicSearchInput {
+        width: 200px !important;
+    }
+
+    .musicInfo {
+        background-color: transparent; 
+    }
+
+    .videoDisplay {
+        top: 14.5%;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        margin-right: 0; 
+    }
+
+    .badge {
+        top: 52%;
+        left: -37%;
+    }
+
+    .editParty{
+        overflow-y:hidden;
+    }
+    
+    .tabs{
+        height:9%;
+    }
+
+    .card.horizontal.selected {
+    width: 100%;
+    }
+
+    .datepicker-controls, .datepicker-table, .datepicker-footer {
+        width:auto;
+    }
+}
+
+@media only screen and (min-width: 420px) and (min-height:600px){
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height:84%
+    }
+
+    .datepicker-date-display{
+        height:20%
+    }
+
+    #deletePartyModal{
+        max-height:20%
+    }
+
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .goToFood,
+    .goToMusic,
+    .goToParties{
+        margin-top: 2rem;
+    }
+
+    .readyToPartyButton,
+    .goToFood.btnNext,
+    .goToMusic.btnNext,
+    .goToParties.btnNext,
+    .backToParties{
+        bottom:initial;
+    }
+
+    .btnNext, 
+    .btnNewParty {
+        bottom: 2%;
+    }
+
+    .backToParties{
+        bottom:10em
+    }
+
+    .detailsHeader, 
+    .cocktailsHeader, 
+    .foodHeader, 
+    .musicHeader, 
+    .partiesHeader, 
+    .editPartyHeader {
+        height: 9%;
+    }
+
+    .detailsTitle, 
+    .cocktailsTitle, 
+    .foodTitle, 
+    .musicTitle, 
+    .partyTitle, 
+    .editPartyTitle {
+        /* line-height: 10vh; */
+    }
+
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        height: 736px;
+        width: 414px;
+    }
+
+    .cocktail .contentContainer,
+    .parties .contentContainer,
+    .food .contentContainer,
+    .music .contentContainer{
+        height:92%;
+        overflow-y:auto;
+    }
+
+    .details .contentContainer{
+        overflow-y:hidden;
+    }
+
+    .wrapper{
+        height:7%;
+        width: 414px;
+    }
+
+    .results-wrapper{
+        height:93%;
+        position:relative;
+        top:7%
+    }
+
+    .details .contentContainer,
+    .editParty .contentContainer,
+    .cocktailDetails, 
+    .foodDetails, 
+    .musicDetails, 
+    .partyDetails, 
+    .itemInfo,
+    .addedItems,
+    .detailsBody {
+        height: 100%;
+    }
+
+    .card.horizontal.selected {
+        height: 135px;
+    }
+
+    .card-image img {
+        height: 100%;
+    }
+
+    .modal {
+        width: 350px;
     }
 
     .modal-overlay {
@@ -1019,6 +1316,7 @@ ol {
 
     .cocktailsTitle .collection-item {
         margin-left: 15%;
+        margin-top: 2%;
     }
 
     .foodTitle .collection-item {
@@ -1041,7 +1339,6 @@ ol {
 
     .videoDisplay {
         top: 14.5%;
-        height: 59vh;
     }
 
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
@@ -1054,3 +1351,4 @@ ol {
     }
 
 }
+

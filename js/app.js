@@ -90,8 +90,9 @@ class App {
     showParties() {
         let container = $('.parties').find('.partyDetails');
         container.empty();
-
-        let partyElements = this.parties.map((party, index) => {
+        var addPartyButton = $('<button>').addClass('btn-large btnNewParty').text('New Party').on('click', this.startNewParty);
+        $('.partyDetails').append(addPartyButton);
+        let partyElements = this.parties.map(party => {
             let html = $('#templatePartyCard').html();
             html = $(html);
             html.find('.card-title').text(party.title);
