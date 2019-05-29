@@ -53,6 +53,11 @@ class Party {
         } else {
             let container = this.containers[this.currentContainerIndex];
             container.loadData();
+
+            const cards = container.items.map(item => item.renderSearch(true));
+            container.domElement.find('.results-wrapper').append(cards);
+            container.domElement.find('.badge').text(cards.length);
+
             container.domElement.show();
         }
     }
