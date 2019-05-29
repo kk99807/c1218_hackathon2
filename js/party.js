@@ -42,6 +42,9 @@ class Party {
         // Clear any previous display
         $('.results-wrapper').empty();
 
+        // Hide other elements
+        $('.editParty').hide();
+        $('.parties').hide();
         this.containers.forEach(container => container.domElement.hide());
 
         this.currentContainerIndex++;
