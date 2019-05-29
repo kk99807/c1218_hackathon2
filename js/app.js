@@ -1,3 +1,6 @@
+const WIZARD_MODE = 0;
+const EDIT_MODE = 1;
+
 class App {
 
     /**
@@ -5,6 +8,7 @@ class App {
      * @param {[]} parties - Array of parties already created by user
      */
     constructor( parties ) {
+        this.mode = WIZARD_MODE;
         this.parties = parties || [];
         this.currentPartyIndex = null;
 
@@ -19,7 +23,7 @@ class App {
         $('.startButton').on('click', this.hideLanding);
         $('.btnNewParty').on('click', this.startNewParty);
         $('#deletePartyConfirm').on('click', this.deleteCurrentParty);
-        $('.backToParties').click(this.goToParties);
+        $('.editParty').on('click', '.backToParties', this.goToParties);
         $('.details, .cocktail, .food, .music, .parties, .editParty, .addedItems, .itemInfo').hide();
         $('.datepicker').datepicker({format: 'mm/dd/yyyy', autoClose: true});
         $('.timepicker').timepicker();
@@ -120,6 +124,31 @@ class App {
         $('.cocktailsBody').empty();
         $('.foodBody').empty();
         $('.musicBody').empty();
+
+        // Buttons
+        const searchIcon = $('<i>').addClass('material-icons').text('search');
+        const backIcon = $('<i>').addClass('material-icons').text('arrow_back');
+        const searchButton = $('<button>').addClass('btn-floating btn-large searchFromEdit');
+        const backButton = $('<button>').addClass('btn-floating btn-large backToParties');
+        const buttonPanel = $('<div>').addClass('floatingButtonPanel');
+
+        searchButton.append(searchIcon);
+        backButton.append(backIcon);
+        buttonPanel.append(searchButton, backButton);
+
+        const containers = [$('.cocktailsBody'),$('.foodBody'),$('.musicBody'),$('.detailsBody')];
+        containers.forEach((container, index) => {
+            const buttons = buttonPanel.clone();
+            container.append(buttons);
+
+            buttons.find('.searchFromEdit').click(event => {
+                app.currentParty = party;
+
+                // Index will be incremented in party.showNextContainer
+                party.currentContainerIndex = index;
+                party.showNextContainer();
+            });
+        })
 
         // Add display for current party
         party.cocktailItems.items.map(item => {

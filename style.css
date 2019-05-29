@@ -175,8 +175,7 @@ body {
 
 .startButton, 
 .readyToPartyButton, 
-.btnNext,
-.backToParties {
+.btnNext {
     width: 250px;
     position:absolute;
     left:50%;
@@ -185,8 +184,7 @@ body {
 }
 
 .readyToPartyButton, 
-.btnNext,
-.backToParties {
+.btnNext {
     bottom: 4%;
     font-size: 1.8em;
 } 
@@ -462,15 +460,29 @@ input.valid[type=text]:not(.browser-default) {
     margin: 8px;
 }
 
-.backToParties {
+.backToParties,
+.searchFromEdit {
     background-color: midnightblue;
-    font-family: 'Shadows Into Light Two', cursive;
 }
 
 .tabs{
+    background-color: midnightblue;
     height:7%;
     overflow-x:hidden;
 }
+
+.tabs .tab a{
+    color: white;
+}
+
+.tabs .tab a:hover {
+    background-color: white;
+    color: midnightblue;
+}
+
+.tabs .indicator {
+    background-color: midnightblue; 
+} /* Underline color */
 
 /*-------------- EDIT PARTY --------------*/
 
@@ -534,6 +546,7 @@ input.valid[type=text]:not(.browser-default) {
 
 .btnEditParty,
 .btnDeleteParty {
+    cursor: pointer;
     width: 50%;
     color: white !important;
     font-family: 'Shadows Into Light Two', cursive;
@@ -552,6 +565,21 @@ input.valid[type=text]:not(.browser-default) {
 .foodBody .card.horizontal.selected, 
 .musicBody .card.horizontal.selected {
     margin: 20px auto;
+}
+
+.floatingButtonPanel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 10px 0;
+}
+
+.floatingButtonPanel > .btn-floating {
+    margin: 0 5px;
+}
+
+.detailsBody > .floatingButtonPanel > .searchFromEdit {
+    display: none;
 }
 
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
@@ -925,7 +953,7 @@ ol {
     #cocktailsTab,
     #recipesTab,
     #musicTab{
-        height:79%;
+        height: 79%;
         overflow:auto;
     }
 
@@ -950,8 +978,7 @@ ol {
     .readyToPartyButton,
     .goToFood.btnNext,
     .goToMusic.btnNext,
-    .goToParties.btnNext,
-    .backToParties{
+    .goToParties.btnNext {
         bottom:initial;
     }
 
@@ -959,10 +986,6 @@ ol {
     .btnNewParty {
         bottom: 2%;
         margin-top:10px;
-    }
-
-    .backToParties{
-        bottom:3em
     }
 
     .detailsHeader, 
@@ -1155,7 +1178,7 @@ ol {
     #cocktailsTab,
     #recipesTab,
     #musicTab{
-        height:84%
+        height:84%;
     }
 
     .datepicker-date-display{
@@ -1179,18 +1202,13 @@ ol {
     .readyToPartyButton,
     .goToFood.btnNext,
     .goToMusic.btnNext,
-    .goToParties.btnNext,
-    .backToParties{
+    .goToParties.btnNext {
         bottom:initial;
     }
 
     .btnNext, 
     .btnNewParty {
         bottom: 2%;
-    }
-
-    .backToParties{
-        bottom:10em
     }
 
     .detailsHeader, 
