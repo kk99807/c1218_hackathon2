@@ -54,7 +54,8 @@ class Party {
             let container = this.containers[this.currentContainerIndex];
             container.loadData();
 
-            const cards = container.items.map(item => item.renderSearch(true));
+            const items = container.items || [];
+            const cards = items.map(item => item.renderSearch(true));
             container.domElement.find('.results-wrapper').append(cards);
             container.domElement.find('.badge').text(cards.length);
 
