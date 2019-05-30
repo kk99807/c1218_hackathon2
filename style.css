@@ -32,12 +32,24 @@ body {
     width: 100%; 
 }
 
+#deletePartyModal{
+    max-height:25%
+}
+
+#detailsTab,
+#cocktailsTab,
+#recipesTab,
+#musicTab{
+    height: 100%;
+    overflow:auto;
+}
+
 /*----------------- LANDING PAGE -----------------*/
 .landing{
     /* Adobe Stock Image Licensed by Karen King */
     background-image: url('images/landing-md.jpg');
-    height:736px;
-    width:414px;
+    height:100%;
+    width:100%;
     background-repeat:no-repeat;
     background-position-x: 50%;
     background-size: cover;
@@ -93,7 +105,6 @@ body {
 .musicDetails,
 .partyDetails, 
 .itemInfo {
-    /* height: 85vh; */
     padding: 2% 3% 0 3%;
     text-align: center;
     overflow: hidden;
@@ -115,21 +126,11 @@ body {
 .musicHeader,
 .partiesHeader,
 .editPartyHeader {
-    /* height: 15vh; */
     margin: 0;
     color: white;
     text-align: center;
     background-size: cover;
 } 
-
-.detailsTitle,
-.cocktailsTitle,
-.foodTitle,
-.musicTitle,
-.partyTitle,
-.editPartyTitle {
-    /* line-height: 15vh; */
-}
 
 .details h4,
 .cocktail h4, 
@@ -189,10 +190,17 @@ body {
     font-size: 1.8em;
 } 
 
+
 /*-------------- DETAILS --------------*/
 
-.details {
+.details,
+.cocktail,
+.food,
+.music,
+.contentContainer,
+.addItems {
     color: #d650b0;
+    height:100%
 }
 
 .detailsHeader {
@@ -201,11 +209,11 @@ body {
 }
 
 .details .contentContainer {
-    /* height: 85vh; */
     padding: 4% 3% 0 3%;  
     overflow-y: scroll;
     text-align: center;
     background-color: #fce4ec;
+    height:100%
 }
 
 .inputContainer {
@@ -219,7 +227,7 @@ body {
 }
 
 #detailsForm{
-    height:92%
+    height:100%
 }
 
 #detailsForm input[type=text]:not(.browser-default):focus:not([readonly]),
@@ -403,6 +411,10 @@ input.valid[type=text]:not(.browser-default) {
 
 /*-------------- PARTIES --------------*/
 
+.parties, .parties .partyDetails, .parties .contentContainer{
+    height:100%
+}
+
 .partyDetails {
     display: flex;
     flex-direction: column;
@@ -582,6 +594,9 @@ input.valid[type=text]:not(.browser-default) {
     display: none;
 }
 
+.indicator{
+    display:none
+}
 /*-------------- DISPLAY SEARCH RESULTS --------------*/
 
 .results-wrapper {
@@ -937,11 +952,11 @@ ol {
     .music,
     .parties,
     .editParty {
-        height: 520px;
-        width: 320px;
+        /* height: 520px;
+        width: 320px; */
     }
     .wrapper{
-        height:7%;
+        /* height:7%; */
         width: 320px;
     }
     body {
@@ -980,6 +995,7 @@ ol {
     .goToMusic.btnNext,
     .goToParties.btnNext {
         bottom:initial;
+        left:auto
     }
 
     .btnNext, 
@@ -1156,7 +1172,7 @@ ol {
     }
     
     .tabs{
-        height:9%;
+        /* height:9%; */
     }
 
     .card.horizontal.selected {
@@ -1204,6 +1220,7 @@ ol {
     .goToMusic.btnNext,
     .goToParties.btnNext {
         bottom:initial;
+        left:auto;
     }
 
     .btnNext, 
@@ -1218,15 +1235,6 @@ ol {
     .partiesHeader, 
     .editPartyHeader {
         height: 9%;
-    }
-
-    .detailsTitle, 
-    .cocktailsTitle, 
-    .foodTitle, 
-    .musicTitle, 
-    .partyTitle, 
-    .editPartyTitle {
-        /* line-height: 10vh; */
     }
 
     .landing,
@@ -1253,14 +1261,14 @@ ol {
     }
 
     .wrapper{
-        height:7%;
+        /* height:7%; */
         width: 414px;
     }
 
     .results-wrapper{
-        height:93%;
+        height:92%;
         position:relative;
-        top:7%
+        top:8%
     }
 
     .details .contentContainer,
