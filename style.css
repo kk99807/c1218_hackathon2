@@ -699,7 +699,7 @@ input.valid[type=text]:not(.browser-default) {
 }
 
 .card.horizontal.selected {
-    width: 372px;
+    width: 354px;
 }
 
 .cocktailsBody .modal p{
@@ -1181,6 +1181,18 @@ ol {
     .datepicker-controls, .datepicker-table, .datepicker-footer {
         width:auto;
     }
+
+    .videoDisplay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform:translate(-50%);
+    height: 82%;
+    width: 414px;
+    background-color: black;
+    z-index: 2;
+    }
+
 }
 
 @media only screen and (min-width: 420px) and (min-height:600px){
@@ -1252,7 +1264,7 @@ ol {
     .food .contentContainer,
     .music .contentContainer{
         height:92%;
-        overflow-y:auto;
+        overflow-y:hidden;
     }
 
     .details .contentContainer{
@@ -1362,7 +1374,7 @@ ol {
     }
 
     .videoDisplay {
-        top: 14.5%;
+        top: 18.5%;
     }
 
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
