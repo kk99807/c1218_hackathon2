@@ -77,12 +77,10 @@ class PartyItems {
         } else if (eventType === 'delete') {
             item.badge.text(--badgeValue);
 
-            M.toast({html:'Item has been deleted', displayLength:1000});
+            M.toast({html:'Item has been deleted', classes: 'toastPlacement',displayLength:1000});
             $('.toast').css('background-color', 'red');
             this.items = this.items.filter(element => element !== item);
             $(item.card).fadeOut(() => $(item.card).remove());
-
-
 
         } else if (eventType === 'add') {
             this.items.push(item);
