@@ -1388,3 +1388,13 @@ ol {
 
 }
 
+
+@media screen and (min-width:420px) {
+    #toast-container {
+        top: auto !important;
+        right: auto !important;
+        bottom: 20%;
+        left: 50%; 
+        transform: translateX(-50%); 
+    }
+}
