@@ -835,6 +835,7 @@ input.valid[type=text]:not(.browser-default) {
     border-radius: 50%;
     background-color: white;
     color: white;  
+    cursor: pointer;
 }
 
 .badge {

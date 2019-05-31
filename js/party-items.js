@@ -26,7 +26,7 @@ class PartyItems {
         this.loadData = this.loadData.bind(this);
         this.badgeClickHandler = this.badgeClickHandler.bind(this);
 
-        this.domElement.find('.badge').click(this.badgeClickHandler);
+        this.domElement.find('.collection-item').click(this.badgeClickHandler);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
         // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
