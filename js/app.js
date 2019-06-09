@@ -31,14 +31,12 @@ class App {
         $('.tabs').tabs();
 
         $('.searchResults').slick({
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 3,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            swipe: true,
+            dots:true,
+            pauseOnHover: true,
+            swipe: false,
             adaptiveHeight: true,
-            touchMove: true,
-            centerMode: true,
         });
 
         $('.btnNext').click(event => this.currentParty.showNextContainer());

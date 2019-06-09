@@ -26,7 +26,6 @@ class MusicItems extends PartyItems {
                 url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
                 data: {q: `${searchQuery} music`, maxResults: 8},
                 success: data => {
-                    console.log(data.video)
                     if(data.video===undefined){
                         $('.fa-spinner').remove();
                         $('.handleSearchError').css('visibility','visible');
