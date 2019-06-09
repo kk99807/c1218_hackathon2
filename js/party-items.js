@@ -83,12 +83,25 @@ class PartyItems {
             $(item.card).fadeOut(() => $(item.card).remove());
 
         } else if (eventType === 'add') {
-            this.items.push(item);
-            this.domElement.find('.results-wrapper').append(item.renderSearch(true));
-            item.card = item.renderSearch(true);
-            item.badge.text(++badgeValue);
-            M.toast({html:'Item has been added', displayLength:1000}); 
-            $('.toast').css('background-color', 'green');
+            let addedFlag = false;
+            for(let i = 0; i < this.items.length; i++){
+                if(item.id === this.items[i].id){
+                    addedFlag = true;
+                    break;
+                }
+            }
+            if(addedFlag){
+                M.toast({html:'Item has already been added', classes: 'toastPlacement',displayLength:1000});
+                $('.toast').css('background-color', 'blue');
+            }else{
+                this.items.push(item);
+                this.domElement.find('.results-wrapper').append(item.renderSearch(true));
+                item.card = item.renderSearch(true);
+                item.badge.text(++badgeValue);
+                M.toast({html:'Item has been added', displayLength:1000}); 
+                $('.toast').css('background-color', 'green');
+            }
+            
         }
 
         app.save();

@@ -34,6 +34,7 @@ class CocktailItems extends PartyItems {
         })
         //.then((result3)=>console.log(result3));
     }
+
     handleSearch(){
         this.searchDrinkByName().then(items => {
             let itemElements = items.map(item => {
@@ -79,6 +80,11 @@ class CocktailItems extends PartyItems {
                     'api-key':'1'
                 },
                 success: data => {
+                    if(data.drinks === null){
+                        $('.handleSearchError').css('visibility','visible');
+                        return;
+                    }
+                    $('.handleSearchError').css('visibility','hidden');
                     let items = data.drinks.map(item => {
                         let ingredients = [];
                         for (let i = 1; i < 16; i++) {
