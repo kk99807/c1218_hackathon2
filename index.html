@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="assets/slick/slick/slick.css"/>
         <link rel="stylesheet" href="assets/materialize-icons.css">
+        <link rel="stylesheet" href="assets/slick/slick/slick-theme.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <script src="assets/jquery.min.js"></script>
         <script src="assets/materialize.min.js"></script>
+        <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>
         <script src="js/config.js"></script>
         <script src="js/validate.js"></script>
         <script src="js/party-item.js"></script>
@@ -107,8 +109,10 @@
                     <div class="searchInputContainer">
                         <input type="text" class="cocktailSearchInput" placeholder="Search by name">
                         <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                        
                     </div>
-
+                    <h5 class="handleSearchError">Ingredient May Not Exist</h5>
+                    <br>
                     <button class="goToFood waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
@@ -147,7 +151,8 @@
                         <input type="text" class="foodSearchInput" placeholder="Search by ingredient">
                         <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
-
+                    <h5 class="handleSearchError">Ingredient May Not Exist</h5>
+                    <br>
                     <button class="goToMusic waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
@@ -185,7 +190,8 @@
                         <input type="text" class="musicSearchInput" placeholder="Search">
                         <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
                     </div>
-
+                    <h5 class="handleSearchError">No Music Found</h5>
+                    <br>
                     <button class="goToParties waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
 
@@ -285,7 +291,5 @@
                 </div>
             </div>
         </template>
-
-        <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>
     </body>
 </html>

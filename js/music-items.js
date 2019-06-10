@@ -23,9 +23,15 @@ class MusicItems extends PartyItems {
             $.ajax({
                 method: 'post',
                 dataType: 'json',
-                url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+                url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
                 data: {q: `${searchQuery} music`, maxResults: 8},
                 success: data => {
+                    if(data.video===undefined){
+                        $('.fa-spinner').remove();
+                        $('.handleSearchError').css('visibility','visible');
+                        return;
+                    }
+                    $('.handleSearchError').css('visibility','hidden');
                     let items = data.video.map(item => new VideoItem(
                         item.id,
                         item.title,

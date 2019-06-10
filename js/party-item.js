@@ -24,7 +24,7 @@ class PartyItem {
      * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
      */
     // renderSearch(selected) {
-    renderSearch(selected) {
+    renderSearch=(selected)=>{
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
 
         let card = $('<div>').addClass('card horizontal');
@@ -109,10 +109,10 @@ class PartyItem {
         }
 
         let buttonContainer = $('<a>')
-            .addClass('btn waves-effect waves-light itemDelete')
+            .addClass('btn waves-effect waves-light activator')
             .appendTo(buttonWrapper);
 
-        let button = $('<i>')
+        let deletedConfirmationRevealer = $('<i>')
             .addClass('material-icons trashIcon')
             .text('delete')
             .appendTo(buttonContainer);
@@ -127,18 +127,21 @@ class PartyItem {
             .text('info')
             .appendTo(modalActivate);
 
+        let revealDelete = $('<div>').addClass('card-reveal').appendTo(card);
+
+        let cardDelete = $('<span>').addClass('card-title').text('Delete Item?').appendTo(revealDelete);
+        $('<i>').addClass('material-icons right').text('close').appendTo(cardDelete)
+        let button = $('<button>').addClass('btn deleteCard red darken-1').text('Yes').appendTo(revealDelete).css("background-color","");
+        $('<a>').addClass('btn deleteCard blue darken-').text('No').appendTo(revealDelete);
+
         card.click(target => this.eventCallback(this, 'view'));
         title.click(target => this.eventCallback(this, 'view'));
         image.click(target => this.eventCallback(this, 'view'));
         button.click(event => {
-            if(confirm('Are you sure you want to delete this?')){
-                card.fadeOut(() => card.remove());
-                this.eventCallback(this, button.text());
-            }
-
+            card.fadeOut(() => card.remove());
+            this.eventCallback(this, button.text());
             event.stopPropagation();
         });
-
         // closeButton.click(() => cardReveal.hide());
         return card;
     }

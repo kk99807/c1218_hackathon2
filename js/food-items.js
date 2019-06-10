@@ -28,6 +28,7 @@ class FoodItems extends PartyItems {
                 headers: {'X-RapidAPI-Key': API_KEY},
                 url: BASEURL + query,
                 success: data => {
+                    $('.handleSearchError').css('visibility','hidden');
                     let items = data.recipes.map(item => {
                         let ingredients = [];
                         for(let i = 0; i < item.extendedIngredients.length; i++){
@@ -49,7 +50,8 @@ class FoodItems extends PartyItems {
                 },
 
                 error: function(error){
-                    throw new Exception("You're data request failed");
+                    $('.handleSearchError').css('visibility','visible');
+                    $('.fa-spinner').remove();
                 }
             });
 

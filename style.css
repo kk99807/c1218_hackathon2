@@ -12,7 +12,7 @@ h1, h2 {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
     width: 100%; 
 }
 
-#deletePartyModal{
+#deletePartyModal,#deleteItemModal{
     max-height:25%
 }
 
@@ -316,6 +316,11 @@ input.valid[type=text]:not(.browser-default) {
     color: #45a6c4;
 }
 
+.handleSearchError{
+    color: red;
+    visibility:hidden;
+}
+
 /*-------------- FOOD --------------*/
 
 .foodDetails, 
@@ -499,7 +504,7 @@ input.valid[type=text]:not(.browser-default) {
 /*-------------- EDIT PARTY --------------*/
 
 .editParty {
-    overflow-x: auto;
+    overflow: hidden;
     height:100%
 }
 
@@ -606,17 +611,19 @@ input.valid[type=text]:not(.browser-default) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    position:relative;
+    top:7%;
 }
 
 .slick-list.draggable {
     height: 160px;
 }
 
-.slide.slick-slide {
+/* .slide.slick-slide {
     width: 100px !important;
     height: 100px !important;
     margin: 0 0.2%;
-}
+} */
 
 .searchResults {
     height: 200px;
@@ -639,7 +646,7 @@ input.valid[type=text]:not(.browser-default) {
 /*----------------- ADDED ITEMS -----------------*/
 
 .addedItems {
-    /* height: 85vh; */
+    height: 92%;
     text-align: center;
     overflow-y: scroll;
 }
@@ -755,8 +762,15 @@ input.valid[type=text]:not(.browser-default) {
 .cocktailItems .itemDelete,
 .cocktailsBody .itemDelete,
 .cocktailItems .modal-trigger,
-.cocktailsBody .modal-trigger {
+.cocktailsBody .modal-trigger,
+.cocktailsItems .activator,
+.cocktailsBody .activator {
     background-color: #cdf1fd;
+}
+
+.deleteCard{
+    width:100%;
+    margin-top:10px
 }
 
 .foodItems .card,
@@ -767,7 +781,9 @@ input.valid[type=text]:not(.browser-default) {
 .foodItems .itemDelete,
 .foodBody .itemDelete,
 .foodItems .modal-trigger,
-.foodBody .modal-trigger {
+.foodBody .modal-trigger,
+.foodItems .activator,
+.foodBody .activator {
     background-color: #f1cbf7;
 }
 
@@ -779,7 +795,9 @@ input.valid[type=text]:not(.browser-default) {
 .musicItems .itemDelete,
 .musicBody .itemDelete,
 .musicItems .modal-trigger,
-.musicBody .modal-trigger {
+.musicBody .modal-trigger,
+.musicItems .activator,
+.musicBody .activator {
     background-color: #e3cefe;
 }
 
@@ -817,8 +835,8 @@ input.valid[type=text]:not(.browser-default) {
 .cocktailsBody,
 .foodBody,
 .musicBody {
-    height: 100%;
-    /* min-height: 79vh; */
+    height: 86%;
+    overflow:auto;
     padding-top: 25px;
 }
 
@@ -977,7 +995,7 @@ ol {
         height:20%
     }
 
-    #deletePartyModal{
+    #deletePartyModal,#deleteItemModal{
         max-height:25%
     }
 
@@ -1206,14 +1224,14 @@ ol {
     #cocktailsTab,
     #recipesTab,
     #musicTab{
-        height:84%;
+        height:100%;
     }
 
     .datepicker-date-display{
         height:20%
     }
 
-    #deletePartyModal{
+    #deletePartyModal,#deleteItemModal{
         max-height:20%
     }
 

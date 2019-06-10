@@ -34,6 +34,7 @@ class CocktailItems extends PartyItems {
         })
         //.then((result3)=>console.log(result3));
     }
+
     handleSearch(){
         this.searchDrinkByName().then(items => {
             let itemElements = items.map(item => {
@@ -53,14 +54,12 @@ class CocktailItems extends PartyItems {
                 .empty()
                 .append(itemElements)
                 .slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1500,
-                    swipe: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: true,
+                    pauseOnHover: true,
+                    swipe: false,
                     adaptiveHeight: true,
-                    touchMove: true,
-                    centerMode: true
                 });
             $('.slick-arrow').addClass('hidden');
 
@@ -79,6 +78,11 @@ class CocktailItems extends PartyItems {
                     'api-key':'1'
                 },
                 success: data => {
+                    if(data.drinks === null){
+                        $('.handleSearchError').css('visibility','visible');
+                        return;
+                    }
+                    $('.handleSearchError').css('visibility','visible');
                     let items = data.drinks.map(item => {
                         let ingredients = [];
                         for (let i = 1; i < 16; i++) {
