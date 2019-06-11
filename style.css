@@ -1232,7 +1232,7 @@ ol {
     }
 
     #deletePartyModal,#deleteItemModal{
-        max-height:20%
+        max-height:25%
     }
 
     .mainTitle {
@@ -1313,7 +1313,7 @@ ol {
     }
 
     .card.horizontal.selected {
-        height: 135px;
+        height: 180px;
     }
 
     .card-image img {
