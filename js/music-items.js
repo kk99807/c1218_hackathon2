@@ -9,6 +9,7 @@ class MusicItems extends PartyItems {
     constructor(domElement, items) {
         super(domElement, items);
         this.bindEvents();
+        this.domElement.find('.musicSearchButton').click(this.handleSearch);
     }
 
     /**
@@ -17,18 +18,27 @@ class MusicItems extends PartyItems {
      */
     asyncSearch() {
         return new Promise((resolve, reject) => {
+            var searchQuery = $('.musicSearchInput').val();
+            searchQuery = searchQuery || 'Nujabes';
             $.ajax({
                 method: 'post',
                 dataType: 'json',
-                url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
-                data: {q: 'techno', maxResults: 5},
+                url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
+                data: {q: `${searchQuery} music`, maxResults: 8},
                 success: data => {
+                    if(data.video===undefined){
+                        $('.fa-spinner').remove();
+                        $('.handleSearchError').css('visibility','visible');
+                        return;
+                    }
+                    $('.handleSearchError').css('visibility','hidden');
                     let items = data.video.map(item => new VideoItem(
                         item.id,
                         item.title,
                         `http://i3.ytimg.com/vi/${item.id}/hqdefault.jpg`,
                         this.handleItemClick,
-                        {}
+                        {},
+                        $('.musicHeader .badge')
                     ));
                     resolve(items);
 

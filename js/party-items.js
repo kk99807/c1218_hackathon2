@@ -10,7 +10,6 @@ class PartyItems {
         this.domElement = domElement;
         this.domSearchResults = this.domElement.find('.listItems');
         this.domList = this.domElement.find('.contentContainer');
-
         this.items = items || [];
     }
 
@@ -20,31 +19,41 @@ class PartyItems {
     bindEvents() {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.showSearch = this.showSearch.bind(this);
-        this.hideSearch = this.hideSearch.bind(this);
-        this.hideDetails = this.hideDetails.bind(this);
+        // this.showSearch = this.showSearch.bind(this);
+        // this.hideSearch = this.hideSearch.bind(this);
+        // this.hideDetails = this.hideDetails.bind(this);
+        this.loadData = this.loadData.bind(this);
+        this.badgeClickHandler = this.badgeClickHandler.bind(this);
+
+        this.domElement.find('.collection-item').click(this.badgeClickHandler);
 
         this.domElement.find('.searchButton').click(this.handleSearch);
-        this.domElement.find('.searchIcon').click(this.handleSearch);
-        
-        this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
-        this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
-        this.domElement.find('.addItems').click(this.showSearch);
+        // this.domElement.find('.searchContainer .closeButton ').click(this.hideSearch);
+        // this.domElement.find('.informationContainer .closeButton').click(this.hideDetails);
+        // this.domElement.find('.addItems').click(this.showSearch);
+
+        // this.domElement.find('.musicSearchButton').click(this.newPageSearchHandler);
+        // this.domElement.find('.newSearchCloseButton').click(this.newSearchCloseButtonHandler);
     }
 
     /**
      * Perform search using async search method implemented in subclasses & display results
      */
-    handleSearch(target) {
+    handleSearch() {
+/*
         let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
-        $('.listItemContainer').append(spinner);
+        $('.listItems').append(spinner);
+        $('.newPageSearchContainer').append(spinner);
 
-        this.asyncSearch(target)
+        this.asyncSearch()
             .then(items => items.map(item => item.renderSearch()))
             .then(items => {
                 this.domSearchResults.empty().append(items);
+                this.domElement.find('.newPageSearchContainer').append(items);
                 $('.fa-spinner').remove();
             });
+*/
+        this.loadData();
     }
 
     /**
@@ -54,35 +63,47 @@ class PartyItems {
      * @param {string} eventType - add|delete|view
      */
     handleItemClick(item, eventType) {
+        let badgeValue = item.badge.text();
+
         if (eventType === 'view') {
             this.showDetails(item);
+            if(item instanceof VideoItem) {
+                $('.musicInfo').empty();
+                item.renderDetails();
+                $('.musicInfo').show();
+            }
+
         } else if (eventType === 'delete') {
-            M.toast({html:'Item has been deleted',displayLength:1000});
-            $('.toast').css('background-color', 'red');  
-            this.data = this.data.filter(element => element !== item);
-            item.fadeOut(() => item.remove());
+            item.badge.text(--badgeValue);
+
+            M.toast({html:'Item has been deleted', classes: 'toastPlacement',displayLength:1000});
+            $('.toast').css('background-color', 'red');
+            this.items = this.items.filter(element => element !== item);
+            $(item.card).fadeOut(() => $(item.card).remove());
+
         } else if (eventType === 'add') {
-            this.items.push(item);   
-            this.domList.append(item.renderSearch(true));
-            M.toast({html:'Item has been added', displayLength:1000}); 
-            $('.toast').css('background-color', 'green'); 
+            let addedFlag = false;
+            for(let i = 0; i < this.items.length; i++){
+                if(item.id === this.items[i].id){
+                    addedFlag = true;
+                    break;
+                }
+            }
+            if(addedFlag){
+                M.toast({html:'Item has already been added', classes: 'toastPlacement',displayLength:1000});
+                $('.toast').css('background-color', 'blue');
+            }else{
+                this.items.push(item);
+                this.domElement.find('.results-wrapper').append(item.renderSearch(true));
+                item.card = item.renderSearch(true);
+                item.badge.text(++badgeValue);
+                M.toast({html:'Item has been added', displayLength:1000}); 
+                $('.toast').css('background-color', 'green');
+            }
+            
         }
-    }
 
-    /**
-     * Show the list of selected party items of this type
-     */
-    showList() {
-        let renderedItems = this.items.map(item => item.renderSearch(true));
-        this.domList.append(renderedItems);
-    }
-
-    /**
-     * Show a search screen for party items of this type
-     */
-    showSearch() {
-        setAccordion(false);
-        this.domElement.find('.searchContainer').show();
+        app.save();
     }
 
     /**
@@ -90,26 +111,66 @@ class PartyItems {
      * @param {PartyItem} item 
      */
     showDetails(item) {
-        setAccordion(false);
         this.domElement.find('.informationContainer .displayContainer')
             .empty()
             .append(item.renderDetails());
         this.domElement.find('.informationContainer').show();
     }
 
-    /**
-     * Hide the search screen for items of this type
-     */
-    hideSearch() {
-        setAccordion(true);
-        this.domElement.find('.searchContainer').hide();
+    loadData(){
+        let spinner = $('<i>').addClass('fa fa-spinner fa-spin');
+        this.domList.append(spinner);
+
+        this.asyncSearch()
+            .then(items => {
+                let itemElements = items.map(item => {
+                    let p = $('<p>').text(item.name);
+                    let img = $('<img>').attr('src', item.imageURL);
+                    let div = $('<div>').addClass('slide');
+                    img.click(target => {
+                        this.handleItemClick(item, 'add');
+                    });
+                    div.append(img, p);
+                    return div;
+                });
+
+                this.domSearchResults.slick('slickRemove', null, null, true);
+                this.domSearchResults
+                    .slick('unslick')
+                    .empty()
+                    .append(itemElements)
+                    .slick({
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        dots:true,
+                        pauseOnHover: true,
+                        swipe: false,
+                        adaptiveHeight: true,
+                    });
+                $('.slick-arrow').addClass('hidden');
+
+                $('.fa-spinner').remove();
+
+            });
     }
 
-    /**
-     * Hide the details screen for items of this type
-     */
-    hideDetails() {
-        setAccordion(true);
-        this.domElement.find('.informationContainer').hide();       
+    badgeClickHandler(){
+        $('.closeAddedItems').click(this.closeAddedItemsHandler);
+        $('.addItems').hide();
+        $('.addedItems').show();
     }
+
+    closeAddedItemsHandler(){
+        $('.addedItems').hide();
+        $('.addItems').show();
+    }
+
+    // newPageSearchHandler(){
+    //     this.domElement.find('.newPageSearchContainer').show();
+    //     this.handleSearch();
+    // }
+
+    // newSearchCloseButtonHandler() {
+    //     this.domElement.find('.newPageSearchContainer').hide();
+    // }
 }

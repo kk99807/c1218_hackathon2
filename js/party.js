@@ -1,73 +1,105 @@
 /** Main Application Class - Used to initialize app & holds collections of party items. */
+
 class Party {
-    
+
     /**
      * Create initial collections that can be used to search and manage party items.
      * @constructor
      */
-    constructor(title, date, startTime, endTime) {
+    constructor(title, startDate, startTime, endDate, endTime) {
         this.title = title;
-        this.date = date;
+        this.startDate = startDate;
         this.startTime = startTime;
+        this.endDate = endDate;
         this.endTime = endTime;
         this.eventKey = null;
 
         this.addInviteDOM = $('.details .informationContainer');
 
-        this.partyOrganizer = {
-            foods: new FoodItems($('.food')),
-            cocktails: new CocktailItems($('.cocktail')),
-            music: new MusicItems($('.music'))
-        }
+        this.containers = [
+            new DetailsContainer($('.details')),
+            new CocktailItems($('.cocktail')),
+            new FoodItems($('.food')),
+            new MusicItems($('.music'))
+        ];
 
-        this.handleUpdateDetails = this.handleUpdateDetails.bind(this);
+        this.currentContainerIndex = -1;
 
-        $('.readyToPartyButton').click(this.handleUpdateDetails);
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        $('#startDate').on('change', event => validateDetailsForm());
+        $('#endDate').on('change', event => validateDetailsForm());
+        $('#pickStartTime').on('change', event => validateDetailsForm());
+        $('#pickEndTime').on('change', event => validateDetailsForm());
+
         this.addInviteDOM.find('.closeButton').click(target => this.addInviteDOM.hide());
     }
 
-    /**
-     * Start the app
-     */
-    start() {
-        this.partyOrganizer.foods.showList();
-        this.partyOrganizer.cocktails.showList();
-        this.partyOrganizer.music.showList();
+    showNextContainer() {
+
+        // Clear any previous display
+        $('.results-wrapper').empty();
+
+        // Hide other elements
+        $('.editParty').hide();
+        $('.parties').hide();
+        this.containers.forEach(container => container.domElement.hide());
+
+        this.currentContainerIndex++;
+        if (this.currentContainerIndex === this.containers.length) {
+            app.showParties();
+        } else {
+            let container = this.containers[this.currentContainerIndex];
+            container.loadData();
+
+            const items = container.items || [];
+            const cards = items.map(item => item.renderSearch(true));
+            container.domElement.find('.results-wrapper').append(cards);
+            container.domElement.find('.badge').text(cards.length);
+
+            container.domElement.show();
+        }
     }
 
     /**
      * Save Event Details and create a calendar entry on user request to update details
      */
     handleUpdateDetails() {
+
+        // Capture user inputs
         this.title = $('#inputTitle').val();
-        this.date = $('#pickDate').val();
+        this.startDate = $('#startDate').val();
         this.startTime = $('#pickStartTime').val();
+        this.endDate = $('#endDate').val();
         this.endTime = $('#pickEndTime').val();
+        app.save();
 
-        this.asyncCreateCalendarEntry()
-            .then(eventKey => {
-                this.eventKey = eventKey;
-                $('.eventLink').attr('href', `http://evt.to/${eventKey}`);
-                this.addInviteDOM.show();
-            });
+        // Clear form
+        $('#inputTitle').val('');
+        $('#startDate').val('');
+        $('#pickStartTime').val('');
+        $('#endDate').val('');
+        $('#pickEndTime').val('');
+
+        this.showNextContainer();
     }
 
-    /**
-     * @returns {Promise} a Promise to return an eventKey from the Calendar Invite API
-     */
-    asyncCreateCalendarEntry() {
-        const {title, date, startTime, endTime} = this;
-        const CALENDAR_API_URL = 'https://www.addevent.com/dir/link/add/';
-        
-        let data = {
-            client: CALENDAR_API_CLIENT_ID,
-            start: `${date} ${startTime}`,
-            end: `${date} ${endTime}`,
-            title: title
-        };
+    //**********************************************************************************************/
+    // CONVENIENCE METHODS
+    //**********************************************************************************************/
 
-        return new Promise((resolve, reject) => {
-            $.getJSON( CALENDAR_API_URL, data, response => resolve(response.data.uniquekey));
-        });
+    get cocktailItems() {
+        return this.containers[1];
     }
+
+    get foodItems() {
+        return this.containers[2];
+    }
+
+    get musicItems() {
+        return this.containers[3];
+    }
+
 }

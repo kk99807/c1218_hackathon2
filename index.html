@@ -1,192 +1,295 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="js/config.js"></script>
-    <script src="js/party-item.js"></script>
-    <script src="js/party-items.js"></script>
-    <script src="js/cocktail-items.js"></script>
-    <script src="js/food-items.js"></script>
-    <script src="js/detail-items.js"></script>
-    <script src="js/music-items.js"></script>
-    <script src="js/party.js"></script>
-    <script src='main.js'></script>
-    <title>Let's Party!</title>
-</head>
-<body>
-   <div class="landing">
-       <h1 class='mainTitle'>shades of soiree</h1>
-       <h4 class='description'>PLAN THE<br>BEST<br>PARTY<br>EVER!</h3>
-       <button class="startButton waves-effect waves-light btn-large pulse">Get Started</button>
-   </div>
-   <div class="main">
-      <div class="section details">
-         <p class='sectionTitle'>Details</p>
-         <div class="wholeContainer">
-            <div class='contentContainerTitle'>
-               <div>
-                  <h2>Details</h2>
-               </div>
-               <div class="addItems">
-                  <i class="fas fa-calendar-edit"></i>
-                  <i class="fas fa-plus"></i>
-               </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+        <link rel="stylesheet" href="assets/materialize.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/slick/slick/slick.css"/>
+        <link rel="stylesheet" href="assets/materialize-icons.css">
+        <link rel="stylesheet" href="assets/slick/slick/slick-theme.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script src="assets/jquery.min.js"></script>
+        <script src="assets/materialize.min.js"></script>
+        <script type="text/javascript" src="assets/slick/slick/slick.min.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/validate.js"></script>
+        <script src="js/party-item.js"></script>
+        <script src="js/party-items.js"></script>
+        <script src="js/details-container.js"></script>
+        <script src="js/cocktail-items.js"></script>
+        <script src="js/food-items.js"></script>
+        <script src="js/music-items.js"></script>
+        <script src="js/party.js"></script>
+        <script src="js/app.js"></script>
+        <script src='main.js'></script>
+        <title>Let's Party!</title>
+    </head>
+    <body class="mobile">
+        <div class="landing">
+            <h1 class='mainTitle'>PARTY! <span class="upsideDown">PARTY! </span></h1>
+            <h4 class='description'>PLAN THE BEST PARTY EVER!</h4>
+            <div class="startButton waves-effect waves-light btn pulse">Get Started</div>
+        </div>
+
+        <div class="details">
+            <div class="detailsHeader">
+                <h2 class="detailsTitle">Details</h2>
             </div>
-               <div class="contentContainer">
-               <div class="inputContainer">
-                  <div class="titleInput row">
-                     <div class="input-field">
-                         <i class="material-icons prefix">add</i>
-                         <input type="text" id="inputTitle">
-                         <label for="inputTitle">Name Your Party</label>
-                     </div>
-                  </div>
-                  <div class="dateInput row">
-                     <div class="input-field">
-                         <i class="material-icons prefix">event</i>
-                         <input type="text" class="datepicker" id="pickDate">
-                         <label for="pickDate">Pick Start Date</label>
-                     </div>
-                  </div>
-                  <div class="timeInput row">
-                     <div class="input-field">
-                         <i class="material-icons prefix">access_time</i>
-                         <input type="time" id="pickStartTime">
-                         <label for="pickTime">Pick Start Time</label>
-                     </div>
-                  </div>
-                  <div class="timeInput row">
-                     <div class="input-field">
-                         <i class="material-icons prefix">access_time</i>
-                         <input type="time" id="pickEndTime">
-                         <label for="pickTime">Pick End Time</label>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <a class="waves-effect waves-light btn readyToPartyButton"><i class="fas fa-glass-cheers"></i> Save</a>
-                  </div>
-               </div>
-            </div>
+                    
+            <form id="detailsForm" autocomplete="off">
+                <div class="contentContainer">
+                    <h4 class="text">When is your party?</h4>
+                    <div class="inputContainer">
+                        <div class="titleInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">add</i>
+                                <input name="inputTitle" type="text" id="inputTitle" required aria-required="true" class="validate">
+                                <label for="inputTitle">Name Your Party</label>
+                            </div>
+                        </div>
+                        <div class="dateInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">event</i>
+                                <input name="startDate" type="text" id="startDate" required aria-required="true" class="datepicker validate">
+                                <label for="startDate">Pick Start Date</label>
+                            </div>
+                        </div>
+                        <div class="timeInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">access_time</i>
+                                <input name="pickStartTime" type="text" id="pickStartTime" required aria-required="true" class="timepicker validate">
+                                <label for="pickStartTime">Pick Start Time</label>
+                            </div>
+                        </div>
+                        <div class="dateInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">event</i>
+                                <input name="endDate" type="text" id="endDate" required aria-required="true" class="datepicker validate">
+                                <label for="endDate">Pick End Date</label>
+                            </div>
+                        </div>
+                        <div class="timeInput">
+                            <div class="input-field">
+                                <i class="material-icons prefix">access_time</i>
+                                <input name="pickEndTime" type="text" id="pickEndTime" required aria-required="true" class="timepicker validate">
+                                <label for="pickEndTime">Pick End Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="readyToPartyButton waves-effect waves-light btn-large btnUpdateDetails" type="submit">Next</button>
+                    <!-- <button class="waves-effect waves-light btn-large backButton">Back</button> -->
+                </div>
+            </form>
             <div class="searchContainer"></div>
-            <div class="informationContainer">
-                <div class="searchHeading">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="titleContainer">
-                        <p>Add to Calendar?</p>
-                    </div>
-                </div>
-                <div class="buttonPanel row">
-                    <a href="#" target="_blank" class="waves-effect waves-light btn closeButton eventLink">Yes</a>
-                    <a href="#" class="waves-effect waves-light btn closeButton">No</a>
-                </div>
-            </div>
         </div>
-    </div>
 
-    <div class="section cocktail">
-        <p class='sectionTitle'>Cocktails</p>
-        <div class="wholeContainer">
-            <div class='contentContainerTitle'>
-                <div>
-                    <h2>Cocktails</h2>
-                </div>
-                <div class="addItems">
-                    <i class="fas fa-glass-martini-alt"></i>
-                    <i class="fas fa-plus"></i>
-                </div>
+        <div class="cocktail">
+            <div class="cocktailsHeader">
+                <h2 class="cocktailsTitle">
+                    Cocktails
+                    <span class="collection-item">
+                        <span class="cocktailsBadge badge">0</span>
+                    </span>
+                </h2>  
             </div>
-            <div class="contentContainer"></div>
-            <div class="searchContainer">
-                <div class="searchHeading">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="titleContainer">
-                        <button class="searchButton waves-effect waves-light btn-small">Find Drinks</button>
-                    </div>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listItems"></div>
-                </div>
-            </div>
-            <div class="informationContainer">
-                <i class="material-icons closeButton">close</i>
-                <div class="displayContainer"></div>
-            </div>
-        </div>
-    </div>
-    <div class="section food">
-        <p class='sectionTitle'>Food</p>
-        <div class="wholeContainer">
-            <div class='contentContainerTitle'>
-                <div>
-                    <h2>Food</h2>
-                </div>
-                <div class="addItems">
-                    <i class="fas fa-utensils"></i>
-                    <i class="fas fa-plus"></i>
-                </div>
-            </div>
-            <div class="contentContainer"></div>
-            <div class="searchContainer">
-                <div class="searchHeading">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="titleContainer foodSearch">
-                        <div class="searchIcon beefIcon"><img class="beef" src="images/beef.png"></div>
-                        <div class="searchIcon chickenIcon"><i class="fas fa-drumstick-bite"></i></div>
-                        <div class="searchIcon veggieIcon"><i class="fas fa-leaf"></i></div>
-                        <div class="searchIcon questionIcon"><i class="fas fa-question"></i></div>
-                    </div>
-                </div>
-                <div class="listItemContainer">
-                    <div class="listItems"></div>
-                </div>
-            </div>
-            <div class="informationContainer">
-                <i class="material-icons closeButton">close</i>
-                <div class="displayContainer"></div>
-            </div>
-        </div>
-    </div>
 
-    <div class="section music">
-        <p class='sectionTitle'>Music</p>
-        <div class="wholeContainer">
-            <div class='contentContainerTitle'>
-                <div>
-                    <h2>Music</h2>
-                </div>
-                <div class="addItems">
-                    <i class="fas fa-music"></i>
-                    <i class="fas fa-plus"></i>
-                </div>
-            </div>
-            <div class="contentContainer"></div>
-            <div class="searchContainer">
-                <div class="searchHeading">
-                    <i class="material-icons closeButton">close</i>
-                    <div class="titleContainer">
-                        <button class="searchButton waves-effect waves-light btn-small">Find Music</button>
+            <div class="contentContainer">
+                <div class="cocktailDetails addItems">
+                    <h4 class="text">What drinks will you serve?</h4>
+                    <h5 class="text">Tap to add a cocktail:</h5>
+                    <div class="searchResults listItems">
+                        <div class="buttonContainer">
+
+                        </div>
                     </div>
+                    <h5 class="text">Or search for your favorite drink:</h5>
+                    <div class="searchInputContainer">
+                        <input type="text" class="cocktailSearchInput" placeholder="Search by name">
+                        <button class="cocktailSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                        
+                    </div>
+                    <h5 class="handleSearchError">Ingredient May Not Exist</h5>
+                    <br>
+                    <button class="goToFood waves-effect waves-light btn-large btnNext">Next</button>
                 </div>
-                <div class="listItemContainer">
-                    <div class="listItems"></div>
+
+                <div class="cocktailItems addedItems">
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div> 
+                    <div class="clearFix"></div>
+                    <div class="results-wrapper"></div>
                 </div>
-            </div>
-            <div class="informationContainer">
-                <i class="material-icons closeButton">close</i>
-                <div class="displayContainer videoContainer"></div>
+
+                <div class="cocktailInfo itemInfo"></div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-</body>
+
+        <div class="food">
+            <div class="foodHeader">
+                <h2 class="foodTitle">
+                    Appetizers
+                    <span class="collection-item">
+                        <span class="foodBadge badge">0</span>
+                    </span>
+                </h2>  
+            </div>
+
+            <div class="contentContainer">
+                <div class="foodDetails addItems">
+                    <h4 class="text">What food will you serve?</h4>
+                    <h5 class="text">Tap to add an appetizer:</h5>
+
+                    <div class="searchResults listItems"></div>
+
+                    <h5 class="text">Or search for your favorite dish:</h5>
+                    <div class="searchInputContainer">
+                        <input type="text" class="foodSearchInput" placeholder="Search by ingredient">
+                        <button class="foodSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                    </div>
+                    <h5 class="handleSearchError">Ingredient May Not Exist</h5>
+                    <br>
+                    <button class="goToMusic waves-effect waves-light btn-large btnNext">Next</button>
+                </div>
+
+                <div class="foodItems addedItems">
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div>
+                    <div class="clearFix"></div>
+                    <div class="results-wrapper"></div>
+                </div>
+
+                <div class="foodInfo itemInfo"></div>
+            </div>
+        </div>
+
+        <div class="music">
+            <div class="musicHeader">
+                <h2 class="musicTitle">
+                    Music
+                    <span class="collection-item">
+                        <span class="musicBadge badge">0</span>
+                    </span>
+                </h2>
+            </div>
+
+            <div class="contentContainer">
+                <div class="musicDetails addItems">
+                    <h4 class="text">What music will you play?</h4>
+                    <h5 class="text">Tap to add a song:</h5>
+                    <div class="searchResults listItems"></div>
+                    <h5 class="text musicSearchHeader">Or search for your favorite artist:</h5>
+                    
+                    <div class="searchInputContainer">
+                        <input type="text" class="musicSearchInput" placeholder="Search">
+                        <button class="musicSearchButton waves-effect waves-light btn-small"><i class="material-icons">search</i></button>
+                    </div>
+                    <h5 class="handleSearchError">No Music Found</h5>
+                    <br>
+                    <button class="goToParties waves-effect waves-light btn-large btnNext">Next</button>
+                </div>
+
+                <div class="musicItems addedItems">
+                    <div class="wrapper">
+                        <i class="material-icons closeAddedItems">close</i>
+                        <p>Your Saved Items</p>
+                    </div>
+                    <div class="clearFix"></div>
+                    <div class="results-wrapper"></div>
+                </div>
+
+                <div class="musicInfo itemInfo"></div>
+            </div>
+        </div> 
+
+        <div class="parties">
+            <div class="partiesHeader">
+                <h2 class="partyTitle">Parties</h2>  
+            </div>
+
+            <div class="contentContainer">
+                <div class="partyDetails"></div> 
+            </div>
+
+            <div id="deletePartyModal" class="modal modal-fixed-footer dialog">
+                <div class="modal-content">
+                  <h4>Delete party <span class="partyName"></span>?</h4>
+                </div>
+                <div class="modal-footer">
+                  <button id="deletePartyConfirm" class="modal-close waves-effect waves-green btn-flat">Yes</button>
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="editParty">
+            <div class="editPartyHeader">
+                <h2 class="editPartyTitle">
+                    My Party
+                </h2>  
+            </div>
+
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" href="#detailsTab">Details</a></li>
+                <li class="tab col s3"><a href="#cocktailsTab">Cocktails</a></li>
+                <li class="tab col s3"><a href="#recipesTab">Recipes</a></li>
+                <li class="tab col s3"><a href="#musicTab">Music</a></li>
+            </ul>
+            <div id="detailsTab" class="col s12">
+                <div class="detailsBody">
+                
+                </div>
+            </div>
+            <div id="cocktailsTab" class='col s12'>
+                <div class="cocktailsBody">
+                
+                </div>
+            </div>
+            <div id="recipesTab" class="col s12">
+                <div class="foodBody">
+                
+                </div>
+            </div>
+            <div id="musicTab" class="col s12">
+                <div class="musicBody">
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- Templates -->
+        <!-- Card used for each Party on Parties page -->
+        <template id="templatePartyCard">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">My Super Party</span>
+                    <table>
+                        <tr>
+                            <td>Start:</td>
+                            <td><span class="startTS">02/03/2019 10:00 PM</span></td>
+                        </tr>
+                        <tr>
+                            <td>End:</td>
+                            <td><span class="endTS">02/03/2019 11:00 PM</span></td>
+                        </tr>
+                    </table>
+                    <div class="counts">
+                        Cocktails: <span class="cocktailsCount">1</span>
+                        Appetizers: <span class="foodCount">4</span>
+                        Music: <span class="musicCount">5</span>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <div class="btnEditParty">View</div>
+                    <div class="btnDeleteParty">Delete</div>
+                </div>
+            </div>
+        </template>
+    </body>
 </html>

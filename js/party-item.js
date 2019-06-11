@@ -9,20 +9,24 @@ class PartyItem {
      * @param {*} eventCallback - Callback when item is clicked in DOM
      * @param {{}} props - Additional type-specific properties (ex: recipe ingredients)
      */
-    constructor(id, name, imageURL, eventCallback, props) {
+    constructor(id, name, imageURL, eventCallback, props, badge) {
         this.id = id;
         this.name = name;
         this.imageURL = imageURL;
         this.eventCallback = eventCallback;
         this.props = props;
+        this.badge = badge;
+        this.card = null;
     }
 
     /**
      * @param {boolean} selected - Whether or not this is currently selected
      * @returns {*} jQuery wrapper containing a Materialize card with high-level info for this item
      */
-    renderSearch(selected) {
+    // renderSearch(selected) {
+    renderSearch=(selected)=>{
         // SEE: Horizontal Cards at https://materializecss.com/cards.html
+
         let card = $('<div>').addClass('card horizontal');
 
         if (selected) {
@@ -41,75 +45,119 @@ class PartyItem {
         let cardStacked = $('<div>')
             .addClass('card-stacked')
             .appendTo(card);
+
         let cardContent = $('<div>')
             .addClass('card-content')
-            .appendTo(cardStacked).css({'display':'flex'});//'padding':'0px'
+            .appendTo(cardStacked);
 
-        let titleLink = $('<a>')
+        let titleLink = $('<div>')
             .addClass('titleLink')
             .appendTo(cardContent);
 
-        let title = $('<p>')
+        let title = $('<a>')
             .addClass('searchTitle')
             .text(this.name)
             .appendTo(titleLink);
 
-
-
-        //card reveal
+        //recipe modal
         let cardReveal = $('<div>')
-            .addClass('card-reveal')
+            .addClass('modal').attr('id',this.name)
             .appendTo(card);
 
-        let revealTitle = $('<span>')
+        $('.modal').modal();
+
+        let modalContent = $('<div>').addClass('modal-content').appendTo(cardReveal);
+
+        let modalFooter = $('<div>').addClass('modal-footer').appendTo(cardReveal);
+
+        let modalFooterContent = $('<button>').addClass('modal-close btn').attr('href','#!').appendTo(modalFooter).text('Close')
+
+        let revealTitle = $('<h5>')
             .addClass('class-title')
             .text(this.name)
-            .appendTo(cardReveal);
+            .appendTo(modalContent);
 
-        let closeButton = $('<i>')
-            .addClass('material-icons right close')
-            .text('close')
-            .appendTo(revealTitle);
+        if(this.props.ingredients){
+            for(let i = 0; i < this.props.ingredients.length; i++){
+                let ingredients = $('<li>')
+                    .addClass('ingredients')
+                    .text('- ' + this.props.ingredients[i]);
+                modalContent.append(ingredients);
+            }
+        }
 
-        let revealContent = $('<p>')
-            .text('Please put in description')
-            .appendTo(cardReveal);
+        let addBreak = $('<br>').appendTo(modalContent);
 
-        let buttonDef = selected ? 
-            {label:'delete', colors: 'pink lighten-2'} :
-            {label:'add', colors: 'purple lighten-2'};
+        let buttonWrapper = $('<div>')
+            .addClass('button-wrapper')
+            .appendTo(cardContent)
+
+        if(this.props.instructions){
+            let instructions_container = $('<ol>')
+
+            let instructions = this.props.instructions.split(".")
+
+            for(let i = 0; i < instructions.length; i++){
+                let instruction = instructions[i].trim();
+                let step = $('<li>').text(instruction);
+                if(instruction !== ""){
+                    $(instructions_container).append(step);
+                }
+            }
+
+            $(instructions_container).appendTo(modalContent)
+        }
 
         let buttonContainer = $('<a>')
-            .addClass('btn waves-effect waves-light buttonStyle ' + buttonDef.colors)
-            .appendTo(cardContent);
+            .addClass('btn waves-effect waves-light activator')
+            .appendTo(buttonWrapper);
 
-        let button = $('<i>')
-            .addClass('material-icons')
-            .text(buttonDef.label)
+        let deletedConfirmationRevealer = $('<i>')
+            .addClass('material-icons trashIcon')
+            .text('delete')
             .appendTo(buttonContainer);
 
+        let modalActivate = $('<a>')
+            .addClass('btn waves-effect waves-light modal-trigger')
+            .attr('href', ('#'+this.name))
+            .appendTo(buttonWrapper);
+        
         let revealIcon = $('<i>')
-            .addClass('material-icons right activator')
-            .text('more_vert')
-            .appendTo(cardContent);
+            .addClass('material-icons infoIcon')
+            .text('info')
+            .appendTo(modalActivate);
 
+        let revealDelete = $('<div>').addClass('card-reveal').appendTo(card);
+
+        let cardDelete = $('<span>').addClass('card-title').text('Delete Item?').appendTo(revealDelete);
+        $('<i>').addClass('material-icons right').text('close').appendTo(cardDelete)
+        let button = $('<button>').addClass('btn deleteCard red darken-1').text('Yes').appendTo(revealDelete).css("background-color","");
+        let close = $('<a>').addClass('btn deleteCard blue darken-').text('No').appendTo(revealDelete);
+
+        card.click(target => this.eventCallback(this, 'view'));
         title.click(target => this.eventCallback(this, 'view'));
-        button.click(target => {
+        image.click(target => this.eventCallback(this, 'view'));
+        button.click(event => {
             card.fadeOut(() => card.remove());
-            this.eventCallback(this, buttonDef.label);
+            this.eventCallback(this, button.text());
+            event.stopPropagation();
         });
-        closeButton.click(() => cardReveal.hide());
+        close.on('click',()=>{
+            $('.card-reveal').hide();
+        })
+        // closeButton.click(() => cardReveal.hide());
         return card;
     }
 }
 
 /** Class representing a recipe-type party item */
 class RecipeItem extends PartyItem {
-
+    //Card reveal render Details
     /**
      * @returns jQuery wrapper with DOM showing details of this recipe
      */
     renderDetails(){
+        //for old code
         let container = $('<div>')
             .addClass('displayContainer');
 
@@ -157,8 +205,19 @@ class VideoItem extends PartyItem {
      */
     renderDetails(){
         let container = $('<div>')
-            .addClass('displayContainer')
-            .css('height', '95%');
+            .addClass('videoDisplay');
+
+
+        let spinner = $('<i>')
+            .addClass("fa fa-spinner fa-spin musicSpinner");
+        let closeDiv =  $('<div>');
+        let closeButton = $('<i>')
+            .addClass('material-icons musicDetailClose')
+            .text('close')
+            .click(target => $('.videoDisplay').hide())
+            .css('color', 'white');
+        closeDiv.append(closeButton);
+        container.append(closeDiv, spinner);
 
         let video = $('<iframe>')
             .attr({
@@ -166,16 +225,13 @@ class VideoItem extends PartyItem {
                 width: '80%',
                 height: '90%',
                 src: `https://www.youtube.com/embed/${this.id}`,
-                fs: '1'
+                fs: '1',
+                onload: ()=>{$(spinner).remove()}
             })
-            .css({
-                position: 'relative',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -55%)'
-            });
+            .addClass('videoIFrame');
+
         container.append(video);
 
-        return container;
+        $('.musicInfo').append(container);
     }
 }

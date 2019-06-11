@@ -1,320 +1,1419 @@
-h1 {
+html {
+    touch-action: manipulation;
+    box-sizing:border-box;
+}
+
+h1, h2, h3, h4, h5 {
     margin: 0;
+}
+
+h1, h2 {
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.hidden {
+    display: none !important;
 }
 
 body {
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.desktop {
+    width: 414px;
+    height: 736px;
+    margin: 2% auto;
+}
+
+.mobile {
+    height: 100vh;
+    width: 100%; 
+}
+
+#deletePartyModal,#deleteItemModal{
+    max-height:25%
+}
+
+#detailsTab,
+#cocktailsTab,
+#recipesTab,
+#musicTab{
+    height: 100%;
+    overflow:auto;
 }
 
 /*----------------- LANDING PAGE -----------------*/
-
 .landing{
-    background-image: url('images/landingBackground.png');
+    /* Adobe Stock Image Licensed by Karen King */
+    background-image: url('images/landing-md.jpg');
     height:100%;
     width:100%;
     background-repeat:no-repeat;
-    background-size: 100% 100%;
+    background-position-x: 50%;
+    background-size: cover;
     position:fixed;
     z-index:1;
 }
 
-.startButton{
-    position:absolute;
+.startButton {
+    font-size: 1.7em;
     bottom: 10%;
-    left:50%;
-    transform:translate(-50%);
-    font-size: 1.4rem;
-    background-color:rgb(218,11,79)
+    background-color: #d650b0;
+    font-family: 'Shadows Into Light Two', cursive;
+    max-width: 300px;
+    height: auto;
+    padding: 12px 16px;
 }
-.mainTitle{
+
+.startButton:hover {
+    background-color: #d650b0;
+}
+
+.mainTitle {
+    position: relative;
+    top: 2%;
     text-align:center;
-    color: rgb(53, 34, 221);
-    text-shadow: #cacbf6 1px 1px 1px;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Major Mono Display', monospace;
+    color: white;
     font-weight:bold;
     font-size:3.5rem;
     padding-top: 15px;
+    font-family: 'Shadows Into Light Two', cursive;
 }
-.description{
+
+.description {
+    width: 80%;
     text-align:center;
     position:absolute;
-    top:40%;
+    top:65%;
     left:50%;
     transform:translate(-50%, -50%);
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Shadows Into Light Two', cursive;
     color:white;
 }
 
-/*----------------- MAIN PAGE -----------------*/
+.upsideDown {
+    display: inline-block;
+    transform: scale(-1, 1); 
+}
 
-.main{
-    height:100%;
+/*----------------- SECTIONS -----------------*/
+
+.cocktailDetails,
+.foodDetails,
+.musicDetails,
+.partyDetails, 
+.itemInfo {
+    padding: 2% 3% 0 3%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.partyDetails{
+    padding: 2% 3% 25% 3%;
+}
+
+.cocktailsBody,
+.foodBody,
+.musicBody {
+    padding: 2% 3% 20% 3%;
+}
+
+.detailsHeader, 
+.cocktailsHeader, 
+.foodHeader, 
+.musicHeader,
+.partiesHeader,
+.editPartyHeader {
+    margin: 0;
+    color: white;
+    text-align: center;
+    background-size: cover;
+} 
+
+.details h4,
+.cocktail h4, 
+.food h4, 
+.music h4 {
+    margin: 5% 0 5% 0;
+    font-size: 2rem;
+}
+
+.text:nth-child(2){
+    margin-bottom: 8%;
+}
+
+.searchInputContainer {
+    width: 370px;
+    margin: 10% auto 0 auto;
+    display: flex;
+}
+
+.searchImage {
+    height: 200px;
+}
+
+.cocktailSearchInput,
+.foodSearchInput, 
+.musicSearchInput {
+    margin: 0 10px 0 20px !important;
+    width: 250px !important;
+}
+
+.cocktailSearchInput::placeholder,
+.foodSearchInput::placeholder, 
+.musicSearchInput::placeholder{
+    opacity: 1;
+}
+
+.cocktailSearchButton,
+.foodSearchButton, 
+.musicSearchButton {
+    width: 50px;
+    height: 40px;
+}
+
+.startButton, 
+.readyToPartyButton, 
+.btnNext {
+    width: 250px;
+    position:absolute;
+    left:50%;
+    transform:translate(-50%);
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.readyToPartyButton, 
+.btnNext {
+    bottom: 4%;
+    font-size: 1.8em;
+} 
+
+
+/*-------------- DETAILS --------------*/
+
+.details,
+.cocktail,
+.food,
+.music,
+.contentContainer,
+.addItems {
+    color: #d650b0;
+    height:100%
+}
+
+.detailsHeader {
+    background-image: url(images/details.png);
+    background-position-y: 50%;
+}
+
+.details .contentContainer {
+    padding: 4% 3% 0 3%;  
+    overflow-y: scroll;
+    text-align: center;
+    background-color: #fce4ec;
+    height:100%
+}
+
+.inputContainer {
+    height: 72%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.active {
+    color: #d650b0 !important;
+}
+
+#detailsForm{
+    height:100%
+}
+
+#detailsForm input[type=text]:not(.browser-default):focus:not([readonly]),
+input.valid[type=text]:not(.browser-default) {
+    border-bottom: 1px solid #d650b0;
+    box-shadow: 0 1px 0 0 #d650b0;
+}
+
+.readyToPartyButton, 
+.editDetails {
+    color: white;
+    background-color: #d650b0;
+}
+
+.readyToPartyButton .fas {
+    font-size: 0.9em;
+}
+
+.readyToPartyButton:hover {
+    background-color: #d650b0;
+}
+
+.datepicker-date-display, 
+.timepicker-digital-display {
+    background-color: #d650b0;
+}
+
+.datepicker-done, 
+.datepicker-cancel, 
+.timepicker-close {
+    color: #d650b0;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #d650b0;
+    color: #fff;
+}
+
+.timepicker-canvas line {
+  stroke: #d650b0;  
+}
+
+.timepicker-canvas-bg, 
+.timepicker-canvas-bearing {
+    fill: #d650b0;
+}
+
+.isToday {
+    color: black;
+}
+
+/*-------------- COCKTAILS --------------*/
+
+.cocktailDetails,
+.cocktailItems,
+.cocktailInfo {
+    color: #45a6c4;
+    background-color: #cdf1fd;
+}
+
+.cocktailItems .modal-close.btn {
+    color: #cdf1fd;
+    background-color: #45a6c4;
+}
+
+.cocktailsHeader {
+    background-image: url(images/cocktails.png);
+    background-position-y: 50%;
+}
+
+.cocktailsTitle .collection-item {
+    margin-left: 27%;
+}
+
+.cocktailSearchButton, 
+.cocktailSearchButton:hover, 
+.goToFood, 
+.goToFood:hover,
+.editCocktails {
+    background-color: #45a6c4;
+}
+
+.cocktailSearchInput, 
+.cocktailSearchInput::placeholder, 
+.cocktailsBadge.badge {
+    color: #45a6c4;
+}
+
+.handleSearchError{
+    color: red;
+    visibility:hidden;
+}
+
+/*-------------- FOOD --------------*/
+
+.foodDetails, 
+.foodItems,
+.foodInfo {
+    color: #b245c4;
+    background-color: #f1cbf7;
+}
+
+.foodItems .modal-close.btn {
+    color: #f1cbf7;
+    background-color: #b245c4;
+}
+
+.foodHeader {
+    background-image: url(images/food.jpeg);
+    background-position-y: 50%;
+}
+
+.foodTitle .collection-item {
+    margin-left: 10%;
+}
+
+.foodSearchButton, 
+.foodSearchButton:hover, 
+.goToMusic, 
+.goToMusic:hover,
+.editFood {
+    background-color: #b245c4;
+}
+
+.foodSearchInput, 
+.foodSearchInput::placeholder, 
+.foodBadge.badge {
+    color: #b245c4;
+}
+
+/*-------------- MUSIC --------------*/
+
+.musicDetails, 
+.musicItems,
+.musicInfo {
+    color: #7d45d4;
+    background-color: #e3cefe;
+}
+
+.musicItems .modal-close.btn {
+    color: #e3cefe;
+    background-color: #7d45d4;
+}
+
+.musicHeader {
+    background-image: url(images/music.png);
+    background-position-y: 90%;
+}
+
+ .collection-item {
+    margin-left: 39%;
+}
+
+.musicSearchButton, 
+.musicSearchButton:hover, 
+.goToParties, 
+.goToParties:hover,
+.editMusic {
+    background-color: #7d45c4;
+}
+
+.musicSearchInput, 
+.musicSearchInput::placeholder, 
+.musicBadge.badge {
+    color: #7d45d4;
+}
+
+.editMusicInfo {
+    text-align: center;
+}
+
+.musicItems.addedItems .modal.open {
+    display: none;
+}
+
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal.open,
+.musicItems > .results-wrapper > .card.horizontal.selected > .modal-overlay,
+.musicBody > div > .card.horizontal.selected > .modal.open,
+.musicBody > div > .card.horizontal.selected > .modal-overlay {
+    display: none !important;
+}
+
+.musicSpinner {
+    z-index: 5;
+}
+
+/*-------------- PARTIES --------------*/
+
+.parties, .parties .partyDetails, .parties .contentContainer{
+    height:100%
+}
+
+.partyDetails {
     display: flex;
     flex-direction: column;
-    width: 100%;
-}
-
-.section{
-    height:25%;
-    flex: 1;
-    padding: 0;
-}
-
-.section p {
-    padding: 0;
-}
-
-.section{
-    position:relative;
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-    border:1px solid purple;
-    box-sizing:border-box;
-}
-
-.sectionTitle{
-    font-size:2rem;
-    margin:0;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    color: white;
-    font-family: 'Shadows Into Light', cursive;
-}
-
-.wholeContainer{
-    height:100%;
-    display:none;
-}
-
-.contentContainerTitle {
-    height: 15%;
-    display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0 4%;
-    font-family: 'Shadows Into Light', cursive;
-    font-weight:bold;
-}
-
-.contentContainerTitle h2 {
-    display: inline-block;
-    font-size: 2rem;
+    overflow-y: auto;
     color: white;
-    margin: 1%;
+    background-color: #ccccff;
 }
 
-.contentContainer {
-    height: 85%;
-    width: 100%;
-    background-color: #fce4ec;
-    overflow-y: scroll;
+.partiesHeader, .editPartyHeader {
+    background-image: url(images/party.jpg);
 }
 
-/*----------------- DETAILS -----------------*/
-
-.details{
-    background-image:url('images/details.png');
+.partyTitle .collection-item {
+    margin-left: 32%;
 }
 
-.detailsTitle {
-    margin-top: 0;
-    font-size: 2rem;
+.btnNewParty, .parties .btn-large:hover {
+    background-color: midnightblue;
 }
 
-.detailsImage {
-    height: 100px;
-}
-
-/*----------------- COCKTAILS -----------------*/
-
-.cocktail {
-    background-image:url('images/cocktails.png');
-}
-
-/*----------------- FOOD -----------------*/
-
-.food {
-    background-image: url('images/food.jpeg');
-}
-
-.titleContainer.foodSearch {
-    width: 93%;
-    padding-top: 2%;
-    float: right;
-}
-
-/*----------------- MUSIC -----------------*/
-
-.music {
-    background-image:url('images/music.png');
-}
-
-.videoContainer {
-    height: 95%;
-}
-
-/*----------------- MODALS -----------------*/
-
-.searchContainer,
-.informationContainer,
-.contentContainer {
-    display: none;
-    position: absolute;
-}
-
-.searchContainer, 
-.informationContainer {
-    height: 85%;
-    width: 100%;
-    background-color: #f3e5f5;
-}
-
-.listImageContainer {
-    float: left;
-    padding: 0 3% 3% 0;
-}
-
-/*----------------- SEARCH MODAL -----------------*/
-
-.searchContainer {
-    z-index: 3;
-}
-
-.searchHeading {
-    height: 15%;
-}
-
-.titleContainer {
+.card .card-action {
+    background-color: midnightblue;
+    font-size: 1.5em;
+    padding: 10px 24px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-evenly;
 }
 
-.listItemContainer {
-    overflow-y: scroll;
-    height: 85%;
+.partyBadge.badge {
+    color: #3232ff;
 }
 
-.searchIcon {
-    width: 15%;
-    height: 30%;
-    background-color: #26a69a;
-    text-align: center;
-    padding: 3% 1%;
-    box-shadow: 0 8px 6px -6px gray;
-    border-radius: 4px;
+.partyDetails .card {
+    width: 300px;
+    background-image: url(images/party.jpg);
+    background-size: contain;
 }
 
-.beef {
-    width: 85%;
-    padding: 6% 0 0 0;
+.partyDetails table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto !important;
 }
 
-/*----------------- INFORMATION MODAL -----------------*/
-
-.informationContainer {
-    display:none;
-    z-index: 5;
-    overflow-y: scroll;
+.partyDetails tr,td {
+    border: none;
+    padding: 5px;
 }
 
-.displayContainer {
-    padding: 0 3% 3% 3%;
+.partyDetails .counts {
+    margin: 8px;
 }
 
-.recipe {
-    clear: left;
+.backToParties,
+.searchFromEdit {
+    background-color: midnightblue;
 }
 
-/*----------------- CARD CONTAINERS -----------------*/
-
-.card {
-    background-color: #9c27b0;
+.tabs{
+    background-color: midnightblue;
+    height:7%;
+    overflow-x:hidden;
 }
 
-.card.selected {
-    background-color: #d81b60;
-}
-
-.buttonStyle {
-    align-self:flex-end;
-}
-
-.titleLink{
-    height:100%;
-    font-size:20px;
-    color:white;
-}
-
-
-.pink.lighten-2 {
-    background-color: #f48fb1;
-}
-
-/*----------------- FONTAWESOME -----------------*/
-
-.fas {
+.tabs .tab a{
     color: white;
 }
 
-.fa-utensils, 
-.fa-glass-martini-alt, 
-.fa-music, 
-.fa-user {
-    font-size: 2em;
+.tabs .tab a:hover {
+    background-color: white;
+    color: midnightblue;
 }
 
-.fas.fa-plus {
-    font-size: 1em;
+.tabs .indicator {
+    background-color: midnightblue; 
+} /* Underline color */
+
+/*-------------- EDIT PARTY --------------*/
+
+.editParty {
+    overflow: hidden;
+    height:100%
 }
 
-.beefIcon {
-    padding: 0.7% 0;
+.editParty .contentContainer {
+    /* height: 85vh; */
+    background-color: #3232ff;
 }
 
-.searchIcon .fas {
-    font-size: 2.4em;
+.detailsBody {
+    font-size: 1.5em;
+    color: #d650b0;
+    padding-left: 5%;
+    background-color: #fbdaf1;
+}
+
+.cocktailsBody {
+    background-color: #cdf1fd;
+}
+
+.foodBody {
+    background-color: #f1cbf7;
+}
+
+.musicBody {
+    background-color: #e3cefe;
+}
+
+.fas.fa-glass-martini, 
+.fas.fa-calendar-alt,
+.fas.fa-utensils,
+.fa-arrow-left {
+    padding-top: 1.5%;
+}
+
+.fa-arrow-left {
+    margin-left: 7%;
+}
+
+.editMusic .material-icons {
+    font-size: 1.3em;
+    padding-top: 1%;
+}
+
+.partyDetails .card {
+    background-color: #3232ff;
+}
+
+.partyDetails .card-content {
+    color: white;
+    text-align: center;
+}
+
+.partyDetails .card-action {
+    font-size: 1.2em;
+}
+
+.btnEditParty,
+.btnDeleteParty {
+    cursor: pointer;
+    width: 50%;
+    color: white !important;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.btnEditParty {
+    border-right: 1px solid white;
+}
+
+.collapsible-body {
+    /* height: 35vh; */
+    overflow-y: scroll;
+}
+
+.cocktailsBody .card.horizontal.selected, 
+.foodBody .card.horizontal.selected, 
+.musicBody .card.horizontal.selected {
+    margin: 20px auto;
+}
+
+.floatingButtonPanel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 10px 0;
+}
+
+.floatingButtonPanel > .btn-floating {
+    margin: 0 5px;
+}
+
+.detailsBody > .floatingButtonPanel > .searchFromEdit {
+    display: none;
+}
+
+.indicator{
+    display:none
+}
+/*-------------- DISPLAY SEARCH RESULTS --------------*/
+
+.results-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position:relative;
+    top:7%;
+}
+
+.slick-list.draggable {
+    height: 160px;
+}
+
+/* .slide.slick-slide {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 0.2%;
+} */
+
+.searchResults {
+    height: 200px;
+}
+
+.searchResults img {
+    height: 100px;
+    width: 100px;
 }
 
 .fa-spinner {
     font-size: 3em;
-    color: #9c27b0;
+    color: white;
     position: absolute;
     top: 50%;
     left: 43%;
     transform: translate(-50%, -50%); 
 }
 
-.inputContainer {
-    width: 80%;
-    position: relative;
-    left: 10%;
+/*----------------- ADDED ITEMS -----------------*/
+
+.addedItems {
+    height: 92%;
+    text-align: center;
+    overflow-y: scroll;
 }
 
-.row {
-    margin-bottom: 0;
+.addedItems p {
+    display: inline-block;
+    margin: -2% 0 1% 0;
+    font-size: 1.7em;
 }
 
-.readyToPartyButton {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.closeAddedItems {
+    position: absolute;
+    left: 15px;
+    top: 15px;
 }
 
-.buttonPanel {
-    display: flex;
-    justify-content: center;
+.wrapper {
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
 }
 
-.buttonPannel .btn {
+.cocktailItems .wrapper {
+    color: #45a6c4;
+    background-color: #cdf1fd;
+}
+
+.foodItems .wrapper {
+    color: #b245c4;
+    background-color: #f1cbf7;
+}
+
+.musicItems .wrapper {
+    color: #7d45c4;
+    background-color: #e3cefe;
+}
+
+.clearFix {
+    /* height: 9vh; */
+}
+
+.material-icons.right.activator {
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 83%;
+}
+
+/*----------------- CARD CONTAINERS -----------------*/
+
+.card {
+    width: 500px;
+    height: 200px;
     margin: 20px;
 }
 
-.fas {
+.card.horizontal.selected {
+    width: 354px;
+}
+
+.cocktailsBody .modal p{
+    font-size:15px;
+}
+
+.card-content {
+    padding: 4% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-image {
+    width: 50%;
+}
+
+.card-image img {
+    height: 200px;
+}
+
+.button-wrapper {
+    width: 170px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.titleLink {
+    text-align: center;  
+}
+
+.cocktailItems .searchTitle,
+.foodItems .searchTitle,
+.musicItems .searchTitle {
     color: white;
+    font-size: 1.2em;
+}
+
+.cocktailsBody .searchTitle,
+.foodBody .searchTitle,
+.musicBody .searchTitle {
+    color: white;
+    font-size: 1.2em;
+}
+
+.cocktailItems .card, 
+.cocktailsBody .card {
+    background-color: #45a6c4;
+}
+
+.cocktailItems .itemDelete,
+.cocktailsBody .itemDelete,
+.cocktailItems .modal-trigger,
+.cocktailsBody .modal-trigger,
+.cocktailItems .activator,
+.cocktailsBody .activator {
+    background-color: #cdf1fd;
+}
+
+.deleteCard{
+    width:100%;
+    margin-top:10px
+}
+
+.foodItems .card,
+.foodBody .card {
+    background-color: #b245c4;
+}
+
+.foodItems .itemDelete,
+.foodBody .itemDelete,
+.foodItems .modal-trigger,
+.foodBody .modal-trigger,
+.foodItems .activator,
+.foodBody .activator {
+    background-color: #f1cbf7;
+}
+
+.musicItems .card,
+.musicBody .card {
+    background-color: #7d45c4;
+}
+
+.musicItems .itemDelete,
+.musicBody .itemDelete,
+.musicItems .modal-trigger,
+.musicBody .modal-trigger,
+.musicItems .activator,
+.musicBody .activator {
+    background-color: #e3cefe;
+}
+
+.cocktailItems .trashIcon,
+.cocktailsBody .trashIcon,
+.cocktailItems .infoIcon,
+.cocktailsBody .infoIcon  {
+    color: #45a6c4;
+    font-size: 30px;
+}
+
+.foodItems .trashIcon,
+.foodBody .trashIcon,
+.foodItems .infoIcon,
+.foodBody .infoIcon {
+    color: #b245c4;
+    font-size: 30px;
+}
+
+.musicItems .trashIcon,
+.musicBody .trashIcon,
+.musicItems .infoIcon,
+.musicBody .infoIcon {
+    color: #7d45d4;
+    font-size: 30px;
+}
+
+.cocktailsBody .card.horizontal.selected,
+.foodBody .card.horizontal.selected,
+.musicBody .card.horizontal.selected {
+    margin-top: 0;
+}
+
+.detailsBody,
+.cocktailsBody,
+.foodBody,
+.musicBody {
+    height: 86%;
+    overflow:auto;
+    padding-top: 25px;
+}
+
+.detailsBody p {
+    margin-top: 0;
+}
+
+/*-------------- BADGES --------------*/
+
+.collection-item {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: white;
+    color: white;  
+    cursor: pointer;
+}
+
+.badge {
+    font-size: 0.5em !important;
+    position: relative;
+    top: 35%;
+    left: -12%;
+}
+
+/*-------------- SLICK --------------*/
+
+.slick-list {
+    height: 80%;
+}
+
+.slick-slide p {
+    margin-bottom: 5%;
+}
+
+/*-------------- LAST MINUTE FIXES --------------*/
+
+.addedItems .card {
+    text-align: left;
+}
+
+.material-icons.right.close {
+    position: absolute;
+    top: 4%;
+    left: 80%;
+}
+
+.addedItems .card-reveal .class-title {
+    font-size: 2.3em;
+    margin-bottom: 5%;
+}
+
+.collapsible-body {
+    /* height: 55vh; */
+    overflow-y: scroll;
+}
+
+.videoDisplay {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    height: 85%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+}
+
+.musicDetailClose {
+    display: block;
+    margin: 3% 0 0 90%;
+}
+
+/*-------------- Modal --------------*/
+
+.modal{
+    padding: .5rem;
+    max-height:80%;
+}
+
+.modal-content, 
+.modal-footer{
+    font-size:10px;
+}
+
+.modal-footer {
+    text-align: center !important;
+}
+
+.modal-content .class-title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.buttonStyle{
+    position: absolute;
+    right: 2.5%;
+    top: 3%; 
+    font-weight: 900;
+    background-color: #cdf1fd;
+}
+
+li {
+    font-size: 1.7em;
+}
+
+div > li {
+    list-style-type: none;
+}
+
+ol {
+    padding-left: 15px;
+}
+
+/*----------------- POINTER -----------------*/
+
+.badge,
+.slide.slick-slide,
+.closeAddedItems,
+.musicDetailClose {
+    cursor: pointer;
+}
+
+/*----------------- MEDIA QUERIES -----------------*/
+
+@media screen and (min-height: 520px) and (min-width:420px){
+    .desktop,
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        /* height: 520px;
+        width: 320px; */
+    }
+    .wrapper{
+        /* height:7%; */
+        width: 320px;
+    }
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height: 79%;
+        overflow:auto;
+    }
+
+    .datepicker-date-display{
+        height:20%
+    }
+
+    #deletePartyModal,#deleteItemModal{
+        max-height:25%
+    }
+
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .goToFood,
+    .goToMusic,
+    .goToParties{
+        margin-top: 2rem;
+    }
+
+    .readyToPartyButton,
+    .goToFood.btnNext,
+    .goToMusic.btnNext,
+    .goToParties.btnNext {
+        bottom:initial;
+        left:auto
+    }
+
+    .btnNext, 
+    .btnNewParty {
+        bottom: 2%;
+        margin-top:10px;
+    }
+
+    .detailsHeader, 
+    .cocktailsHeader, 
+    .foodHeader, 
+    .musicHeader, 
+    .partiesHeader, 
+    .editPartyHeader {
+        height: 13%;
+    }
+
+    .detailsTitle, 
+    .cocktailsTitle, 
+    .foodTitle, 
+    .musicTitle, 
+    .partyTitle, 
+    .editPartyTitle {
+        line-height: inherit;
+    }
+
+    .cocktail .contentContainer,
+    .parties .contentContainer,
+    .food .contentContainer,
+    .music .contentContainer{
+        height:92%;
+        overflow-y:auto;
+    }
+
+    .details .contentContainer{
+        overflow:hidden;
+    }
+
+    .results-wrapper{
+        position:relative;
+        top:7%
+    }
+
+    .timepicker-text-container {
+        font-size: 3rem;
+    }
+
+    .timepicker-display-am-pm {
+        font-size: 1rem;
+    }
+
+    .timepicker-plate{
+        margin-top:5px;
+        margin-bottom:0px;
+    }
+
+    .partyDetails{
+        padding:0;
+    }
+
+    .details .contentContainer,
+    .editParty .contentContainer,
+    .cocktailDetails, 
+    .foodDetails, 
+    .musicDetails, 
+    .partyDetails, 
+    .itemInfo,
+    .addedItems,
+    .detailsBody {
+        height: 100%;
+    }
+
+    .card.horizontal.selected {
+        height: 135px;
+    }
+
+    .card-image img {
+        height: 100%;
+    }
+
+    .modal {
+        width: 300px;
+        padding:0;
+    }
+
+    .modal-overlay {
+        top: 0;
+        height: 101%;
+    }
+
+    .partyDetails .card {
+        width: 270px;
+        height: auto;
+        margin: 20 auto;
+        background-image: url(images/party.jpg);
+        background-size: contain;
+    }
+
+    .datepicker-container.modal-content,
+    .modal-content.timepicker-container {
+        flex-direction: column;
+    }
+    
+    .datepicker-date-display{
+        flex:none;
+    }
+
+    .modal.datepicker-modal.open {
+        top: 2%;
+    }
+
+    .addItems h4,
+    .details h4 {
+        font-size: 1.5rem;
+    }
+
+    .addItems h5 {
+        font-size: 1.3rem;
+    }
+
+    .collection-item .badge {
+        min-width: 0;
+        padding: 0;
+        margin-left: 0;
+        text-align: left;
+        font-size: 0;
+        line-height: 0;
+        height: 0;
+        color: #757575;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .cocktailsTitle .collection-item {
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    .foodTitle .collection-item {
+        margin-left: 5%;
+    }
+
+    .searchResults {
+        height: 175px;
+    }
+
+    .cocktailSearchInput, 
+    .foodSearchInput, 
+    .musicSearchInput {
+        width: 200px !important;
+    }
+
+    .musicInfo {
+        background-color: transparent; 
+    }
+
+    .videoDisplay {
+        top: 14.5%;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        margin-right: 0; 
+    }
+
+    .badge {
+        top: 52%;
+        left: -37%;
+    }
+
+    .editParty{
+        overflow-y:hidden;
+    }
+    
+    .tabs{
+        /* height:9%; */
+    }
+
+    .card.horizontal.selected {
+    width: 100%;
+    }
+
+    .datepicker-controls, .datepicker-table, .datepicker-footer {
+        width:auto;
+    }
+
+    .videoDisplay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform:translate(-50%);
+    height: 82%;
+    width: 414px;
+    background-color: black;
+    z-index: 2;
+    }
+
+}
+
+@media only screen and (min-width: 420px) and (min-height:600px){
+    body {
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #detailsTab,
+    #cocktailsTab,
+    #recipesTab,
+    #musicTab{
+        height:100%;
+    }
+
+    .datepicker-date-display{
+        height:20%
+    }
+
+    #deletePartyModal,#deleteItemModal{
+        max-height:25%
+    }
+
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .goToFood,
+    .goToMusic,
+    .goToParties{
+        margin-top: 2rem;
+    }
+
+    .readyToPartyButton,
+    .goToFood.btnNext,
+    .goToMusic.btnNext,
+    .goToParties.btnNext {
+        bottom:initial;
+        left:auto;
+    }
+
+    .btnNext, 
+    .btnNewParty {
+        bottom: 2%;
+    }
+
+    .detailsHeader, 
+    .cocktailsHeader, 
+    .foodHeader, 
+    .musicHeader, 
+    .partiesHeader, 
+    .editPartyHeader {
+        height: 9%;
+    }
+
+    .landing,
+    .details,
+    .cocktail,
+    .food,
+    .music,
+    .parties,
+    .editParty {
+        height: 736px;
+        width: 414px;
+    }
+
+    .cocktail .contentContainer,
+    .parties .contentContainer,
+    .food .contentContainer,
+    .music .contentContainer{
+        height:92%;
+        overflow-y:hidden;
+    }
+
+    .details .contentContainer{
+        overflow-y:hidden;
+    }
+
+    .wrapper{
+        /* height:7%; */
+        width: 414px;
+    }
+
+    .results-wrapper{
+        position:relative;
+        top:8%
+    }
+
+    .details .contentContainer,
+    .editParty .contentContainer,
+    .cocktailDetails, 
+    .foodDetails, 
+    .musicDetails, 
+    .partyDetails, 
+    .itemInfo,
+    .addedItems,
+    .detailsBody {
+        height: 100%;
+    }
+
+    .card.horizontal.selected {
+        height: 180px;
+    }
+
+    .card-image img {
+        height: 100%;
+    }
+
+    .modal {
+        width: 350px;
+    }
+
+    .modal-overlay {
+        top: 0;
+        height: 101%;
+    }
+
+    .partyDetails .card {
+        width: 270px;
+        height: auto;
+        margin: 20 auto;
+        background-image: url(images/party.jpg);
+        background-size: contain;
+    }
+
+    .datepicker-container.modal-content,
+    .modal-content.timepicker-container {
+        flex-direction: column;
+    }
+
+    .modal.datepicker-modal.open {
+        top: 2%;
+    }
+
+    .addItems h4,
+    .details h4 {
+        font-size: 1.5rem;
+    }
+
+    .addItems h5 {
+        font-size: 1.3rem;
+    }
+
+    .collection-item .badge {
+        min-width: 0;
+        padding: 0;
+        margin-left: 0;
+        text-align: left;
+        font-size: 0;
+        line-height: 0;
+        height: 0;
+        color: #757575;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .cocktailsTitle .collection-item {
+        margin-left: 15%;
+        margin-top: 2%;
+    }
+
+    .foodTitle .collection-item {
+        margin-left: 5%;
+    }
+
+    .searchResults {
+        height: 175px;
+    }
+
+    .cocktailSearchInput, 
+    .foodSearchInput, 
+    .musicSearchInput {
+        width: 200px !important;
+    }
+
+    .musicInfo {
+        background-color: transparent; 
+    }
+
+    .videoDisplay {
+        top: 18.5%;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        margin-right: 0; 
+    }
+
+    .badge {
+        top: 52%;
+        left: -37%;
+    }
+
+}
+
+
+@media screen and (min-width:420px) {
+    #toast-container {
+        top: auto !important;
+        right: auto !important;
+        bottom: 20%;
+        left: 50%; 
+        transform: translateX(-50%); 
+    }
 }
