@@ -106,6 +106,7 @@ class App {
             html.find('.btnEditParty').click( event => this.showParty(party) );
             html.find('.btnDeleteParty').click( event => {
                 this.currentParty = party;
+                $('.partyName').text("" + this.currentParty.title)
                 $('#deletePartyModal').modal('open');
             });
             return html;

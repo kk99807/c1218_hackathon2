@@ -132,7 +132,7 @@ class PartyItem {
         let cardDelete = $('<span>').addClass('card-title').text('Delete Item?').appendTo(revealDelete);
         $('<i>').addClass('material-icons right').text('close').appendTo(cardDelete)
         let button = $('<button>').addClass('btn deleteCard red darken-1').text('Yes').appendTo(revealDelete).css("background-color","");
-        $('<a>').addClass('btn deleteCard blue darken-').text('No').appendTo(revealDelete);
+        let close = $('<a>').addClass('btn deleteCard blue darken-').text('No').appendTo(revealDelete);
 
         card.click(target => this.eventCallback(this, 'view'));
         title.click(target => this.eventCallback(this, 'view'));
@@ -142,6 +142,9 @@ class PartyItem {
             this.eventCallback(this, button.text());
             event.stopPropagation();
         });
+        close.on('click',()=>{
+            $('.card-reveal').hide();
+        })
         // closeButton.click(() => cardReveal.hide());
         return card;
     }
